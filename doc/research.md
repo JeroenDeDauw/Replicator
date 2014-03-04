@@ -23,9 +23,13 @@ of the WD entity base up to date, by periodically integrating changes made on WD
 
 ### Internal dumps
 
+http://dumps.wikimedia.org/wikidatawiki/
+
 We can use the current dumps, though there is no reusable deserialization component for this yet.
 
-http://dumps.wikimedia.org/wikidatawiki/
+Such a component can however be created by us. Doing the same is high on the prio list of the WD
+team (though for different reasons), so we presumably do not need to do all work. [A git repo]
+(https://github.com/wmde/WikibaseInternalSerialization) exists already.
 
 ### JSON dumps
 
@@ -51,6 +55,9 @@ PubSubHubbub potentially allows us to react to each entity change in near real-t
 ### Incremental dumps
 
 http://dumps.wikimedia.org/other/incr/wikidatawiki/
+
+Used by Magnus his [Wikidata query](https://bitbucket.org/magnusmanske/wikidataquery)
+[here](https://bitbucket.org/magnusmanske/wikidataquery/src/846c96135e52228b701c9fc5ab37d13719b668d6/download_and_process_incremental_dumps.php?at=master).
 
 We also have the serialization format dilemma here.
 
