@@ -9,6 +9,8 @@ WikibaseDataModel https://github.com/wmde/WikibaseDataModel
 Will have CLI interface, so probably want to use
 http://symfony.com/doc/current/components/console/introduction.html
 
+For storage we can use the serialization provided by https://github.com/wmde/WikibaseDataModelSerialization
+
 ## Structure
 
 Blob storage of entities + meta data, indexed somehow. This is what we keep in sync.
