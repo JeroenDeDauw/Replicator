@@ -21,3 +21,11 @@ Other data is derived from this synced entity base.
 * Entity is serialized and stuffed into our persistence
 * Event is fired that allows other parts of the system to respond
 * QueryEngine plugin handles event and handles entity to the QueryEngine instance
+
+## UI
+
+* CLI script for full import
+* CLI script for change replication
+
+The two operations need to be distinguished as well in the system, as much code does not need
+to run on initial import.

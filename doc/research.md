@@ -31,6 +31,9 @@ Such a component can however be created by us. Doing the same is high on the pri
 team (though for different reasons), so we presumably do not need to do all work. [A git repo]
 (https://github.com/wmde/WikibaseInternalSerialization) exists already.
 
+Need to obtain a dump and have a look at the structure.
+Or look at https://meta.wikimedia.org/wiki/Data_dumps
+
 ### JSON dumps
 
 We can also wait for JSON dumps for which there is a [deserialization component]
@@ -65,3 +68,7 @@ Dumps are created for 1 day intervals.
 
 The last 12 days are currently empty directories. Either the dumps are not created each day,
 or the process is not very reliable.
+
+Structure not fully clear. Does this contain diffs or full data? Looking at a dump it seems
+to just hold pointers to revisions plus meta data. Looking at Magnus his script presumably
+explains things. Cannot find docs on the format.
