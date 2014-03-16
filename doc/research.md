@@ -68,6 +68,7 @@ Dumps are created for 1 day intervals.
 
 The last 12 days are currently empty directories. Either the dumps are not created each day,
 or the process is not very reliable.
+This is the latest directory with content: http://dumps.wikimedia.org/other/incr/wikidatawiki/20140221/
 
 Structure not fully clear. Does this contain diffs or full data? Looking at a dump it seems
 to just hold pointers to revisions plus meta data. Looking at Magnus his script presumably
