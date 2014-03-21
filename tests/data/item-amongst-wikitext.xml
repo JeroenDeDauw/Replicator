@@ -1,0 +1,201 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.8/ http://www.mediawiki.org/xml/export-0.8.xsd" version="0.8" xml:lang="en">
+    <siteinfo>
+        <sitename>Wikidata</sitename>
+        <base>http://www.wikidata.org/wiki/Wikidata:Main_Page</base>
+        <generator>MediaWiki 1.23wmf15</generator>
+        <case>first-letter</case>
+        <namespaces>
+            <namespace key="-2" case="first-letter">Media</namespace>
+            <namespace key="-1" case="first-letter">Special</namespace>
+            <namespace key="0" case="first-letter" />
+            <namespace key="1" case="first-letter">Talk</namespace>
+            <namespace key="2" case="first-letter">User</namespace>
+            <namespace key="3" case="first-letter">User talk</namespace>
+            <namespace key="4" case="first-letter">Wikidata</namespace>
+            <namespace key="5" case="first-letter">Wikidata talk</namespace>
+            <namespace key="6" case="first-letter">File</namespace>
+            <namespace key="7" case="first-letter">File talk</namespace>
+            <namespace key="8" case="first-letter">MediaWiki</namespace>
+            <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+            <namespace key="10" case="first-letter">Template</namespace>
+            <namespace key="11" case="first-letter">Template talk</namespace>
+            <namespace key="12" case="first-letter">Help</namespace>
+            <namespace key="13" case="first-letter">Help talk</namespace>
+            <namespace key="14" case="first-letter">Category</namespace>
+            <namespace key="15" case="first-letter">Category talk</namespace>
+            <namespace key="120" case="first-letter">Property</namespace>
+            <namespace key="121" case="first-letter">Property talk</namespace>
+            <namespace key="122" case="first-letter">Query</namespace>
+            <namespace key="123" case="first-letter">Query talk</namespace>
+            <namespace key="828" case="first-letter">Module</namespace>
+            <namespace key="829" case="first-letter">Module talk</namespace>
+            <namespace key="1198" case="first-letter">Translations</namespace>
+            <namespace key="1199" case="first-letter">Translations talk</namespace>
+        </namespaces>
+    </siteinfo>
+    <page>
+        <title>MediaWiki:Sidebar</title>
+        <ns>8</ns>
+        <id>112</id>
+        <revision>
+            <id>80175638</id>
+            <parentid>78672532</parentid>
+            <timestamp>2013-10-21T10:01:45Z</timestamp>
+            <contributor>
+                <username>PinkAmpersand</username>
+                <id>72907</id>
+            </contributor>
+            <comment>remove NewPages. sidebar is only for stuff that is absolutely integral. really, we should probably remove one or two of the other ones as well.</comment>
+            <text xml:space="preserve">* navigation
+** mainpage|mainpage-description
+** wdportal-url|portal
+** villagepump-url|villagepump
+** special-newitem-url|special-newitem
+** special-itembytitle-url|special-itembytitle
+** recentchanges-url|recentchanges
+** randompage-url|randompage
+** wdhelppage|help
+** sitesupport-url|sitesupport</text>
+            <sha1>i0a9bi0i0z90lixop64z67qd2l1mqqh</sha1>
+            <model>wikitext</model>
+            <format>text/x-wiki</format>
+        </revision>
+    </page>
+    <page>
+        <title>Q15831780</title>
+        <ns>0</ns>
+        <id>17459977</id>
+        <revision>
+            <id>112488012</id>
+            <timestamp>2014-02-27T11:40:12Z</timestamp>
+            <contributor>
+                <username>Huangdan2060</username>
+                <id>130116</id>
+            </contributor>
+            <comment>/* wbeditentity-create:0| */</comment>
+            <text xml:space="preserve">{&quot;label&quot;:{&quot;en&quot;:&quot;Guo Yongxiang&quot;,&quot;zh&quot;:&quot;\u90ed\u6c38\u7965&quot;},&quot;description&quot;:[],&quot;aliases&quot;:[],&quot;claims&quot;:[],&quot;links&quot;:{&quot;enwiki&quot;:{&quot;name&quot;:&quot;Guo Yongxiang&quot;,&quot;badges&quot;:[]},&quot;zhwiki&quot;:{&quot;name&quot;:&quot;\u90ed\u6c38\u7965&quot;,&quot;badges&quot;:[]}},&quot;entity&quot;:[&quot;item&quot;,15831780]}</text>
+            <sha1>27o6fujnjhr8w86o4tehfqfygg1cri1</sha1>
+            <model>wikibase-item</model>
+            <format>application/json</format>
+        </revision>
+    </page>
+    <page>
+        <title>Wikidata:Main Page</title>
+        <ns>4</ns>
+        <id>1</id>
+        <revision>
+            <id>108712040</id>
+            <parentid>76346423</parentid>
+            <timestamp>2014-02-10T21:35:16Z</timestamp>
+            <contributor>
+                <username>Yair rand</username>
+                <id>3490</id>
+            </contributor>
+            <comment>fix irc link</comment>
+            <text xml:space="preserve">&lt;!------------------------
+         HEADER
+-------------------------&gt;
+{{Main Page/Header
+ | title      = Welcome to Wikidata,
+ | motto      = the [[Q14075|free]] [[Q593744|knowledge base]] with [[Special:Statistics|{{NUMBEROFARTICLES}}]] [[Wikidata:Glossary#Item|items]] that [[Wikidata:Introduction|anyone can edit]]
+ | langcode   = en
+}}
+&lt;!----------------------
+         WELCOME
+-------------------------&gt;
+{| cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;
+ | colspan=&quot;2&quot; | {{Main Page/Frame
+ | color      = 339966
+ | title      = Welcome!
+ | content    = '''Wikidata''' is a free [[Q593744|knowledge base]] that can be read and edited by [[Q5|humans]] and machines alike. It is for data what [[commons:|Wikimedia Commons]] is for media files: it centralizes access to and management of structured data, such as interwiki references and statistical information. Wikidata contains data in every [[Q315|language]] supported by the MediaWiki software.
+
+'''You can read the [[Wikidata:Introduction|introduction]] to learn more about Wikidata or visit the [[Help:Contents|help portal]].'''
+
+'''See Wikidata in action: View [[Q52|the item]] about Wikipedia, the free encyclopedia.'''
+
+If you'd like to test out the Wikidata software, please use [[Q4115189|the sandbox]].
+}}
+|- style=&quot;vertical-align: top;&quot;
+| style=&quot;padding-right: 1.2em; width: 50%;&quot; |
+&lt;!----------------------
+       CONTRIBUTE
+-----------------------&gt;
+{{Main Page/Frame
+ | color      = 006699
+ | title      = Contribute
+ | content    = &lt;div&gt;
+* [[Wikidata:Introduction|Introduction to Wikidata]]
+* [[Wikidata:Glossary|Glossary of terms used on Wikidata]]
+* [[Wikidata:List of properties|List of properties used in Wikidata entries]]
+* [[Wikidata:Community portal|Community portal]]
+* [[Wikidata:Project chat|Project chat]]
+* [[Wikidata:List of policies and guidelines|Policies and guidelines]]
+* [[Help:FAQ|Frequently asked questions]]
+* Check out some of our best [[Wikidata:Tools|gadgets and scripts]]
+* Patrol [[Special:RecentChanges|recent changes]]
+* Help with missing [[Wikidata:Labels and descriptions task force|labels and descriptions]]
+* Help fixing [[Wikidata:Database reports/Constraint violations/Summary|item properties violating their constraints]]
+* See latest [[Wikidata:Database reports|database reports]]
+* [[Special:Random|Improve a random item]]
+* [[Wikidata:Requests for deletions|Requests for deletions]]
+* [[Wikidata:Contact the development team|Contact the developers]]
+&lt;p align=&quot;right&quot;&gt;'''[[Wikidata:Contribute|More ways to contribute...]]'''&lt;/p&gt;
+&lt;/div&gt;
+}}
+&lt;!------------------------
+       USE WIKIDATA
+---------------------------&gt;
+{{Main Page/Frame
+ | color      = 006699
+ | title      = Use Wikidata on your wiki
+ | content    = &lt;div&gt;
+* Wikidata is an open source project, and the data is freely accessible
+* '''Please note''' that the API for accessing the data ''will change''!
+* Get the [[:mw:Extension:Wikibase Client|Wikidata client extension]] on your wiki
+* [[:mw:Extension:Wikibase|Wikibase repository extensions]]
+&lt;/div&gt;
+}}
+| style=&quot;padding-left: 1.2em; width: 50%;&quot; |
+&lt;!--------------------------
+            NEWS
+---------------------------&gt;
+{{Main Page/Frame
+ | color      = 990000
+ | title      = News
+ | content    = &lt;div&gt;{{Wikidata:News/en}}&lt;/div&gt;
+&lt;!-- to update the news, edit [[Wikidata:News]]. --&gt;
+}}
+&lt;!------------------------
+      STAY UP-TO-DATE
+---------------------------&gt;
+{{Main Page/Frame
+ | color      = 990000
+ | title      = Staying up-to-date with development
+ | content    = &lt;div&gt;
+* [[Wikidata:Status updates|Weekly updates]]
+* [[mail:wikidata-l|Mailing list]]
+* [[mail:wikidata-tech|Technical mailing list]]
+* [irc://freenode/wikidata IRC channel]&lt;sup&gt;&lt;span class=&quot;plainlinks&quot;&gt;[https://webchat.freenode.net/?channels=#wikidata &lt;span style=&quot;color: green;&quot;&gt;connect&lt;/span&gt;]&lt;/span&gt;&lt;/sup&gt;
+* [https://twitter.com/wikidata Twitter], [https://identi.ca/wikidata identi.ca], [https://www.facebook.com/Wikidata Facebook], [https://plus.google.com/105776413863749545202/posts Google+], [https://www.quora.com/Wikidata Quora]
+* [[meta:Global message delivery/Targets/Wikidata|On-wiki newsletter]] ([[meta:Wikidata/Newsletter/Archive|archive]])
+* [[Wikidata:Events|Events]]
+* [[Wikidata:Press coverage|Press coverage]]
+&lt;/div&gt;
+}}
+|-
+| colspan=&quot;2&quot; |
+&lt;!------------------------
+     SISTER PROJECTS
+-------------------------&gt;
+{{Main Page/Frame
+ | title   = Sister projects
+ | content = {{Main Page/Sister projects}}
+}}
+|}
+[[Category:Wikidata-en| ]]</text>
+            <sha1>1goh33olo1678urzbm304wrj4io5a08</sha1>
+            <model>wikitext</model>
+            <format>text/x-wiki</format>
+        </revision>
+    </page>
+</mediawiki>
