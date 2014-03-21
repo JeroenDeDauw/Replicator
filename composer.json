@@ -1,0 +1,14 @@
+{
+	"name": "queryr/replicator",
+	"require": {
+		"php": ">=5.5.0",
+		"wikibase/data-model": "0.7.*",
+		"wikibase/internal-serialization": "~1.0@dev",
+		"symfony/console": "~2.3.11"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "0.1.x-dev"
+		}
+	}
+}
