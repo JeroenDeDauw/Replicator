@@ -6,6 +6,7 @@
 		"wikibase/internal-serialization": "~1.0@dev",
 		"symfony/console": "~2.3.11"
 	},
+	"minimum-stability": "dev",
 	"extra": {
 		"branch-alias": {
 			"dev-master": "0.1.x-dev"
