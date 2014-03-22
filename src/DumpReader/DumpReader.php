@@ -51,6 +51,7 @@ class DumpReader implements IteratorAggregate {
 	 * or null if there are no further entities.
 	 *
 	 * @return string|null
+	 * @throws DumpReaderException
 	 */
 	public function nextEntityJson() {
 		$revisionNode = $this->nextRevisionNode();

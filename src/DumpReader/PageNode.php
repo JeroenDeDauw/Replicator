@@ -25,7 +25,7 @@ class PageNode {
 			}
 		}
 
-		throw new \RuntimeException( 'No revision node found' );
+		throw new DumpReaderException( 'No revision node found' );
 	}
 
 	private function isRevisionNode( DOMNode $node ) {
