@@ -47,6 +47,18 @@ class DumpReaderTest extends \PHPUnit_Framework_TestCase {
 		$this->assertNull( $reader->nextEntityJson() );
 	}
 
+	public function testRewind() {
+		$reader = $this->newReaderForFile( 'simple/one-item.xml' );
+
+		$this->assertFindsAnotherEntity( $reader );
+		$this->assertNull( $reader->nextEntityJson() );
+
+		$reader->rewind();
+
+		$this->assertFindsAnotherEntity( $reader );
+		$this->assertNull( $reader->nextEntityJson() );
+	}
+
 	public function testGivenFileWithTwoEntities_twoEntitiesAreFound() {
 		$reader = $this->newReaderForFile( 'simple/two-items.xml' );
 

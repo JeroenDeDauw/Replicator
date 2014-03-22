@@ -15,13 +15,33 @@ class DumpReader {
 	 */
 	private $xmlReader;
 
+	/**
+	 * @var string
+	 */
+	private $dumpFile;
+
 	public function __construct( $dumpFile ) {
+		$this->dumpFile = $dumpFile;
+
+		$this->initReader();
+	}
+
+	private function initReader() {
 		$this->xmlReader = new XMLReader();
-		$this->xmlReader->open( $dumpFile );
+		$this->xmlReader->open( $this->dumpFile );
 	}
 
 	public function __destruct() {
+		$this->closeReader();
+	}
+
+	private function closeReader() {
 		$this->xmlReader->close();
+	}
+
+	public function rewind() {
+		$this->closeReader();
+		$this->initReader();
 	}
 
 	/**
