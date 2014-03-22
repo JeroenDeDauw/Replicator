@@ -3,14 +3,15 @@
 namespace Tests\Wikibase\DumpReader;
 
 use Wikibase\DumpReader\DumpReader;
+use Wikibase\DumpReader\XmlReader\DumpXmlReader;
 
 /**
- * @covers Wikibase\DumpReader\DumpReader
+ * @covers Wikibase\DumpReader\XmlReader\DumpXmlReader
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class DumpReaderTest extends \PHPUnit_Framework_TestCase {
+class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGivenFileWithNoEntities_nullIsReturned() {
 		$reader = $this->newReaderForFile( 'simple/empty.xml' );
@@ -19,11 +20,11 @@ class DumpReaderTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function newReaderForFile( $fileName ) {
-		return new DumpReader( $this->getFilePath( $fileName ) );
+		return new DumpXmlReader( $this->getFilePath( $fileName ) );
 	}
 
 	private function getFilePath( $fileName ) {
-		return __DIR__ . '/../../data/' . $fileName;
+		return __DIR__ . '/../../../data/' . $fileName;
 	}
 
 	private function assertFindsAnotherEntity( DumpReader $reader ) {
