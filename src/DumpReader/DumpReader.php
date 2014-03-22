@@ -4,47 +4,12 @@ namespace Wikibase\DumpReader;
 
 use Iterator;
 use IteratorAggregate;
-use XMLReader;
 
 /**
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class DumpReader implements IteratorAggregate {
-
-	/**
-	 * @var XMLReader
-	 */
-	private $xmlReader;
-
-	/**
-	 * @var string
-	 */
-	private $dumpFile;
-
-	public function __construct( $dumpFile ) {
-		$this->dumpFile = $dumpFile;
-
-		$this->initReader();
-	}
-
-	private function initReader() {
-		$this->xmlReader = new XMLReader();
-		$this->xmlReader->open( $this->dumpFile );
-	}
-
-	public function __destruct() {
-		$this->closeReader();
-	}
-
-	private function closeReader() {
-		$this->xmlReader->close();
-	}
-
-	public function rewind() {
-		$this->closeReader();
-		$this->initReader();
-	}
+abstract class DumpReader implements IteratorAggregate {
 
 	/**
 	 * Returns a string with the json of the next entity,
@@ -53,46 +18,12 @@ class DumpReader implements IteratorAggregate {
 	 * @return string|null
 	 * @throws DumpReaderException
 	 */
-	public function nextEntityJson() {
-		$revisionNode = $this->nextRevisionNode();
-
-		if ( $revisionNode === null ) {
-			return null;
-		}
-
-		while ( !$revisionNode->isEntity() ) {
-			$revisionNode = $this->nextRevisionNode();
-
-			if ( $revisionNode === null ) {
-				return null;
-			}
-		}
-
-		return $revisionNode->getEntityJson();
-	}
+	public abstract function nextEntityJson();
 
 	/**
-	 * @return RevisionNode|null
+	 * Rewinds the reader to the beginning of the dump.
 	 */
-	private function nextRevisionNode() {
-		while ( !$this->isPageNode() ) {
-			$this->xmlReader->read();
-
-			if ( $this->xmlReader->nodeType === XMLReader::NONE ) {
-				return null;
-			}
-		}
-
-		$pageNode = new PageNode( $this->xmlReader->expand() );
-
-		$revisionNode = $pageNode->getRevisionNode();
-		$this->xmlReader->next();
-		return $revisionNode;
-	}
-
-	private function isPageNode() {
-		return $this->xmlReader->nodeType === XMLReader::ELEMENT && $this->xmlReader->name === 'page';
-	}
+	public abstract function rewind();
 
 	/**
 	 * @see IteratorAggregate::getIterator

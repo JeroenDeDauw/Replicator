@@ -2,8 +2,8 @@
 
 namespace Tests\Wikibase\DumpReader;
 
-use Wikibase\DumpReader\DumpReader;
 use Wikibase\DumpReader\DumpIterator;
+use Wikibase\DumpReader\XmlReader\DumpXmlReader;
 
 /**
  * @covers Wikibase\DumpReader\DumpIterator
@@ -14,7 +14,7 @@ use Wikibase\DumpReader\DumpIterator;
 class DumpIteratorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testIterationWorks() {
-		$iterator = new DumpIterator( new DumpReader( $this->getFilePath( 'simple/two-items.xml' ) ) );
+		$iterator = new DumpIterator( new DumpXmlReader( $this->getFilePath( 'simple/two-items.xml' ) ) );
 
 		$this->assertCount( 2, $iterator );
 		$this->assertContainsOnly( 'string', $iterator );

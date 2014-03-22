@@ -1,8 +1,9 @@
 <?php
 
-namespace Wikibase\DumpReader;
+namespace Wikibase\DumpReader\XmlReader;
 
 use DOMNode;
+use Wikibase\DumpReader\DumpReaderException;
 use XMLReader;
 
 /**
