@@ -42,9 +42,7 @@ class DumpReader {
 			}
 		}
 
-		$json = $revisionNode->getItemJson();
-		$this->xmlReader->next();
-		return $json;
+		return $revisionNode->getItemJson();
 	}
 
 	/**
@@ -60,7 +58,10 @@ class DumpReader {
 		}
 
 		$pageNode = new PageNode( $this->xmlReader->expand() );
-		return $pageNode->getRevisionNode();
+
+		$revisionNode = $pageNode->getRevisionNode();
+		$this->xmlReader->next();
+		return $revisionNode;
 	}
 
 	private function isPageNode() {

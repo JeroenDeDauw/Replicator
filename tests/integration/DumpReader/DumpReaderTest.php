@@ -55,4 +55,11 @@ class DumpReaderTest extends \PHPUnit_Framework_TestCase {
 		$this->assertNull( $reader->nextEntityJson() );
 	}
 
+	public function testGivenEntityAmongstNonEntities_itemIsFound() {
+		$reader = $this->newReaderForFile( 'item-amongst-wikitext.xml' );
+
+		$this->assertFindsAnotherEntity( $reader );
+		$this->assertNull( $reader->nextEntityJson() );
+	}
+
 }
