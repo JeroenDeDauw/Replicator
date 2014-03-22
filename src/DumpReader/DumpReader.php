@@ -2,13 +2,15 @@
 
 namespace Wikibase\DumpReader;
 
+use Iterator;
+use IteratorAggregate;
 use XMLReader;
 
 /**
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class DumpReader {
+class DumpReader implements IteratorAggregate {
 
 	/**
 	 * @var XMLReader
@@ -89,6 +91,14 @@ class DumpReader {
 
 	private function isPageNode() {
 		return $this->xmlReader->nodeType === XMLReader::ELEMENT && $this->xmlReader->name === 'page';
+	}
+
+	/**
+	 * @see IteratorAggregate::getIterator
+	 * @return Iterator
+	 */
+	public function getIterator() {
+		return new DumpIterator( $this );
 	}
 
 }
