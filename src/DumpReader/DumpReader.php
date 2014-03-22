@@ -25,6 +25,9 @@ class DumpReader {
 	}
 
 	/**
+	 * Returns a string with the json of the next entity,
+	 * or null if there are no further entities.
+	 *
 	 * @return string|null
 	 */
 	public function nextEntityJson() {
@@ -34,7 +37,7 @@ class DumpReader {
 			return null;
 		}
 
-		while ( !$revisionNode->isItem() ) {
+		while ( !$revisionNode->isEntity() ) {
 			$revisionNode = $this->nextRevisionNode();
 
 			if ( $revisionNode === null ) {
@@ -42,7 +45,7 @@ class DumpReader {
 			}
 		}
 
-		return $revisionNode->getItemJson();
+		return $revisionNode->getEntityJson();
 	}
 
 	/**

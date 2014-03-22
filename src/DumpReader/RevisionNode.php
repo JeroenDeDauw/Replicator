@@ -11,46 +11,42 @@ use XMLReader;
  */
 class RevisionNode {
 
-	private $isItem;
+	private $isEntity = false;
 	private $text;
 
 	public function __construct( DOMNode $pageNode ) {
-		$isItem = false;
-
 		foreach ( $pageNode->childNodes as $childNode ) {
-			if ( $this->isModelNode( $childNode ) ) {
-				$isItem = $this->isItemModel( $childNode );
-			}
-
-			if ( $this->isTextNode( $childNode ) ) {
-				$this->extractJson( $childNode );
-			}
+			$this->handleNode( $childNode );
 		}
-
-		$this->isItem = $isItem;
 	}
 
-	public function isItem() {
-		return $this->isItem;
+	private function handleNode( DOMNode $node ) {
+		if ( $this->isModelNode( $node ) ) {
+			$this->isEntity = $this->isEntityModel( $node );
+		}
+
+		if ( $this->isTextNode( $node ) ) {
+			$this->text = $node->textContent;
+		}
 	}
 
 	private function isModelNode( DOMNode $node ) {
 		return $node->nodeType === XMLReader::ELEMENT && $node->nodeName === 'model';
 	}
 
-	private function isItemModel( DOMNode $node ) {
-		return $node->textContent === 'wikibase-item';
+	private function isEntityModel( DOMNode $node ) {
+		return $node->textContent === 'wikibase-item' || $node->textContent === 'wikibase-property';
 	}
 
 	private function isTextNode( DOMNode $node ) {
 		return $node->nodeType === XMLReader::ELEMENT && $node->nodeName === 'text';
 	}
 
-	private function extractJson( DOMNode $node ) {
-		$this->text = $node->textContent;
+	public function isEntity() {
+		return $this->isEntity;
 	}
 
-	public function getItemJson() {
+	public function getEntityJson() {
 		return $this->text;
 	}
 
