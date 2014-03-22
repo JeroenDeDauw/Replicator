@@ -12,28 +12,39 @@ use Wikibase\DumpReader\DumpReader;
  */
 class DumpReaderTest extends \PHPUnit_Framework_TestCase {
 
-	public function testCanLoadClass() {
-		$this->assertTrue( class_exists( 'Wikibase\DumpReader\DumpReader' ) );
+	public function testGivenFileWithOneEntity_oneEntityIsFound() {
+		$reader = $this->newReaderForFile( 'one-item.xml' );
+
+		$this->assertFindsAnotherEntity( $reader );
 	}
 
-	/**
-	 * @var DumpReader
-	 */
-	private $reader;
-
-	public function setUp() {
-		$this->reader = new DumpReader( __DIR__ . '/../../data/one-item.xml' );
+	private function newReaderForFile( $fileName ) {
+		return new DumpReader( $this->getFilePath( $fileName ) );
 	}
 
-	public function testReadEntity() {
-		$entityJson = $this->reader->nextEntityJson();
+	private function getFilePath( $fileName ) {
+		return __DIR__ . '/../../data/simple/' . $fileName;
+	}
 
+	private function assertFindsAnotherEntity( DumpReader $reader ) {
+		$entityJson = $reader->nextEntityJson();
+		$this->assertIsEntityJson( $entityJson );
+	}
+
+	private function assertIsEntityJson( $entityJson ) {
 		$this->assertInternalType( 'string', $entityJson );
 
 		$entityArray = json_decode( $entityJson, true );
 		$this->assertInternalType( 'array', $entityArray );
 
 		$this->assertArrayHasKey( 'entity', $entityArray );
+	}
+
+	public function testGivenFileWithTwoEntities_twoEntitiesAreFound() {
+		$reader = $this->newReaderForFile( 'two-items.xml' );
+
+		$this->assertFindsAnotherEntity( $reader );
+		$this->assertFindsAnotherEntity( $reader );
 	}
 
 }
