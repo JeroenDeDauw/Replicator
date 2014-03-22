@@ -110,4 +110,11 @@ class DumpReaderTest extends \PHPUnit_Framework_TestCase {
 		return $array['entity'][0] === 'property';
 	}
 
+	public function testGivenItemWithoutRevision_exceptionInThrown() {
+		$reader = $this->newReaderForFile( 'invalid/item-without-revision.xml' );
+
+		$this->setExpectedException( 'Wikibase\DumpReader\DumpReaderException' );
+		$reader->nextEntityJson();
+	}
+
 }
