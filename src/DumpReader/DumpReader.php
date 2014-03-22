@@ -24,11 +24,22 @@ class DumpReader {
 		$this->xmlReader->close();
 	}
 
+	/**
+	 * @return string|null
+	 */
 	public function nextEntityJson() {
 		$revisionNode = $this->nextRevisionNode();
 
+		if ( $revisionNode === null ) {
+			return null;
+		}
+
 		while ( !$revisionNode->isItem() ) {
 			$revisionNode = $this->nextRevisionNode();
+
+			if ( $revisionNode === null ) {
+				return null;
+			}
 		}
 
 		$json = $revisionNode->getItemJson();
@@ -36,9 +47,16 @@ class DumpReader {
 		return $json;
 	}
 
+	/**
+	 * @return RevisionNode|null
+	 */
 	private function nextRevisionNode() {
 		while ( !$this->isPageNode() ) {
 			$this->xmlReader->read();
+
+			if ( $this->xmlReader->nodeType === XMLReader::NONE ) {
+				return null;
+			}
 		}
 
 		$pageNode = new PageNode( $this->xmlReader->expand() );

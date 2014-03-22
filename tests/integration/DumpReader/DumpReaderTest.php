@@ -12,10 +12,10 @@ use Wikibase\DumpReader\DumpReader;
  */
 class DumpReaderTest extends \PHPUnit_Framework_TestCase {
 
-	public function testGivenFileWithOneEntity_oneEntityIsFound() {
-		$reader = $this->newReaderForFile( 'one-item.xml' );
+	public function testGivenFileWithNoEntities_nullIsReturned() {
+		$reader = $this->newReaderForFile( 'empty.xml' );
 
-		$this->assertFindsAnotherEntity( $reader );
+		$this->assertNull( $reader->nextEntityJson() );
 	}
 
 	private function newReaderForFile( $fileName ) {
@@ -40,11 +40,19 @@ class DumpReaderTest extends \PHPUnit_Framework_TestCase {
 		$this->assertArrayHasKey( 'entity', $entityArray );
 	}
 
+	public function testGivenFileWithOneEntity_oneEntityIsFound() {
+		$reader = $this->newReaderForFile( 'one-item.xml' );
+
+		$this->assertFindsAnotherEntity( $reader );
+		$this->assertNull( $reader->nextEntityJson() );
+	}
+
 	public function testGivenFileWithTwoEntities_twoEntitiesAreFound() {
 		$reader = $this->newReaderForFile( 'two-items.xml' );
 
 		$this->assertFindsAnotherEntity( $reader );
 		$this->assertFindsAnotherEntity( $reader );
+		$this->assertNull( $reader->nextEntityJson() );
 	}
 
 }
