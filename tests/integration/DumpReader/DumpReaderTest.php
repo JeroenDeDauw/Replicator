@@ -74,6 +74,21 @@ class DumpReaderTest extends \PHPUnit_Framework_TestCase {
 		$this->assertNull( $reader->nextEntityJson() );
 	}
 
+	public function testFetchedIteratorIterationWorks() {
+		$reader = $this->newReaderForFile( 'simple/two-items.xml' )->getIterator();
+
+		$this->assertCount( 2, $reader );
+		$this->assertContainsOnly( 'string', $reader );
+	}
+
+	public function testCanUseAsTraversable() {
+		$reader = $this->newReaderForFile( 'simple/two-items.xml' );
+
+		foreach ( $reader as $json ) {
+			$this->assertIsEntityJson( $json );
+		}
+	}
+
 	public function testGivenManyRevisions_allPropertiesAreFound() {
 		$reader = $this->newReaderForFile( 'big/5341-revs-3-props.xml' );
 

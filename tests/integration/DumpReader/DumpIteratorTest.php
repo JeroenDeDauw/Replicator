@@ -13,7 +13,7 @@ use Wikibase\DumpReader\DumpIterator;
  */
 class DumpIteratorTest extends \PHPUnit_Framework_TestCase {
 
-	public function testGivenFileWithTwoEntities_twoEntitiesAreFound() {
+	public function testIterationWorks() {
 		$iterator = new DumpIterator( new DumpReader( $this->getFilePath( 'simple/two-items.xml' ) ) );
 
 		$this->assertCount( 2, $iterator );
