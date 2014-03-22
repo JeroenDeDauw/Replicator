@@ -31,7 +31,9 @@ class DumpReader {
 			$revisionNode = $this->nextRevisionNode();
 		}
 
-		return $revisionNode->getItemJson();
+		$json = $revisionNode->getItemJson();
+		$this->xmlReader->next();
+		return $json;
 	}
 
 	private function nextRevisionNode() {
