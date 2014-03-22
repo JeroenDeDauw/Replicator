@@ -13,7 +13,7 @@ use Wikibase\DumpReader\DumpReader;
 class DumpReaderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGivenFileWithNoEntities_nullIsReturned() {
-		$reader = $this->newReaderForFile( 'empty.xml' );
+		$reader = $this->newReaderForFile( 'simple/empty.xml' );
 
 		$this->assertNull( $reader->nextEntityJson() );
 	}
@@ -23,7 +23,7 @@ class DumpReaderTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function getFilePath( $fileName ) {
-		return __DIR__ . '/../../data/simple/' . $fileName;
+		return __DIR__ . '/../../data/' . $fileName;
 	}
 
 	private function assertFindsAnotherEntity( DumpReader $reader ) {
@@ -41,14 +41,14 @@ class DumpReaderTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGivenFileWithOneEntity_oneEntityIsFound() {
-		$reader = $this->newReaderForFile( 'one-item.xml' );
+		$reader = $this->newReaderForFile( 'simple/one-item.xml' );
 
 		$this->assertFindsAnotherEntity( $reader );
 		$this->assertNull( $reader->nextEntityJson() );
 	}
 
 	public function testGivenFileWithTwoEntities_twoEntitiesAreFound() {
-		$reader = $this->newReaderForFile( 'two-items.xml' );
+		$reader = $this->newReaderForFile( 'simple/two-items.xml' );
 
 		$this->assertFindsAnotherEntity( $reader );
 		$this->assertFindsAnotherEntity( $reader );
@@ -56,10 +56,31 @@ class DumpReaderTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGivenEntityAmongstNonEntities_itemIsFound() {
-		$reader = $this->newReaderForFile( 'item-amongst-wikitext.xml' );
+		$reader = $this->newReaderForFile( 'simple/item-amongst-wikitext.xml' );
 
 		$this->assertFindsAnotherEntity( $reader );
 		$this->assertNull( $reader->nextEntityJson() );
+	}
+
+	public function testGivenManyRevisions_allPropertiesAreFound() {
+		$reader = $this->newReaderForFile( 'big/5341-revs-3-props.xml' );
+
+		$propertyCount = 0;
+
+		while ( $json = $reader->nextEntityJson() ) {
+			$this->assertIsEntityJson( $json );
+
+			if ( $this->isPropertyJson( $json ) ) {
+				$propertyCount++;
+			}
+		}
+
+		$this->assertEquals( 3, $propertyCount );
+	}
+
+	private function isPropertyJson( $json ) {
+		$array = json_decode( $json, true );
+		return $array['entity'][0] === 'property';
 	}
 
 }
