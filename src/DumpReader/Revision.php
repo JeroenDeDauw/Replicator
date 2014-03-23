@@ -1,6 +1,6 @@
 <?php
 
-namespace Wikibase\DumpReader\Model;
+namespace Wikibase\DumpReader;
 
 /**
  * @licence GNU GPL v2+
@@ -55,6 +55,13 @@ class Revision {
 	 */
 	public function getTimeStamp() {
 		return $this->timeStamp;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function hasEntityModel() {
+		return $this->model === 'wikibase-item' || $this->model === 'wikibase-property';
 	}
 
 }

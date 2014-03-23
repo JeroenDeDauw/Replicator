@@ -16,8 +16,8 @@ class DumpIteratorTest extends \PHPUnit_Framework_TestCase {
 	public function testIterationWorks() {
 		$iterator = new DumpIterator( new DumpXmlReader( $this->getFilePath( 'simple/two-items.xml' ) ) );
 
-		$this->assertCount( 2, $iterator );
-		$this->assertContainsOnly( 'string', $iterator );
+		$this->assertCount( 2, iterator_to_array( $iterator ) );
+		$this->assertContainsOnlyInstancesOf( 'Wikibase\DumpReader\Page', $iterator );
 	}
 
 	private function getFilePath( $fileName ) {

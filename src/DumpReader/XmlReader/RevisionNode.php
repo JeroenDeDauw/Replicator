@@ -3,6 +3,7 @@
 namespace Wikibase\DumpReader\XmlReader;
 
 use DOMNode;
+use Wikibase\DumpReader\Revision;
 use XMLReader;
 
 /**
@@ -11,8 +12,11 @@ use XMLReader;
  */
 class RevisionNode {
 
-	private $isEntity = false;
+	private $id;
+	private $model;
+	private $format;
 	private $text;
+	private $timeStamp;
 
 	public function __construct( DOMNode $pageNode ) {
 		foreach ( $pageNode->childNodes as $childNode ) {
@@ -21,33 +25,39 @@ class RevisionNode {
 	}
 
 	private function handleNode( DOMNode $node ) {
-		if ( $this->isModelNode( $node ) ) {
-			$this->isEntity = $this->isEntityModel( $node );
+		if ( $this->hasElementName( $node, 'id' ) ) {
+			$this->id = $node->textContent;
 		}
 
-		if ( $this->isTextNode( $node ) ) {
+		if ( $this->hasElementName( $node, 'model' ) ) {
+			$this->model = $node->textContent;
+		}
+
+		if ( $this->hasElementName( $node, 'format' ) ) {
+			$this->format = $node->textContent;
+		}
+
+		if ( $this->hasElementName( $node, 'text' ) ) {
 			$this->text = $node->textContent;
 		}
+
+		if ( $this->hasElementName( $node, 'timestamp' ) ) {
+			$this->timeStamp = $node->textContent;
+		}
 	}
 
-	private function isModelNode( DOMNode $node ) {
-		return $node->nodeType === XMLReader::ELEMENT && $node->nodeName === 'model';
+	private function hasElementName( DOMNode $node, $name ) {
+		return $node->nodeType === XMLReader::ELEMENT && $node->nodeName === $name;
 	}
 
-	private function isEntityModel( DOMNode $node ) {
-		return $node->textContent === 'wikibase-item' || $node->textContent === 'wikibase-property';
-	}
-
-	private function isTextNode( DOMNode $node ) {
-		return $node->nodeType === XMLReader::ELEMENT && $node->nodeName === 'text';
-	}
-
-	public function isEntity() {
-		return $this->isEntity;
-	}
-
-	public function getEntityJson() {
-		return $this->text;
+	public function asRevision() {
+		return new Revision(
+			$this->id,
+			$this->model,
+			$this->format,
+			$this->text,
+			$this->timeStamp
+		);
 	}
 
 }

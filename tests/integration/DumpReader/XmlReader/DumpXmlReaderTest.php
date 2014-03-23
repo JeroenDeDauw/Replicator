@@ -3,6 +3,8 @@
 namespace Tests\Wikibase\DumpReader;
 
 use Wikibase\DumpReader\DumpReader;
+use Wikibase\DumpReader\Page;
+use Wikibase\DumpReader\Revision;
 use Wikibase\DumpReader\XmlReader\DumpXmlReader;
 
 /**
@@ -14,9 +16,10 @@ use Wikibase\DumpReader\XmlReader\DumpXmlReader;
 class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGivenFileWithNoEntities_nullIsReturned() {
+
 		$reader = $this->newReaderForFile( 'simple/empty.xml' );
 
-		$this->assertNull( $reader->nextEntityJson() );
+		$this->assertNull( $reader->nextEntityPage() );
 	}
 
 	private function newReaderForFile( $fileName ) {
@@ -28,14 +31,24 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function assertFindsAnotherEntity( DumpReader $reader ) {
-		$entityJson = $reader->nextEntityJson();
-		$this->assertIsEntityJson( $entityJson );
+		$entityPage = $reader->nextEntityPage();
+		$this->assertIsEntityPage( $entityPage );
 	}
 
-	private function assertIsEntityJson( $entityJson ) {
-		$this->assertInternalType( 'string', $entityJson );
+	private function assertIsEntityPage( $entityPage ) {
+		/**
+		 * @var Page $entityPage
+		 */
+		$this->assertInstanceOf( 'Wikibase\DumpReader\Page', $entityPage );
 
-		$entityArray = json_decode( $entityJson, true );
+		$revision = $entityPage->getRevision();
+
+		$this->assertTrue( $revision->hasEntityModel() );
+		$this->assertHasEntityJson( $revision );
+	}
+
+	private function assertHasEntityJson( Revision $revision ) {
+		$entityArray = json_decode( $revision->getText(), true );
 		$this->assertInternalType( 'array', $entityArray );
 
 		$this->assertArrayHasKey( 'entity', $entityArray );
@@ -45,19 +58,19 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 		$reader = $this->newReaderForFile( 'simple/one-item.xml' );
 
 		$this->assertFindsAnotherEntity( $reader );
-		$this->assertNull( $reader->nextEntityJson() );
+		$this->assertNull( $reader->nextEntityPage() );
 	}
 
 	public function testRewind() {
 		$reader = $this->newReaderForFile( 'simple/one-item.xml' );
 
 		$this->assertFindsAnotherEntity( $reader );
-		$this->assertNull( $reader->nextEntityJson() );
+		$this->assertNull( $reader->nextEntityPage() );
 
 		$reader->rewind();
 
 		$this->assertFindsAnotherEntity( $reader );
-		$this->assertNull( $reader->nextEntityJson() );
+		$this->assertNull( $reader->nextEntityPage() );
 	}
 
 	public function testGivenFileWithTwoEntities_twoEntitiesAreFound() {
@@ -65,28 +78,28 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertFindsAnotherEntity( $reader );
 		$this->assertFindsAnotherEntity( $reader );
-		$this->assertNull( $reader->nextEntityJson() );
+		$this->assertNull( $reader->nextEntityPage() );
 	}
 
 	public function testGivenEntityAmongstNonEntities_itemIsFound() {
 		$reader = $this->newReaderForFile( 'simple/item-amongst-wikitext.xml' );
 
 		$this->assertFindsAnotherEntity( $reader );
-		$this->assertNull( $reader->nextEntityJson() );
+		$this->assertNull( $reader->nextEntityPage() );
 	}
 
 	public function testFetchedIteratorIterationWorks() {
 		$reader = $this->newReaderForFile( 'simple/two-items.xml' )->getIterator();
 
-		$this->assertCount( 2, $reader );
-		$this->assertContainsOnly( 'string', $reader );
+		$this->assertCount( 2, iterator_to_array( $reader ) );
+		$this->assertContainsOnlyInstancesOf( 'Wikibase\DumpReader\Page', $reader );
 	}
 
 	public function testCanUseAsTraversable() {
 		$reader = $this->newReaderForFile( 'simple/two-items.xml' );
 
-		foreach ( $reader as $json ) {
-			$this->assertIsEntityJson( $json );
+		foreach ( $reader as $page ) {
+			$this->assertIsEntityPage( $page );
 		}
 	}
 
@@ -95,10 +108,10 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 
 		$propertyCount = 0;
 
-		while ( $json = $reader->nextEntityJson() ) {
-			$this->assertIsEntityJson( $json );
+		while ( $page = $reader->nextEntityPage() ) {
+			$this->assertIsEntityPage( $page );
 
-			if ( $this->isPropertyJson( $json ) ) {
+			if ( $this->isPropertyPage( $page ) ) {
 				$propertyCount++;
 			}
 		}
@@ -106,8 +119,8 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals( 3, $propertyCount );
 	}
 
-	private function isPropertyJson( $json ) {
-		$array = json_decode( $json, true );
+	private function isPropertyPage( Page $page ) {
+		$array = json_decode( $page->getRevision()->getText(), true );
 		return $array['entity'][0] === 'property';
 	}
 
@@ -115,7 +128,7 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 		$reader = $this->newReaderForFile( 'invalid/item-without-revision.xml' );
 
 		$this->setExpectedException( 'Wikibase\DumpReader\DumpReaderException' );
-		$reader->nextEntityJson();
+		$reader->nextEntityPage();
 	}
 
 }

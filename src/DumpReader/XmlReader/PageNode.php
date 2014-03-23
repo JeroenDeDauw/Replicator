@@ -4,6 +4,8 @@ namespace Wikibase\DumpReader\XmlReader;
 
 use DOMNode;
 use Wikibase\DumpReader\DumpReaderException;
+use Wikibase\DumpReader\Page;
+use Wikibase\DumpReader\Revision;
 use XMLReader;
 
 /**
@@ -12,25 +14,59 @@ use XMLReader;
  */
 class PageNode {
 
-	private $DOMNode;
+	private $id;
+	private $title;
+	private $namespace;
+
+	/**
+	 * @var Revision
+	 */
+	private $revision;
 
 	public function __construct( DOMNode $pageNode ) {
-		$this->DOMNode = $pageNode;
+		$this->handleNodes( $pageNode );
 	}
 
-	public function getRevisionNode() {
-		foreach ( $this->DOMNode->childNodes as $childNode ) {
+	private function handleNodes( DOMNode $pageNode ) {
+		foreach ( $pageNode->childNodes as $childNode ) {
+			$this->handleNode( $childNode );
+		}
+	}
 
-			if ( $this->isRevisionNode( $childNode ) ) {
-				return new RevisionNode( $childNode );
-			}
+	private function handleNode( DOMNode $node ) {
+		if ( $this->hasElementName( $node, 'id' ) ) {
+			$this->id = $node->textContent;
 		}
 
-		throw new DumpReaderException( 'No revision node found' );
+		if ( $this->hasElementName( $node, 'title' ) ) {
+			$this->title = $node->textContent;
+		}
+
+		if ( $this->hasElementName( $node, 'ns' ) ) {
+			$this->namespace = $node->textContent;
+		}
+
+		if ( $this->hasElementName( $node, 'revision' ) ) {
+			$node = new RevisionNode( $node );
+			$this->revision = $node->asRevision();
+		}
 	}
 
-	private function isRevisionNode( DOMNode $node ) {
-		return $node->nodeType === XMLReader::ELEMENT && $node->nodeName === 'revision';
+	private function hasElementName( DOMNode $node, $name ) {
+		return $node->nodeType === XMLReader::ELEMENT && $node->nodeName === $name;
+	}
+
+	public function asPage() {
+		if ( !$this->revision ) {
+			throw new DumpReaderException( 'No revision node found' );
+		}
+
+		return new Page(
+			$this->id,
+			$this->title,
+			$this->namespace,
+			$this->revision
+		);
 	}
 
 }

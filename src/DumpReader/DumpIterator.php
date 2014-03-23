@@ -16,7 +16,7 @@ class DumpIterator implements Iterator {
 	private $reader;
 
 	/**
-	 * @var string|null
+	 * @var Page|null
 	 */
 	private $current;
 
@@ -30,14 +30,14 @@ class DumpIterator implements Iterator {
 	}
 
 	/**
-	 * @return null|string
+	 * @return Page|null
 	 */
 	public function current() {
 		return $this->current;
 	}
 
 	public function next() {
-		$this->current = $this->reader->nextEntityJson();
+		$this->current = $this->reader->nextEntityPage();
 		$this->key++;
 	}
 
