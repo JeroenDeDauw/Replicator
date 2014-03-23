@@ -6,7 +6,7 @@ if ( file_exists( $a = __DIR__.'/../../autoload.php' ) ) {
 	require_once __DIR__.'/../vendor/autoload.php';
 }
 
-use Queryr\Replicator\Replicator;
+use QueryR\Replicator\Replicator;
 
 $replicator = new Replicator();
 $replicator->newApplication()->run();
