@@ -118,4 +118,18 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 		$reader->nextEntityJson();
 	}
 
+	// 14520188 entities -> 43:26
+//	public function testTime() {
+//		$reader = new DumpXmlReader( '/home/j/Downloads/wikidatawiki-20140226-pages-articles.xml' );
+//
+//		$count = 0;
+//
+//		while ( $json = $reader->nextEntityJson() ) {
+//			$this->assertIsEntityJson( $json );
+//			$count++;
+//		}
+//
+//		$this->assertEquals( 0, $count );
+//	}
+
 }
