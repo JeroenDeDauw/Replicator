@@ -12,12 +12,16 @@
 	"minimum-stability": "dev",
 	"autoload": {
 		"psr-4": {
-			"Wikibase\\DumpReader\\": "src/DumpReader/"
+			"Wikibase\\DumpReader\\": "src/DumpReader/",
+			"Queryr\\Replicator\\": "src/Replicator/"
 		}
 	},
 	"extra": {
 		"branch-alias": {
 			"dev-master": "0.1.x-dev"
 		}
-	}
+	},
+	"bin": [
+		"app/replicator.php"
+	]
 }
