@@ -2,10 +2,9 @@
 
 namespace Wikibase\DumpReader\XmlReader;
 
-use Iterator;
-use IteratorAggregate;
 use Wikibase\DumpReader\DumpReader;
 use Wikibase\DumpReader\DumpReaderException;
+use Wikibase\DumpReader\Page;
 use XMLReader;
 
 /**
@@ -52,27 +51,27 @@ class DumpXmlReader extends DumpReader {
 	}
 
 	/**
-	 * @see DumpReader::nextEntityJson
+	 * @see DumpReader::nextEntityPage
 	 *
-	 * @return string|null
+	 * @return Page|null
 	 * @throws DumpReaderException
 	 */
-	public function nextEntityJson() {
+	public function nextEntityPage() {
 		do {
-			$revisionNode = $this->nextRevisionNode();
+			$page = $this->nextPage();
 
-			if ( $revisionNode === null ) {
+			if ( $page === null ) {
 				return null;
 			}
-		} while ( !$revisionNode->isEntity() );
+		} while ( !$page->getRevision()->hasEntityModel() );
 
-		return $revisionNode->getEntityJson();
+		return $page;
 	}
 
 	/**
-	 * @return RevisionNode|null
+	 * @return Page|null
 	 */
-	private function nextRevisionNode() {
+	private function nextPage() {
 		while ( !$this->isPageNode() ) {
 			$this->xmlReader->read();
 
@@ -83,9 +82,9 @@ class DumpXmlReader extends DumpReader {
 
 		$pageNode = new PageNode( $this->xmlReader->expand() );
 
-		$revisionNode = $pageNode->getRevisionNode();
+		$page = $pageNode->asPage();
 		$this->xmlReader->next();
-		return $revisionNode;
+		return $page;
 	}
 
 	private function isPageNode() {

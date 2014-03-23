@@ -15,10 +15,10 @@ abstract class DumpReader implements IteratorAggregate {
 	 * Returns a string with the json of the next entity,
 	 * or null if there are no further entities.
 	 *
-	 * @return string|null
+	 * @return Page|null
 	 * @throws DumpReaderException
 	 */
-	public abstract function nextEntityJson();
+	public abstract function nextEntityPage();
 
 	/**
 	 * Rewinds the reader to the beginning of the dump.
