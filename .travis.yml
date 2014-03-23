@@ -8,5 +8,5 @@ before_script:
   - composer install --prefer-source
 
 script:
-  - phpunit
+  - php app/replicator.php test
 
