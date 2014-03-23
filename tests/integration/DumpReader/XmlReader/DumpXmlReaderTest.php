@@ -131,4 +131,19 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 		$reader->nextEntityPage();
 	}
 
+	public function testGivenFileWithOneEntity_correctPageObjectIsReturned() {
+		$page = $this->newReaderForFile( 'simple/one-item.xml' )->nextEntityPage();
+
+		$this->assertEquals( 'Q15831780', $page->getTitle() );
+		$this->assertEquals( '0', $page->getNamespace() );
+		$this->assertEquals( '17459977', $page->getId() );
+
+		$revision = $page->getRevision();
+
+		$this->assertEquals( '112488012', $revision->getId() );
+		$this->assertEquals( '2014-02-27T11:40:12Z', $revision->getTimeStamp() );
+		$this->assertEquals( 'wikibase-item', $revision->getModel() );
+		$this->assertEquals( 'application/json', $revision->getFormat() );
+	}
+
 }
