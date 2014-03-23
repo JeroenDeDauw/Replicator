@@ -1,6 +1,6 @@
 <?php
 
-namespace Queryr\Replicator\Commands;
+namespace QueryR\Replicator\Commands;
 
 use Symfony\Component\Console\Command\Command;
 

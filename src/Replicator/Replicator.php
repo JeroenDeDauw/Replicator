@@ -1,8 +1,8 @@
 <?php
 
-namespace Queryr\Replicator;
+namespace QueryR\Replicator;
 
-use Queryr\Replicator\Commands\RunTestsCommand;
+use QueryR\Replicator\Commands\RunTestsCommand;
 use Symfony\Component\Console\Application;
 
 /**
@@ -11,12 +11,22 @@ use Symfony\Component\Console\Application;
  */
 class Replicator {
 
+	/**
+	 * @return Application
+	 */
 	public function newApplication() {
 		$app = new Application();
 
-		$app->add( new RunTestsCommand() );
+		$app->setName( 'QueryR Replicator' );
+		$app->setVersion( '1.0.0 alpha' );
+
+		$this->registerCommands( $app );
 
 		return $app;
+	}
+
+	private function registerCommands( Application $app ) {
+		$app->add( new RunTestsCommand() );
 	}
 
 }
