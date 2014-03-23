@@ -58,19 +58,13 @@ class DumpXmlReader extends DumpReader {
 	 * @throws DumpReaderException
 	 */
 	public function nextEntityJson() {
-		$revisionNode = $this->nextRevisionNode();
-
-		if ( $revisionNode === null ) {
-			return null;
-		}
-
-		while ( !$revisionNode->isEntity() ) {
+		do {
 			$revisionNode = $this->nextRevisionNode();
 
 			if ( $revisionNode === null ) {
 				return null;
 			}
-		}
+		} while ( !$revisionNode->isEntity() );
 
 		return $revisionNode->getEntityJson();
 	}
