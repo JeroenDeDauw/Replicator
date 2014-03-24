@@ -14,8 +14,7 @@ use Symfony\Component\Console\Tester\CommandTester;
 class ImportCommandTest extends \PHPUnit_Framework_TestCase {
 
 	public function testEntityIdInOutput() {
-		$command = new ImportCommand();
-		$commandTester = new CommandTester( $command );
+		$commandTester = new CommandTester( new ImportCommand() );
 
 		$commandTester->execute( array(
 			'file' => 'tests/data/simple/one-item.xml'
