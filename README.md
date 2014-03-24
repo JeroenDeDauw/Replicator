@@ -6,11 +6,17 @@ QueryR Replicator is an application for replicating a Wikibase entity base.
 
 A CLI application using the Symfony Console component.
 
-To show a list of commands:
+##### Installation
+
+[Get Composer](https://getcomposer.org/download/)
+
+    composer install
+
+##### To show a list of commands:
 
     php app/replicator.php
 
-Importing an XML dump:
+##### Importing an XML dump:
 
     php app/replicator.php import tests/data/big/5341-revs-3-props.xml
 
