@@ -20,6 +20,10 @@ A CLI application using the Symfony Console component.
 
     php app/replicator.php import tests/data/big/5341-revs-3-props.xml
 
+##### Import command help
+
+    php app/replicator.php --help import
+
 ## DumpReader
 
 This repo also contains the DumpReader library, which is needed by the
