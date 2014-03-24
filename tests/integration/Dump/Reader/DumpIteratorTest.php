@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\Wikibase\DumpReader;
+namespace Tests\Wikibase\Dump\Reader;
 
-use Wikibase\DumpReader\DumpIterator;
-use Wikibase\DumpReader\XmlReader\DumpXmlReader;
+use Wikibase\Dump\Reader\DumpIterator;
+use Wikibase\Dump\Reader\XmlReader\DumpXmlReader;
 
 /**
- * @covers Wikibase\DumpReader\DumpIterator
+ * @covers Wikibase\Dump\Reader\DumpIterator
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
@@ -17,11 +17,11 @@ class DumpIteratorTest extends \PHPUnit_Framework_TestCase {
 		$iterator = new DumpIterator( new DumpXmlReader( $this->getFilePath( 'simple/two-items.xml' ) ) );
 
 		$this->assertCount( 2, iterator_to_array( $iterator ) );
-		$this->assertContainsOnlyInstancesOf( 'Wikibase\DumpReader\Page', $iterator );
+		$this->assertContainsOnlyInstancesOf( 'Wikibase\Dump\Page', $iterator );
 	}
 
 	private function getFilePath( $fileName ) {
-		return __DIR__ . '/../../data/' . $fileName;
+		return __DIR__ . '/../../../data/' . $fileName;
 	}
 
 }

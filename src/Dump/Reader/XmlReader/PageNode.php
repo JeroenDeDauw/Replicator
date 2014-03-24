@@ -1,11 +1,11 @@
 <?php
 
-namespace Wikibase\DumpReader\XmlReader;
+namespace Wikibase\Dump\Reader\XmlReader;
 
 use DOMNode;
-use Wikibase\DumpReader\DumpReaderException;
-use Wikibase\DumpReader\Page;
-use Wikibase\DumpReader\Revision;
+use Wikibase\Dump\Reader\DumpReaderException;
+use Wikibase\Dump\Page;
+use Wikibase\Dump\Revision;
 use XMLReader;
 
 /**
