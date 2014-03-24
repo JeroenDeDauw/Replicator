@@ -6,7 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Wikibase\Dump\Reader\Factory;
+use Wikibase\Dump\Reader\ReaderFactory;
 use Wikibase\Dump\Page;
 
 class ImportCommand extends Command {
@@ -23,7 +23,7 @@ class ImportCommand extends Command {
 	}
 
 	protected function execute( InputInterface $input, OutputInterface $output ) {
-		$dumpReaderFactory = new Factory();
+		$dumpReaderFactory = new ReaderFactory();
 
 		$dumpReader = $dumpReaderFactory->newDumpReaderForFile( $input->getArgument( 'file' ) );
 
