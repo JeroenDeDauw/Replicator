@@ -1,14 +1,14 @@
 <?php
 
-namespace Tests\Wikibase\DumpReader;
+namespace Tests\Wikibase\Dump\Reader;
 
-use Wikibase\DumpReader\DumpReader;
-use Wikibase\DumpReader\Page;
-use Wikibase\DumpReader\Revision;
-use Wikibase\DumpReader\XmlReader\DumpXmlReader;
+use Wikibase\Dump\Reader\DumpReader;
+use Wikibase\Dump\Page;
+use Wikibase\Dump\Revision;
+use Wikibase\Dump\Reader\XmlReader\DumpXmlReader;
 
 /**
- * @covers Wikibase\DumpReader\XmlReader\DumpXmlReader
+ * @covers Wikibase\Dump\Reader\XmlReader\DumpXmlReader
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
@@ -27,7 +27,7 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function getFilePath( $fileName ) {
-		return __DIR__ . '/../../../data/' . $fileName;
+		return __DIR__ . '/../../../../data/' . $fileName;
 	}
 
 	private function assertFindsAnotherEntity( DumpReader $reader ) {
@@ -39,7 +39,7 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 		/**
 		 * @var Page $entityPage
 		 */
-		$this->assertInstanceOf( 'Wikibase\DumpReader\Page', $entityPage );
+		$this->assertInstanceOf( 'Wikibase\Dump\Page', $entityPage );
 
 		$revision = $entityPage->getRevision();
 
@@ -92,7 +92,7 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 		$reader = $this->newReaderForFile( 'simple/two-items.xml' )->getIterator();
 
 		$this->assertCount( 2, iterator_to_array( $reader ) );
-		$this->assertContainsOnlyInstancesOf( 'Wikibase\DumpReader\Page', $reader );
+		$this->assertContainsOnlyInstancesOf( 'Wikibase\Dump\Page', $reader );
 	}
 
 	public function testCanUseAsTraversable() {
@@ -127,7 +127,7 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 	public function testGivenItemWithoutRevision_exceptionInThrown() {
 		$reader = $this->newReaderForFile( 'invalid/item-without-revision.xml' );
 
-		$this->setExpectedException( 'Wikibase\DumpReader\DumpReaderException' );
+		$this->setExpectedException( 'Wikibase\Dump\Reader\DumpReaderException' );
 		$reader->nextEntityPage();
 	}
 

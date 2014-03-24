@@ -1,6 +1,6 @@
 <?php
 
-namespace Wikibase\DumpReader;
+namespace Wikibase\Dump\Reader;
 
 /**
  * @licence GNU GPL v2+

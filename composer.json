@@ -12,7 +12,7 @@
 	"minimum-stability": "dev",
 	"autoload": {
 		"psr-4": {
-			"Wikibase\\DumpReader\\": "src/DumpReader/",
+			"Wikibase\\Dump\\": "src/Dump/",
 			"QueryR\\Replicator\\": "src/Replicator/"
 		}
 	},
