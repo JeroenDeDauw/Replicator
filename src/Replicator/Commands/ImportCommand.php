@@ -30,8 +30,9 @@ class ImportCommand extends Command {
 		/**
 		 * @var Page $entityPage
 		 */
-		foreach ( $dumpReader->getIterator() as $entityPage ) {
-			$output->writeln( $entityPage->getTitle() );
+		foreach ( $dumpReader->getIterator() as $key => $entityPage ) {
+			// TODO
+			$output->writeln( 'Importing entity ' . $key . ': ' . $entityPage->getTitle() );
 		}
 	}
 
