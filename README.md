@@ -7,6 +7,11 @@ QueryR Replicator is an application for replicating a [Wikibase](http://wikiba.s
 A CLI application using the [Symfony Console component]
 (http://symfony.com/doc/current/components/console/introduction.html).
 
+##### Dependencies
+
+* PHP 5.5 or later
+* php5-sqlite
+
 ##### Installation
 
 [Get Composer](https://getcomposer.org/download/)

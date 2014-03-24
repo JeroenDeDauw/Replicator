@@ -3,6 +3,7 @@
 	"require": {
 		"php": ">=5.5.0",
 		"wikibase/data-model": "0.7.*",
+		"wikibase/database": "dev-master",
 		"wikibase/internal-serialization": "~1.0@dev",
 		"symfony/console": "~2.3.11"
 	},

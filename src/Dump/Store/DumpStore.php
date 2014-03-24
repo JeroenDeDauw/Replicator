@@ -10,6 +10,8 @@ use Wikibase\Dump\Page;
  */
 interface DumpStore {
 
+	public function install();
+
 	public function storePage( Page $page );
 
 }
