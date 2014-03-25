@@ -45,11 +45,17 @@ class StoreWriterTest extends \PHPUnit_Framework_TestCase {
 	private $queryInterface;
 
 	public function setUp() {
-		$this->pdo = new PDO(
-			'mysql:dbname=replicator_tests;host=localhost',
-			'replicator',
-			'mysql_is_evil'
-		);
+		try {
+			$this->pdo = new PDO(
+				'mysql:dbname=replicator_tests;host=localhost',
+				'replicator',
+				'mysql_is_evil'
+			);
+		}
+		catch ( \PDOException $ex ) {
+			$this->markTestSkipped( 'Test not run, presumably the database is not set up: ' . $ex->getMessage() );
+			return;
+		}
 
 		$this->queryInterface = $this->newQueryInterface();
 
