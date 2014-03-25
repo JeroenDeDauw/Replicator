@@ -6,10 +6,12 @@ use InvalidArgumentException;
 use PDO;
 use Wikibase\Database\Escaper;
 use Wikibase\Database\PDO\PDOTableBuilder;
+use Wikibase\Database\Schema\TableBuilder;
 use Wikibase\Database\SQLite\SQLiteFieldSqlBuilder;
 use Wikibase\Database\SQLite\SQLiteIndexSqlBuilder;
 use Wikibase\Database\SQLite\SQLiteTableSqlBuilder;
 use Wikibase\Database\TableNameFormatter;
+use Wikibase\Dump\Store\DumpStore;
 use Wikibase\Dump\Store\SQLite\SQLiteDumpStore;
 
 /**
@@ -20,12 +22,22 @@ use Wikibase\Dump\Store\SQLite\SQLiteDumpStore;
  */
 class SQLiteDumpStoreTest extends \PHPUnit_Framework_TestCase {
 
-	public function testInstallation() {
+	/**
+	 * @var DumpStore
+	 */
+	private $store;
+
+	/**
+	 * @var TableBuilder
+	 */
+	private $tableBuilder;
+
+	public function setUp() {
 		$pdo = new PDO( 'sqlite::memory:' );
 		$escaper = new PDOEscaper( $pdo );
 		$tableNameFormatter = new PrefixingTableNameFormatter( 'test_' );
 
-		$tableBuilder = new PDOTableBuilder(
+		$this->tableBuilder = new PDOTableBuilder(
 			$pdo,
 			new SQLiteTableSqlBuilder(
 				$escaper,
@@ -35,11 +47,17 @@ class SQLiteDumpStoreTest extends \PHPUnit_Framework_TestCase {
 			)
 		);
 
-		$store = new SQLiteDumpStore( $tableBuilder );
+		$this->store = new SQLiteDumpStore( $this->tableBuilder );
+	}
 
-		$store->install();
+	public function testInstallationAndRemoval() {
+		$this->store->install();
 
-		$this->assertTrue( $tableBuilder->tableExists( 'test_entities' ) );
+		$this->assertTrue( $this->tableBuilder->tableExists( 'test_entities' ) );
+
+		$this->store->uninstall();
+
+		$this->assertFalse( $this->tableBuilder->tableExists( 'test_entities' ) );
 	}
 
 }

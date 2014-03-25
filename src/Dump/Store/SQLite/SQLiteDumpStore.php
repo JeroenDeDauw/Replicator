@@ -77,6 +77,14 @@ class SQLiteDumpStore implements DumpStore {
 	}
 
 	/**
+	 * @see DumpStore::uninstall
+	 */
+	public function uninstall() {
+		// FIXME: this is a workaround for a bug in WB DB
+		$this->tableBuilder->dropTable( 'test_entities' );
+	}
+
+	/**
 	 * @see DumpStore::storePage
 	 *
 	 * @param Page $page
