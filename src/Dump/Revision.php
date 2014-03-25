@@ -25,13 +25,6 @@ class Revision {
 	/**
 	 * @return string
 	 */
-	public function getFormat() {
-		return $this->format;
-	}
-
-	/**
-	 * @return string
-	 */
 	public function getId() {
 		return $this->id;
 	}
@@ -41,6 +34,13 @@ class Revision {
 	 */
 	public function getModel() {
 		return $this->model;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFormat() {
+		return $this->format;
 	}
 
 	/**

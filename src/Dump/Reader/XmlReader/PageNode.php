@@ -3,8 +3,8 @@
 namespace Wikibase\Dump\Reader\XmlReader;
 
 use DOMNode;
-use Wikibase\Dump\Reader\DumpReaderException;
 use Wikibase\Dump\Page;
+use Wikibase\Dump\Reader\DumpReaderException;
 use Wikibase\Dump\Revision;
 use XMLReader;
 
