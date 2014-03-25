@@ -2,10 +2,6 @@
 
 namespace Wikibase\Dump\Store\SQLite;
 
-use Wikibase\Database\Schema\Definitions\FieldDefinition;
-use Wikibase\Database\Schema\Definitions\TableDefinition;
-use Wikibase\Database\Schema\Definitions\TypeDefinition;
-use Wikibase\Database\Schema\TableBuilder;
 use Wikibase\Dump\Page;
 use Wikibase\Dump\Store\DumpStore;
 
@@ -15,73 +11,26 @@ use Wikibase\Dump\Store\DumpStore;
  */
 class SQLiteDumpStore implements DumpStore {
 
-	private $tableBuilder;
+	private $storeInstaller;
+	private $storeWriter;
 
-	public function __construct( TableBuilder $tableBuilder ) {
-		$this->tableBuilder = $tableBuilder;
+	public function __construct( StoreInstaller $storeInstaller, StoreWriter $storeUpdater ) {
+		$this->storeInstaller = $storeInstaller;
+		$this->storeWriter = $storeUpdater;
 	}
 
 	/**
 	 * @see DumpStore::install
 	 */
 	public function install() {
-		$this->tableBuilder->createTable( new TableDefinition(
-			'entities',
-			array(
-				new FieldDefinition(
-					'page_id',
-					TypeDefinition::TYPE_BIGINT
-				),
-				new FieldDefinition(
-					'page_title',
-					new TypeDefinition(
-						TypeDefinition::TYPE_VARCHAR,
-						255
-					)
-				),
-				new FieldDefinition(
-					'page_namespace',
-					TypeDefinition::TYPE_INTEGER
-				),
-				new FieldDefinition(
-					'revision_id',
-					TypeDefinition::TYPE_BIGINT
-				),
-				new FieldDefinition(
-					'revision_model',
-					new TypeDefinition(
-						TypeDefinition::TYPE_VARCHAR,
-						32
-					)
-				),
-				new FieldDefinition(
-					'revision_format',
-					new TypeDefinition(
-						TypeDefinition::TYPE_VARCHAR,
-						64
-					)
-				),
-				new FieldDefinition(
-					'revision_time',
-					new TypeDefinition(
-						TypeDefinition::TYPE_VARCHAR,
-						25
-					)
-				),
-				new FieldDefinition(
-					'entity',
-					TypeDefinition::TYPE_BLOB
-				),
-			)
-		) );
+		$this->storeInstaller->install();
 	}
 
 	/**
 	 * @see DumpStore::uninstall
 	 */
 	public function uninstall() {
-		// FIXME: this is a workaround for a bug in WB DB
-		$this->tableBuilder->dropTable( 'test_entities' );
+		$this->storeInstaller->uninstall();
 	}
 
 	/**
@@ -90,7 +39,7 @@ class SQLiteDumpStore implements DumpStore {
 	 * @param Page $page
 	 */
 	public function storePage( Page $page ) {
-		// TODO
+		$this->storeWriter->storePage( $page );
 	}
 
 }

@@ -30,6 +30,13 @@ class Page {
 	/**
 	 * @return string
 	 */
+	public function getTitle() {
+		return $this->title;
+	}
+
+	/**
+	 * @return string
+	 */
 	public function getNamespace() {
 		return $this->namespace;
 	}
@@ -39,13 +46,6 @@ class Page {
 	 */
 	public function getRevision() {
 		return $this->revision;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getTitle() {
-		return $this->title;
 	}
 
 }
