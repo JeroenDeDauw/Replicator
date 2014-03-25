@@ -2,10 +2,10 @@
 
 namespace Tests\Wikibase\Dump\Reader;
 
-use Wikibase\Dump\Reader\DumpReader;
 use Wikibase\Dump\Page;
-use Wikibase\Dump\Revision;
+use Wikibase\Dump\Reader\DumpReader;
 use Wikibase\Dump\Reader\XmlReader\DumpXmlReader;
+use Wikibase\Dump\Revision;
 
 /**
  * @covers Wikibase\Dump\Reader\XmlReader\DumpXmlReader

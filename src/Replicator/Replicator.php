@@ -3,7 +3,6 @@
 namespace QueryR\Replicator;
 
 use QueryR\Replicator\Commands\ImportCommand;
-use QueryR\Replicator\Commands\ReplicateCommand;
 use QueryR\Replicator\Commands\RunTestsCommand;
 use Symfony\Component\Console\Application;
 

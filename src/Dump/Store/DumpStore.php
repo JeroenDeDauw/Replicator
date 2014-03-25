@@ -12,6 +12,8 @@ interface DumpStore {
 
 	public function install();
 
+	public function uninstall();
+
 	public function storePage( Page $page );
 
 }
