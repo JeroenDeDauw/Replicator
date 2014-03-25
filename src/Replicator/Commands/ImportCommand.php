@@ -6,8 +6,8 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Wikibase\Dump\Reader\ReaderFactory;
 use Wikibase\Dump\Page;
+use Wikibase\Dump\Reader\ReaderFactory;
 
 class ImportCommand extends Command {
 
