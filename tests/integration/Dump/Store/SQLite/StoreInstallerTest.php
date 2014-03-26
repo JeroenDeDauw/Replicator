@@ -2,15 +2,14 @@
 
 namespace Tests\Wikibase\Dump\Store;
 
-use InvalidArgumentException;
 use PDO;
-use Wikibase\Database\Escaper;
+use Wikibase\Database\NullTableNameFormatter;
+use Wikibase\Database\PDO\PDOEscaper;
 use Wikibase\Database\PDO\PDOTableBuilder;
 use Wikibase\Database\Schema\TableBuilder;
 use Wikibase\Database\SQLite\SQLiteFieldSqlBuilder;
 use Wikibase\Database\SQLite\SQLiteIndexSqlBuilder;
 use Wikibase\Database\SQLite\SQLiteTableSqlBuilder;
-use Wikibase\Database\TableNameFormatter;
 use Wikibase\Dump\Store\SQLite\StoreInstaller;
 
 /**
@@ -34,7 +33,7 @@ class StoreInstallerTest extends \PHPUnit_Framework_TestCase {
 	public function setUp() {
 		$pdo = new PDO( 'sqlite::memory:' );
 		$escaper = new PDOEscaper( $pdo );
-		$tableNameFormatter = new PrefixingTableNameFormatter( '' );
+		$tableNameFormatter = new NullTableNameFormatter();
 
 		$this->tableBuilder = new PDOTableBuilder(
 			$pdo,
@@ -43,7 +42,9 @@ class StoreInstallerTest extends \PHPUnit_Framework_TestCase {
 				$tableNameFormatter,
 				new SQLiteFieldSqlBuilder( $escaper ),
 				new SQLiteIndexSqlBuilder( $escaper, $tableNameFormatter )
-			)
+			),
+			$tableNameFormatter,
+			$escaper
 		);
 
 		$this->store = new StoreInstaller( $this->tableBuilder );
@@ -61,65 +62,6 @@ class StoreInstallerTest extends \PHPUnit_Framework_TestCase {
 
 	public function testStoresPage() {
 		$this->store->install();
-	}
-
-}
-
-class PDOEscaper implements Escaper {
-
-	protected $pdo;
-
-	public function __construct( PDO $pdo ) {
-		$this->pdo = $pdo;
-	}
-
-	/**
-	 * @see ValueEscaper::getEscapedValue
-	 *
-	 * @param mixed $value
-	 *
-	 * @return string The escaped value
-	 */
-	public function getEscapedValue( $value ) {
-		return $this->pdo->quote( $value );
-	}
-
-	/**
-	 * @see IdentifierEscaper::getEscapedIdentifier
-	 *
-	 * @param mixed $identifier
-	 *
-	 * @return string The escaped identifier
-	 */
-	public function getEscapedIdentifier( $identifier ) {
-		return '`' . str_replace( '`', '``', $identifier ) . '`';
-	}
-
-}
-
-class PrefixingTableNameFormatter implements TableNameFormatter {
-
-	/**
-	 * @param string $prefix
-	 * @throws InvalidArgumentException
-	 */
-	public function __construct( $prefix ) {
-		if ( !is_string( $prefix ) ) {
-			throw new InvalidArgumentException( '$prefix should be a string' );
-		}
-
-		$this->prefix = $prefix;
-	}
-
-	/**
-	 * @see TableName::formatTableName
-	 *
-	 * @param string $tableName
-	 *
-	 * @return string
-	 */
-	public function formatTableName( $tableName ) {
-		return $this->prefix . $tableName;
 	}
 
 }
