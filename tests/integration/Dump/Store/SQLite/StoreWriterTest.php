@@ -8,6 +8,8 @@ use Wikibase\Database\MySQL\MySQLDeleteSqlBuilder;
 use Wikibase\Database\MySQL\MySQLInsertSqlBuilder;
 use Wikibase\Database\MySQL\MySQLSelectSqlBuilder;
 use Wikibase\Database\MySQL\MySQLUpdateSqlBuilder;
+use Wikibase\Database\NullTableNameFormatter;
+use Wikibase\Database\PDO\PDOEscaper;
 use Wikibase\Database\PDO\PDOQueryInterface;
 use Wikibase\Database\PDO\PDOTableBuilder;
 use Wikibase\Database\QueryInterface\QueryInterface;
@@ -84,12 +86,14 @@ class StoreWriterTest extends \PHPUnit_Framework_TestCase {
 				$tableNameFormatter,
 				new SQLiteFieldSqlBuilder( $escaper ),
 				new SQLiteIndexSqlBuilder( $escaper, $tableNameFormatter )
-			)
+			),
+			$tableNameFormatter,
+			$escaper
 		);
 	}
 
 	private function newTableNameFormatter() {
-		return new PrefixingTableNameFormatter( '' );
+		return new NullTableNameFormatter();
 	}
 
 	private function newQueryInterface() {
