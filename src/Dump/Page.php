@@ -13,15 +13,21 @@ class Page {
 	private $namespace;
 	private $revision;
 
+	/**
+	 * @param string|int $id
+	 * @param string $title
+	 * @param string|int $namespace
+	 * @param Revision $revision
+	 */
 	public function __construct( $id, $title, $namespace, Revision $revision ) {
-		$this->id = $id;
+		$this->id = (int)$id;
 		$this->title = $title;
-		$this->namespace = $namespace;
+		$this->namespace = (int)$namespace;
 		$this->revision = $revision;
 	}
 
 	/**
-	 * @return string
+	 * @return int
 	 */
 	public function getId() {
 		return $this->id;
@@ -35,7 +41,7 @@ class Page {
 	}
 
 	/**
-	 * @return string
+	 * @return int
 	 */
 	public function getNamespace() {
 		return $this->namespace;
