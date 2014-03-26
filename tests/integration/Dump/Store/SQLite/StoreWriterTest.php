@@ -112,6 +112,11 @@ class StoreWriterTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testStoresPage() {
+		$this->storePage();
+		$this->assertPageIsStoredCorrectly();
+	}
+
+	private function storePage() {
 		$this->store->storePage( new Page(
 			'1337',
 			'Q1337',
@@ -124,7 +129,9 @@ class StoreWriterTest extends \PHPUnit_Framework_TestCase {
 				'2014-02-27T11:40:12Z'
 			)
 		) );
+	}
 
+	private function retrievePage() {
 		$resultIterator = $this->queryInterface->select(
 			'entities',
 			array(
@@ -148,6 +155,12 @@ class StoreWriterTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertCount( 1, $resultArray );
 		$resultRow = (object)array_shift( $resultArray );
+
+		return $resultRow;
+	}
+
+	private function assertPageIsStoredCorrectly() {
+		$resultRow = $this->retrievePage();
 
 		$this->assertEquals( 1337, $resultRow->page_id );
 		$this->assertEquals( 'Q1337', $resultRow->page_title );
