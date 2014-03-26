@@ -2,10 +2,10 @@
 
 namespace Tests\Wikibase\Dump\Reader;
 
-use Wikibase\Dump\Page;
+use Wikibase\Dump\Reader\Page;
 use Wikibase\Dump\Reader\DumpReader;
 use Wikibase\Dump\Reader\XmlReader\DumpXmlReader;
-use Wikibase\Dump\Revision;
+use Wikibase\Dump\Reader\Revision;
 
 /**
  * @covers Wikibase\Dump\Reader\XmlReader\DumpXmlReader
@@ -39,7 +39,7 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 		/**
 		 * @var Page $entityPage
 		 */
-		$this->assertInstanceOf( 'Wikibase\Dump\Page', $entityPage );
+		$this->assertInstanceOf( 'Wikibase\Dump\Reader\Page', $entityPage );
 
 		$revision = $entityPage->getRevision();
 
@@ -92,7 +92,7 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 		$reader = $this->newReaderForFile( 'simple/two-items.xml' )->getIterator();
 
 		$this->assertCount( 2, iterator_to_array( $reader ) );
-		$this->assertContainsOnlyInstancesOf( 'Wikibase\Dump\Page', $reader );
+		$this->assertContainsOnlyInstancesOf( 'Wikibase\Dump\Reader\Page', $reader );
 	}
 
 	public function testCanUseAsTraversable() {

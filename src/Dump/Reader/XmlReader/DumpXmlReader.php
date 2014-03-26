@@ -2,7 +2,7 @@
 
 namespace Wikibase\Dump\Reader\XmlReader;
 
-use Wikibase\Dump\Page;
+use Wikibase\Dump\Reader\Page;
 use Wikibase\Dump\Reader\DumpReader;
 use Wikibase\Dump\Reader\DumpReaderException;
 use XMLReader;
