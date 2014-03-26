@@ -4,7 +4,6 @@ namespace Wikibase\Dump\Reader;
 
 use Iterator;
 use IteratorAggregate;
-use Wikibase\Dump\Page;
 
 /**
  * @licence GNU GPL v2+

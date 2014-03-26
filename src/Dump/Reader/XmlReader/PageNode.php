@@ -3,9 +3,9 @@
 namespace Wikibase\Dump\Reader\XmlReader;
 
 use DOMNode;
-use Wikibase\Dump\Page;
+use Wikibase\Dump\Reader\Page;
 use Wikibase\Dump\Reader\DumpReaderException;
-use Wikibase\Dump\Revision;
+use Wikibase\Dump\Reader\Revision;
 use XMLReader;
 
 /**

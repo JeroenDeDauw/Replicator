@@ -3,7 +3,7 @@
 namespace Wikibase\Dump\Reader\XmlReader;
 
 use DOMNode;
-use Wikibase\Dump\Revision;
+use Wikibase\Dump\Reader\Revision;
 use XMLReader;
 
 /**

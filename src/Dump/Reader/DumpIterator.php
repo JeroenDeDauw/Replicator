@@ -3,7 +3,6 @@
 namespace Wikibase\Dump\Reader;
 
 use Iterator;
-use Wikibase\Dump\Page;
 
 /**
  * @licence GNU GPL v2+
