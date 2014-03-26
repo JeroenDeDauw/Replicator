@@ -13,7 +13,7 @@ use Wikibase\Dump\Revision;
 class RevisionTest extends \PHPUnit_Framework_TestCase {
 
 	public function testDataIsRetained() {
-		$id = '42';
+		$id = 42;
 		$model = 'cats';
 		$format = 'spam';
 		$text = 'foo';
@@ -21,11 +21,16 @@ class RevisionTest extends \PHPUnit_Framework_TestCase {
 
 		$page = new Revision( $id, $model, $format, $text, $timeStamp );
 
-		$this->assertEquals( $id, $page->getId() );
-		$this->assertEquals( $model, $page->getModel() );
-		$this->assertEquals( $format, $page->getFormat() );
-		$this->assertEquals( $text, $page->getText() );
-		$this->assertEquals( $timeStamp, $page->getTimeStamp() );
+		$this->assertSame( $id, $page->getId() );
+		$this->assertSame( $model, $page->getModel() );
+		$this->assertSame( $format, $page->getFormat() );
+		$this->assertSame( $text, $page->getText() );
+		$this->assertSame( $timeStamp, $page->getTimeStamp() );
+	}
+
+	public function testGivenStringId_getterReturnsInteger() {
+		$page = new Revision( '42', '', '', '', '' );
+		$this->assertSame( 42, $page->getId() );
 	}
 
 }

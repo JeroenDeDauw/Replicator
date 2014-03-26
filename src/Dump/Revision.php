@@ -14,8 +14,15 @@ class Revision {
 	private $text;
 	private $timeStamp;
 
+	/**
+	 * @param string|int $id
+	 * @param string $model
+	 * @param string $format
+	 * @param string $text
+	 * @param string $timeStamp
+	 */
 	public function __construct( $id, $model, $format, $text, $timeStamp ) {
-		$this->id = $id;
+		$this->id = (int)$id;
 		$this->model = $model;
 		$this->format = $format;
 		$this->text = $text;
@@ -23,7 +30,7 @@ class Revision {
 	}
 
 	/**
-	 * @return string
+	 * @return int
 	 */
 	public function getId() {
 		return $this->id;

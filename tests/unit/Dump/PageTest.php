@@ -13,18 +13,28 @@ use Wikibase\Dump\Page;
 class PageTest extends \PHPUnit_Framework_TestCase {
 
 	public function testDataIsRetained() {
-		$id = '42';
+		$id = 42;
 		$title = 'Q42';
-		$namespace = '0';
+		$namespace = 0;
 		$revision = $this->getMockBuilder( 'Wikibase\Dump\Revision' )
 			->disableOriginalConstructor()->getMock();
 
 		$page = new Page( $id, $title, $namespace, $revision );
 
-		$this->assertEquals( $id, $page->getId() );
-		$this->assertEquals( $title, $page->getTitle() );
-		$this->assertEquals( $namespace, $page->getNamespace() );
+		$this->assertSame( $id, $page->getId() );
+		$this->assertSame( $title, $page->getTitle() );
+		$this->assertSame( $namespace, $page->getNamespace() );
 		$this->assertEquals( $revision, $page->getRevision() );
+	}
+
+	public function testGivenStringIdAndNs_gettersReturnIntegers() {
+		$revision = $this->getMockBuilder( 'Wikibase\Dump\Revision' )
+			->disableOriginalConstructor()->getMock();
+
+		$page = new Page( '42', 'Q42', '1', $revision );
+
+		$this->assertSame( 42, $page->getId() );
+		$this->assertSame( 1, $page->getNamespace() );
 	}
 
 }
