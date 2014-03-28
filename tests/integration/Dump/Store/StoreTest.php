@@ -3,6 +3,7 @@
 namespace Tests\Wikibase\Dump\Store;
 
 use PDO;
+use Tests\Fixtures\TestFixtureFactory;
 use Wikibase\Database\PDO\PDOFactory;
 use Wikibase\Database\QueryInterface\QueryInterface;
 use Wikibase\Dump\Store\ItemRow;
@@ -45,15 +46,10 @@ class StoreTest extends \PHPUnit_Framework_TestCase {
 
 	private function createPDO() {
 		try {
-			$this->pdo = new PDO(
-				'mysql:dbname=replicator_tests;host=localhost',
-				'replicator',
-				'mysql_is_evil'
-			);
+			$this->pdo = TestFixtureFactory::newInstance()->newPDO();
 		}
 		catch ( \PDOException $ex ) {
 			$this->markTestSkipped( 'Test not run, presumably the database is not set up: ' . $ex->getMessage() );
-			return;
 		}
 	}
 
@@ -62,8 +58,7 @@ class StoreTest extends \PHPUnit_Framework_TestCase {
 
 		$this->queryInterface = $factory->newMySQLQueryInterface();
 
-
-		$tableBuilder = $factory->newSQLiteTableBuilder();
+		$tableBuilder = $factory->newMySQLTableBuilder( 'replicator_tests' );
 
 		$installer = new StoreInstaller( $tableBuilder );
 		$this->store = new Store( $this->queryInterface );
