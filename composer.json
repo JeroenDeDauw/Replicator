@@ -5,6 +5,7 @@
 		"wikibase/data-model": "0.7.*",
 		"wikibase/database": "dev-master",
 		"wikibase/internal-serialization": "~1.0@dev",
+		"wikibase/query-engine": "dev-master",
 		"symfony/console": "~2.3.11"
 	},
 	"require-dev": {
@@ -14,7 +15,8 @@
 	"autoload": {
 		"psr-4": {
 			"Wikibase\\Dump\\": "src/Dump/",
-			"QueryR\\Replicator\\": "src/Replicator/"
+			"QueryR\\Replicator\\": "src/Replicator/",
+			"Tests\\Fixtures\\": "tests/fixtures/"
 		}
 	},
 	"extra": {
