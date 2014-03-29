@@ -2,6 +2,7 @@
 
 namespace QueryR\Replicator\Commands\Installer;
 
+use QueryR\Replicator\ServiceFactory;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -48,8 +49,14 @@ class InstallCommand extends Command {
 		);
 	}
 
+	private $serviceFactory;
+
+	public function setDependencies( ServiceFactory $serviceFactory ) {
+		$this->serviceFactory = $serviceFactory;
+	}
+
 	protected function execute( InputInterface $input, OutputInterface $output ) {
-		$executor = new InstallCommandExecutor( $input, $output );
+		$executor = new InstallCommandExecutor( $input, $output, $this->serviceFactory );
 		$executor->run();
 	}
 

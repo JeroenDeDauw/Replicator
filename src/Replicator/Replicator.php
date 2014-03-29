@@ -4,8 +4,8 @@ namespace QueryR\Replicator;
 
 use QueryR\Replicator\Commands\ImportCommand;
 use QueryR\Replicator\Commands\Installer\InstallCommand;
-use QueryR\Replicator\Commands\RunTestsCommand;
 use QueryR\Replicator\Commands\Installer\UninstallCommand;
+use QueryR\Replicator\Commands\RunTestsCommand;
 use Symfony\Component\Console\Application;
 
 /**
@@ -15,24 +15,49 @@ use Symfony\Component\Console\Application;
 class Replicator {
 
 	/**
+	 * @var Application
+	 */
+	private $app;
+
+	/**
+	 * @var ServiceFactory
+	 */
+	private $factory;
+
+	/**
 	 * @return Application
 	 */
 	public function newApplication() {
-		$app = new Application();
+		$this->app = new Application();
+		$this->factory = new ServiceFactory();
 
-		$app->setName( 'QueryR Replicator' );
-		$app->setVersion( '0.1 alpha' );
+		$this->setApplicationInfo();
+		$this->registerCommands();
 
-		$this->registerCommands( $app );
-
-		return $app;
+		return $this->app;
 	}
 
-	private function registerCommands( Application $app ) {
-		$app->add( new RunTestsCommand() );
-		$app->add( new ImportCommand() );
-		$app->add( new InstallCommand() );
-		$app->add( new UninstallCommand() );
+	private function setApplicationInfo() {
+		$this->app->setName( 'QueryR Replicator' );
+		$this->app->setVersion( '0.1 alpha' );
 	}
+
+	private function registerCommands() {
+		$this->app->add( new RunTestsCommand() );
+		$this->app->add( new ImportCommand() );
+		$this->app->add( $this->newInstallCommand() );
+		$this->app->add( new UninstallCommand() );
+	}
+
+	private function newInstallCommand() {
+		$install = new InstallCommand();
+
+		$install->setDependencies( $this->factory );
+
+		return $install;
+	}
+
+
 
 }
+
