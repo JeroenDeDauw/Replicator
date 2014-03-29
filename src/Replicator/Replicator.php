@@ -29,7 +29,6 @@ class Replicator {
 	private function registerCommands( Application $app ) {
 		$app->add( new RunTestsCommand() );
 		$app->add( new ImportCommand() );
-		//$app->add( new ReplicateCommand() );
 	}
 
 }
