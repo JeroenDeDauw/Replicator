@@ -4,6 +4,14 @@ namespace QueryR\Replicator\Commands\Installer;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Wikibase\Database\PDO\PDOFactory;
+use Wikibase\Database\Schema\TableCreationFailedException;
+use Wikibase\DataModel\Entity\PropertyId;
+use Wikibase\Dump\Store\StoreInstaller;
+use Wikibase\QueryEngine\PropertyDataValueTypeLookup;
+use Wikibase\QueryEngine\SQLStore\DVHandler\NumberHandler;
+use Wikibase\QueryEngine\SQLStore\SQLStore;
+use Wikibase\QueryEngine\SQLStore\StoreConfig;
 
 /**
  * @licence GNU GPL v2+
@@ -33,6 +41,9 @@ class InstallCommandExecutor {
 		try {
 			$this->createConfigFile();
 			$this->createDatabase();
+			$this->createDumpStore();
+			$this->createQueryEngine();
+
 			$this->reportInstallationSuccess();
 		}
 		catch ( InstallationException $ex ) {
@@ -100,6 +111,62 @@ class InstallCommandExecutor {
 		$this->output->writeln(
 			"<$tag>Installation of QueryR Replicator has completed successfully.</$tag>"
 		);
+	}
+
+	private function createDumpStore() {
+		$this->writeProgress( 'Creating dump store' );
+
+		$installer = new StoreInstaller( $this->newTableBuilder() );
+
+		try {
+			$installer->install();
+		}
+		catch ( TableCreationFailedException $ex ) {
+			throw new InstallationException( $ex->getMessage(), 0, $ex );
+		}
+
+		$this->writeProgressEnd();
+	}
+
+	private function newTableBuilder() {
+		return $this->newPDOFactory()->newMySQLTableBuilder( $this->input->getArgument( 'database' ) );
+	}
+
+	private function newPDOFactory() {
+		return new PDOFactory( $this->sqlExecutor->getPDO() );
+	}
+
+	private function createQueryEngine() {
+		$this->writeProgress( 'Creating query engine' );
+
+		// TODO: catch once QE supports proper exceptions
+		// TODO: report once QE supports detailed reporting
+		$sqlStore = new SQLStore( $this->newStoreConfig() );
+		$sqlStore->newInstaller( $this->newTableBuilder() )->install();
+
+		$this->writeProgressEnd();
+	}
+
+	private function newStoreConfig() {
+		$config = new StoreConfig(
+			'QueryR Replicator QueryEngine',
+			'qr_',
+			array(
+				'number' => new NumberHandler()
+			)
+		);
+
+		$config->setPropertyDataValueTypeLookup( new StubPropertyDataValueTypeLookup() );
+
+		return $config;
+	}
+
+}
+
+class StubPropertyDataValueTypeLookup implements PropertyDataValueTypeLookup {
+
+	public function getDataValueTypeForProperty( PropertyId $propertyId ) {
+		return 'number';
 	}
 
 }
