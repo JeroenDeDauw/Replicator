@@ -2,12 +2,21 @@
 
 namespace QueryR\Replicator\Commands;
 
+use Deserializers\Deserializer;
+use Deserializers\Exceptions\DeserializationException;
+use QueryR\Replicator\ServiceFactory;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Wikibase\Database\QueryInterface\InsertFailedException;
+use Wikibase\DataModel\Entity\Entity;
+use Wikibase\DataModel\Entity\Item;
 use Wikibase\Dump\Reader\Page;
 use Wikibase\Dump\Reader\ReaderFactory;
+use Wikibase\Dump\Store\ItemRow;
+use Wikibase\Dump\Store\Store;
+use Wikibase\QueryEngine\QueryStoreWriter;
 
 /**
  * @licence GNU GPL v2+
@@ -27,7 +36,16 @@ class ImportCommand extends Command {
 	}
 
 	protected function execute( InputInterface $input, OutputInterface $output ) {
-		$executor = new ImportCommandExecutor( $input, $output );
+		$serviceFactory = ServiceFactory::newFromConfig();
+
+		$executor = new ImportCommandExecutor(
+			$input,
+			$output,
+			$serviceFactory->newDumpStore(),
+			$serviceFactory->newEntityDeserializer(),
+			$serviceFactory->newQueryStoreWriter()
+		);
+
 		$executor->run();
 	}
 
@@ -37,10 +55,18 @@ class ImportCommandExecutor {
 
 	private $input;
 	private $output;
+	private $dumpStore;
+	private $entityDeserializer;
+	private $queryStoreWriter;
 
-	public function __construct( InputInterface $input, OutputInterface $output ) {
+	public function __construct( InputInterface $input, OutputInterface $output,
+		Store $dumpStore, Deserializer $entityDeserializer, QueryStoreWriter $queryStoreWriter ) {
+
 		$this->input = $input;
 		$this->output = $output;
+		$this->dumpStore = $dumpStore;
+		$this->entityDeserializer = $entityDeserializer;
+		$this->queryStoreWriter = $queryStoreWriter;
 	}
 
 	public function run() {
@@ -61,7 +87,68 @@ class ImportCommandExecutor {
 	}
 
 	private function importEntityPage( $importNumber, Page $entityPage ) {
-		$this->output->writeln( 'Importing entity ' . $importNumber . ': ' . $entityPage->getTitle() );
+		$this->output->write( 'Importing entity ' . $importNumber . ': ' . $entityPage->getTitle() . '... ' );
+
+		try {
+			$entity = $this->entityFromEntityPage( $entityPage );
+			$this->output->write( 'deserialized... ' );
+
+			if ( $entity->getType() !== 'item' ) {
+				$this->output->writeln( 'not an item - skipping.' );
+				return;
+			}
+
+			$this->insertIntoQueryStore( $entity );
+
+			$this->insertIntoDumpStore( $entityPage );
+		}
+		catch ( DeserializationException $ex ) {
+			$this->output->writeln( 'deserialization failed!' );
+			$this->output->writeln( $ex->getMessage() );
+		}
+		catch ( InsertFailedException $ex ) {
+			$this->output->writeln( 'insert failed!' );
+			$this->output->writeln( $ex->getMessage() );
+		}
+		catch ( \OutOfBoundsException $ex ) {
+			$this->output->writeln( 'insert failed!' );
+			$this->output->writeln( $ex->getMessage() );
+		}
+	}
+
+	private function insertIntoQueryStore( Entity $entity ) {
+		$this->queryStoreWriter->insertEntity( $entity );
+		$this->output->write( 'in query store...' );
+	}
+
+	private function insertIntoDumpStore( Page $entityPage ) {
+		$itemRow = $this->itemRowFromEntityPage( $entityPage );
+
+		$this->dumpStore->storeItemRow( $itemRow );
+		$this->output->writeln( 'in dump store.' );
+	}
+
+	private function itemRowFromEntityPage( Page $entityPage ) {
+		$revision = $entityPage->getRevision();
+
+		return new ItemRow(
+			42, // TODO
+			$revision->getText(),
+			$entityPage->getTitle(),
+			$revision->getId(),
+			$revision->getTimeStamp()
+		);
+	}
+
+	/**
+	 * @param Page $entityPage
+	 * @return Item
+	 * @throws DeserializationException
+	 */
+	private function entityFromEntityPage( Page $entityPage ) {
+		return $this->entityDeserializer->deserialize(
+			json_decode( $entityPage->getRevision()->getText(), true )
+		);
 	}
 
 }

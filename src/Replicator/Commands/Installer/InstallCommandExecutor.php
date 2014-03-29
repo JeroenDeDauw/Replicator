@@ -135,7 +135,6 @@ class InstallCommandExecutor {
 		$this->writeProgressEnd();
 	}
 
-
 	private function createQueryEngine() {
 		$this->writeProgress( 'Creating query engine' );
 
@@ -146,11 +145,15 @@ class InstallCommandExecutor {
 
 		// TODO: catch once QE supports proper exceptions
 		// TODO: report once QE supports detailed reporting
-		$installer->install();
+		try {
+			$installer->install();
+		}
+		catch ( TableCreationFailedException $ex ) {
+			throw new InstallationException( $ex->getMessage(), 0, $ex );
+		}
+
 
 		$this->writeProgressEnd();
 	}
-
-
 
 }

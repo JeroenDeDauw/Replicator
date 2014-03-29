@@ -2,9 +2,14 @@
 
 namespace QueryR\Replicator;
 
+use DataValues\Deserializers\DataValueDeserializer;
 use PDO;
 use Wikibase\Database\PDO\PDOFactory;
+use Wikibase\DataModel\Entity\BasicEntityIdParser;
+use Wikibase\Dump\Store\Store;
 use Wikibase\Dump\Store\StoreInstaller;
+use Wikibase\InternalSerialization\DeserializerFactory;
+use Wikibase\QueryEngine\SQLStore\DataValueHandlers;
 use Wikibase\QueryEngine\SQLStore\DVHandler\NumberHandler;
 use Wikibase\QueryEngine\SQLStore\SQLStore;
 use Wikibase\QueryEngine\SQLStore\StoreConfig;
@@ -19,17 +24,41 @@ class ServiceFactory {
 		return new self( $pdo, $dbName );
 	}
 
-	private $pdo;
+	/**
+	 * @var PDOFactory
+	 */
+	private $pdoFactory;
+
 	private $dbName;
 
 	private function __construct( PDO $pdo, $dbName ) {
-		$this->pdo = $pdo;
+		$this->pdoFactory = new PDOFactory( $pdo );
 		$this->dbName = $dbName;
 	}
 
+	public static function newFromConfig() {
+		// TODO: read from file
+		$user = 'replicator';
+		$password = 'queryisawesome';
+		$dbName = 'replicator';
+
+		// TODO: exception handling
+		$pdo = new PDO(
+			"mysql:dbname=$dbName;host=localhost;",
+			$user,
+			$password
+		);
+
+		return new self( $pdo, $dbName );
+	}
+
 	public function newQueryEngineInstaller() {
-		$sqlStore = new SQLStore( $this->newStoreConfig() );
+		$sqlStore = $this->newSqlStore();
 		return $sqlStore->newInstaller( $this->newTableBuilder() );
+	}
+
+	private function newSqlStore() {
+		 return new SQLStore( $this->newStoreConfig() );
 	}
 
 	public function newDumpStoreInstaller() {
@@ -37,12 +66,14 @@ class ServiceFactory {
 	}
 
 	private function newStoreConfig() {
+		$handlers = new DataValueHandlers();
+
+		$h = $handlers->getHandlers();
+
 		$config = new StoreConfig(
 			'QueryR Replicator QueryEngine',
 			'qr_',
-			array(
-				'number' => new NumberHandler()
-			)
+			$h
 		);
 
 		$config->setPropertyDataValueTypeLookup( new StubPropertyDataValueTypeLookup() );
@@ -51,8 +82,40 @@ class ServiceFactory {
 	}
 
 	private function newTableBuilder() {
-		$pdoFactory = new PDOFactory( $this->pdo );
-		return $pdoFactory->newMySQLTableBuilder( $this->dbName );
+		return $this->pdoFactory->newMySQLTableBuilder( $this->dbName );
+	}
+
+	public function newDumpStore() {
+		return new Store( $this->newQueryInterface() );
+	}
+
+	private function newQueryInterface() {
+		return $this->pdoFactory->newMySQLQueryInterface();
+	}
+
+	public function newEntityDeserializer() {
+		$dataValueClasses = array_merge(
+			$GLOBALS['evilDataValueMap'],
+			array(
+				'globecoordinate' => 'DataValues\GlobeCoordinateValue',
+				'monolingualtext' => 'DataValues\MonolingualTextValue',
+				'multilingualtext' => 'DataValues\MultilingualTextValue',
+				'quantity' => 'DataValues\QuantityValue',
+				'time' => 'DataValues\TimeValue',
+				'wikibase-entityid' => 'Wikibase\DataModel\Entity\EntityIdValue',
+			)
+		);
+
+		$factory = new DeserializerFactory(
+			new DataValueDeserializer( $dataValueClasses ),
+			new BasicEntityIdParser()
+		);
+
+		return $factory->newEntityDeserializer();
+	}
+
+	public function newQueryStoreWriter() {
+		return $this->newSqlStore()->newWriter( $this->newQueryInterface() );
 	}
 
 }

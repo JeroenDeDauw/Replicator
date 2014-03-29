@@ -34,7 +34,6 @@ class SqlExecutor {
 		$execResult = $this->pdo->exec( $sql );
 
 		if ( $execResult === false ) {
-			$this->writeProgress( 'failed.' );
 			throw new InstallationException(
 				'Error during operation "' . $message . '": ' . print_r( $this->pdo->errorInfo(), true )
 			);
