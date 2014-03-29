@@ -63,11 +63,11 @@ class Store {
 		$row = reset( $rows );
 
 		return new ItemRow(
-			$row['item_id'],
-			$row['item_json'],
-			$row['page_title'],
-			$row['revision_id'],
-			$row['revision_time']
+			$row->item_id,
+			$row->item_json,
+			$row->page_title,
+			$row->revision_id,
+			$row->revision_time
 		);
 	}
 
