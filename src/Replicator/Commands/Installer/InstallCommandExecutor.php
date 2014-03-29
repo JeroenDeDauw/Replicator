@@ -16,6 +16,10 @@ class InstallCommandExecutor {
 
 	private $input;
 	private $output;
+
+	/**
+	 * @var ServiceFactory
+	 */
 	private $factory;
 
 	/**
@@ -23,10 +27,9 @@ class InstallCommandExecutor {
 	 */
 	private $sqlExecutor;
 
-	public function __construct( InputInterface $input, OutputInterface $output, ServiceFactory $factory ) {
+	public function __construct( InputInterface $input, OutputInterface $output ) {
 		$this->input = $input;
 		$this->output = $output;
-		$this->factory = $factory;
 	}
 
 	public function run() {
@@ -35,6 +38,11 @@ class InstallCommandExecutor {
 		$this->sqlExecutor = new SqlExecutor( $this->input, $this->output );
 
 		try {
+			$this->factory = ServiceFactory::newForInstaller(
+				$this->sqlExecutor->getPDO(),
+				$this->input->getArgument( 'database' )
+			);
+
 			$this->createConfigFile();
 			$this->createDatabase();
 			$this->createDumpStore();
