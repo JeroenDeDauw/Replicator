@@ -19,7 +19,7 @@ class Replicator {
 		$app = new Application();
 
 		$app->setName( 'QueryR Replicator' );
-		$app->setVersion( '1.0.0 alpha' );
+		$app->setVersion( '0.1 alpha' );
 
 		$this->registerCommands( $app );
 
