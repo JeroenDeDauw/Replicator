@@ -18,8 +18,13 @@ A CLI application using the [Symfony Console component]
 [Get Composer](https://getcomposer.org/download/) and execute:
 
     composer install
-
     php app/replicator.php install root-db-user root-db-pwd new-db-name new-db-user new-user-pwd
+
+##### Removal
+
+This will remove Replicator from the system, without deleting the application files themselves.
+
+    php app/replicator.php uninstall root-db-user root-db-pwd
 
 ##### Usage
 
