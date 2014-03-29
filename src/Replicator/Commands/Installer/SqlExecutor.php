@@ -66,4 +66,9 @@ class SqlExecutor {
 		$this->writeProgressEnd();
 	}
 
+	public function getPDO() {
+		$this->establishConnectionIfNeeded();
+		return $this->pdo;
+	}
+
 }
