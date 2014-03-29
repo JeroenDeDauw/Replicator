@@ -13,7 +13,7 @@ class TestFixtureFactory {
 	public function newPDO() {
 		return new PDO(
 			'mysql:dbname=replicator_tests;host=localhost',
-			'replicator',
+			'replicator_tests',
 			'mysql_is_evil'
 		);
 	}
