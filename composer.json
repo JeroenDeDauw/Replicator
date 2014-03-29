@@ -4,8 +4,14 @@
 		"php": ">=5.5.0",
 		"wikibase/data-model": "0.7.*",
 		"wikibase/database": "dev-master",
-		"wikibase/internal-serialization": "~1.0@dev",
 		"wikibase/query-engine": "dev-master",
+
+		"wikibase/internal-serialization": "~1.0@dev",
+		"data-values/common": "*",
+		"data-values/geo": "*",
+		"data-values/number": "*",
+		"data-values/time": "*",
+
 		"symfony/console": "~2.3.11"
 	},
 	"require-dev": {
