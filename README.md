@@ -19,6 +19,8 @@ A CLI application using the [Symfony Console component]
 
     composer install
 
+    php app/replicator.php install root-db-user root-db-pwd new-db-name new-db-user new-user-pwd
+
 ##### Usage
 
 List of commands:
@@ -35,17 +37,17 @@ Import command help:
 
 ## Running the tests
 
-Setup test database
+Running the tests
+
+    phpunit
+
+Setup test database (optional, only needed for some integration tests)
 
     mysql --user root -p < tests/createTestDB.sql
 
 Drop test database
 
     mysql --user root -p < tests/dropTestDB.sql
-
-Running the tests
-
-    phpunit
 
 ## DumpReader
 
