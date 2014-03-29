@@ -1,2 +1,2 @@
 DROP DATABASE replicator_tests;
-DROP USER 'replicator'@'localhost';
+DROP USER 'replicator_tests'@'localhost';

@@ -3,7 +3,9 @@
 namespace QueryR\Replicator;
 
 use QueryR\Replicator\Commands\ImportCommand;
+use QueryR\Replicator\Commands\Installer\InstallCommand;
 use QueryR\Replicator\Commands\RunTestsCommand;
+use QueryR\Replicator\Commands\Installer\UninstallCommand;
 use Symfony\Component\Console\Application;
 
 /**
@@ -29,6 +31,8 @@ class Replicator {
 	private function registerCommands( Application $app ) {
 		$app->add( new RunTestsCommand() );
 		$app->add( new ImportCommand() );
+		$app->add( new InstallCommand() );
+		$app->add( new UninstallCommand() );
 	}
 
 }
