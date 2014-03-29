@@ -9,6 +9,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Wikibase\Dump\Reader\Page;
 use Wikibase\Dump\Reader\ReaderFactory;
 
+/**
+ * @licence GNU GPL v2+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 class ImportCommand extends Command {
 
 	protected function configure() {
@@ -23,17 +27,41 @@ class ImportCommand extends Command {
 	}
 
 	protected function execute( InputInterface $input, OutputInterface $output ) {
-		$dumpReaderFactory = new ReaderFactory();
+		$executor = new ImportCommandExecutor( $input, $output );
+		$executor->run();
+	}
 
-		$dumpReader = $dumpReaderFactory->newDumpReaderForFile( $input->getArgument( 'file' ) );
+}
+
+class ImportCommandExecutor {
+
+	private $input;
+	private $output;
+
+	public function __construct( InputInterface $input, OutputInterface $output ) {
+		$this->input = $input;
+		$this->output = $output;
+	}
+
+	public function run() {
+		$dumpReader = $this->newDumpReader();
 
 		/**
 		 * @var Page $entityPage
 		 */
 		foreach ( $dumpReader->getIterator() as $key => $entityPage ) {
-			// TODO
-			$output->writeln( 'Importing entity ' . $key . ': ' . $entityPage->getTitle() );
+			$this->importEntityPage( $key, $entityPage );
 		}
+	}
+
+	private function newDumpReader() {
+		$dumpReaderFactory = new ReaderFactory();
+
+		return $dumpReaderFactory->newDumpReaderForFile( $this->input->getArgument( 'file' ) );
+	}
+
+	private function importEntityPage( $importNumber, Page $entityPage ) {
+		$this->output->writeln( 'Importing entity ' . $importNumber . ': ' . $entityPage->getTitle() );
 	}
 
 }
