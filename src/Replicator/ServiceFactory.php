@@ -4,9 +4,7 @@ namespace QueryR\Replicator;
 
 use PDO;
 use Wikibase\Database\PDO\PDOFactory;
-use Wikibase\DataModel\Entity\PropertyId;
 use Wikibase\Dump\Store\StoreInstaller;
-use Wikibase\QueryEngine\PropertyDataValueTypeLookup;
 use Wikibase\QueryEngine\SQLStore\DVHandler\NumberHandler;
 use Wikibase\QueryEngine\SQLStore\SQLStore;
 use Wikibase\QueryEngine\SQLStore\StoreConfig;
@@ -16,6 +14,27 @@ use Wikibase\QueryEngine\SQLStore\StoreConfig;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class ServiceFactory {
+
+	public static function newForInstaller( PDO $pdo, $dbName ) {
+		return new self( $pdo, $dbName );
+	}
+
+	private $pdo;
+	private $dbName;
+
+	private function __construct( PDO $pdo, $dbName ) {
+		$this->pdo = $pdo;
+		$this->dbName = $dbName;
+	}
+
+	public function newQueryEngineInstaller() {
+		$sqlStore = new SQLStore( $this->newStoreConfig() );
+		return $sqlStore->newInstaller( $this->newTableBuilder() );
+	}
+
+	public function newDumpStoreInstaller() {
+		return new StoreInstaller( $this->newTableBuilder() );
+	}
 
 	private function newStoreConfig() {
 		$config = new StoreConfig(
@@ -31,26 +50,9 @@ class ServiceFactory {
 		return $config;
 	}
 
-	public function newQueryEngineInstaller( PDO $pdo, $dbName ) {
-		$sqlStore = new SQLStore( $this->newStoreConfig() );
-		return $sqlStore->newInstaller( $this->newTableBuilderFromArgs( $pdo, $dbName ) );
-	}
-
-	private function newTableBuilderFromArgs( PDO $pdo, $dbName ) {
-		$pdoFactory = new PDOFactory( $pdo );
-		return $pdoFactory->newMySQLTableBuilder( $dbName );
-	}
-
-	public function newDumpStoreInstaller( PDO $pdo, $dbName ) {
-		return new StoreInstaller( $this->newTableBuilderFromArgs( $pdo, $dbName ) );
-	}
-
-}
-
-class StubPropertyDataValueTypeLookup implements PropertyDataValueTypeLookup {
-
-	public function getDataValueTypeForProperty( PropertyId $propertyId ) {
-		return 'number';
+	private function newTableBuilder() {
+		$pdoFactory = new PDOFactory( $this->pdo );
+		return $pdoFactory->newMySQLTableBuilder( $this->dbName );
 	}
 
 }

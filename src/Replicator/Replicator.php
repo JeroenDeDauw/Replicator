@@ -20,16 +20,10 @@ class Replicator {
 	private $app;
 
 	/**
-	 * @var ServiceFactory
-	 */
-	private $factory;
-
-	/**
 	 * @return Application
 	 */
 	public function newApplication() {
 		$this->app = new Application();
-		$this->factory = new ServiceFactory();
 
 		$this->setApplicationInfo();
 		$this->registerCommands();
@@ -45,19 +39,9 @@ class Replicator {
 	private function registerCommands() {
 		$this->app->add( new RunTestsCommand() );
 		$this->app->add( new ImportCommand() );
-		$this->app->add( $this->newInstallCommand() );
+		$this->app->add( new InstallCommand() );
 		$this->app->add( new UninstallCommand() );
 	}
-
-	private function newInstallCommand() {
-		$install = new InstallCommand();
-
-		$install->setDependencies( $this->factory );
-
-		return $install;
-	}
-
-
 
 }
 
