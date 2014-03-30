@@ -12,7 +12,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 use RuntimeException;
 use Wikibase\Database\QueryInterface\InsertFailedException;
 use Wikibase\DataModel\Entity\Entity;
+use Wikibase\DataModel\Entity\EntityId;
 use Wikibase\DataModel\Entity\Item;
+use Wikibase\DataModel\Entity\ItemId;
 use Wikibase\Dump\Reader\Page;
 use Wikibase\Dump\Reader\ReaderFactory;
 use Wikibase\Dump\Store\ItemRow;
@@ -108,7 +110,7 @@ class ImportCommandExecutor {
 
 			$this->insertIntoQueryStore( $entity );
 
-			$this->insertIntoDumpStore( $entityPage );
+			$this->insertIntoDumpStore( $entityPage, $entity->getId() );
 		}
 		catch ( DeserializationException $ex ) {
 			$this->output->writeln( 'deserialization failed!' );
@@ -129,18 +131,18 @@ class ImportCommandExecutor {
 		$this->output->write( 'in query store...' );
 	}
 
-	private function insertIntoDumpStore( Page $entityPage ) {
-		$itemRow = $this->itemRowFromEntityPage( $entityPage );
+	private function insertIntoDumpStore( Page $entityPage, ItemId $id ) {
+		$itemRow = $this->itemRowFromEntityPage( $entityPage, $id );
 
 		$this->dumpStore->storeItemRow( $itemRow );
 		$this->output->writeln( 'in dump store.' );
 	}
 
-	private function itemRowFromEntityPage( Page $entityPage ) {
+	private function itemRowFromEntityPage( Page $entityPage, ItemId $id ) {
 		$revision = $entityPage->getRevision();
 
 		return new ItemRow(
-			42, // TODO
+			$id->getNumericId(),
 			$revision->getText(),
 			$entityPage->getTitle(),
 			$revision->getId(),
