@@ -9,6 +9,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use RuntimeException;
 use Wikibase\Database\QueryInterface\InsertFailedException;
 use Wikibase\DataModel\Entity\Entity;
 use Wikibase\DataModel\Entity\Item;
@@ -36,7 +37,14 @@ class ImportCommand extends Command {
 	}
 
 	protected function execute( InputInterface $input, OutputInterface $output ) {
-		$serviceFactory = ServiceFactory::newFromConfig();
+		try {
+			$serviceFactory = ServiceFactory::newFromConfig();
+		}
+		catch ( RuntimeException $ex ) {
+			$output->writeln( '<error>Could not instantiate the Replicator app</error>' );
+			$output->writeln( '<error>' . $ex->getMessage() . '</error>' );
+			return;
+		}
 
 		$executor = new ImportCommandExecutor(
 			$input,

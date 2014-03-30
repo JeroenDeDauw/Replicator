@@ -4,6 +4,7 @@ namespace QueryR\Replicator;
 
 use DataValues\Deserializers\DataValueDeserializer;
 use PDO;
+use RuntimeException;
 use Wikibase\Database\PDO\PDOFactory;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
 use Wikibase\Dump\Store\Store;
@@ -23,6 +24,10 @@ class ServiceFactory {
 		return new self( $pdo, $dbName );
 	}
 
+	/**
+	 * @return ServiceFactory
+	 * @throws RuntimeException
+	 */
 	public static function newFromConfig() {
 		$config = ConfigFile::newInstance()->read();
 
@@ -30,12 +35,18 @@ class ServiceFactory {
 		$password = $config['password'];
 		$dbName = $config['database'];
 
-		// TODO: exception handling
-		$pdo = new PDO(
-			"mysql:dbname=$dbName;host=localhost;",
-			$user,
-			$password
-		);
+		try {
+			$pdo = new PDO(
+				"mysql:dbname=$dbName;host=localhost;",
+				$user,
+				$password
+			);
+		}
+		catch ( \PDOException $ex ) {
+			throw new RuntimeException(
+				'Could not establish database connection: ' . $ex->getMessage()
+			);
+		}
 
 		return new self( $pdo, $dbName );
 	}
