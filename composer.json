@@ -32,5 +32,11 @@
 	},
 	"bin": [
 		"app/replicator.php"
+	],
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "/home/j/workspace/WikibaseQueryEngine"
+		}
 	]
 }

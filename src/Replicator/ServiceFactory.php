@@ -10,7 +10,6 @@ use Wikibase\Dump\Store\Store;
 use Wikibase\Dump\Store\StoreInstaller;
 use Wikibase\InternalSerialization\DeserializerFactory;
 use Wikibase\QueryEngine\SQLStore\DataValueHandlers;
-use Wikibase\QueryEngine\SQLStore\DVHandler\NumberHandler;
 use Wikibase\QueryEngine\SQLStore\SQLStore;
 use Wikibase\QueryEngine\SQLStore\StoreConfig;
 
@@ -24,6 +23,23 @@ class ServiceFactory {
 		return new self( $pdo, $dbName );
 	}
 
+	public static function newFromConfig() {
+		$config = ConfigFile::newInstance()->read();
+
+		$user = $config['user'];
+		$password = $config['password'];
+		$dbName = $config['database'];
+
+		// TODO: exception handling
+		$pdo = new PDO(
+			"mysql:dbname=$dbName;host=localhost;",
+			$user,
+			$password
+		);
+
+		return new self( $pdo, $dbName );
+	}
+
 	/**
 	 * @var PDOFactory
 	 */
@@ -34,22 +50,6 @@ class ServiceFactory {
 	private function __construct( PDO $pdo, $dbName ) {
 		$this->pdoFactory = new PDOFactory( $pdo );
 		$this->dbName = $dbName;
-	}
-
-	public static function newFromConfig() {
-		// TODO: read from file
-		$user = 'replicator';
-		$password = 'queryisawesome';
-		$dbName = 'replicator';
-
-		// TODO: exception handling
-		$pdo = new PDO(
-			"mysql:dbname=$dbName;host=localhost;",
-			$user,
-			$password
-		);
-
-		return new self( $pdo, $dbName );
 	}
 
 	public function newQueryEngineInstaller() {
