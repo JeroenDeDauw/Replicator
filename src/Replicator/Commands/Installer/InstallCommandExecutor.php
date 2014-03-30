@@ -2,6 +2,7 @@
 
 namespace QueryR\Replicator\Commands\Installer;
 
+use QueryR\Replicator\ConfigFile;
 use QueryR\Replicator\ServiceFactory;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -62,13 +63,11 @@ class InstallCommandExecutor {
 	private function createConfigFile() {
 		$this->writeProgress( 'Creating config file' );
 
-		$writeResult = @file_put_contents(
-			__DIR__ . '/../../replicator.json',
-			json_encode( $this->createConfigData(), JSON_PRETTY_PRINT )
-		);
-
-		if ( $writeResult === false ) {
-			throw new InstallationException( 'Could not write the config file' );
+		try {
+			ConfigFile::newInstance()->write( $this->createConfigData() );
+		}
+		catch ( \RuntimeException $ex ) {
+			throw new InstallationException( $ex->getMessage() );
 		}
 
 		$this->writeProgressEnd();

@@ -2,6 +2,7 @@
 
 namespace QueryR\Replicator\Commands\Installer;
 
+use QueryR\Replicator\ConfigFile;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -40,26 +41,28 @@ class UninstallCommandExecutor {
 	}
 
 	private function readConfigFromFile() {
-		$configJson = @file_get_contents( __DIR__ . '/../../replicator.json' );
-
-		if ( $configJson === false ) {
-			throw new InstallationException( 'Could not read the config file' );
+		try {
+			return ConfigFile::newInstance()->read();
 		}
-
-		return json_decode( $configJson );
+		catch ( \RuntimeException $ex ) {
+			throw new InstallationException( $ex->getMessage() );
+		}
 	}
 
 	private function dropDatabase() {
 		$config = $this->readConfigFromFile();
 
+		$dbName = $config['database'];
+		$user = $config['user'];
+
 		$this->sqlExecutor->exec(
-			"DROP DATABASE $config->database;",
-			'Dropping database "' . $config->database . '"'
+			"DROP DATABASE $dbName;",
+			'Dropping database "' . $dbName . '"'
 		);
 
 		$this->sqlExecutor->exec(
-			"DROP USER '$config->user'@'localhost';",
-			'Dropping user "' . $config->user . '"'
+			"DROP USER '$user'@'localhost';",
+			'Dropping user "' . $user . '"'
 		);
 	}
 
