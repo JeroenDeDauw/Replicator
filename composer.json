@@ -2,6 +2,10 @@
 	"name": "queryr/replicator",
 	"require": {
 		"php": ">=5.5.0",
+		"lib-libxml": "*",
+		"ext-mysql": "*",
+		"ext-PDO": "*",
+
 		"wikibase/data-model": "0.7.*",
 		"wikibase/database": "dev-master",
 		"wikibase/query-engine": "dev-master",
@@ -15,6 +19,7 @@
 		"symfony/console": "~2.3.11"
 	},
 	"require-dev": {
+		"ext-sqlite3": "*",
 		"phpunit/phpunit": "~4.0.0"
 	},
 	"minimum-stability": "dev",
