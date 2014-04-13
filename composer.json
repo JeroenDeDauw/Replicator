@@ -37,11 +37,5 @@
 	},
 	"bin": [
 		"app/replicator.php"
-	],
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/JeroenDeDauw/WikibaseQueryEngine.git"
-		}
 	]
 }
