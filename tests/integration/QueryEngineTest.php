@@ -17,6 +17,7 @@ use Wikibase\DataModel\Entity\PropertyId;
 use Wikibase\DataModel\Snak\PropertyValueSnak;
 use Wikibase\QueryEngine\PropertyDataValueTypeLookup;
 use Wikibase\QueryEngine\QueryEngine;
+use Wikibase\QueryEngine\QueryEngineException;
 use Wikibase\QueryEngine\QueryStoreWriter;
 use Wikibase\QueryEngine\SQLStore\DVHandler\NumberHandler;
 use Wikibase\QueryEngine\SQLStore\SQLStore;
@@ -48,7 +49,7 @@ class QueryEngineTest extends \PHPUnit_Framework_TestCase {
 		try {
 			$sqlStore->newUninstaller( $tableBuilder )->uninstall();
 		}
-		catch ( TableDeletionFailedException $ex ) {}
+		catch ( QueryEngineException $ex ) {}
 
 		$sqlStore->newInstaller( $tableBuilder )->install();
 
