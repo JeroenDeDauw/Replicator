@@ -1,6 +1,6 @@
 <?php
 
-namespace Wikibase\Dump\Reader;
+namespace QueryR\Dump\Reader;
 
 use Iterator;
 

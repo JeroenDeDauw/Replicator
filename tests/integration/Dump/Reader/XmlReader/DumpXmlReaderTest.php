@@ -1,14 +1,14 @@
 <?php
 
-namespace Tests\Wikibase\Dump\Reader;
+namespace Tests\QueryR\Dump\Reader;
 
-use Wikibase\Dump\Reader\Page;
-use Wikibase\Dump\Reader\DumpReader;
-use Wikibase\Dump\Reader\XmlReader\DumpXmlReader;
-use Wikibase\Dump\Reader\Revision;
+use QueryR\Dump\Reader\Page;
+use QueryR\Dump\Reader\DumpReader;
+use QueryR\Dump\Reader\XmlReader\DumpXmlReader;
+use QueryR\Dump\Reader\Revision;
 
 /**
- * @covers Wikibase\Dump\Reader\XmlReader\DumpXmlReader
+ * @covers QueryR\Dump\Reader\XmlReader\DumpXmlReader
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
@@ -39,7 +39,7 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 		/**
 		 * @var Page $entityPage
 		 */
-		$this->assertInstanceOf( 'Wikibase\Dump\Reader\Page', $entityPage );
+		$this->assertInstanceOf( 'QueryR\Dump\Reader\Page', $entityPage );
 
 		$revision = $entityPage->getRevision();
 
@@ -92,7 +92,7 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 		$reader = $this->newReaderForFile( 'simple/two-items.xml' )->getIterator();
 
 		$this->assertCount( 2, iterator_to_array( $reader ) );
-		$this->assertContainsOnlyInstancesOf( 'Wikibase\Dump\Reader\Page', $reader );
+		$this->assertContainsOnlyInstancesOf( 'QueryR\Dump\Reader\Page', $reader );
 	}
 
 	public function testCanUseAsTraversable() {
@@ -127,7 +127,7 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 	public function testGivenItemWithoutRevision_exceptionInThrown() {
 		$reader = $this->newReaderForFile( 'invalid/item-without-revision.xml' );
 
-		$this->setExpectedException( 'Wikibase\Dump\Reader\DumpReaderException' );
+		$this->setExpectedException( 'QueryR\Dump\Reader\DumpReaderException' );
 		$reader->nextEntityPage();
 	}
 

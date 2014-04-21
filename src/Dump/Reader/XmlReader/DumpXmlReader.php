@@ -1,10 +1,10 @@
 <?php
 
-namespace Wikibase\Dump\Reader\XmlReader;
+namespace QueryR\Dump\Reader\XmlReader;
 
-use Wikibase\Dump\Reader\Page;
-use Wikibase\Dump\Reader\DumpReader;
-use Wikibase\Dump\Reader\DumpReaderException;
+use QueryR\Dump\Reader\Page;
+use QueryR\Dump\Reader\DumpReader;
+use QueryR\Dump\Reader\DumpReaderException;
 use XMLReader;
 
 /**

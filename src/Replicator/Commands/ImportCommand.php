@@ -16,8 +16,8 @@ use Wikibase\Database\QueryInterface\InsertFailedException;
 use Wikibase\DataModel\Entity\Entity;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\DataModel\Entity\ItemId;
-use Wikibase\Dump\Reader\Page;
-use Wikibase\Dump\Reader\ReaderFactory;
+use QueryR\Dump\Reader\Page;
+use QueryR\Dump\Reader\ReaderFactory;
 use Wikibase\QueryEngine\QueryStoreWriter;
 
 /**

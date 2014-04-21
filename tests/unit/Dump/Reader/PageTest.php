@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Wikibase\Dump\Reader;
+namespace Tests\QueryR\Dump\Reader;
 
-use Wikibase\Dump\Reader\Page;
+use QueryR\Dump\Reader\Page;
 
 /**
- * @covers Wikibase\Dump\Page
+ * @covers QueryR\Dump\Reader\Page
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
@@ -16,7 +16,7 @@ class PageTest extends \PHPUnit_Framework_TestCase {
 		$id = 42;
 		$title = 'Q42';
 		$namespace = 0;
-		$revision = $this->getMockBuilder( 'Wikibase\Dump\Reader\Revision' )
+		$revision = $this->getMockBuilder( 'QueryR\Dump\Reader\Revision' )
 			->disableOriginalConstructor()->getMock();
 
 		$page = new Page( $id, $title, $namespace, $revision );
@@ -28,7 +28,7 @@ class PageTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGivenStringIdAndNs_gettersReturnIntegers() {
-		$revision = $this->getMockBuilder( 'Wikibase\Dump\Reader\Revision' )
+		$revision = $this->getMockBuilder( 'QueryR\Dump\Reader\Revision' )
 			->disableOriginalConstructor()->getMock();
 
 		$page = new Page( '42', 'Q42', '1', $revision );

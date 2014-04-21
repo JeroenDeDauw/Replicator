@@ -1,9 +1,9 @@
 <?php
 
-namespace Wikibase\Dump\Reader\XmlReader;
+namespace QueryR\Dump\Reader\XmlReader;
 
 use DOMNode;
-use Wikibase\Dump\Reader\Revision;
+use QueryR\Dump\Reader\Revision;
 use XMLReader;
 
 /**

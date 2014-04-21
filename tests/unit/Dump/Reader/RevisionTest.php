@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Wikibase\Dump\Reader;
+namespace Tests\QueryR\Dump\Reader;
 
-use Wikibase\Dump\Reader\Revision;
+use QueryR\Dump\Reader\Revision;
 
 /**
- * @covers Wikibase\Dump\Revision
+ * @covers QueryR\Dump\Reader\Revision
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
