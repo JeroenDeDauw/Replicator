@@ -6,6 +6,8 @@
 		"ext-mysql": "*",
 		"ext-PDO": "*",
 
+		"queryr/dump-store": "dev-master",
+
 		"wikibase/data-model": "0.7.*",
 		"wikibase/database": "dev-master",
 		"wikibase/query-engine": "dev-master",
@@ -26,8 +28,7 @@
 	"autoload": {
 		"psr-4": {
 			"Wikibase\\Dump\\": "src/Dump/",
-			"QueryR\\Replicator\\": "src/Replicator/",
-			"Tests\\Fixtures\\": "tests/fixtures/"
+			"QueryR\\Replicator\\": "src/Replicator/"
 		}
 	},
 	"extra": {
@@ -37,5 +38,11 @@
 	},
 	"bin": [
 		"app/replicator.php"
+	],
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "git@github.com:Queryr/DumpStore.git"
+		}
 	]
 }
