@@ -4,6 +4,8 @@ namespace QueryR\Replicator\Commands;
 
 use Deserializers\Deserializer;
 use Deserializers\Exceptions\DeserializationException;
+use QueryR\Dump\Store\ItemRow;
+use QueryR\Dump\Store\Store;
 use QueryR\Replicator\ServiceFactory;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -12,13 +14,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 use RuntimeException;
 use Wikibase\Database\QueryInterface\InsertFailedException;
 use Wikibase\DataModel\Entity\Entity;
-use Wikibase\DataModel\Entity\EntityId;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\DataModel\Entity\ItemId;
 use Wikibase\Dump\Reader\Page;
 use Wikibase\Dump\Reader\ReaderFactory;
-use Wikibase\Dump\Store\ItemRow;
-use Wikibase\Dump\Store\Store;
 use Wikibase\QueryEngine\QueryStoreWriter;
 
 /**
