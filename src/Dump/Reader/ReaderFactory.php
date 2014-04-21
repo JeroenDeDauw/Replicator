@@ -1,8 +1,8 @@
 <?php
 
-namespace Wikibase\Dump\Reader;
+namespace QueryR\Dump\Reader;
 
-use Wikibase\Dump\Reader\XmlReader\DumpXmlReader;
+use QueryR\Dump\Reader\XmlReader\DumpXmlReader;
 
 /**
  * @licence GNU GPL v2+

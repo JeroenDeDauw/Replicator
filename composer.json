@@ -27,8 +27,7 @@
 	"minimum-stability": "dev",
 	"autoload": {
 		"psr-4": {
-			"Wikibase\\Dump\\": "src/Dump/",
-			"QueryR\\Replicator\\": "src/Replicator/"
+			"QueryR\\": "src/"
 		}
 	},
 	"extra": {
