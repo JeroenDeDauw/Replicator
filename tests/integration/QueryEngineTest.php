@@ -58,7 +58,7 @@ class QueryEngineTest extends \PHPUnit_Framework_TestCase {
 
 	private function newPDO() {
 		try {
-			return $this->pdo = TestFixtureFactory::newInstance()->newPDO();
+			return TestFixtureFactory::newInstance()->newPDO();
 		}
 		catch ( \PDOException $ex ) {
 			$this->markTestSkipped( 'Test not run, presumably the database is not set up: ' . $ex->getMessage() );
