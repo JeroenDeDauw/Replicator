@@ -18,7 +18,7 @@
 		"data-values/number": "*",
 		"data-values/time": "*",
 
-		"symfony/console": "~2.3.11"
+		"symfony/console": "~2.4.4"
 	},
 	"require-dev": {
 		"ext-sqlite3": "*"

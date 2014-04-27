@@ -1,8 +1,9 @@
 <?php
 
-namespace Queryr\Replicator\Importer;
+namespace Queryr\Replicator\Importer\Console;
 
 use Queryr\Dump\Reader\ReaderFactory;
+use Queryr\Replicator\Importer\PageImporter;
 use Queryr\Replicator\ServiceFactory;
 use RuntimeException;
 use Symfony\Component\Console\Command\Command;
@@ -58,7 +59,7 @@ class ImportCommand extends Command {
 			$serviceFactory->newDumpStore(),
 			$serviceFactory->newEntityDeserializer(),
 			$serviceFactory->newQueryStoreWriter(),
-			new ConsoleImportReporter( $output )
+			$output->isVerbose() ? new VerboseReporter( $output ) : new SimpleReporter( $output )
 		);
 	}
 

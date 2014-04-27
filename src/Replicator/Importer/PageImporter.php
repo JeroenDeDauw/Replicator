@@ -7,7 +7,6 @@ use Deserializers\Exceptions\DeserializationException;
 use Queryr\Dump\Reader\Page;
 use Queryr\Dump\Store\ItemRow;
 use Queryr\Dump\Store\Store;
-use Queryr\Replicator\Commands\ProgressTrait;
 use Wikibase\DataModel\Entity\Entity;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\QueryEngine\QueryStoreWriter;
