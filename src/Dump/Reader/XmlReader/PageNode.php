@@ -3,8 +3,8 @@
 namespace Queryr\Dump\Reader\XmlReader;
 
 use DOMNode;
-use Queryr\Dump\Reader\Page;
 use Queryr\Dump\Reader\DumpReaderException;
+use Queryr\Dump\Reader\Page;
 use Queryr\Dump\Reader\Revision;
 use XMLReader;
 
