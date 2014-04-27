@@ -24,7 +24,7 @@ Clone the git repository and move into its directory.
 
 If you just downloaded the composer.phar executable, the install command works as follows:
 
-    php composer.pharg install
+    php composer.phar install
 
 ##### Removal
 
