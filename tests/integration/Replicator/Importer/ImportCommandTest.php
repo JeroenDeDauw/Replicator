@@ -2,11 +2,11 @@
 
 namespace Tests\Queryr\Replicator\Commands;
 
-use Queryr\Replicator\Importer\ImportCommand;
+use Queryr\Replicator\Importer\Console\ImportCommand;
 use Symfony\Component\Console\Tester\CommandTester;
 
 /**
- * @covers Queryr\Replicator\Importer\ImportCommand
+ * @covers Queryr\Replicator\Importer\Console\ImportCommand
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >

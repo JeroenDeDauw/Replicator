@@ -40,7 +40,7 @@ List of commands:
 
 Importing an XML dump:
 
-    php app/replicator.php import tests/data/big/5341-revs-3-props.xml
+    php app/replicator.php import tests/data/big/5341-revs-3-props.xml -v
 
 Import command help:
 

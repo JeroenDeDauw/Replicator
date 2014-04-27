@@ -1,7 +1,7 @@
 <?php
 
 namespace Queryr\Replicator;
-use Queryr\Replicator\Importer\ImportCommand;
+use Queryr\Replicator\Importer\Console\ImportCommand;
 use Queryr\Replicator\Installer\InstallCommand;
 use Queryr\Replicator\Installer\UninstallCommand;
 use Symfony\Component\Console\Application;
