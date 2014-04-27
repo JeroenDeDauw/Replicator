@@ -21,8 +21,7 @@
 		"symfony/console": "~2.3.11"
 	},
 	"require-dev": {
-		"ext-sqlite3": "*",
-		"phpunit/phpunit": "~4.0.0"
+		"ext-sqlite3": "*"
 	},
 	"minimum-stability": "dev",
 	"autoload": {
