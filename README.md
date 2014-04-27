@@ -26,6 +26,11 @@ If you just downloaded the composer.phar executable, the install command works a
 
     php composer.phar install
 
+#### Updating
+
+    git pull
+    composer update
+
 ##### Removal
 
 This will remove Replicator from the system, without deleting the application files themselves.
