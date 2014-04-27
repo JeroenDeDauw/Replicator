@@ -1,6 +1,6 @@
 <?php
 
-namespace QueryR\Replicator\Commands\Installer;
+namespace Queryr\Replicator\Commands\Installer;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;

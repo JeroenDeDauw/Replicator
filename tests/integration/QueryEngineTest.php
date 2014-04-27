@@ -6,7 +6,7 @@ use Ask\Language\Description\SomeProperty;
 use Ask\Language\Description\ValueDescription;
 use Ask\Language\Option\QueryOptions;
 use DataValues\NumberValue;
-use Tests\QueryR\Replicator\Fixtures\TestFixtureFactory;
+use Tests\Queryr\Replicator\Fixtures\TestFixtureFactory;
 use Wikibase\Database\PDO\PDOFactory;
 use Wikibase\DataModel\Claim\Statement;
 use Wikibase\DataModel\Entity\EntityIdValue;

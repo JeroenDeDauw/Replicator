@@ -1,11 +1,11 @@
 <?php
 
-namespace QueryR\Replicator;
+namespace Queryr\Replicator;
 
 use DataValues\Deserializers\DataValueDeserializer;
 use PDO;
-use QueryR\Dump\Store\Store;
-use QueryR\Dump\Store\StoreInstaller;
+use Queryr\Dump\Store\Store;
+use Queryr\Dump\Store\StoreInstaller;
 use RuntimeException;
 use Wikibase\Database\PDO\PDOFactory;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;

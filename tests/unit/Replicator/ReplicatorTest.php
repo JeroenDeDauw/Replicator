@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\QueryR\Replicator;
+namespace Tests\Queryr\Replicator;
 
-use QueryR\Replicator\Replicator;
+use Queryr\Replicator\Replicator;
 
 /**
- * @covers QueryR\Replicator\Replicator
+ * @covers Queryr\Replicator\Replicator
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
