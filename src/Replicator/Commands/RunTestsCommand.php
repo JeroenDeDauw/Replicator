@@ -20,7 +20,7 @@ class RunTestsCommand extends Command {
 	protected function execute( InputInterface $input, OutputInterface $output ) {
 		$pwd = getcwd();
 		chdir( __DIR__ . '/../../..' );
-		passthru( 'php vendor/bin/phpunit' );
+		passthru( 'phpunit' );
 		chdir( $pwd );
 	}
 
