@@ -2,6 +2,7 @@
 
 namespace Queryr\Replicator\Commands\Importer;
 
+use Queryr\Dump\Reader\ReaderFactory;
 use Queryr\Replicator\ServiceFactory;
 use RuntimeException;
 use Symfony\Component\Console\Command\Command;
@@ -36,15 +37,29 @@ class ImportCommand extends Command {
 			return;
 		}
 
-		$executor = new ImportCommandExecutor(
-			$input,
-			$output,
+		$importer = $this->newImporter( $serviceFactory, $output );
+
+		foreach ( $this->getDumpIterator( $input ) as $entityPage ) {
+			$importer->import( $entityPage );
+		}
+	}
+
+	private function getDumpIterator( InputInterface $input ) {
+		return $this->newDumpReader( $input->getArgument( 'file' ) )->getIterator();
+	}
+
+	private function newDumpReader( $file ) {
+		$dumpReaderFactory = new ReaderFactory();
+		return $dumpReaderFactory->newDumpReaderForFile( $file );
+	}
+
+	private function newImporter( ServiceFactory $serviceFactory, OutputInterface $output ) {
+		return new PageImporter(
 			$serviceFactory->newDumpStore(),
 			$serviceFactory->newEntityDeserializer(),
-			$serviceFactory->newQueryStoreWriter()
+			$serviceFactory->newQueryStoreWriter(),
+			new ConsoleImportReporter( $output )
 		);
-
-		$executor->run();
 	}
 
 }
