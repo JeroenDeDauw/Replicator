@@ -2,9 +2,9 @@
 
 namespace Queryr\Dump\Reader\XmlReader;
 
-use Queryr\Dump\Reader\Page;
 use Queryr\Dump\Reader\DumpReader;
 use Queryr\Dump\Reader\DumpReaderException;
+use Queryr\Dump\Reader\Page;
 use XMLReader;
 
 /**
