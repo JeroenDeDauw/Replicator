@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\QueryR\Dump\Reader;
+namespace Tests\Queryr\Dump\Reader;
 
-use QueryR\Dump\Reader\DumpIterator;
-use QueryR\Dump\Reader\XmlReader\DumpXmlReader;
+use Queryr\Dump\Reader\DumpIterator;
+use Queryr\Dump\Reader\XmlReader\DumpXmlReader;
 
 /**
- * @covers QueryR\Dump\Reader\DumpIterator
+ * @covers Queryr\Dump\Reader\DumpIterator
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
@@ -17,7 +17,7 @@ class DumpIteratorTest extends \PHPUnit_Framework_TestCase {
 		$iterator = new DumpIterator( new DumpXmlReader( $this->getFilePath( 'simple/two-items.xml' ) ) );
 
 		$this->assertCount( 2, iterator_to_array( $iterator ) );
-		$this->assertContainsOnlyInstancesOf( 'QueryR\Dump\Reader\Page', $iterator );
+		$this->assertContainsOnlyInstancesOf( 'Queryr\Dump\Reader\Page', $iterator );
 	}
 
 	private function getFilePath( $fileName ) {

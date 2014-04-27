@@ -1,9 +1,9 @@
 <?php
 
-namespace QueryR\Replicator\Commands\Installer;
+namespace Queryr\Replicator\Commands\Installer;
 
-use QueryR\Replicator\ConfigFile;
-use QueryR\Replicator\ServiceFactory;
+use Queryr\Replicator\ConfigFile;
+use Queryr\Replicator\ServiceFactory;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Wikibase\Database\Schema\TableCreationFailedException;

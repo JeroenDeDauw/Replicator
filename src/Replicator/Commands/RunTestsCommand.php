@@ -1,6 +1,6 @@
 <?php
 
-namespace QueryR\Replicator\Commands;
+namespace Queryr\Replicator\Commands;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

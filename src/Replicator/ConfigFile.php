@@ -1,6 +1,6 @@
 <?php
 
-namespace QueryR\Replicator;
+namespace Queryr\Replicator;
 
 use RuntimeException;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace QueryR\Dump\Reader;
+namespace Queryr\Dump\Reader;
 
 /**
  * @licence GNU GPL v2+

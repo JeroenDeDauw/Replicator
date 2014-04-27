@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\QueryR\Replicator\Fixtures;
+namespace Tests\Queryr\Replicator\Fixtures;
 
 use PDO;
 

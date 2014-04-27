@@ -1,6 +1,6 @@
 <?php
 
-namespace QueryR\Replicator;
+namespace Queryr\Replicator;
 
 use Wikibase\DataModel\Entity\PropertyId;
 use Wikibase\QueryEngine\PropertyDataValueTypeLookup;

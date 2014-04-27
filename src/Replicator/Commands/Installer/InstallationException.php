@@ -1,5 +1,5 @@
 <?php
 
-namespace QueryR\Replicator\Commands\Installer;
+namespace Queryr\Replicator\Commands\Installer;
 
 class InstallationException extends \RuntimeException {}

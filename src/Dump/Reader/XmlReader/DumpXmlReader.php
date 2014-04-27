@@ -1,10 +1,10 @@
 <?php
 
-namespace QueryR\Dump\Reader\XmlReader;
+namespace Queryr\Dump\Reader\XmlReader;
 
-use QueryR\Dump\Reader\Page;
-use QueryR\Dump\Reader\DumpReader;
-use QueryR\Dump\Reader\DumpReaderException;
+use Queryr\Dump\Reader\Page;
+use Queryr\Dump\Reader\DumpReader;
+use Queryr\Dump\Reader\DumpReaderException;
 use XMLReader;
 
 /**

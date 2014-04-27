@@ -15,4 +15,4 @@ if ( !is_readable( __DIR__ . '/../vendor/autoload.php' ) ) {
 
 $loader = require_once( __DIR__ . '/../vendor/autoload.php' );
 
-$loader->addPsr4( 'Tests\\QueryR\\Replicator\\Fixtures\\', 'tests/fixtures' );
+$loader->addPsr4( 'Tests\\Queryr\\Replicator\\Fixtures\\', 'tests/fixtures' );

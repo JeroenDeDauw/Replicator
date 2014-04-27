@@ -1,12 +1,12 @@
 <?php
 
-namespace QueryR\Replicator\Commands\Importer;
+namespace Queryr\Replicator\Commands\Importer;
 
 use Deserializers\Deserializer;
 use Deserializers\Exceptions\DeserializationException;
-use QueryR\Dump\Store\ItemRow;
-use QueryR\Dump\Store\Store;
-use QueryR\Replicator\ServiceFactory;
+use Queryr\Dump\Store\ItemRow;
+use Queryr\Dump\Store\Store;
+use Queryr\Replicator\ServiceFactory;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -16,8 +16,8 @@ use Wikibase\Database\QueryInterface\InsertFailedException;
 use Wikibase\DataModel\Entity\Entity;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\DataModel\Entity\ItemId;
-use QueryR\Dump\Reader\Page;
-use QueryR\Dump\Reader\ReaderFactory;
+use Queryr\Dump\Reader\Page;
+use Queryr\Dump\Reader\ReaderFactory;
 use Wikibase\QueryEngine\QueryStoreWriter;
 
 /**

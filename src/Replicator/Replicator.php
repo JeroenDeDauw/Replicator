@@ -1,11 +1,11 @@
 <?php
 
-namespace QueryR\Replicator;
+namespace Queryr\Replicator;
 
-use QueryR\Replicator\Commands\Importer\ImportCommand;
-use QueryR\Replicator\Commands\Installer\InstallCommand;
-use QueryR\Replicator\Commands\Installer\UninstallCommand;
-use QueryR\Replicator\Commands\RunTestsCommand;
+use Queryr\Replicator\Commands\Importer\ImportCommand;
+use Queryr\Replicator\Commands\Installer\InstallCommand;
+use Queryr\Replicator\Commands\Installer\UninstallCommand;
+use Queryr\Replicator\Commands\RunTestsCommand;
 use Symfony\Component\Console\Application;
 
 /**

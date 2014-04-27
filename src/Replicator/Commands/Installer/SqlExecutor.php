@@ -1,6 +1,6 @@
 <?php
 
-namespace QueryR\Replicator\Commands\Installer;
+namespace Queryr\Replicator\Commands\Installer;
 
 use PDO;
 use Symfony\Component\Console\Input\InputInterface;
