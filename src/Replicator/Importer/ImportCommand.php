@@ -1,6 +1,6 @@
 <?php
 
-namespace Queryr\Replicator\Commands\Importer;
+namespace Queryr\Replicator\Importer;
 
 use Queryr\Dump\Reader\ReaderFactory;
 use Queryr\Replicator\ServiceFactory;

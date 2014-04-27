@@ -1,9 +1,8 @@
 <?php
 
-namespace Queryr\Replicator\Commands\Installer;
+namespace Queryr\Replicator\Installer;
 
 use PDO;
-use Queryr\Replicator\Commands\ProgressTrait;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
