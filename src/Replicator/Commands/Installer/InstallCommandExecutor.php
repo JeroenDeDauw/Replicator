@@ -2,6 +2,7 @@
 
 namespace Queryr\Replicator\Commands\Installer;
 
+use Queryr\Replicator\Commands\ProgressTrait;
 use Queryr\Replicator\ConfigFile;
 use Queryr\Replicator\ServiceFactory;
 use Symfony\Component\Console\Input\InputInterface;

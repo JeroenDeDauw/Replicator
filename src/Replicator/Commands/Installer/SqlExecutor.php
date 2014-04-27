@@ -3,6 +3,7 @@
 namespace Queryr\Replicator\Commands\Installer;
 
 use PDO;
+use Queryr\Replicator\Commands\ProgressTrait;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
