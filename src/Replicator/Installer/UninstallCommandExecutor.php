@@ -1,8 +1,7 @@
 <?php
 
-namespace Queryr\Replicator\Commands\Installer;
+namespace Queryr\Replicator\Installer;
 
-use Queryr\Replicator\Commands\ProgressTrait;
 use Queryr\Replicator\ConfigFile;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

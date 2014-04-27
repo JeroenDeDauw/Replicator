@@ -1,6 +1,6 @@
 <?php
 
-namespace Queryr\Replicator\Commands\Importer;
+namespace Queryr\Replicator\Importer;
 
 /**
  * @licence GNU GPL v2+
