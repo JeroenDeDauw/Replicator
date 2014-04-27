@@ -15,10 +15,16 @@ A CLI application using the [Symfony Console component]
 
 ##### Installation
 
+Clone the git repository and move into its directory.
+
 [Get Composer](https://getcomposer.org/download/) and execute:
 
     composer install
     php app/replicator.php install root-db-user root-db-pwd new-db-name new-db-user new-user-pwd
+
+If you just downloaded the composer.phar executable, the install command works as follows:
+
+    php composer.pharg install
 
 ##### Removal
 
