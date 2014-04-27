@@ -1,6 +1,6 @@
 <?php
 
-namespace QueryR\Replicator\Commands;
+namespace QueryR\Replicator\Commands\Importer;
 
 use Deserializers\Deserializer;
 use Deserializers\Exceptions\DeserializationException;

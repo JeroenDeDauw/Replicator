@@ -2,7 +2,7 @@
 
 namespace QueryR\Replicator;
 
-use QueryR\Replicator\Commands\ImportCommand;
+use QueryR\Replicator\Commands\Importer\ImportCommand;
 use QueryR\Replicator\Commands\Installer\InstallCommand;
 use QueryR\Replicator\Commands\Installer\UninstallCommand;
 use QueryR\Replicator\Commands\RunTestsCommand;
