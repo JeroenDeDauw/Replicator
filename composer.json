@@ -8,7 +8,7 @@
 
 		"queryr/dump-store": "dev-master",
 
-		"wikibase/data-model": "0.7.*",
+		"wikibase/data-model": "~0.7.4",
 		"wikibase/database": "dev-master",
 		"wikibase/query-engine": "dev-master",
 
