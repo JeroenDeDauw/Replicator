@@ -3,6 +3,9 @@
 namespace Queryr\Replicator;
 
 use DataValues\Deserializers\DataValueDeserializer;
+use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\DBALException;
+use Doctrine\DBAL\DriverManager;
 use PDO;
 use Queryr\Dump\Store\Store;
 use Queryr\Dump\Store\StoreInstaller;
@@ -11,8 +14,10 @@ use Wikibase\Database\PDO\PDOFactory;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
 use Wikibase\InternalSerialization\DeserializerFactory;
 use Wikibase\QueryEngine\SQLStore\DataValueHandlers;
+use Wikibase\QueryEngine\SQLStore\DataValueHandlersBuilder;
 use Wikibase\QueryEngine\SQLStore\SQLStore;
 use Wikibase\QueryEngine\SQLStore\StoreConfig;
+use Wikibase\QueryEngine\SQLStore\StoreSchema;
 
 /**
  * @licence GNU GPL v2+
@@ -20,8 +25,8 @@ use Wikibase\QueryEngine\SQLStore\StoreConfig;
  */
 class ServiceFactory {
 
-	public static function newForInstaller( PDO $pdo, $dbName ) {
-		return new self( $pdo, $dbName );
+	public static function newForInstaller( Connection $connection ) {
+		return new self( $connection );
 	}
 
 	/**
@@ -31,77 +36,57 @@ class ServiceFactory {
 	public static function newFromConfig() {
 		$config = ConfigFile::newInstance()->read();
 
-		$user = $config['user'];
-		$password = $config['password'];
-		$dbName = $config['database'];
-
 		try {
-			$pdo = new PDO(
-				"mysql:dbname=$dbName;host=localhost;",
-				$user,
-				$password
-			);
+			$connection = DriverManager::getConnection( array(
+				'driver' => 'pdo_mysql',
+				'user' => $config['user'],
+				'password' => $config['password'],
+				'host' => 'localhost',
+				'dbname' => $config['database'],
+				'port' => '3306'
+			) );
 		}
-		catch ( \PDOException $ex ) {
+		catch ( DBALException $ex ) {
 			throw new RuntimeException(
 				'Could not establish database connection: ' . $ex->getMessage()
 			);
 		}
 
-		return new self( $pdo, $dbName );
+		return new self( $connection );
 	}
 
-	/**
-	 * @var PDOFactory
-	 */
-	private $pdoFactory;
+	private $connection;
 
-	private $dbName;
-
-	private function __construct( PDO $pdo, $dbName ) {
-		$this->pdoFactory = new PDOFactory( $pdo );
-		$this->dbName = $dbName;
+	private function __construct( Connection $connection ) {
+		$this->connection = $connection;
 	}
 
 	public function newQueryEngineInstaller() {
 		$sqlStore = $this->newSqlStore();
-		return $sqlStore->newInstaller( $this->newTableBuilder() );
+		return $sqlStore->newInstaller( $this->connection->getSchemaManager() );
 	}
 
 	private function newSqlStore() {
-		 return new SQLStore( $this->newStoreConfig() );
+		$handlers = new DataValueHandlersBuilder();
+
+		$schema = new StoreSchema(
+			'qr_',
+			$handlers->withSimpleHandlers()
+				->withEntityIdHandler( new BasicEntityIdParser() )
+				->getHandlers()
+		);
+
+		$config = new StoreConfig( 'QueryR Replicator QueryEngine' );
+
+		return new SQLStore( $schema, $config );
 	}
 
 	public function newDumpStoreInstaller() {
 		return new StoreInstaller( $this->newTableBuilder() );
 	}
 
-	private function newStoreConfig() {
-		$handlers = new DataValueHandlers();
-
-		$h = $handlers->getHandlers();
-
-		$config = new StoreConfig(
-			'QueryR Replicator QueryEngine',
-			'qr_',
-			$h
-		);
-
-		$config->setPropertyDataValueTypeLookup( new StubPropertyDataValueTypeLookup() );
-
-		return $config;
-	}
-
-	private function newTableBuilder() {
-		return $this->pdoFactory->newMySQLTableBuilder( $this->dbName );
-	}
-
 	public function newDumpStore() {
 		return new Store( $this->newQueryInterface() );
-	}
-
-	private function newQueryInterface() {
-		return $this->pdoFactory->newMySQLQueryInterface();
 	}
 
 	public function newEntityDeserializer() {
@@ -126,7 +111,7 @@ class ServiceFactory {
 	}
 
 	public function newQueryStoreWriter() {
-		return $this->newSqlStore()->newWriter( $this->newQueryInterface() );
+		return $this->newSqlStore()->newWriter( $this->connection );
 	}
 
 }
