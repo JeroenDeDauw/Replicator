@@ -2,11 +2,13 @@
 
 namespace Queryr\Replicator\Installer;
 
+use Doctrine\DBAL\DBALException;
+use Doctrine\DBAL\DriverManager;
 use Queryr\Replicator\ConfigFile;
 use Queryr\Replicator\ServiceFactory;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Wikibase\Database\Schema\TableCreationFailedException;
+use Wikibase\QueryEngine\QueryEngineException;
 
 /**
  * @licence GNU GPL v2+
@@ -40,7 +42,7 @@ class InstallCommandExecutor {
 
 		try {
 			$this->factory = ServiceFactory::newForInstaller(
-				$this->sqlExecutor->getPDO(),
+				$this->sqlExecutor->getConnection(),
 				$this->input->getArgument( 'database' )
 			);
 
@@ -86,10 +88,17 @@ class InstallCommandExecutor {
 		$user = $this->input->getArgument( 'user' );
 		$password = $this->input->getArgument( 'password' );
 
-		$this->sqlExecutor->exec(
-			"CREATE DATABASE $database;",
-			'Creating database'
-		);
+		$connection = DriverManager::getConnection( array(
+			'driver' => 'pdo_mysql',
+			'host' => 'localhost',
+			'user' => $this->input->getArgument( 'install-user' ),
+			'password' => $this->input->getArgument( 'install-password' ),
+		) );
+
+		$this->writeProgress( 'Creating database' );
+		$connection->getSchemaManager()->createDatabase( $database );
+		$connection->close();
+		$this->writeProgressEnd();
 
 		$this->sqlExecutor->exec(
 			"CREATE USER '$user'@'localhost' IDENTIFIED BY '$password';",
@@ -120,14 +129,15 @@ class InstallCommandExecutor {
 		$this->writeProgress( 'Creating dump store' );
 
 		$installer = $this->factory->newDumpStoreInstaller(
-			$this->sqlExecutor->getPDO(),
+			$this->sqlExecutor->getConnection(),
 			$this->input->getArgument( 'database' )
 		);
 
 		try {
 			$installer->install();
 		}
-		catch ( TableCreationFailedException $ex ) {
+		// FIXME
+		catch ( DBALException $ex ) {
 			throw new InstallationException( $ex->getMessage(), 0, $ex );
 		}
 
@@ -138,19 +148,17 @@ class InstallCommandExecutor {
 		$this->writeProgress( 'Creating query engine' );
 
 		$installer = $this->factory->newQueryEngineInstaller(
-			$this->sqlExecutor->getPDO(),
+			$this->sqlExecutor->getConnection(),
 			$this->input->getArgument( 'database' )
 		);
 
-		// TODO: catch once QE supports proper exceptions
 		// TODO: report once QE supports detailed reporting
 		try {
 			$installer->install();
 		}
-		catch ( TableCreationFailedException $ex ) {
+		catch ( QueryEngineException $ex ) {
 			throw new InstallationException( $ex->getMessage(), 0, $ex );
 		}
-
 
 		$this->writeProgressEnd();
 	}
