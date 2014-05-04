@@ -82,11 +82,11 @@ class ServiceFactory {
 	}
 
 	public function newDumpStoreInstaller() {
-		return new StoreInstaller( $this->newTableBuilder() );
+		return new StoreInstaller( $this->connection->getSchemaManager() );
 	}
 
 	public function newDumpStore() {
-		return new Store( $this->newQueryInterface() );
+		return new Store( $this->connection );
 	}
 
 	public function newEntityDeserializer() {

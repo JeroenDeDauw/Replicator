@@ -20,7 +20,8 @@
 		"symfony/console": "~2.4.4"
 	},
 	"require-dev": {
-		"ext-sqlite3": "*"
+		"ext-sqlite3": "*",
+		"whatthejeff/nyancat-phpunit-resultprinter": "~1.2"
 	},
 	"minimum-stability": "dev",
 	"autoload": {
