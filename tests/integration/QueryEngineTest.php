@@ -6,9 +6,11 @@ use Ask\Language\Description\SomeProperty;
 use Ask\Language\Description\ValueDescription;
 use Ask\Language\Option\QueryOptions;
 use DataValues\NumberValue;
+use Doctrine\DBAL\DriverManager;
 use Tests\Queryr\Replicator\Fixtures\TestFixtureFactory;
 use Wikibase\Database\PDO\PDOFactory;
 use Wikibase\DataModel\Claim\Statement;
+use Wikibase\DataModel\Entity\BasicEntityIdParser;
 use Wikibase\DataModel\Entity\EntityIdValue;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\DataModel\Entity\ItemId;
@@ -18,9 +20,11 @@ use Wikibase\QueryEngine\PropertyDataValueTypeLookup;
 use Wikibase\QueryEngine\QueryEngine;
 use Wikibase\QueryEngine\QueryEngineException;
 use Wikibase\QueryEngine\QueryStoreWriter;
+use Wikibase\QueryEngine\SQLStore\DataValueHandlersBuilder;
 use Wikibase\QueryEngine\SQLStore\DVHandler\NumberHandler;
 use Wikibase\QueryEngine\SQLStore\SQLStore;
 use Wikibase\QueryEngine\SQLStore\StoreConfig;
+use Wikibase\QueryEngine\SQLStore\StoreSchema;
 
 /**
  * @licence GNU GPL v2+
@@ -39,30 +43,37 @@ class QueryEngineTest extends \PHPUnit_Framework_TestCase {
 	private $queryEngine;
 
 	public function setUp() {
-		$sqlStore = new SQLStore( $this->newStoreConfig() );
+		$sqlStore = new SQLStore( $this->newStoreSchema(), $this->newStoreConfig() );
 
-		$factory = new PDOFactory( $this->newPDO() );
-		$tableBuilder = $factory->newMySQLTableBuilder( 'replicator_tests' );
-		$queryInterface = $factory->newMySQLQueryInterface();
+		$connection = $this->newConnection();
 
-		try {
-			$sqlStore->newUninstaller( $tableBuilder )->uninstall();
-		}
-		catch ( QueryEngineException $ex ) {}
+		$sqlStore->newInstaller( $connection->getSchemaManager() )->install();
 
-		$sqlStore->newInstaller( $tableBuilder )->install();
+		$this->writer = $sqlStore->newWriter( $connection );
 
-		$this->writer = $sqlStore->newWriter( $queryInterface );
-		$this->queryEngine = $sqlStore->newQueryEngine( $queryInterface );
+		$this->queryEngine = $sqlStore->newQueryEngine(
+			$connection,
+			new StubPropertyDataValueTypeLookup(),
+			new BasicEntityIdParser()
+		);
 	}
 
-	private function newPDO() {
-		try {
-			return TestFixtureFactory::newInstance()->newPDO();
-		}
-		catch ( \PDOException $ex ) {
-			$this->markTestSkipped( 'Test not run, presumably the database is not set up: ' . $ex->getMessage() );
-		}
+	private function newConnection() {
+		return DriverManager::getConnection( array(
+			'driver' => 'pdo_sqlite',
+			'memory' => true,
+		) );
+	}
+
+	private function newStoreSchema() {
+		$handlersBuilder = new DataValueHandlersBuilder();
+
+		return new StoreSchema(
+			'qr_',
+			$handlersBuilder->withSimpleHandlers()
+				->withEntityIdHandler( new BasicEntityIdParser() )
+				->getHandlers()
+		);
 	}
 
 	private function newStoreConfig() {
@@ -73,8 +84,6 @@ class QueryEngineTest extends \PHPUnit_Framework_TestCase {
 				'number' => new NumberHandler()
 			)
 		);
-
-		$config->setPropertyDataValueTypeLookup( new StubPropertyDataValueTypeLookup() );
 
 		return $config;
 	}
