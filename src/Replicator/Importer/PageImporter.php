@@ -104,4 +104,12 @@ class PageImporter {
 		);
 	}
 
+	public function setReporter( PageImportReporter $reporter ) {
+		$this->reporter = $reporter;
+	}
+
+	public function getReporter() {
+		return $this->reporter;
+	}
+
 }
