@@ -22,7 +22,7 @@ use Wikibase\QueryEngine\SQLStore\StoreSchema;
  */
 class ServiceFactory {
 
-	public static function newForInstaller( Connection $connection ) {
+	public static function newFromConnection( Connection $connection ) {
 		return new self( $connection );
 	}
 

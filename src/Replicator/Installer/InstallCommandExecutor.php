@@ -41,7 +41,7 @@ class InstallCommandExecutor {
 		$this->sqlExecutor = new SqlExecutor( $this->input, $this->output );
 
 		try {
-			$this->factory = ServiceFactory::newForInstaller(
+			$this->factory = ServiceFactory::newFromConnection(
 				$this->sqlExecutor->getConnection(),
 				$this->input->getArgument( 'database' )
 			);

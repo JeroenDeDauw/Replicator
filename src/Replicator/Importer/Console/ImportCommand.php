@@ -32,22 +32,37 @@ class ImportCommand extends Command {
 		);
 	}
 
+	/**
+	 * @var ServiceFactory|null
+	 */
+	private $factory = null;
+
+	public function setServiceFactory( ServiceFactory $factory ) {
+		$this->factory = $factory;
+	}
+
 	protected function execute( InputInterface $input, OutputInterface $output ) {
-		try {
-			$serviceFactory = ServiceFactory::newFromConfig();
-		}
-		catch ( RuntimeException $ex ) {
-			$output->writeln( '<error>Could not instantiate the Replicator app</error>' );
-			$output->writeln( '<error>' . $ex->getMessage() . '</error>' );
-			return;
-		}
+		$this->initServiceFactory( $output );
 
 		$pagesImporter = new PagesImporter(
-			$this->newImporter( $serviceFactory, $this->newReporter( $output ) ),
+			$this->newImporter( $this->newReporter( $output ) ),
 			new ConsoleStatsReporter( $output )
 		);
 
 		$pagesImporter->importPages( $this->getDumpIterator( $input ) );
+	}
+
+	private function initServiceFactory( OutputInterface $output ) {
+		if ( $this->factory === null ) {
+			try {
+				$this->factory = ServiceFactory::newFromConfig();
+			}
+			catch ( RuntimeException $ex ) {
+				$output->writeln( '<error>Could not instantiate the Replicator app</error>' );
+				$output->writeln( '<error>' . $ex->getMessage() . '</error>' );
+				return;
+			}
+		}
 	}
 
 	private function getDumpIterator( InputInterface $input ) {
@@ -59,11 +74,11 @@ class ImportCommand extends Command {
 		return $dumpReaderFactory->newDumpReaderForFile( $file );
 	}
 
-	private function newImporter( ServiceFactory $serviceFactory, PageImportReporter $reporter ) {
+	private function newImporter( PageImportReporter $reporter ) {
 		return new PageImporter(
-			$serviceFactory->newDumpStore(),
-			$serviceFactory->newEntityDeserializer(),
-			$serviceFactory->newQueryStoreWriter(),
+			$this->factory->newDumpStore(),
+			$this->factory->newEntityDeserializer(),
+			$this->factory->newQueryStoreWriter(),
 			$reporter
 		);
 	}

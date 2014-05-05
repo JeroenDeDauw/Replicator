@@ -6,6 +6,10 @@ use Queryr\Replicator\Importer\ImportStats;
 use Queryr\Replicator\Importer\StatsReporter;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * @licence GNU GPL v2+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 class ConsoleStatsReporter implements StatsReporter {
 
 	private $output;

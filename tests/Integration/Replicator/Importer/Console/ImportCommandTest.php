@@ -1,8 +1,10 @@
 <?php
 
-namespace Tests\Queryr\Replicator\Commands;
+namespace Tests\Queryr\Replicator\Importer\Console;
 
+use Doctrine\DBAL\DriverManager;
 use Queryr\Replicator\Importer\Console\ImportCommand;
+use Queryr\Replicator\ServiceFactory;
 use Symfony\Component\Console\Tester\CommandTester;
 
 /**
@@ -14,13 +16,23 @@ use Symfony\Component\Console\Tester\CommandTester;
 class ImportCommandTest extends \PHPUnit_Framework_TestCase {
 
 	public function testEntityIdInOutput() {
-		$commandTester = new CommandTester( new ImportCommand() );
+		$command = new ImportCommand();
+		$command->setServiceFactory( ServiceFactory::newFromConnection( $this->newConnection() ) );
+
+		$commandTester = new CommandTester( $command );
 
 		$commandTester->execute( array(
 			'file' => 'tests/data/simple/one-item.xml'
 		) );
 
 		$this->assertRegExp( '/Q15831780/', $commandTester->getDisplay() );
+	}
+
+	private function newConnection() {
+		return DriverManager::getConnection( array(
+			'driver' => 'pdo_sqlite',
+			'memory' => true,
+		) );
 	}
 
 }
