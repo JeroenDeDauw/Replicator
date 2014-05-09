@@ -9,7 +9,7 @@
 		"queryr/dump-store": "dev-master",
 
 		"wikibase/data-model": "~0.7.4",
-		"wikibase/query-engine": "dev-tests",
+		"wikibase/query-engine": "dev-master",
 		"wikibase/internal-serialization": "~1.0@dev",
 
 		"data-values/common": "*",
