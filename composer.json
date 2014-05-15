@@ -6,7 +6,7 @@
 		"ext-mysql": "*",
 		"ext-PDO": "*",
 
-		"queryr/dump-store": "dev-master",
+		"queryr/dump-store": "~0.1",
 
 		"wikibase/data-model": "~0.7.4",
 		"wikibase/query-engine": "dev-master",
