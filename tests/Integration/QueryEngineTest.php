@@ -75,11 +75,7 @@ class QueryEngineTest extends \PHPUnit_Framework_TestCase {
 
 	private function newStoreConfig() {
 		$config = new StoreConfig(
-			'QueryR Replicator QueryEngine',
-			'qr_',
-			array(
-				'number' => new NumberHandler()
-			)
+			'QueryR Replicator QueryEngine'
 		);
 
 		return $config;
