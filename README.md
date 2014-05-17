@@ -13,7 +13,7 @@ QueryR Replicator is an application for replicating a [Wikibase](http://wikiba.s
 A CLI application using the [Symfony Console component]
 (http://symfony.com/doc/current/components/console/introduction.html).
 
-##### Installation
+#### Installation
 
 Clone the git repository and move into its directory.
 
@@ -31,30 +31,37 @@ by default on some linux distributions. You might need to remove some functions 
 `disable_functions` section in your `php.ini` file. In particular the `pcntl_signal_dispatch`
 function.
 
-#### Updating
+### Updating
 
     git pull
     composer update
 
-##### Removal
+#### Removal
 
 This will remove Replicator from the system, without deleting the application files themselves.
 
-    php app/replicator.php uninstall root-db-user root-db-pwd
+    php app/replicator uninstall root-db-user root-db-pwd
 
-##### Usage
+### Usage
 
 List of commands:
 
-    php app/replicator.php
+    php app/replicator
+
+#### Import command
 
 Importing an XML dump:
 
-    php app/replicator.php import tests/data/big/5341-revs-3-props.xml -v
+    php app/replicator import tests/data/big/5341-revs-3-props.xml -v
 
 Import command help:
 
-    php app/replicator.php --help import
+    php app/replicator --help import
+
+The command can be aborted with `ctrl+c`. It will exit gracefully and provide you
+with the page title needed to resume the import.
+
+    php app/replicator import tests/data/big/5341-revs-3-props.xml --continue Q15826105 -v
 
 ## Running the tests
 

@@ -56,9 +56,7 @@ class DumpIterator implements Iterator {
 	}
 
 	public function rewind() {
-		$this->reader->rewind();
 		$this->key = 0;
-
 		$this->next();
 	}
 

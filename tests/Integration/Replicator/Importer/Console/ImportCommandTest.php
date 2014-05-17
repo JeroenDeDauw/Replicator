@@ -46,10 +46,17 @@ class ImportCommandTest extends \PHPUnit_Framework_TestCase {
 		) );
 	}
 
-//	public function testResume() {
-//		$commandTester->execute( array(
-//			'file' => 'tests/data/simple/one-item.xml'
-//		) );
-//	}
+	public function testResume() {
+		$output = $this->getOutputForArgs( [
+			'file' => 'tests/data/simple/five-items.xml',
+			'--continue' => 'Q15826086'
+		] );
+
+		$this->assertNotRegExp( '/Q15831779/', $output );
+		$this->assertNotRegExp( '/Q15831780/', $output );
+		$this->assertRegExp( '/Q15826087/', $output );
+		$this->assertRegExp( '/Q15826088/', $output );
+		$this->assertRegExp( '/2 entities/', $output );
+	}
 
 }

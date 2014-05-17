@@ -3,6 +3,7 @@
 namespace Queryr\Replicator\Importer;
 
 use Iterator;
+use Queryr\Dump\Reader\Page;
 
 /**
  * @licence GNU GPL v2+
@@ -33,12 +34,15 @@ class PagesImporter {
 	private function runImportLoop( Iterator $entityPageIterator ) {
 		$this->shouldStop = false;
 
+		/**
+		 * @var Page $entityPage
+		 */
 		foreach ( $entityPageIterator as $entityPage ) {
 			$this->importer->import( $entityPage );
 
 			pcntl_signal_dispatch();
 			if ( $this->shouldStop ) {
-				$this->statsReporter->reportAbortion();
+				$this->statsReporter->reportAbortion( $entityPage->getTitle() );
 				return;
 			}
 		}

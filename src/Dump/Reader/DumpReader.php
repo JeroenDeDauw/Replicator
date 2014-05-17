@@ -44,6 +44,9 @@ abstract class DumpReader implements IteratorAggregate {
 	}
 
 	/**
+	 * Returns an Iterator for the REMAINING pages.
+	 * Caution: the iterator affects the position of the dump reader itself.
+	 *
 	 * @see IteratorAggregate::getIterator
 	 * @return Iterator
 	 */

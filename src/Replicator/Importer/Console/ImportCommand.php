@@ -2,6 +2,7 @@
 
 namespace Queryr\Replicator\Importer\Console;
 
+use Queryr\Dump\Reader\DumpReader;
 use Queryr\Dump\Reader\ReaderFactory;
 use Queryr\Replicator\Importer\PageImporter;
 use Queryr\Replicator\Importer\PageImportReporter;
@@ -11,6 +12,7 @@ use RuntimeException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -27,6 +29,13 @@ class ImportCommand extends Command {
 			'file',
 			InputArgument::REQUIRED,
 			'Full path of the XML dump'
+		);
+
+		$this->addOption(
+			'continue',
+			'c',
+			InputOption::VALUE_OPTIONAL,
+			'The title to resume from (title not included)'
 		);
 	}
 
@@ -47,10 +56,12 @@ class ImportCommand extends Command {
 			new ConsoleStatsReporter( $output )
 		);
 
+		$iterator = $this->getDumpIterator( $input, $output );
+
 		pcntl_signal( SIGINT, [ $pagesImporter, 'stop' ] );
 		pcntl_signal( SIGTERM, [ $pagesImporter, 'stop' ] );
 
-		$pagesImporter->importPages( $this->getDumpIterator( $input ) );
+		$pagesImporter->importPages( $iterator );
 	}
 
 	private function initServiceFactory( OutputInterface $output ) {
@@ -66,8 +77,22 @@ class ImportCommand extends Command {
 		}
 	}
 
-	private function getDumpIterator( InputInterface $input ) {
-		return $this->newDumpReader( $input->getArgument( 'file' ) )->getIterator();
+	private function getDumpIterator( InputInterface $input, OutputInterface $output ) {
+		$reader = $this->newDumpReader( $input->getArgument( 'file' ) );
+
+		$this->handleContinueArgument( $input, $output, $reader );
+
+		return $reader->getIterator();
+	}
+
+	private function handleContinueArgument( InputInterface $input, OutputInterface $output, DumpReader $reader ) {
+		$continueTitle = $input->getOption( 'continue' );
+
+		if ( $continueTitle !== null ) {
+			$output->write( "<info>Seeking to title </info><comment>$continueTitle</comment><info>... </info>" );
+			$reader->seekToTitle( $continueTitle );
+			$output->writeln( "<info>done</info>" );
+		}
 	}
 
 	private function newDumpReader( $file ) {
