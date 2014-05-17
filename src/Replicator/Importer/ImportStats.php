@@ -11,6 +11,7 @@ class ImportStats {
 	private $count = 0;
 	private $errorCount = 0;
 	private $errorMessages = [];
+	private $durationInMs;
 
 	public function recordSuccess() {
 		$this->count++;
@@ -20,6 +21,10 @@ class ImportStats {
 		$this->count++;
 		$this->errorCount++;
 		$this->recordErrorMessage( $ex->getMessage() );
+	}
+
+	public function setDuration( $durationInMs ) {
+		$this->durationInMs = $durationInMs;
 	}
 
 	private function recordErrorMessage( $message ) {
@@ -64,6 +69,10 @@ class ImportStats {
 		}
 
 		return $this->errorCount / $this->count * 100;
+	}
+
+	public function getDurationInMs() {
+		return $this->durationInMs;
 	}
 
 }

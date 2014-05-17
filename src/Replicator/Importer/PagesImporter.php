@@ -22,13 +22,17 @@ class PagesImporter {
 	}
 
 	public function importPages( Iterator $entityPageIterator ) {
+		$startTime = microtime( true );
+
 		$reporter = new StatsTrackingReporter( $this->importer->getReporter() );
 
 		$this->importer->setReporter( $reporter );
 
 		$this->runImportLoop( $entityPageIterator );
 
-		$this->statsReporter->reportStats( $reporter->getStats() );
+		$stats = $reporter->getStats();
+		$stats->setDuration( microtime( true ) - $startTime );
+		$this->statsReporter->reportStats( $stats );
 	}
 
 	private function runImportLoop( Iterator $entityPageIterator ) {

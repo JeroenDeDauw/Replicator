@@ -22,6 +22,14 @@ class ConsoleStatsReporter implements StatsReporter {
 		$this->output->writeln( "\n" );
 
 		$this->output->writeln( '<info>Import stats:</info>' );
+
+		$this->output->writeln(
+			sprintf(
+				'<comment>Duration: %f seconds</comment>',
+				$stats->getDurationInMs()
+			)
+		);
+
 		$this->output->writeln(
 			sprintf(
 				'<comment>%d entities, %d errors, %d successful, %g%% error ratio</comment>',
