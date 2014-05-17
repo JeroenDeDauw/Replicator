@@ -5,6 +5,7 @@
 		"lib-libxml": "*",
 		"ext-mysql": "*",
 		"ext-PDO": "*",
+		"ext-pcntl": "*",
 
 		"queryr/dump-store": "~0.1",
 

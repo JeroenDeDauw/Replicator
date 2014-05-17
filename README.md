@@ -26,6 +26,11 @@ If you just downloaded the composer.phar executable, the install command works a
 
     php composer.phar install
 
+Certain functions from the PHP Process Control library (PCNTL) are used. They are disabled
+by default on some linux distributions. You might need to remove some functions from the
+`disable_functions` section in your `php.ini` file. In particular the `pcntl_signal_dispatch`
+function.
+
 #### Updating
 
     git pull

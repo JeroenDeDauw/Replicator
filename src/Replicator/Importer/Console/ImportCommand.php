@@ -3,11 +3,9 @@
 namespace Queryr\Replicator\Importer\Console;
 
 use Queryr\Dump\Reader\ReaderFactory;
-use Queryr\Replicator\Importer\ImportStats;
 use Queryr\Replicator\Importer\PageImporter;
 use Queryr\Replicator\Importer\PageImportReporter;
 use Queryr\Replicator\Importer\PagesImporter;
-use Queryr\Replicator\Importer\StatsTrackingReporter;
 use Queryr\Replicator\ServiceFactory;
 use RuntimeException;
 use Symfony\Component\Console\Command\Command;
@@ -48,6 +46,9 @@ class ImportCommand extends Command {
 			$this->newImporter( $this->newReporter( $output ) ),
 			new ConsoleStatsReporter( $output )
 		);
+
+		pcntl_signal( SIGINT, [ $pagesImporter, 'stop' ] );
+		pcntl_signal( SIGTERM, [ $pagesImporter, 'stop' ] );
 
 		$pagesImporter->importPages( $this->getDumpIterator( $input ) );
 	}
