@@ -146,7 +146,7 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals( 'application/json', $revision->getFormat() );
 	}
 
-	public function testSeekToTitle() {
+	public function testSeekToTitleSkipsNonMatchingPagesAndReturnsTheMatchingOne() {
 		$reader = $this->newReaderForFile( 'simple/five-items.xml' );
 
 		$page = $reader->seekToTitle( 'Q15826086' );
@@ -154,6 +154,12 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 
 		$page = $reader->nextEntityPage();
 		$this->assertEquals( 'Q15826087', $page->getTitle() );
+	}
+
+	public function testWhenNoMatchingPages_seekToTitleReturnsNull() {
+		$reader = $this->newReaderForFile( 'simple/five-items.xml' );
+
+		$this->assertNull( $reader->seekToTitle( 'Q1' ) );
 	}
 
 }
