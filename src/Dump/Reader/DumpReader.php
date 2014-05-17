@@ -26,6 +26,24 @@ abstract class DumpReader implements IteratorAggregate {
 	public abstract function rewind();
 
 	/**
+	 * Seeks to the Page with the provided title and returns it.
+	 * If no page is found, null is returned.
+	 *
+	 * @param string $titleToSeekTo
+	 *
+	 * @return Page|null
+	 */
+	public function seekToTitle( $titleToSeekTo ) {
+		while ( $page = $this->nextEntityPage() ) {
+			if ( $page->getTitle() === $titleToSeekTo ) {
+				return $page;
+			}
+		}
+
+		return null;
+	}
+
+	/**
 	 * @see IteratorAggregate::getIterator
 	 * @return Iterator
 	 */

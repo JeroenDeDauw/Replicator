@@ -146,4 +146,14 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals( 'application/json', $revision->getFormat() );
 	}
 
+	public function testSeekToTitle() {
+		$reader = $this->newReaderForFile( 'simple/five-items.xml' );
+
+		$page = $reader->seekToTitle( 'Q15826086' );
+		$this->assertEquals( 'Q15826086', $page->getTitle() );
+
+		$page = $reader->nextEntityPage();
+		$this->assertEquals( 'Q15826087', $page->getTitle() );
+	}
+
 }
