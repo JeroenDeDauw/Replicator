@@ -25,18 +25,19 @@ class ConsoleStatsReporter implements StatsReporter {
 
 		$this->output->writeln(
 			sprintf(
-				'<comment>Duration: %f seconds</comment>',
-				$stats->getDurationInMs()
+				'<comment>Entities: %d (%d succeeded, %d (%g%%) failed)</comment>',
+				$stats->getEntityCount(),
+				$stats->getSuccessCount(),
+				$stats->getErrorCount(),
+				$stats->getErrorRatio()
 			)
 		);
 
 		$this->output->writeln(
 			sprintf(
-				'<comment>%d entities, %d errors, %d successful, %g%% error ratio</comment>',
-				$stats->getEntityCount(),
-				$stats->getErrorCount(),
-				$stats->getSuccessCount(),
-				$stats->getErrorRatio()
+				'<comment>Duration: %g seconds (%d entities/second)</comment>',
+				$stats->getDurationInMs(),
+				$stats->getEntityCount() / $stats->getDurationInMs()
 			)
 		);
 
