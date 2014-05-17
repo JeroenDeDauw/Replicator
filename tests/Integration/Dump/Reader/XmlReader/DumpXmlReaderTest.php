@@ -157,9 +157,7 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testWhenNoMatchingPages_seekToTitleReturnsNull() {
-		$reader = $this->newReaderForFile( 'simple/five-items.xml' );
-
-		$this->assertNull( $reader->seekToTitle( 'Q1' ) );
+		$this->assertNull( $this->newReaderForFile( 'simple/five-items.xml' )->seekToTitle( 'Q1' ) );
 	}
 
 }

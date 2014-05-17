@@ -16,16 +16,27 @@ use Symfony\Component\Console\Tester\CommandTester;
 class ImportCommandTest extends \PHPUnit_Framework_TestCase {
 
 	public function testEntityIdInOutput() {
+		$this->assertRegExp(
+			'/Q15831780/',
+			$this->getOutputForArgs( [
+				'file' => 'tests/data/simple/one-item.xml'
+			] )
+		);
+	}
+
+	private function getOutputForArgs( array $args ) {
+		$commandTester = $this->newCommandTester();
+
+		$commandTester->execute( $args );
+
+		return $commandTester->getDisplay();
+	}
+
+	private function newCommandTester() {
 		$command = new ImportCommand();
 		$command->setServiceFactory( ServiceFactory::newFromConnection( $this->newConnection() ) );
 
-		$commandTester = new CommandTester( $command );
-
-		$commandTester->execute( array(
-			'file' => 'tests/data/simple/one-item.xml'
-		) );
-
-		$this->assertRegExp( '/Q15831780/', $commandTester->getDisplay() );
+		return new CommandTester( $command );
 	}
 
 	private function newConnection() {
@@ -34,5 +45,11 @@ class ImportCommandTest extends \PHPUnit_Framework_TestCase {
 			'memory' => true,
 		) );
 	}
+
+//	public function testResume() {
+//		$commandTester->execute( array(
+//			'file' => 'tests/data/simple/one-item.xml'
+//		) );
+//	}
 
 }
