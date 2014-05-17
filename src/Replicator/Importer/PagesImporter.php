@@ -24,18 +24,21 @@ class PagesImporter {
 		$reporter = new StatsTrackingReporter( $this->importer->getReporter() );
 
 		$this->importer->setReporter( $reporter );
+
+		$this->runImportLoop( $entityPageIterator );
+
+		$this->statsReporter->reportStats( $reporter->getStats() );
+	}
+
+	private function runImportLoop( Iterator $entityPageIterator ) {
 		$this->shouldStop = false;
 
 		foreach ( $entityPageIterator as $entityPage ) {
 			$this->importer->import( $entityPage );
 
 			pcntl_signal_dispatch();
-			if ( $this->shouldStop ) {
-				break;
-			}
+			if ( $this->shouldStop ) return;
 		}
-
-		$this->statsReporter->reportStats( $reporter->getStats() );
 	}
 
 	public function stop() {
