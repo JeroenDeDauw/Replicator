@@ -37,7 +37,10 @@ class PagesImporter {
 			$this->importer->import( $entityPage );
 
 			pcntl_signal_dispatch();
-			if ( $this->shouldStop ) return;
+			if ( $this->shouldStop ) {
+				$this->statsReporter->reportAbortion();
+				return;
+			}
 		}
 	}
 

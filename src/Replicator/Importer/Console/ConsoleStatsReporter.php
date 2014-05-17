@@ -21,9 +21,10 @@ class ConsoleStatsReporter implements StatsReporter {
 	public function reportStats( ImportStats $stats ) {
 		$this->output->writeln( "\n" );
 
+		$this->output->writeln( '<info>Import stats:</info>' );
 		$this->output->writeln(
 			sprintf(
-				'%d entities, %d errors, %d successful, %g error ratio',
+				'<comment>%d entities, %d errors, %d successful, %g%% error ratio</comment>',
 				$stats->getEntityCount(),
 				$stats->getErrorCount(),
 				$stats->getSuccessCount(),
@@ -38,7 +39,7 @@ class ConsoleStatsReporter implements StatsReporter {
 		}
 	}
 
-	private function reportErrors(array $errors ) {
+	private function reportErrors( array $errors ) {
 		$this->output->writeln( "\nErrors:" );
 
 		foreach ( $errors as $errorMessage => $errorCount ) {
@@ -48,6 +49,12 @@ class ConsoleStatsReporter implements StatsReporter {
 				$errorMessage
 			) );
 		}
+	}
+
+	public function reportAbortion() {
+		$this->output->writeln( "\n" );
+		$this->output->writeln( "<info>Import process aborted</info>" );
+		$this->output->writeln( "<comment>To resume, run with</comment> --first=TODO" );
 	}
 
 }
