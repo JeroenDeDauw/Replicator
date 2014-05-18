@@ -16,8 +16,8 @@ use Symfony\Component\Console\Tester\CommandTester;
 class ImportCommandTest extends \PHPUnit_Framework_TestCase {
 
 	public function testEntityIdInOutput() {
-		$this->assertRegExp(
-			'/Q15831780/',
+		$this->assertContains(
+			'Q15831780',
 			$this->getOutputForArgs( [
 				'file' => 'tests/data/simple/one-item.xml'
 			] )
@@ -52,11 +52,11 @@ class ImportCommandTest extends \PHPUnit_Framework_TestCase {
 			'--continue' => 'Q15826086'
 		] );
 
-		$this->assertNotRegExp( '/Q15831779/', $output );
-		$this->assertNotRegExp( '/Q15831780/', $output );
-		$this->assertRegExp( '/Q15826087/', $output );
-		$this->assertRegExp( '/Q15826088/', $output );
-		$this->assertRegExp( '/2 entities/', $output );
+		$this->assertNotContains( 'Q15831779', $output );
+		$this->assertNotContains( 'Q15831780', $output );
+		$this->assertContains( 'Q15826087', $output );
+		$this->assertContains( 'Q15826088', $output );
+		$this->assertContains( 'Entities: 2', $output );
 	}
 
 }
