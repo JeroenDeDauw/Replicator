@@ -15,6 +15,25 @@ use Symfony\Component\Console\Tester\CommandTester;
  */
 class ImportCommandTest extends \PHPUnit_Framework_TestCase {
 
+	/**
+	 * @var ServiceFactory
+	 */
+	private $factory;
+
+	public function setUp() {
+		$this->factory = ServiceFactory::newFromConnection( $this->newConnection() );
+
+		$this->factory->newDumpStoreInstaller()->install();
+		$this->factory->newQueryEngineInstaller()->install();
+	}
+
+	private function newConnection() {
+		return DriverManager::getConnection( array(
+			'driver' => 'pdo_sqlite',
+			'memory' => true,
+		) );
+	}
+
 	public function testEntityIdInOutput() {
 		$this->assertContains(
 			'Q15831780',
@@ -34,16 +53,9 @@ class ImportCommandTest extends \PHPUnit_Framework_TestCase {
 
 	private function newCommandTester() {
 		$command = new ImportCommand();
-		$command->setServiceFactory( ServiceFactory::newFromConnection( $this->newConnection() ) );
+		$command->setServiceFactory( $this->factory );
 
 		return new CommandTester( $command );
-	}
-
-	private function newConnection() {
-		return DriverManager::getConnection( array(
-			'driver' => 'pdo_sqlite',
-			'memory' => true,
-		) );
 	}
 
 	public function testResume() {
