@@ -14,14 +14,9 @@ use Symfony\Component\Console\Output\OutputInterface;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class InstallCommandExecutor {
-	use ProgressTrait;
+	use InstallerTrait;
 
 	private $output;
-
-	/**
-	 * @var ServiceFactory
-	 */
-	private $factory;
 
 	public function __construct( InputInterface $input, OutputInterface $output ) {
 		$this->output = $output;
@@ -46,24 +41,6 @@ class InstallCommandExecutor {
 		$this->output->writeln( '<info>Installing QueryR Replicator.</info>' );
 	}
 
-	private function establishDatabaseConnection() {
-		$config = $this->tryTask(
-			'Reading database configuration file (config/db.json)',
-			function() {
-				return ConfigFile::newInstance()->read();
-			}
-		);
-
-		$connection = $this->tryTask(
-			'Establishing database connection',
-			function() use ( $config ) {
-				return DriverManager::getConnection( $config );
-			}
-		);
-
-		$this->factory = ServiceFactory::newFromConnection( $connection );
-	}
-
 	private function createDumpStore() {
 		$this->tryTask(
 			'Creating dump store',
@@ -80,20 +57,6 @@ class InstallCommandExecutor {
 				$this->factory->newQueryEngineInstaller()->install();
 			}
 		);
-	}
-
-	private function tryTask( $message, $task ) {
-		$this->writeProgress( $message );
-
-		try {
-			$returnValue = call_user_func( $task );
-		}
-		catch ( \Exception $ex ) {
-			throw new InstallationException( $ex->getMessage(), 0, $ex );
-		}
-
-		$this->writeProgressEnd();
-		return $returnValue;
 	}
 
 	private function reportInstallationFailure( $failureMessage ) {

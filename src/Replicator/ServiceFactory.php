@@ -56,6 +56,11 @@ class ServiceFactory {
 		return $sqlStore->newInstaller( $this->connection->getSchemaManager() );
 	}
 
+	public function newQueryEngineUninstaller() {
+		$sqlStore = $this->newSqlStore();
+		return $sqlStore->newUninstaller( $this->connection->getSchemaManager() );
+	}
+
 	private function newSqlStore() {
 		$handlers = new DataValueHandlersBuilder();
 

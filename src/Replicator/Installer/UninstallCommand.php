@@ -15,19 +15,7 @@ class UninstallCommand extends Command {
 
 	protected function configure() {
 		$this->setName( 'uninstall' );
-		$this->setDescription( 'Uninstalls QueryR Replicator. NOTE: arguments are not escaped' );
-
-		$this->addArgument(
-			'install-user',
-			InputArgument::REQUIRED,
-			'Name of a MySQL database user with database and user creation rights'
-		);
-
-		$this->addArgument(
-			'install-password',
-			InputArgument::REQUIRED,
-			'Password of the specified MySQL database user'
-		);
+		$this->setDescription( 'Uninstalls QueryR Replicator.' );
 	}
 
 	protected function execute( InputInterface $input, OutputInterface $output ) {

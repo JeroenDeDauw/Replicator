@@ -14,13 +14,11 @@ use Symfony\Component\Console\Output\OutputInterface;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class UninstallCommandExecutor {
-	use ProgressTrait;
+	use InstallerTrait;
 
-	private $input;
 	private $output;
 
 	public function __construct( InputInterface $input, OutputInterface $output ) {
-		$this->input = $input;
 		$this->output = $output;
 	}
 
@@ -28,69 +26,41 @@ class UninstallCommandExecutor {
 		$this->startRemoval();
 
 		try {
-			$config = $this->readConfigFromFile();
-			$connection = $this->createConnection();
+			$this->establishDatabaseConnection();
 
-			$this->dropDatabase( $config, $connection );
-			$this->dropDatabaseUser( $config, $connection );
+			$this->removeDumpStore();
+			$this->removeQueryEngine();
 
 			$this->reportRemovalSuccess();
 		}
 		catch ( InstallationException $ex ) {
-			$this->reportInstallationFailure( $ex->getMessage() );
+			$this->reportUninstallationFailure( $ex->getMessage() );
 		}
+	}
+
+	private function removeDumpStore() {
+		$this->tryTask(
+			'Removing dump store',
+			function() {
+				$this->factory->newDumpStoreInstaller()->uninstall();
+			}
+		);
+	}
+
+	private function removeQueryEngine() {
+		$this->tryTask(
+			'Removing query engine',
+			function() {
+				$this->factory->newQueryEngineUninstaller()->uninstall();
+			}
+		);
 	}
 
 	private function startRemoval() {
 		$this->output->writeln( '<info>Uninstalling QueryR Replicator.</info>' );
 	}
 
-	private function readConfigFromFile() {
-		$this->writeProgress( 'Reading config file' );
-
-		try {
-			$config = ConfigFile::newInstance()->read();
-			$this->writeProgressEnd();
-			return $config;
-		}
-		catch ( \RuntimeException $ex ) {
-			throw new InstallationException( $ex->getMessage() );
-		}
-	}
-
-	private function createConnection() {
-		$this->writeProgress( 'Establishing MySQL connection' );
-
-		try {
-			$connection = DriverManager::getConnection( array(
-				'driver' => 'pdo_mysql',
-				'host' => 'localhost',
-				'user' => $this->input->getArgument( 'install-user' ),
-				'password' => $this->input->getArgument( 'install-password' ),
-			) );
-
-			$this->writeProgressEnd();
-
-			return $connection;
-		}
-		catch ( DBALException $ex ) {
-			throw new InstallationException( 'Could not establish a MySQL connection', 0, $ex );
-		}
-	}
-
-	private function dropDatabase( array $config, Connection $connection ) {
-		$this->writeProgress( 'Dropping database "' . $config['database'] . '"' );
-		$connection->getSchemaManager()->dropDatabase( $config['database'] );
-		$this->writeProgressEnd();
-	}
-
-	private function dropDatabaseUser( array $config, Connection $connection ) {
-		$this->writeProgress( 'Dropping user "' . $config['user'] . '"' );
-		$connection->exec( "DROP USER '" . $config['user'] . "'@'localhost';" );
-		$this->writeProgressEnd();
-	}
-
-	private function reportInstallationFailure( $failureMessage ) {
+	private function reportUninstallationFailure( $failureMessage ) {
 		$this->writeProgressEnd( 'failed!' );
 		$this->writeError( 'Error! Removal of QueryR Replicator failed.' );
 		$this->writeError( 'Reason: ' . $failureMessage );
