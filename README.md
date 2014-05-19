@@ -17,10 +17,15 @@ A CLI application using the [Symfony Console component]
 
 Clone the git repository and move into its directory.
 
+Enter the details of your database in `config/db.json`. An example of how this is done
+can be found in `config/db-example.json`. The parameters are fed directly to Doctrine
+DBAL. A list of available parameters can be found [in the DBAL docs]
+(http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html).
+
 [Get Composer](https://getcomposer.org/download/) and execute:
 
     composer install
-    php app/replicator.php install root-db-user root-db-pwd new-db-name new-db-user new-user-pwd
+    php app/replicator install
 
 If you just downloaded the composer.phar executable, the install command works as follows:
 

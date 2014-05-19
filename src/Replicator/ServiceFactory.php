@@ -27,21 +27,14 @@ class ServiceFactory {
 	}
 
 	/**
-	 * @return ServiceFactory
+	 * @return self
 	 * @throws RuntimeException
 	 */
 	public static function newFromConfig() {
 		$config = ConfigFile::newInstance()->read();
 
 		try {
-			$connection = DriverManager::getConnection( array(
-				'driver' => 'pdo_mysql',
-				'user' => $config['user'],
-				'password' => $config['password'],
-				'host' => 'localhost',
-				'dbname' => $config['database'],
-				'port' => '3306'
-			) );
+			$connection = DriverManager::getConnection( $config );
 		}
 		catch ( DBALException $ex ) {
 			throw new RuntimeException(

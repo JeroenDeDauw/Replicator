@@ -2,13 +2,12 @@
 
 namespace Queryr\Replicator\Installer;
 
-use Doctrine\DBAL\DBALException;
+use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use Queryr\Replicator\ConfigFile;
 use Queryr\Replicator\ServiceFactory;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Wikibase\QueryEngine\QueryEngineException;
 
 /**
  * @licence GNU GPL v2+
@@ -17,7 +16,6 @@ use Wikibase\QueryEngine\QueryEngineException;
 class InstallCommandExecutor {
 	use ProgressTrait;
 
-	private $input;
 	private $output;
 
 	/**
@@ -25,29 +23,15 @@ class InstallCommandExecutor {
 	 */
 	private $factory;
 
-	/**
-	 * @var SqlExecutor
-	 */
-	private $sqlExecutor;
-
 	public function __construct( InputInterface $input, OutputInterface $output ) {
-		$this->input = $input;
 		$this->output = $output;
 	}
 
 	public function run() {
 		$this->startInstallation();
 
-		$this->sqlExecutor = new SqlExecutor( $this->input, $this->output );
-
 		try {
-			$this->factory = ServiceFactory::newFromConnection(
-				$this->sqlExecutor->getConnection(),
-				$this->input->getArgument( 'database' )
-			);
-
-			$this->createConfigFile();
-			$this->createDatabase();
+			$this->establishDatabaseConnection();
 			$this->createDumpStore();
 			$this->createQueryEngine();
 
@@ -62,53 +46,54 @@ class InstallCommandExecutor {
 		$this->output->writeln( '<info>Installing QueryR Replicator.</info>' );
 	}
 
-	private function createConfigFile() {
-		$this->writeProgress( 'Creating config file' );
+	private function establishDatabaseConnection() {
+		$config = $this->tryTask(
+			'Reading database configuration file (config/db.json)',
+			function() {
+				return ConfigFile::newInstance()->read();
+			}
+		);
+
+		$connection = $this->tryTask(
+			'Establishing database connection',
+			function() use ( $config ) {
+				return DriverManager::getConnection( $config );
+			}
+		);
+
+		$this->factory = ServiceFactory::newFromConnection( $connection );
+	}
+
+	private function createDumpStore() {
+		$this->tryTask(
+			'Creating dump store',
+			function() {
+				$this->factory->newDumpStoreInstaller()->install();
+			}
+		);
+	}
+
+	private function createQueryEngine() {
+		$this->tryTask(
+			'Creating query engine',
+			function() {
+				$this->factory->newQueryEngineInstaller()->install();
+			}
+		);
+	}
+
+	private function tryTask( $message, $task ) {
+		$this->writeProgress( $message );
 
 		try {
-			ConfigFile::newInstance()->write( $this->createConfigData() );
+			$returnValue = call_user_func( $task );
 		}
-		catch ( \RuntimeException $ex ) {
-			throw new InstallationException( $ex->getMessage() );
+		catch ( \Exception $ex ) {
+			throw new InstallationException( $ex->getMessage(), 0, $ex );
 		}
 
 		$this->writeProgressEnd();
-	}
-
-	private function createConfigData() {
-		return array(
-			'user' => $this->input->getArgument( 'user' ),
-			'password' => $this->input->getArgument( 'password' ),
-			'database' => $this->input->getArgument( 'database' ),
-		);
-	}
-
-	private function createDatabase() {
-		$database = $this->input->getArgument( 'database' );
-		$user = $this->input->getArgument( 'user' );
-		$password = $this->input->getArgument( 'password' );
-
-		$connection = DriverManager::getConnection( array(
-			'driver' => 'pdo_mysql',
-			'host' => 'localhost',
-			'user' => $this->input->getArgument( 'install-user' ),
-			'password' => $this->input->getArgument( 'install-password' ),
-		) );
-
-		$this->writeProgress( 'Creating database' );
-		$connection->getSchemaManager()->createDatabase( $database );
-		$connection->close();
-		$this->writeProgressEnd();
-
-		$this->sqlExecutor->exec(
-			"CREATE USER '$user'@'localhost' IDENTIFIED BY '$password';",
-			'Creating database user'
-		);
-
-		$this->sqlExecutor->exec(
-			"GRANT ALL PRIVILEGES ON $database.* TO '$user'@'localhost';",
-			'Assigning rights to database user'
-		);
+		return $returnValue;
 	}
 
 	private function reportInstallationFailure( $failureMessage ) {
@@ -123,44 +108,6 @@ class InstallCommandExecutor {
 		$this->output->writeln(
 			"<$tag>Installation of QueryR Replicator has completed successfully.</$tag>"
 		);
-	}
-
-	private function createDumpStore() {
-		$this->writeProgress( 'Creating dump store' );
-
-		$installer = $this->factory->newDumpStoreInstaller(
-			$this->sqlExecutor->getConnection(),
-			$this->input->getArgument( 'database' )
-		);
-
-		try {
-			$installer->install();
-		}
-		// FIXME
-		catch ( DBALException $ex ) {
-			throw new InstallationException( $ex->getMessage(), 0, $ex );
-		}
-
-		$this->writeProgressEnd();
-	}
-
-	private function createQueryEngine() {
-		$this->writeProgress( 'Creating query engine' );
-
-		$installer = $this->factory->newQueryEngineInstaller(
-			$this->sqlExecutor->getConnection(),
-			$this->input->getArgument( 'database' )
-		);
-
-		// TODO: report once QE supports detailed reporting
-		try {
-			$installer->install();
-		}
-		catch ( QueryEngineException $ex ) {
-			throw new InstallationException( $ex->getMessage(), 0, $ex );
-		}
-
-		$this->writeProgressEnd();
 	}
 
 }
