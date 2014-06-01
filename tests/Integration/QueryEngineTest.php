@@ -66,7 +66,7 @@ class QueryEngineTest extends \PHPUnit_Framework_TestCase {
 		$handlersBuilder = new DataValueHandlersBuilder();
 
 		return new StoreSchema(
-			'qr_',
+			'qe_',
 			$handlersBuilder->withSimpleHandlers()
 				->withEntityIdHandler( new BasicEntityIdParser() )
 				->getHandlers()

@@ -105,7 +105,8 @@ class ImportCommand extends Command {
 			$this->factory->newDumpStore(),
 			$this->factory->newEntityDeserializer(),
 			$this->factory->newQueryStoreWriter(),
-			$reporter
+			$reporter,
+			$this->factory->newTermStore()
 		);
 	}
 

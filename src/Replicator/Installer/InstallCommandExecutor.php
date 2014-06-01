@@ -28,6 +28,7 @@ class InstallCommandExecutor {
 		try {
 			$this->establishDatabaseConnection();
 			$this->createDumpStore();
+			$this->createTermStore();
 			$this->createQueryEngine();
 
 			$this->reportInstallationSuccess();
@@ -46,6 +47,15 @@ class InstallCommandExecutor {
 			'Creating dump store',
 			function() {
 				$this->factory->newDumpStoreInstaller()->install();
+			}
+		);
+	}
+
+	private function createTermStore() {
+		$this->tryTask(
+			'Creating term store',
+			function() {
+				$this->factory->newTermStoreInstaller()->install();
 			}
 		);
 	}

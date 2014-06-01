@@ -8,6 +8,7 @@ use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\DriverManager;
 use Queryr\Dump\Store\Store;
 use Queryr\Dump\Store\StoreInstaller;
+use Queryr\TermStore\TermStore;
 use RuntimeException;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
 use Wikibase\InternalSerialization\DeserializerFactory;
@@ -21,6 +22,9 @@ use Wikibase\QueryEngine\SQLStore\StoreSchema;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class ServiceFactory {
+
+	const QUERY_ENGINE_PREFIX = 'qe_';
+	const TERMS_TORE_PREFIX = 'ts_';
 
 	public static function newFromConnection( Connection $connection ) {
 		return new self( $connection );
@@ -65,7 +69,7 @@ class ServiceFactory {
 		$handlers = new DataValueHandlersBuilder();
 
 		$schema = new StoreSchema(
-			'qr_',
+			self::QUERY_ENGINE_PREFIX,
 			$handlers->withSimpleHandlers()
 				->withEntityIdHandler( new BasicEntityIdParser() )
 				->getHandlers()
@@ -82,6 +86,13 @@ class ServiceFactory {
 
 	public function newDumpStore() {
 		return new Store( $this->connection );
+	}
+
+	public function newTermStore() {
+		return new TermStore(
+			$this->connection,
+			new \Queryr\TermStore\StoreConfig( self::TERMS_TORE_PREFIX )
+		);
 	}
 
 	public function newEntityDeserializer() {
@@ -107,6 +118,13 @@ class ServiceFactory {
 
 	public function newQueryStoreWriter() {
 		return $this->newSqlStore()->newWriter( $this->connection );
+	}
+
+	public function newTermStoreInstaller() {
+		return new \Queryr\TermStore\StoreInstaller(
+			$this->connection->getSchemaManager(),
+			new \Queryr\TermStore\StoreConfig( self::TERMS_TORE_PREFIX )
+		);
 	}
 
 }

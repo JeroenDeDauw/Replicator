@@ -29,6 +29,7 @@ class UninstallCommandExecutor {
 			$this->establishDatabaseConnection();
 
 			$this->removeDumpStore();
+			$this->removeTermStore();
 			$this->removeQueryEngine();
 
 			$this->reportRemovalSuccess();
@@ -43,6 +44,15 @@ class UninstallCommandExecutor {
 			'Removing dump store',
 			function() {
 				$this->factory->newDumpStoreInstaller()->uninstall();
+			}
+		);
+	}
+
+	private function removeTermStore() {
+		$this->tryTask(
+			'Removing term store',
+			function() {
+				$this->factory->newTermStoreInstaller()->uninstall();
 			}
 		);
 	}

@@ -7,6 +7,7 @@ use Deserializers\Exceptions\DeserializationException;
 use Queryr\Dump\Reader\Page;
 use Queryr\Dump\Store\ItemRow;
 use Queryr\Dump\Store\Store;
+use Queryr\TermStore\TermStore;
 use Wikibase\DataModel\Entity\Entity;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\QueryEngine\QueryStoreWriter;
@@ -17,6 +18,7 @@ class PageImporter {
 	private $entityDeserializer;
 	private $queryStoreWriter;
 	private $reporter;
+	private $termStore;
 
 	/**
 	 * @var Entity
@@ -24,12 +26,13 @@ class PageImporter {
 	private $entity;
 
 	public function __construct( Store $dumpStore, Deserializer $entityDeserializer,
-		QueryStoreWriter $queryStoreWriter, PageImportReporter $reporter ) {
+		QueryStoreWriter $queryStoreWriter, PageImportReporter $reporter, TermStore $termStore ) {
 
 		$this->dumpStore = $dumpStore;
 		$this->entityDeserializer = $entityDeserializer;
 		$this->queryStoreWriter = $queryStoreWriter;
 		$this->reporter = $reporter;
+		$this->termStore = $termStore;
 	}
 
 	public function import( Page $entityPage ) {
@@ -42,8 +45,9 @@ class PageImporter {
 				return;
 			}
 
-			$this->doQueryStoreStep();
 			$this->doDumpStoreStep( $entityPage );
+			$this->doQueryStoreStep();
+			$this->doTermStoreStep();
 
 			$this->reporter->endedSuccessfully();
 		}
@@ -70,9 +74,21 @@ class PageImporter {
 		$this->reporter->stepCompleted();
 	}
 
+	private function doTermStoreStep() {
+		$this->reporter->stepStarted( 'Inserting into Term store' );
+		$this->insertIntoTermStore();
+		$this->reporter->stepCompleted();
+	}
 
 	private function insertIntoQueryStore() {
 		$this->queryStoreWriter->insertEntity( $this->entity );
+	}
+
+	private function insertIntoTermStore() {
+		$this->termStore->storeEntityFingerprint(
+			$this->entity->getId(),
+			$this->entity->getFingerprint()
+		);
 	}
 
 	private function insertIntoDumpStore( Page $entityPage ) {

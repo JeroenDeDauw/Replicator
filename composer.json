@@ -8,6 +8,7 @@
 		"ext-pcntl": "*",
 
 		"queryr/dump-store": "~0.1",
+		"queryr/term-store": "dev-master",
 
 		"wikibase/data-model": "~0.7.4",
 		"wikibase/query-engine": "dev-master",
@@ -42,6 +43,10 @@
 		{
 			"type": "vcs",
 			"url": "git@github.com:Queryr/DumpStore.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git@github.com:Queryr/TermStore.git"
 		}
 	]
 }
