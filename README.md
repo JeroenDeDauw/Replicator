@@ -53,34 +53,26 @@ List of commands:
 
     php app/replicator
 
-#### Import command
+#### Importing dumps
 
 Importing an XML dump:
 
-    php app/replicator import tests/data/big/5341-revs-3-props.xml -v
+    php app/replicator import:dump tests/data/big/5341-revs-3-props.xml -v
 
 Import command help:
 
-    php app/replicator --help import
+    php app/replicator --help import:dump
 
 The command can be aborted with `ctrl+c`. It will exit gracefully and provide you
 with the page title needed to resume the import.
 
-    php app/replicator import tests/data/big/5341-revs-3-props.xml --continue Q15826105 -v
+    php app/replicator import:dump tests/data/big/5341-revs-3-props.xml --continue Q15826105 -v
 
 ## Running the tests
 
 Running the tests
 
     phpunit
-
-Setup test database (optional, only needed for some integration tests)
-
-    mysql --user root -p < tests/createTestDB.sql
-
-Drop test database
-
-    mysql --user root -p < tests/dropTestDB.sql
 
 ## DumpReader
 

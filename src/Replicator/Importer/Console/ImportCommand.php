@@ -22,7 +22,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ImportCommand extends Command {
 
 	protected function configure() {
-		$this->setName( 'import' );
+		$this->setName( 'import:dump' );
 		$this->setDescription( 'Imports entities from an XML dump' );
 
 		$this->addArgument(
