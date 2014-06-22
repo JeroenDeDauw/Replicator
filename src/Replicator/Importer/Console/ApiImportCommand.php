@@ -50,22 +50,6 @@ class ApiImportCommand extends Command {
 	}
 
 	protected function execute( InputInterface $input, OutputInterface $output ) {
-		$this->initServiceFactory( $output );
-
-		$pagesImporter = new PagesImporter(
-			$this->newImporter( $this->newReporter( $output ) ),
-			new ConsoleStatsReporter( $output )
-		);
-
-		$iterator = new \ArrayIterator();
-
-		pcntl_signal( SIGINT, [ $pagesImporter, 'stop' ] );
-		pcntl_signal( SIGTERM, [ $pagesImporter, 'stop' ] );
-
-		$pagesImporter->importPages( $iterator );
-	}
-
-	private function initServiceFactory( OutputInterface $output ) {
 		if ( $this->factory === null ) {
 			try {
 				$this->factory = ServiceFactory::newFromConfig();
@@ -76,21 +60,10 @@ class ApiImportCommand extends Command {
 				return;
 			}
 		}
-	}
 
-	private function newImporter( PageImportReporter $reporter ) {
-		return new PageImporter(
-			$this->factory->newDumpStore(),
-			$this->factory->newEntityDeserializer(),
-			$this->factory->newQueryStoreWriter(),
-			$reporter,
-			$this->factory->newTermStore()
-		);
-	}
+		$importer = new PagesImporterCli( $input, $output, $this->factory );
 
-	private function newReporter( OutputInterface $output ) {
-		return $output->isVerbose() ? new VerboseReporter( $output ) : new SimpleReporter( $output );
+		$importer->runImport( new \ArrayIterator() );
 	}
-
 
 }

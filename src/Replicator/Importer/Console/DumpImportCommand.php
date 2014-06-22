@@ -49,22 +49,6 @@ class DumpImportCommand extends Command {
 	}
 
 	protected function execute( InputInterface $input, OutputInterface $output ) {
-		$this->initServiceFactory( $output );
-
-		$pagesImporter = new PagesImporter(
-			$this->newImporter( $this->newReporter( $output ) ),
-			new ConsoleStatsReporter( $output )
-		);
-
-		$iterator = $this->getDumpIterator( $input, $output );
-
-		pcntl_signal( SIGINT, [ $pagesImporter, 'stop' ] );
-		pcntl_signal( SIGTERM, [ $pagesImporter, 'stop' ] );
-
-		$pagesImporter->importPages( $iterator );
-	}
-
-	private function initServiceFactory( OutputInterface $output ) {
 		if ( $this->factory === null ) {
 			try {
 				$this->factory = ServiceFactory::newFromConfig();
@@ -75,6 +59,10 @@ class DumpImportCommand extends Command {
 				return;
 			}
 		}
+
+		$importer = new PagesImporterCli( $input, $output, $this->factory );
+
+		$importer->runImport( $this->getDumpIterator( $input, $output ) );
 	}
 
 	private function getDumpIterator( InputInterface $input, OutputInterface $output ) {
@@ -99,20 +87,5 @@ class DumpImportCommand extends Command {
 		$dumpReaderFactory = new ReaderFactory();
 		return $dumpReaderFactory->newDumpReaderForFile( $file );
 	}
-
-	private function newImporter( PageImportReporter $reporter ) {
-		return new PageImporter(
-			$this->factory->newDumpStore(),
-			$this->factory->newEntityDeserializer(),
-			$this->factory->newQueryStoreWriter(),
-			$reporter,
-			$this->factory->newTermStore()
-		);
-	}
-
-	private function newReporter( OutputInterface $output ) {
-		return $output->isVerbose() ? new VerboseReporter( $output ) : new SimpleReporter( $output );
-	}
-
 
 }
