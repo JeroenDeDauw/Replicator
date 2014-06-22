@@ -19,7 +19,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ImportCommand extends Command {
+class DumpImportCommand extends Command {
 
 	protected function configure() {
 		$this->setName( 'import:dump' );

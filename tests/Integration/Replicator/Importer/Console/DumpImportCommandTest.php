@@ -3,17 +3,17 @@
 namespace Tests\Queryr\Replicator\Importer\Console;
 
 use Doctrine\DBAL\DriverManager;
-use Queryr\Replicator\Importer\Console\ImportCommand;
+use Queryr\Replicator\Importer\Console\DumpImportCommand;
 use Queryr\Replicator\ServiceFactory;
 use Symfony\Component\Console\Tester\CommandTester;
 
 /**
- * @covers Queryr\Replicator\Importer\Console\ImportCommand
+ * @covers Queryr\Replicator\Importer\Console\DumpImportCommand
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ImportCommandTest extends \PHPUnit_Framework_TestCase {
+class DumpImportCommandTest extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * @var ServiceFactory
@@ -52,7 +52,7 @@ class ImportCommandTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function newCommandTester() {
-		$command = new ImportCommand();
+		$command = new DumpImportCommand();
 		$command->setServiceFactory( $this->factory );
 
 		return new CommandTester( $command );

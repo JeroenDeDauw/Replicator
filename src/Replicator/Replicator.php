@@ -1,7 +1,7 @@
 <?php
 
 namespace Queryr\Replicator;
-use Queryr\Replicator\Importer\Console\ImportCommand;
+use Queryr\Replicator\Importer\Console\DumpImportCommand;
 use Queryr\Replicator\Installer\InstallCommand;
 use Queryr\Replicator\Installer\UninstallCommand;
 use Symfony\Component\Console\Application;
@@ -36,10 +36,9 @@ class Replicator {
 
 	private function registerCommands() {
 		$this->app->add( new RunTestsCommand() );
-		$this->app->add( new ImportCommand() );
+		$this->app->add( new DumpImportCommand() );
 		$this->app->add( new InstallCommand() );
 		$this->app->add( new UninstallCommand() );
 	}
 
 }
-
