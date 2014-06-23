@@ -7,11 +7,11 @@
 		"ext-PDO": "*",
 		"ext-pcntl": "*",
 
-		"queryr/dump-store": "~0.1",
-		"queryr/term-store": "dev-master",
+		"queryr/dump-store": "~0.1.0",
+		"queryr/term-store": "~0.1.0",
 
-		"wikibase/data-model": "~0.8.1",
-		"wikibase/query-engine": "dev-master",
+		"wikibase/data-model": "~1.0@dev",
+		"wikibase/query-engine": "~0.3.0@dev",
 		"wikibase/internal-serialization": "~1.0@dev",
 
 		"data-values/common": "*",

@@ -9,6 +9,8 @@ use Doctrine\DBAL\DriverManager;
 use Queryr\Dump\Store\Store;
 use Queryr\Dump\Store\StoreInstaller;
 use Queryr\TermStore\TermStore;
+use Queryr\TermStore\TermStoreConfig;
+use Queryr\TermStore\TermStoreInstaller;
 use RuntimeException;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
 use Wikibase\InternalSerialization\DeserializerFactory;
@@ -91,7 +93,7 @@ class ServiceFactory {
 	public function newTermStore() {
 		return new TermStore(
 			$this->connection,
-			new \Queryr\TermStore\StoreConfig( self::TERMS_TORE_PREFIX )
+			new TermStoreConfig( self::TERMS_TORE_PREFIX )
 		);
 	}
 
@@ -121,9 +123,9 @@ class ServiceFactory {
 	}
 
 	public function newTermStoreInstaller() {
-		return new \Queryr\TermStore\StoreInstaller(
+		return new TermStoreInstaller(
 			$this->connection->getSchemaManager(),
-			new \Queryr\TermStore\StoreConfig( self::TERMS_TORE_PREFIX )
+			new TermStoreConfig( self::TERMS_TORE_PREFIX )
 		);
 	}
 

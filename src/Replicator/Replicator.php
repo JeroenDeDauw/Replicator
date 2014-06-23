@@ -22,7 +22,7 @@ class Replicator {
 	/**
 	 * @return Application
 	 */
-	private function newApplication() {
+	public function newApplication() {
 		$this->app = new Application();
 
 		$this->setApplicationInfo();
