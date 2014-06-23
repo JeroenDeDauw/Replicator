@@ -6,6 +6,7 @@ use Queryr\Replicator\Importer\Console\DumpImportCommand;
 use Queryr\Replicator\Installer\InstallCommand;
 use Queryr\Replicator\Installer\UninstallCommand;
 use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Shell;
 
 /**
  * @licence GNU GPL v2+
@@ -21,7 +22,7 @@ class Replicator {
 	/**
 	 * @return Application
 	 */
-	public function newApplication() {
+	private function newApplication() {
 		$this->app = new Application();
 
 		$this->setApplicationInfo();
@@ -43,6 +44,10 @@ class Replicator {
 
 		$this->app->add( new DumpImportCommand() );
 		$this->app->add( new ApiImportCommand() );
+	}
+
+	public function run() {
+		$this->newApplication()->run();
 	}
 
 }

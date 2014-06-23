@@ -1,3 +1,3 @@
 <?php
 
-include 'replicator';
+include '../replicator';

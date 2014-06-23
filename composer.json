@@ -37,7 +37,7 @@
 		}
 	},
 	"bin": [
-		"app/replicator.php"
+		"replicator"
 	],
 	"repositories": [
 		{

@@ -25,7 +25,7 @@ DBAL. A list of available parameters can be found [in the DBAL docs]
 [Get Composer](https://getcomposer.org/download/) and execute:
 
     composer install
-    php app/replicator install
+    php replicator install
 
 If you just downloaded the composer.phar executable, the install command works as follows:
 
@@ -45,28 +45,28 @@ function.
 
 This will remove Replicator from the system, without deleting the application files themselves.
 
-    php app/replicator uninstall root-db-user root-db-pwd
+    php replicator uninstall root-db-user root-db-pwd
 
 ### Usage
 
 List of commands:
 
-    php app/replicator
+    php replicator
 
 #### Importing dumps
 
 Importing an XML dump:
 
-    php app/replicator import:dump tests/data/big/5341-revs-3-props.xml -v
+    php replicator import:dump tests/data/big/5341-revs-3-props.xml -v
 
 Import command help:
 
-    php app/replicator --help import:dump
+    php replicator --help import:dump
 
 The command can be aborted with `ctrl+c`. It will exit gracefully and provide you
 with the page title needed to resume the import.
 
-    php app/replicator import:dump tests/data/big/5341-revs-3-props.xml --continue Q15826105 -v
+    php replicator import:dump tests/data/big/5341-revs-3-props.xml --continue Q15826105 -v
 
 ## Running the tests
 
