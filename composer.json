@@ -14,11 +14,6 @@
 		"wikibase/query-engine": "~0.3.0@dev",
 		"wikibase/internal-serialization": "~1.0@dev",
 
-		"data-values/common": "*",
-		"data-values/geo": "*",
-		"data-values/number": "*",
-		"data-values/time": "*",
-
 		"symfony/console": "~2.4.4"
 	},
 	"require-dev": {
