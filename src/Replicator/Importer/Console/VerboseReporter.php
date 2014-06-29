@@ -2,7 +2,7 @@
 
 namespace Queryr\Replicator\Importer\Console;
 
-use Queryr\Dump\Reader\Page;
+use Queryr\DumpReader\Page;
 use Queryr\Replicator\Importer\PageImportReporter;
 use Symfony\Component\Console\Output\OutputInterface;
 

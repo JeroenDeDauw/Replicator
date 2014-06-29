@@ -1,6 +1,6 @@
 <?php
 
-namespace Queryr\Dump\Reader;
+namespace Queryr\DumpReader;
 
 use Iterator;
 

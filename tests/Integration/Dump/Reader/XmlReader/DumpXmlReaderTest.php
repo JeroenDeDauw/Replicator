@@ -1,14 +1,14 @@
 <?php
 
-namespace Tests\Queryr\Dump\Reader;
+namespace Tests\Queryr\DumpReader;
 
-use Queryr\Dump\Reader\Page;
-use Queryr\Dump\Reader\DumpReader;
-use Queryr\Dump\Reader\XmlReader\DumpXmlReader;
-use Queryr\Dump\Reader\Revision;
+use Queryr\DumpReader\Page;
+use Queryr\DumpReader\DumpReader;
+use Queryr\DumpReader\XmlReader\DumpXmlReader;
+use Queryr\DumpReader\Revision;
 
 /**
- * @covers Queryr\Dump\Reader\XmlReader\DumpXmlReader
+ * @covers Queryr\DumpReader\XmlReader\DumpXmlReader
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
@@ -39,7 +39,7 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 		/**
 		 * @var Page $entityPage
 		 */
-		$this->assertInstanceOf( 'Queryr\Dump\Reader\Page', $entityPage );
+		$this->assertInstanceOf( 'Queryr\DumpReader\Page', $entityPage );
 
 		$revision = $entityPage->getRevision();
 
@@ -92,7 +92,7 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 		$reader = $this->newReaderForFile( 'simple/two-items.xml' )->getIterator();
 
 		$this->assertCount( 2, iterator_to_array( $reader ) );
-		$this->assertContainsOnlyInstancesOf( 'Queryr\Dump\Reader\Page', $reader );
+		$this->assertContainsOnlyInstancesOf( 'Queryr\DumpReader\Page', $reader );
 	}
 
 	public function testCanUseAsTraversable() {
@@ -127,7 +127,7 @@ class DumpXmlReaderTest extends \PHPUnit_Framework_TestCase {
 	public function testGivenItemWithoutRevision_exceptionInThrown() {
 		$reader = $this->newReaderForFile( 'invalid/item-without-revision.xml' );
 
-		$this->setExpectedException( 'Queryr\Dump\Reader\DumpReaderException' );
+		$this->setExpectedException( 'Queryr\DumpReader\DumpReaderException' );
 		$reader->nextEntityPage();
 	}
 

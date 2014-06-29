@@ -2,8 +2,8 @@
 
 namespace Tests\Queryr\Replicator\Importer;
 
-use Queryr\Dump\Reader\Page;
-use Queryr\Dump\Reader\Revision;
+use Queryr\DumpReader\Page;
+use Queryr\DumpReader\Revision;
 use Queryr\Replicator\Importer\PagesImporter;
 
 /**

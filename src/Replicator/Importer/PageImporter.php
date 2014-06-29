@@ -4,7 +4,7 @@ namespace Queryr\Replicator\Importer;
 
 use Deserializers\Deserializer;
 use Deserializers\Exceptions\DeserializationException;
-use Queryr\Dump\Reader\Page;
+use Queryr\DumpReader\Page;
 use Queryr\EntityStore\EntityStore;
 use Queryr\EntityStore\ItemRow;
 use Queryr\TermStore\TermStore;

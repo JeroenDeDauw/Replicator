@@ -2,8 +2,8 @@
 
 namespace Queryr\Replicator\Importer\Console;
 
-use Queryr\Dump\Reader\DumpReader;
-use Queryr\Dump\Reader\ReaderFactory;
+use Queryr\DumpReader\DumpReader;
+use Queryr\DumpReader\ReaderFactory;
 use Queryr\Replicator\Importer\PageImporter;
 use Queryr\Replicator\Importer\PageImportReporter;
 use Queryr\Replicator\Importer\PagesImporter;

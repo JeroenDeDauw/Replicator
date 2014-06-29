@@ -2,7 +2,7 @@
 
 namespace Queryr\Replicator\Importer;
 
-use Queryr\Dump\Reader\Page;
+use Queryr\DumpReader\Page;
 
 /**
  * @licence GNU GPL v2+

@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Queryr\Dump\Reader;
+namespace Tests\Queryr\DumpReader;
 
-use Queryr\Dump\Reader\Revision;
+use Queryr\DumpReader\Revision;
 
 /**
- * @covers Queryr\Dump\Reader\Revision
+ * @covers Queryr\DumpReader\Revision
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >

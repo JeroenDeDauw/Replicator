@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Queryr\Dump\Reader;
+namespace Tests\Queryr\DumpReader;
 
-use Queryr\Dump\Reader\Page;
+use Queryr\DumpReader\Page;
 
 /**
- * @covers Queryr\Dump\Reader\Page
+ * @covers Queryr\DumpReader\Page
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
@@ -16,7 +16,7 @@ class PageTest extends \PHPUnit_Framework_TestCase {
 		$id = 42;
 		$title = 'Q42';
 		$namespace = 0;
-		$revision = $this->getMockBuilder( 'Queryr\Dump\Reader\Revision' )
+		$revision = $this->getMockBuilder( 'Queryr\DumpReader\Revision' )
 			->disableOriginalConstructor()->getMock();
 
 		$page = new Page( $id, $title, $namespace, $revision );
@@ -28,7 +28,7 @@ class PageTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGivenStringIdAndNs_gettersReturnIntegers() {
-		$revision = $this->getMockBuilder( 'Queryr\Dump\Reader\Revision' )
+		$revision = $this->getMockBuilder( 'Queryr\DumpReader\Revision' )
 			->disableOriginalConstructor()->getMock();
 
 		$page = new Page( '42', 'Q42', '1', $revision );

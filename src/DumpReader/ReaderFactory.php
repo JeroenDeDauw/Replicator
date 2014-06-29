@@ -1,8 +1,8 @@
 <?php
 
-namespace Queryr\Dump\Reader;
+namespace Queryr\DumpReader;
 
-use Queryr\Dump\Reader\XmlReader\DumpXmlReader;
+use Queryr\DumpReader\XmlReader\DumpXmlReader;
 
 /**
  * @licence GNU GPL v2+

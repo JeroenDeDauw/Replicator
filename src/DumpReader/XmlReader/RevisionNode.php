@@ -1,9 +1,9 @@
 <?php
 
-namespace Queryr\Dump\Reader\XmlReader;
+namespace Queryr\DumpReader\XmlReader;
 
 use DOMNode;
-use Queryr\Dump\Reader\Revision;
+use Queryr\DumpReader\Revision;
 use XMLReader;
 
 /**

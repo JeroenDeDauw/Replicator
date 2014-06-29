@@ -1,11 +1,11 @@
 <?php
 
-namespace Queryr\Dump\Reader\XmlReader;
+namespace Queryr\DumpReader\XmlReader;
 
 use DOMNode;
-use Queryr\Dump\Reader\DumpReaderException;
-use Queryr\Dump\Reader\Page;
-use Queryr\Dump\Reader\Revision;
+use Queryr\DumpReader\DumpReaderException;
+use Queryr\DumpReader\Page;
+use Queryr\DumpReader\Revision;
 use XMLReader;
 
 /**

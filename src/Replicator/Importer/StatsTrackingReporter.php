@@ -3,7 +3,7 @@
 namespace Queryr\Replicator\Importer;
 
 use Exception;
-use Queryr\Dump\Reader\Page;
+use Queryr\DumpReader\Page;
 
 /**
  * @licence GNU GPL v2+
