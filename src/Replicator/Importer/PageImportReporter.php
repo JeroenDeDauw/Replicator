@@ -2,7 +2,7 @@
 
 namespace Queryr\Replicator\Importer;
 
-use Queryr\DumpReader\Page;
+use Queryr\Replicator\Model\EntityPage;
 
 /**
  * @licence GNU GPL v2+
@@ -10,7 +10,7 @@ use Queryr\DumpReader\Page;
  */
 interface PageImportReporter {
 
-	public function started( Page $entityPage );
+	public function started( EntityPage $entityPage );
 
 	public function endedSuccessfully();
 

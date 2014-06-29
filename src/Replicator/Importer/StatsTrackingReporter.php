@@ -3,7 +3,7 @@
 namespace Queryr\Replicator\Importer;
 
 use Exception;
-use Queryr\DumpReader\Page;
+use Queryr\Replicator\Model\EntityPage;
 
 /**
  * @licence GNU GPL v2+
@@ -23,7 +23,7 @@ class StatsTrackingReporter implements PageImportReporter {
 		$this->stats = new ImportStats();
 	}
 
-	public function started( Page $entityPage ) {
+	public function started( EntityPage $entityPage ) {
 		$this->reporter->started( $entityPage );
 	}
 

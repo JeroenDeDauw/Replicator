@@ -2,8 +2,8 @@
 
 namespace Queryr\Replicator\Cli\Import;
 
-use Queryr\DumpReader\Page;
 use Queryr\Replicator\Importer\PageImportReporter;
+use Queryr\Replicator\Model\EntityPage;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -20,7 +20,7 @@ class VerboseReporter implements PageImportReporter {
 		$this->output = $output;
 	}
 
-	public function started( Page $entityPage ) {
+	public function started( EntityPage $entityPage ) {
 		$this->output->writeln(
 			"\n<info>Importing entity " . ++$this->number . ': ' . $entityPage->getTitle() . '...</info>'
 		);

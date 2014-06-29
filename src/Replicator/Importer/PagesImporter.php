@@ -3,7 +3,7 @@
 namespace Queryr\Replicator\Importer;
 
 use Iterator;
-use Queryr\DumpReader\Page;
+use Queryr\Replicator\Model\EntityPage;
 
 /**
  * @licence GNU GPL v2+
@@ -39,7 +39,7 @@ class PagesImporter {
 		$this->shouldStop = false;
 
 		/**
-		 * @var Page $entityPage
+		 * @var EntityPage $entityPage
 		 */
 		foreach ( $entityPageIterator as $entityPage ) {
 			$this->importer->import( $entityPage );

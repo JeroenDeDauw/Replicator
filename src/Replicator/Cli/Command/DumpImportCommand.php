@@ -5,6 +5,7 @@ namespace Queryr\Replicator\Cli\Command;
 use Queryr\DumpReader\DumpReader;
 use Queryr\DumpReader\ReaderFactory;
 use Queryr\Replicator\Cli\Import\PagesImporterCli;
+use Queryr\Replicator\Importer\DumpEntityPageIterator;
 use Queryr\Replicator\ServiceFactory;
 use RuntimeException;
 use Symfony\Component\Console\Command\Command;
@@ -60,7 +61,8 @@ class DumpImportCommand extends Command {
 
 		$importer = new PagesImporterCli( $input, $output, $this->factory );
 
-		$importer->runImport( $this->getDumpIterator( $input, $output ) );
+		$entityPageIterator = new DumpEntityPageIterator( $this->getDumpIterator( $input, $output ) );
+		$importer->runImport( $entityPageIterator );
 	}
 
 	private function getDumpIterator( InputInterface $input, OutputInterface $output ) {

@@ -4,9 +4,9 @@ namespace Queryr\Replicator\Importer;
 
 use Deserializers\Deserializer;
 use Deserializers\Exceptions\DeserializationException;
-use Queryr\DumpReader\Page;
 use Queryr\EntityStore\EntityStore;
 use Queryr\EntityStore\ItemRow;
+use Queryr\Replicator\Model\EntityPage;
 use Queryr\TermStore\TermStore;
 use Wikibase\DataModel\Entity\Entity;
 use Wikibase\DataModel\Entity\Item;
@@ -35,7 +35,7 @@ class PageImporter {
 		$this->termStore = $termStore;
 	}
 
-	public function import( Page $entityPage ) {
+	public function import( EntityPage $entityPage ) {
 		$this->reporter->started( $entityPage );
 
 		try {
@@ -56,7 +56,7 @@ class PageImporter {
 		}
 	}
 
-	private function doDeserializeStep( Page $entityPage ) {
+	private function doDeserializeStep( EntityPage $entityPage ) {
 		$this->reporter->stepStarted( 'Deserializing' );
 		$this->entity = $this->entityFromEntityPage( $entityPage );
 		$this->reporter->stepCompleted();
@@ -68,7 +68,7 @@ class PageImporter {
 		$this->reporter->stepCompleted();
 	}
 
-	private function doDumpStoreStep( Page $entityPage ) {
+	private function doDumpStoreStep( EntityPage $entityPage ) {
 		$this->reporter->stepStarted( 'Inserting into Dump store' );
 		$this->insertIntoDumpStore( $entityPage );
 		$this->reporter->stepCompleted();
@@ -91,32 +91,30 @@ class PageImporter {
 		);
 	}
 
-	private function insertIntoDumpStore( Page $entityPage ) {
+	private function insertIntoDumpStore( EntityPage $entityPage ) {
 		$itemRow = $this->itemRowFromEntityPage( $entityPage );
 
 		$this->entityStore->storeItemRow( $itemRow );
 	}
 
-	private function itemRowFromEntityPage( Page $entityPage ) {
-		$revision = $entityPage->getRevision();
-
+	private function itemRowFromEntityPage( EntityPage $entityPage ) {
 		return new ItemRow(
 			$this->entity->getId()->getNumericId(),
-			$revision->getText(),
+			$entityPage->getEntityJson(),
 			$entityPage->getTitle(),
-			$revision->getId(),
-			$revision->getTimeStamp()
+			$entityPage->getRevisionId(),
+			$entityPage->getRevisionTime()
 		);
 	}
 
 	/**
-	 * @param Page $entityPage
+	 * @param EntityPage $entityPage
 	 * @return Item
 	 * @throws DeserializationException
 	 */
-	private function entityFromEntityPage( Page $entityPage ) {
+	private function entityFromEntityPage( EntityPage $entityPage ) {
 		return $this->entityDeserializer->deserialize(
-			json_decode( $entityPage->getRevision()->getText(), true )
+			json_decode( $entityPage->getEntityJson(), true )
 		);
 	}
 

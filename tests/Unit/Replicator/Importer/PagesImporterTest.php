@@ -2,9 +2,8 @@
 
 namespace Tests\Queryr\Replicator\Importer;
 
-use Queryr\DumpReader\Page;
-use Queryr\DumpReader\Revision;
 use Queryr\Replicator\Importer\PagesImporter;
+use Queryr\Replicator\Model\EntityPage;
 
 /**
  * @licence GNU GPL v2+
@@ -28,9 +27,9 @@ class PagesImporterTest extends \PHPUnit_Framework_TestCase {
 		$importer = new PagesImporter( $pageImporter, $statsReporter );
 
 		$importer->importPages( new \ArrayIterator( array(
-			new Page( 1, 'first', 1, new Revision( 1, 'foo', 'bar', 'baz', 'bah' ) ),
-			new Page( 2, 'second', 1, new Revision( 1, 'foo', 'bar', 'baz', 'bah' ) ),
-			new Page( 3, 'third', 1, new Revision( 1, 'foo', 'bar', 'baz', 'bah' ) )
+			new EntityPage( 'first', 'first', 1, 100, 'foo' ),
+			new EntityPage( 'second','second', 2, 200, 'foo' ),
+			new EntityPage( 'third', 'third', 3, 300, 'foo' )
 		) ) );
 	}
 
