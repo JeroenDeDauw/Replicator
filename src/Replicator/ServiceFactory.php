@@ -6,8 +6,9 @@ use DataValues\Deserializers\DataValueDeserializer;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\DriverManager;
-use Queryr\Dump\Store\Store;
-use Queryr\Dump\Store\StoreInstaller;
+use Queryr\EntityStore\EntityStore;
+use Queryr\EntityStore\EntityStoreConfig;
+use Queryr\EntityStore\EntityStoreInstaller;
 use Queryr\TermStore\TermStore;
 use Queryr\TermStore\TermStoreConfig;
 use Queryr\TermStore\TermStoreInstaller;
@@ -26,7 +27,8 @@ use Wikibase\QueryEngine\SQLStore\StoreSchema;
 class ServiceFactory {
 
 	const QUERY_ENGINE_PREFIX = 'qe_';
-	const TERMS_TORE_PREFIX = 'ts_';
+	const ENTITY_STORE_PREFIX = 'es_';
+	const TERMS_STORE_PREFIX = 'ts_';
 
 	public static function newFromConnection( Connection $connection ) {
 		return new self( $connection );
@@ -83,17 +85,23 @@ class ServiceFactory {
 	}
 
 	public function newDumpStoreInstaller() {
-		return new StoreInstaller( $this->connection->getSchemaManager() );
+		return new EntityStoreInstaller(
+			$this->connection->getSchemaManager(),
+			new EntityStoreConfig( self::ENTITY_STORE_PREFIX )
+		);
 	}
 
 	public function newDumpStore() {
-		return new Store( $this->connection );
+		return new EntityStore(
+			$this->connection,
+			new EntityStoreConfig( self::ENTITY_STORE_PREFIX )
+		);
 	}
 
 	public function newTermStore() {
 		return new TermStore(
 			$this->connection,
-			new TermStoreConfig( self::TERMS_TORE_PREFIX )
+			new TermStoreConfig( self::TERMS_STORE_PREFIX )
 		);
 	}
 
@@ -125,7 +133,7 @@ class ServiceFactory {
 	public function newTermStoreInstaller() {
 		return new TermStoreInstaller(
 			$this->connection->getSchemaManager(),
-			new TermStoreConfig( self::TERMS_TORE_PREFIX )
+			new TermStoreConfig( self::TERMS_STORE_PREFIX )
 		);
 	}
 

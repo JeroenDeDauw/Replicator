@@ -7,14 +7,14 @@
 		"ext-PDO": "*",
 		"ext-pcntl": "*",
 
-		"queryr/dump-store": "~0.1.0",
+		"queryr/entity-store": "~0.2.0",
 		"queryr/term-store": "~0.1.0",
 
 		"wikibase/data-model": "~1.0@dev",
 		"wikibase/query-engine": "~0.3.0@dev",
 		"wikibase/internal-serialization": "~1.0@dev",
 
-		"symfony/console": "~2.4.4"
+		"symfony/console": "~2.4"
 	},
 	"require-dev": {
 		"ext-sqlite3": "*",
@@ -37,7 +37,7 @@
 	"repositories": [
 		{
 			"type": "vcs",
-			"url": "git@github.com:Queryr/DumpStore.git"
+			"url": "git@github.com:Queryr/EntityStore.git"
 		},
 		{
 			"type": "vcs",

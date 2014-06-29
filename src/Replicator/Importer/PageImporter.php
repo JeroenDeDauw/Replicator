@@ -5,8 +5,8 @@ namespace Queryr\Replicator\Importer;
 use Deserializers\Deserializer;
 use Deserializers\Exceptions\DeserializationException;
 use Queryr\Dump\Reader\Page;
-use Queryr\Dump\Store\ItemRow;
-use Queryr\Dump\Store\Store;
+use Queryr\EntityStore\EntityStore;
+use Queryr\EntityStore\ItemRow;
 use Queryr\TermStore\TermStore;
 use Wikibase\DataModel\Entity\Entity;
 use Wikibase\DataModel\Entity\Item;
@@ -14,7 +14,7 @@ use Wikibase\QueryEngine\QueryStoreWriter;
 
 class PageImporter {
 
-	private $dumpStore;
+	private $entityStore;
 	private $entityDeserializer;
 	private $queryStoreWriter;
 	private $reporter;
@@ -25,10 +25,10 @@ class PageImporter {
 	 */
 	private $entity;
 
-	public function __construct( Store $dumpStore, Deserializer $entityDeserializer,
+	public function __construct( EntityStore $entityStore, Deserializer $entityDeserializer,
 		QueryStoreWriter $queryStoreWriter, PageImportReporter $reporter, TermStore $termStore ) {
 
-		$this->dumpStore = $dumpStore;
+		$this->entityStore = $entityStore;
 		$this->entityDeserializer = $entityDeserializer;
 		$this->queryStoreWriter = $queryStoreWriter;
 		$this->reporter = $reporter;
@@ -94,7 +94,7 @@ class PageImporter {
 	private function insertIntoDumpStore( Page $entityPage ) {
 		$itemRow = $this->itemRowFromEntityPage( $entityPage );
 
-		$this->dumpStore->storeItemRow( $itemRow );
+		$this->entityStore->storeItemRow( $itemRow );
 	}
 
 	private function itemRowFromEntityPage( Page $entityPage ) {
