@@ -73,11 +73,3 @@ with the page title needed to resume the import.
 Running the tests
 
     phpunit
-
-## DumpReader
-
-This repo also contains the DumpReader library, which is needed by the
-QueryR Replicator application.
-
-Services from this library should be constructed via the Factory in its
-root. Classes that are not in the library root are package private.

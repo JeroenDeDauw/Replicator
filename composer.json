@@ -2,11 +2,11 @@
 	"name": "queryr/replicator",
 	"require": {
 		"php": ">=5.5.0",
-		"lib-libxml": "*",
 		"ext-mysql": "*",
 		"ext-PDO": "*",
 		"ext-pcntl": "*",
 
+		"queryr/dump-reader": "~0.1.0",
 		"queryr/entity-store": "~0.2.0",
 		"queryr/term-store": "~0.1.0",
 
@@ -35,6 +35,10 @@
 		"replicator"
 	],
 	"repositories": [
+		{
+			"type": "vcs",
+			"url": "git@github.com:Queryr/DumpReader.git"
+		},
 		{
 			"type": "vcs",
 			"url": "git@github.com:Queryr/EntityStore.git"
