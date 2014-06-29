@@ -1,12 +1,10 @@
 <?php
 
-namespace Queryr\Replicator\Importer\Console;
+namespace Queryr\Replicator\Cli\Command;
 
 use Queryr\DumpReader\DumpReader;
 use Queryr\DumpReader\ReaderFactory;
-use Queryr\Replicator\Importer\PageImporter;
-use Queryr\Replicator\Importer\PageImportReporter;
-use Queryr\Replicator\Importer\PagesImporter;
+use Queryr\Replicator\Cli\Import\PagesImporterCli;
 use Queryr\Replicator\ServiceFactory;
 use RuntimeException;
 use Symfony\Component\Console\Command\Command;

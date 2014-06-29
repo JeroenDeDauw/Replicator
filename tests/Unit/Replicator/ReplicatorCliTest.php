@@ -2,18 +2,18 @@
 
 namespace Tests\Queryr\Replicator;
 
-use Queryr\Replicator\Replicator;
+use Queryr\Replicator\Cli\ReplicatorCli;
 
 /**
- * @covers Queryr\Replicator\Replicator
+ * @covers Queryr\Replicator\Cli\ReplicatorCli
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ReplicatorTest extends \PHPUnit_Framework_TestCase {
+class ReplicatorCliTest extends \PHPUnit_Framework_TestCase {
 
 	public function testNewApplicationReturnsApplication() {
-		$replicator = new Replicator();
+		$replicator = new ReplicatorCli();
 
 		$this->assertInstanceOf(
 			'Symfony\Component\Console\Application',

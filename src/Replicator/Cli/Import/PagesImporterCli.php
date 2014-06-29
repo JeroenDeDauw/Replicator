@@ -1,12 +1,11 @@
 <?php
 
-namespace Queryr\Replicator\Importer\Console;
+namespace Queryr\Replicator\Cli\Import;
 
 use Queryr\Replicator\Importer\PageImporter;
 use Queryr\Replicator\Importer\PageImportReporter;
 use Queryr\Replicator\Importer\PagesImporter;
 use Queryr\Replicator\ServiceFactory;
-use RuntimeException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 

@@ -3,12 +3,12 @@
 namespace Tests\Queryr\Replicator\Importer\Console;
 
 use Doctrine\DBAL\DriverManager;
-use Queryr\Replicator\Importer\Console\DumpImportCommand;
+use Queryr\Replicator\Cli\Command\DumpImportCommand;
 use Queryr\Replicator\ServiceFactory;
 use Symfony\Component\Console\Tester\CommandTester;
 
 /**
- * @covers Queryr\Replicator\Importer\Console\DumpImportCommand
+ * @covers Queryr\Replicator\Cli\Command\DumpImportCommand
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >

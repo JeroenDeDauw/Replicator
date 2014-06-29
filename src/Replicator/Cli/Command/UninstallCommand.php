@@ -1,7 +1,8 @@
 <?php
 
-namespace Queryr\Replicator;
+namespace Queryr\Replicator\Cli\Command;
 
+use Queryr\Replicator\Cli\Install\UninstallCommandExecutor;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -10,18 +11,16 @@ use Symfony\Component\Console\Output\OutputInterface;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class RunTestsCommand extends Command {
+class UninstallCommand extends Command {
 
 	protected function configure() {
-		$this->setName( 'test' );
-		$this->setDescription( 'Run the PHPUnit tests' );
+		$this->setName( 'uninstall' );
+		$this->setDescription( 'Uninstalls QueryR Replicator.' );
 	}
 
 	protected function execute( InputInterface $input, OutputInterface $output ) {
-		$pwd = getcwd();
-		chdir( __DIR__ . '/../../..' );
-		passthru( 'phpunit' );
-		chdir( $pwd );
+		$executor = new UninstallCommandExecutor( $input, $output );
+		$executor->run();
 	}
 
 }

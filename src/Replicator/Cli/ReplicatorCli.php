@@ -1,18 +1,19 @@
 <?php
 
-namespace Queryr\Replicator;
-use Queryr\Replicator\Importer\Console\ApiImportCommand;
-use Queryr\Replicator\Importer\Console\DumpImportCommand;
-use Queryr\Replicator\Installer\InstallCommand;
-use Queryr\Replicator\Installer\UninstallCommand;
+namespace Queryr\Replicator\Cli;
+
+use Queryr\Replicator\Cli\Command\ApiImportCommand;
+use Queryr\Replicator\Cli\Command\DumpImportCommand;
+use Queryr\Replicator\Cli\Command\InstallCommand;
+use Queryr\Replicator\Cli\Command\RunTestsCommand;
+use Queryr\Replicator\Cli\Command\UninstallCommand;
 use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Shell;
 
 /**
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class Replicator {
+class ReplicatorCli {
 
 	/**
 	 * @var Application

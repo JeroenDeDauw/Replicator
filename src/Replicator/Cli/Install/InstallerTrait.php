@@ -1,6 +1,6 @@
 <?php
 
-namespace Queryr\Replicator\Installer;
+namespace Queryr\Replicator\Cli\Install;
 
 use Doctrine\DBAL\DriverManager;
 use Queryr\Replicator\ConfigFile;

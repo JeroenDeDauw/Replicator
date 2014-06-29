@@ -1,7 +1,8 @@
 <?php
 
-namespace Queryr\Replicator\Installer;
+namespace Queryr\Replicator\Cli\Command;
 
+use Queryr\Replicator\Cli\Install\InstallCommandExecutor;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

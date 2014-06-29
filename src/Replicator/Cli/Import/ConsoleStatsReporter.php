@@ -1,6 +1,6 @@
 <?php
 
-namespace Queryr\Replicator\Importer\Console;
+namespace Queryr\Replicator\Cli\Import;
 
 use Queryr\Replicator\Importer\ImportStats;
 use Queryr\Replicator\Importer\StatsReporter;
