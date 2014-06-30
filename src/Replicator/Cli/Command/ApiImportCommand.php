@@ -3,6 +3,9 @@
 namespace Queryr\Replicator\Cli\Command;
 
 use Queryr\Replicator\Cli\Import\PagesImporterCli;
+use Queryr\Replicator\EntitySource\Api\ApiEntityPageIterator;
+use Queryr\Replicator\EntitySource\Api\EntityPagesFetcher;
+use Queryr\Replicator\EntitySource\Api\Http;
 use Queryr\Replicator\ServiceFactory;
 use RuntimeException;
 use Symfony\Component\Console\Command\Command;
@@ -59,7 +62,10 @@ class ApiImportCommand extends Command {
 
 		$importer = new PagesImporterCli( $input, $output, $this->factory );
 
-		$importer->runImport( new \ArrayIterator() );
+		$importer->runImport( new ApiEntityPageIterator(
+			new EntityPagesFetcher( new Http() ),
+			[ 'Q3' ]
+		) );
 	}
 
 }

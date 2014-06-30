@@ -5,7 +5,7 @@ namespace Queryr\Replicator\Cli\Command;
 use Queryr\DumpReader\DumpReader;
 use Queryr\DumpReader\ReaderFactory;
 use Queryr\Replicator\Cli\Import\PagesImporterCli;
-use Queryr\Replicator\Importer\DumpEntityPageIterator;
+use Queryr\Replicator\EntitySource\Dump\DumpEntityPageIterator;
 use Queryr\Replicator\ServiceFactory;
 use RuntimeException;
 use Symfony\Component\Console\Command\Command;

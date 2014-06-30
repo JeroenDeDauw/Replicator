@@ -1,6 +1,6 @@
 <?php
 
-namespace Queryr\Replicator\Importer;
+namespace Queryr\Replicator\EntitySource\Dump;
 
 use Iterator;
 use Queryr\DumpReader\DumpIterator;
