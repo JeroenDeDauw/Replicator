@@ -30,13 +30,13 @@ class ApiImportCommand extends Command {
 			'The ids of the entities to import'
 		);
 
-		$this->addOption(
-			'url',
-			null,
-			InputOption::VALUE_OPTIONAL,
-			'The full url of the Wikibase Repo web API to use',
-			'https://www.wikidata.org/w/api.php'
-		);
+//		$this->addOption(
+//			'url',
+//			null,
+//			InputOption::VALUE_OPTIONAL,
+//			'The full url of the Wikibase Repo web API to use',
+//			'https://www.wikidata.org/w/api.php'
+//		);
 	}
 
 	/**
@@ -64,7 +64,7 @@ class ApiImportCommand extends Command {
 
 		$importer->runImport( new ApiEntityPageIterator(
 			new EntityPagesFetcher( new Http() ),
-			[ 'Q3' ]
+			$input->getArgument( 'entities' )
 		) );
 	}
 

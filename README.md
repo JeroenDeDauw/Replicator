@@ -68,6 +68,16 @@ with the page title needed to resume the import.
 
     php replicator import:dump tests/data/big/5341-revs-3-props.xml --continue Q15826105 -v
 
+#### Importing from the Wikidata.org API
+
+Importing entities via the web API:
+
+    php replicator import:api Q1 Q2 Q1337
+
+Import command help:
+
+    php replicator --help import:api
+
 ## Running the tests
 
 Running the tests
