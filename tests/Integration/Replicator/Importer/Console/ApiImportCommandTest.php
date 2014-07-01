@@ -3,17 +3,19 @@
 namespace Tests\Queryr\Replicator\Importer\Console;
 
 use Doctrine\DBAL\DriverManager;
+use Queryr\Replicator\Cli\Command\ApiImportCommand;
 use Queryr\Replicator\Cli\Command\DumpImportCommand;
+use Queryr\Replicator\EntitySource\Api\Http;
 use Queryr\Replicator\ServiceFactory;
 use Symfony\Component\Console\Tester\CommandTester;
 
 /**
- * @covers Queryr\Replicator\Cli\Command\DumpImportCommand
+ * @covers Queryr\Replicator\Cli\Command\ApiImportCommand
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class DumpImportCommandTest extends \PHPUnit_Framework_TestCase {
+class ApiImportCommandTest extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * @var ServiceFactory
@@ -37,9 +39,9 @@ class DumpImportCommandTest extends \PHPUnit_Framework_TestCase {
 
 	public function testEntityIdInOutput() {
 		$this->assertContains(
-			'Q15831780....... Entity imported',
+			'Q1....... Entity imported',
 			$this->getOutputForArgs( [
-				'file' => 'tests/data/simple/one-item.xml'
+				'entities' => [ 'Q1' ]
 			] )
 		);
 	}
@@ -53,23 +55,24 @@ class DumpImportCommandTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function newCommandTester() {
-		$command = new DumpImportCommand();
+		$command = new ApiImportCommand();
 		$command->setServiceFactory( $this->factory );
+		$command->setHttp( new FakeHttp() );
 
 		return new CommandTester( $command );
 	}
 
-	public function testResume() {
-		$output = $this->getOutputForArgs( [
-			'file' => 'tests/data/simple/five-items.xml',
-			'--continue' => 'Q15826086'
-		] );
+}
 
-		$this->assertNotContains( 'Q15831779', $output );
-		$this->assertNotContains( 'Q15831780', $output );
-		$this->assertContains( 'Q15826087', $output );
-		$this->assertContains( 'Q15826088', $output );
-		$this->assertContains( 'Entities: 2', $output );
+class FakeHttp extends Http {
+
+	public function get( $url ) {
+		if ( $url === 'https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q1&format=json' ) {
+			return file_get_contents( __DIR__ . '/Q1.json' );
+		}
+		else {
+			throw new \Exception();
+		}
 	}
 
 }

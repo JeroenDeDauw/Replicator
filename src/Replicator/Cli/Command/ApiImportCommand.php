@@ -37,6 +37,14 @@ class ApiImportCommand extends Command {
 //			'The full url of the Wikibase Repo web API to use',
 //			'https://www.wikidata.org/w/api.php'
 //		);
+
+		$this->addOption(
+			'batchsize',
+			'b',
+			InputOption::VALUE_OPTIONAL,
+			'The number of API requests to bundle together',
+			5
+		);
 	}
 
 	/**
@@ -46,6 +54,15 @@ class ApiImportCommand extends Command {
 
 	public function setServiceFactory( ServiceFactory $factory ) {
 		$this->factory = $factory;
+	}
+
+	/**
+	 * @var Http|null
+	 */
+	private $http;
+
+	public function setHttp( Http $http ) {
+		$this->http = $http;
 	}
 
 	protected function execute( InputInterface $input, OutputInterface $output ) {
@@ -63,8 +80,9 @@ class ApiImportCommand extends Command {
 		$importer = new PagesImporterCli( $input, $output, $this->factory );
 
 		$importer->runImport( new ApiEntityPageIterator(
-			new EntityPagesFetcher( new Http() ),
-			$input->getArgument( 'entities' )
+			new EntityPagesFetcher( $this->http === null ? new Http() : $this->http ),
+			$input->getArgument( 'entities' ),
+			(int)$input->getOption( 'batchsize' )
 		) );
 	}
 
