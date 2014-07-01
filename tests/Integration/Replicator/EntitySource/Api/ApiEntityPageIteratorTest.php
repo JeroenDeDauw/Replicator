@@ -40,6 +40,18 @@ class ApiEntityPageIteratorTest extends \PHPUnit_Framework_TestCase {
 		new ApiEntityPageIterator( $this->newFetcherMock(), [ 'Q1', 'Q2' ], -5 );
 	}
 
+	public function testWhenNoPagesAreFound_iteratorIsEmpty() {
+		$fetcher = $this->newFetcherMock();
+
+		$fetcher->expects( $this->exactly( 2 ) )
+			->method( 'fetchEntityPages' )
+			->will( $this->returnValue( [] ) );
+
+		$iterator = new ApiEntityPageIterator( $fetcher, [ 'Q1', 'Q2' ] );
+
+		$this->assertSame( [], iterator_to_array( $iterator ) );
+	}
+
 //	public function testGivenFiveIdsAndBatchSizeThree_twoCallsAreMade() {
 //		$fetcher = $this->getMockBuilder( 'Queryr\Replicator\EntitySource\Api\EntityPagesFetcher' )
 //			->disableOriginalConstructor()->getMock();
