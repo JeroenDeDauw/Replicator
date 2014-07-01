@@ -2,6 +2,7 @@
 
 namespace Queryr\Replicator\EntitySource\Api;
 
+use InvalidArgumentException;
 use Iterator;
 use Queryr\Replicator\Model\EntityPage;
 use Wikibase\DataModel\Entity\EntityId;
@@ -15,7 +16,7 @@ class ApiEntityPageIterator implements Iterator {
 	/**
 	 * @var EntityPage|null
 	 */
-	private $current;
+	private $current = null;
 
 	/**
 	 * @var EntityPagesFetcher
@@ -28,12 +29,31 @@ class ApiEntityPageIterator implements Iterator {
 	private $pagesToFetch;
 
 	/**
+	 * @var int
+	 */
+	private $batchSize;
+
+	/**
+	 * @var mixed
+	 */
+	private $key;
+
+	/**
 	 * @param EntityPagesFetcher $fetcher
 	 * @param EntityId[] $pagesToFetch
+	 * @param int $batchSize
+	 *
+	 * @throws InvalidArgumentException
 	 */
-	public function __construct( EntityPagesFetcher $fetcher, array $pagesToFetch ) {
+	public function __construct( EntityPagesFetcher $fetcher, array $pagesToFetch, $batchSize = 1 ) {
 		$this->fetcher = $fetcher;
 		$this->pagesToFetch = $pagesToFetch;
+
+		if ( !is_int( $batchSize ) || $batchSize < 1 ) {
+			throw new InvalidArgumentException( '$batchSize should be an int greater than 0' );
+		}
+
+		$this->batchSize = $batchSize;
 	}
 
 	/**
@@ -44,17 +64,30 @@ class ApiEntityPageIterator implements Iterator {
 	}
 
 	public function next() {
-		$pages = $this->fetcher->fetchEntityPages( [ current( $this->pagesToFetch ) ] );
+		$this->key = key( $this->pagesToFetch );
+		$currentId = current( $this->pagesToFetch );
 
-		$this->current = empty( $pages ) ? null : $pages[0];
-		next( $this->pagesToFetch );
+		if ( $currentId === false ) {
+			$this->current = null;
+		}
+		else {
+			$pages = $this->fetcher->fetchEntityPages( [ $currentId ] );
+			next( $this->pagesToFetch );
+
+			if ( empty( $pages ) ) {
+				$this->next();
+			}
+			else {
+				$this->current = $pages[0];
+			}
+		}
 	}
 
 	/**
 	 * @return int
 	 */
 	public function key() {
-		return key( $this->pagesToFetch );
+		return $this->key;
 	}
 
 	/**

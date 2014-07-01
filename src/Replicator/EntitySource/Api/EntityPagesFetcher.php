@@ -40,10 +40,7 @@ class EntityPagesFetcher {
 	 * @return string
 	 */
 	private function constructRequestUrl( array $entityIds ) {
-		$ids = implode(
-			'|',
-			array_map( 'urlencode', $entityIds )
-		);
+		$ids = implode( '|', array_map( 'urlencode', $entityIds ) );
 
 		return 'https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' . $ids . '&format=json';
 	}
