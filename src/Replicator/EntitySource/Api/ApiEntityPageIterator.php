@@ -26,34 +26,31 @@ class ApiEntityPageIterator implements Iterator {
 	/**
 	 * @var EntityId[]
 	 */
-	private $pagesToFetch;
+	private $pageSetsToFetch;
+
+	/**
+	 * @var EntityPage[]
+	 */
+	private $currentBatch = [];
 
 	/**
 	 * @var int
-	 */
-	private $batchSize;
-
-	/**
-	 * @var mixed
 	 */
 	private $key;
 
 	/**
 	 * @param EntityPagesFetcher $fetcher
-	 * @param EntityId[] $pagesToFetch
-	 * @param int $batchSize
+	 * @param EntityId[] $pageSetsToFetch
 	 *
 	 * @throws InvalidArgumentException
 	 */
-	public function __construct( EntityPagesFetcher $fetcher, array $pagesToFetch, $batchSize = 1 ) {
+	public function __construct( EntityPagesFetcher $fetcher, array $pageSetsToFetch ) {
 		$this->fetcher = $fetcher;
-		$this->pagesToFetch = $pagesToFetch;
+		$this->pageSetsToFetch = [];
 
-		if ( !is_int( $batchSize ) || $batchSize < 1 ) {
-			throw new InvalidArgumentException( '$batchSize should be an int greater than 0' );
+		foreach ( $pageSetsToFetch as $pagesToFetch ) {
+			$this->pageSetsToFetch[] = (array)$pagesToFetch;
 		}
-
-		$this->batchSize = $batchSize;
 	}
 
 	/**
@@ -64,22 +61,21 @@ class ApiEntityPageIterator implements Iterator {
 	}
 
 	public function next() {
-		$this->key = key( $this->pagesToFetch );
-		$currentId = current( $this->pagesToFetch );
+		$page = $this->nextPageFromBatch();
 
-		if ( $currentId === false ) {
-			$this->current = null;
-		}
-		else {
-			$pages = $this->fetcher->fetchEntityPages( [ $currentId ] );
-			next( $this->pagesToFetch );
-
-			if ( empty( $pages ) ) {
-				$this->next();
+		if ( $page === null ) {
+			if ( current( $this->pageSetsToFetch ) === false ) {
+				$this->current = null;
 			}
 			else {
-				$this->current = $pages[0];
+				$this->fetchNextBatch( current( $this->pageSetsToFetch ) );
+				next( $this->pageSetsToFetch );
+				$this->next();
 			}
+		}
+		else {
+			$this->current = $page;
+			$this->key++;
 		}
 	}
 
@@ -98,8 +94,20 @@ class ApiEntityPageIterator implements Iterator {
 	}
 
 	public function rewind() {
-		reset( $this->pagesToFetch );
+		$this->key = -1;
+		reset( $this->pageSetsToFetch );
 		$this->next();
+	}
+
+	private function fetchNextBatch( array $entityIds ) {
+		$this->currentBatch = $this->fetcher->fetchEntityPages( $entityIds );
+	}
+
+	/**
+	 * @return EntityPage|null
+	 */
+	private function nextPageFromBatch() {
+		return array_shift( $this->currentBatch );
 	}
 
 }
