@@ -50,22 +50,71 @@ class ApiEntityPageIteratorTest extends \PHPUnit_Framework_TestCase {
 		$this->assertSame( [], iterator_to_array( $iterator ) );
 	}
 
-	public function testGivenFiveIdsAndBatchSizeThree_twoCallsAreMade() {
+	/**
+	 * @dataProvider batchProvider
+	 */
+	public function testGivenFiveIdsAndBatchSizeThree_twoCallsAreMade( $ids, $maxBatchSize, $expectedCallCount ) {
 		$fetcher = $this->newFetcherMock();
 
-		$fetcher->expects( $this->exactly( 2 ) )
+		$fetcher->expects( $this->exactly( $expectedCallCount ) )
 			->method( 'fetchEntityPages' )
 			->will( $this->returnArgument( 0 ) );
 
 		$iterator = new ApiEntityPageIterator(
 			$fetcher,
-			[ [ 'Q1', 'Q2', 'Q3' ], [ 'Q4', 'Q5' ] ]
+			$ids,
+			$maxBatchSize
 		);
 
 		$this->assertSame(
-			[ 'Q1', 'Q2', 'Q3', 'Q4', 'Q5' ],
+			$ids,
 			iterator_to_array( $iterator )
 		);
+	}
+
+	public function batchProvider() {
+		return [
+			[
+				[ 'Q1', 'Q2', 'Q3', 'Q4', 'Q5' ],
+				5,
+				1
+			],
+
+			[
+				[ 'Q1', 'Q2', 'Q3', 'Q4', 'Q5' ],
+				1,
+				5
+			],
+
+			[
+				[ 'Q1', 'Q2', 'Q3', 'Q4', 'Q5' ],
+				2,
+				3
+			],
+
+			[
+				[ 'Q1', 'Q2', 'Q3', 'Q4', 'Q5' ],
+				3,
+				2
+			],
+
+			[
+				[ 'Q1', 'Q2', 'Q3', 'Q4', 'Q5' ],
+				10,
+				1
+			],
+
+			[
+				[ 'Q1', 'Q2', 'Q3', 'Q4' ],
+				2,
+				2
+			],
+		];
+	}
+
+	public function testGivenInvalidBatchSize_exceptionIsThrown() {
+		$this->setExpectedException( 'InvalidArgumentException' );
+		new ApiEntityPageIterator( $this->newFetcherMock(), [ 'Q1', 'Q2' ], -5 );
 	}
 
 }

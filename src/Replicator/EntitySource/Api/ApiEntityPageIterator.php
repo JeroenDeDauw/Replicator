@@ -5,7 +5,6 @@ namespace Queryr\Replicator\EntitySource\Api;
 use InvalidArgumentException;
 use Iterator;
 use Queryr\Replicator\Model\EntityPage;
-use Wikibase\DataModel\Entity\EntityId;
 
 /**
  * @licence GNU GPL v2+
@@ -14,17 +13,22 @@ use Wikibase\DataModel\Entity\EntityId;
 class ApiEntityPageIterator implements Iterator {
 
 	/**
-	 * @var EntityPage|null
-	 */
-	private $current = null;
-
-	/**
 	 * @var EntityPagesFetcher
 	 */
 	private $fetcher;
 
 	/**
-	 * @var EntityId[]
+	 * @var int
+	 */
+	private $maxBatchSize;
+
+	/**
+	 * @var EntityPage|null
+	 */
+	private $current = null;
+
+	/**
+	 * @var string[]
 	 */
 	private $pageSetsToFetch;
 
@@ -40,16 +44,33 @@ class ApiEntityPageIterator implements Iterator {
 
 	/**
 	 * @param EntityPagesFetcher $fetcher
-	 * @param EntityId[] $pageSetsToFetch
+	 * @param string[] $pagesToFetch
+	 * @param int $maxBatchSize
 	 *
 	 * @throws InvalidArgumentException
 	 */
-	public function __construct( EntityPagesFetcher $fetcher, array $pageSetsToFetch ) {
+	public function __construct( EntityPagesFetcher $fetcher, array $pagesToFetch, $maxBatchSize = 1 ) {
 		$this->fetcher = $fetcher;
-		$this->pageSetsToFetch = [];
+		$this->setMaxBatchSize( $maxBatchSize );
 
-		foreach ( $pageSetsToFetch as $pagesToFetch ) {
-			$this->pageSetsToFetch[] = (array)$pagesToFetch;
+		$this->pageSetsToFetch = [];
+		$this->addPagesToFetch( $pagesToFetch );
+	}
+
+	private function setMaxBatchSize( $maxBatchSize ) {
+		if ( !is_int( $maxBatchSize ) || $maxBatchSize < 1 ) {
+			throw new InvalidArgumentException( '$maxBatchSize should be an int bigger than 0.' );
+		}
+
+		$this->maxBatchSize = $maxBatchSize;
+	}
+
+	private function addPagesToFetch( array $pagesToFetch ) {
+		$offset = 0;
+
+		while ( $batch = array_slice( $pagesToFetch, $offset, $this->maxBatchSize ) ) {
+			$this->pageSetsToFetch[] = $batch;
+			$offset += count( $batch );
 		}
 	}
 
