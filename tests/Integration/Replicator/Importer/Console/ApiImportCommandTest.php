@@ -38,12 +38,12 @@ class ApiImportCommandTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testEntityIdInOutput() {
-		$this->assertContains(
-			'Q1....... Entity imported',
-			$this->getOutputForArgs( [
-				'entities' => [ 'Q1' ]
-			] )
-		);
+		$output = $this->getOutputForArgs( [
+			'entities' => [ 'Q1' ]
+		] );
+
+		$this->assertContains( 'Q1', $output );
+		$this->assertContains( 'Entity imported', $output );
 	}
 
 	private function getOutputForArgs( array $args ) {

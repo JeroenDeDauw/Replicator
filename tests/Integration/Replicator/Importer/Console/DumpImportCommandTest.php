@@ -36,12 +36,12 @@ class DumpImportCommandTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testEntityIdInOutput() {
-		$this->assertContains(
-			'Q15831780....... Entity imported',
-			$this->getOutputForArgs( [
-				'file' => 'tests/data/simple/one-item.xml'
-			] )
-		);
+		$output = $this->getOutputForArgs( [
+			'file' => 'tests/data/simple/one-item.xml'
+		] );
+
+		$this->assertContains( 'Q15831780', $output );
+		$this->assertContains( 'Entity imported', $output );
 	}
 
 	private function getOutputForArgs( array $args ) {
