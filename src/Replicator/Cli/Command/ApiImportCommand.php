@@ -2,10 +2,11 @@
 
 namespace Queryr\Replicator\Cli\Command;
 
+use BatchingIterator\BatchingIterator;
 use Queryr\Replicator\Cli\Import\PagesImporterCli;
-use Queryr\Replicator\EntitySource\Api\ApiEntityPageIterator;
-use Queryr\Replicator\EntitySource\Api\EntityPagesFetcher;
+use Queryr\Replicator\EntitySource\Api\GetEntitiesClient;
 use Queryr\Replicator\EntitySource\Api\Http;
+use Queryr\Replicator\EntitySource\BatchingEntityPageFetcher;
 use Queryr\Replicator\ServiceFactory;
 use RuntimeException;
 use Symfony\Component\Console\Command\Command;
@@ -79,11 +80,21 @@ class ApiImportCommand extends Command {
 
 		$importer = new PagesImporterCli( $input, $output, $this->factory );
 
-		$importer->runImport( new ApiEntityPageIterator(
-			new EntityPagesFetcher( $this->http === null ? new Http() : $this->http ),
-			$input->getArgument( 'entities' ),
-			(int)$input->getOption( 'batchsize' )
-		) );
+		$importer->runImport( $this->getEntityPageIterator( $input ) );
+	}
+
+	private function getEntityPageIterator( InputInterface $input ) {
+		$http = $this->http === null ? new Http() : $this->http;
+
+		$batchingFetcher = new BatchingEntityPageFetcher(
+			new GetEntitiesClient( $http ),
+			$input->getArgument( 'entities' )
+		);
+
+		$iterator = new BatchingIterator( $batchingFetcher );
+		$iterator->setMaxBatchSize( (int)$input->getOption( 'batchsize' ) );
+
+		return $iterator;
 	}
 
 }

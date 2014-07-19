@@ -38,7 +38,7 @@ class SimpleReporter implements PageImportReporter {
 	public function stepStarted( $message ) {}
 
 	public function stepCompleted() {
-		$this->output->write( "<info>.</info>" );
+		$this->output->write( "<info>..</info>" );
 	}
 
 }

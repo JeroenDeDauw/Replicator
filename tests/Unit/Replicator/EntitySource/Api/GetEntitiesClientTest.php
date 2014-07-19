@@ -2,18 +2,18 @@
 
 namespace Tests\Queryr\Replicator\EntitySource\Api;
 
-use Queryr\Replicator\EntitySource\Api\EntityPagesFetcher;
+use Queryr\Replicator\EntitySource\Api\GetEntitiesClient;
 
 /**
- * @covers Queryr\Replicator\EntitySource\Api\EntityPagesFetcher
+ * @covers Queryr\Replicator\EntitySource\Api\GetEntitiesClient
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EntityPagesFetcherTest extends \PHPUnit_Framework_TestCase {
+class GetEntitiesClientTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGivenNoIds_emptyArrayIsReturned() {
-		$fetcher = new EntityPagesFetcher( $this->newHttpMockThatShouldNotBeCalled() );
+		$fetcher = new GetEntitiesClient( $this->newHttpMockThatShouldNotBeCalled() );
 
 		$pages = $fetcher->fetchEntityPages( [] );
 
@@ -38,7 +38,7 @@ class EntityPagesFetcherTest extends \PHPUnit_Framework_TestCase {
 			->method( 'get' )
 			->with( $this->equalTo( $expectedUrl ) );
 
-		$fetcher = new EntityPagesFetcher( $http );
+		$fetcher = new GetEntitiesClient( $http );
 		$fetcher->fetchEntityPages( $ids );
 	}
 

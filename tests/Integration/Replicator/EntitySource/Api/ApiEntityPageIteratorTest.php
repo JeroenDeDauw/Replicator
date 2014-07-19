@@ -2,8 +2,9 @@
 
 namespace Tests\Queryr\Replicator\Importer\Console;
 
-use Queryr\Replicator\EntitySource\Api\ApiEntityPageIterator;
-use Queryr\Replicator\EntitySource\Api\EntityPagesFetcher;
+use BatchingIterator\BatchingIterator;
+use Queryr\Replicator\EntitySource\BatchingEntityPageFetcher;
+use Queryr\Replicator\EntitySource\EntityPageBatchFetcher;
 use Queryr\Replicator\Model\EntityPage;
 
 /**
@@ -15,37 +16,20 @@ use Queryr\Replicator\Model\EntityPage;
 class ApiEntityPageIteratorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testIterationOverEmptyIterator() {
-		$iterator = new ApiEntityPageIterator( new FakeEntityPagesFetcher(), [] );
+		$iterator = $this->newFakeIterator( [], [] );
 
 		$this->assertSame( [], iterator_to_array( $iterator ) );
 	}
 
-	private function newFetcherMock() {
-		return $this->getMockBuilder( 'Queryr\Replicator\EntitySource\Api\EntityPagesFetcher' )
-			->disableOriginalConstructor()->getMock();
-	}
-
-	public function testGivenThreeIds_iteratorMakesTwoCallsAndIsSizeThree() {
-		$iterator = new ApiEntityPageIterator(
-			new FakeEntityPagesFetcher( [
-				'Q1' => 1,
-				'Q2' => 2,
-				'Q3' => 3,
-			] ),
-			[ 'Q1', 'Q2', 'Q3' ]
-		);
-
-		$this->assertSame( [ 1, 2, 3 ], iterator_to_array( $iterator ) );
+	private function newFakeIterator( array $pages, array $pagesToFetch ) {
+		return new BatchingIterator( new BatchingEntityPageFetcher(
+			new FakeEntityPagesFetcher( $pages ),
+			$pagesToFetch
+		) );
 	}
 
 	public function testWhenNoPagesAreFound_iteratorIsEmpty() {
-		$fetcher = $this->newFetcherMock();
-
-		$fetcher->expects( $this->exactly( 2 ) )
-			->method( 'fetchEntityPages' )
-			->will( $this->returnValue( [] ) );
-
-		$iterator = new ApiEntityPageIterator( $fetcher, [ 'Q1', 'Q2' ] );
+		$iterator = $this->newFakeIterator( [], [ 'Q1', 'Q2' ] );
 
 		$this->assertSame( [], iterator_to_array( $iterator ) );
 	}
@@ -53,23 +37,29 @@ class ApiEntityPageIteratorTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider batchProvider
 	 */
-	public function testGivenFiveIdsAndBatchSizeThree_twoCallsAreMade( $ids, $maxBatchSize, $expectedCallCount ) {
+	public function testCorrectAmountOfCallsAreMadeToTheBatchFetcher( $ids, $maxBatchSize, $expectedCallCount ) {
 		$fetcher = $this->newFetcherMock();
 
 		$fetcher->expects( $this->exactly( $expectedCallCount ) )
 			->method( 'fetchEntityPages' )
 			->will( $this->returnArgument( 0 ) );
 
-		$iterator = new ApiEntityPageIterator(
+		$iterator = new BatchingIterator( new BatchingEntityPageFetcher(
 			$fetcher,
-			$ids,
-			$maxBatchSize
-		);
+			$ids
+		) );
+
+		$iterator->setMaxBatchSize( $maxBatchSize );
 
 		$this->assertSame(
 			$ids,
 			iterator_to_array( $iterator )
 		);
+	}
+
+	private function newFetcherMock() {
+		return $this->getMockBuilder( 'Queryr\Replicator\EntitySource\EntityPageBatchFetcher' )
+			->disableOriginalConstructor()->getMock();
 	}
 
 	public function batchProvider() {
@@ -112,14 +102,9 @@ class ApiEntityPageIteratorTest extends \PHPUnit_Framework_TestCase {
 		];
 	}
 
-	public function testGivenInvalidBatchSize_exceptionIsThrown() {
-		$this->setExpectedException( 'InvalidArgumentException' );
-		new ApiEntityPageIterator( $this->newFetcherMock(), [ 'Q1', 'Q2' ], -5 );
-	}
-
 }
 
-class FakeEntityPagesFetcher extends EntityPagesFetcher {
+class FakeEntityPagesFetcher implements EntityPageBatchFetcher {
 
 	private $pages;
 

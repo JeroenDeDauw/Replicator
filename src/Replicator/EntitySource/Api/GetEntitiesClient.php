@@ -2,13 +2,14 @@
 
 namespace Queryr\Replicator\EntitySource\Api;
 
+use Queryr\Replicator\EntitySource\EntityPageBatchFetcher;
 use Queryr\Replicator\Model\EntityPage;
 
 /**
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EntityPagesFetcher {
+class GetEntitiesClient implements EntityPageBatchFetcher {
 
 	private $http;
 
