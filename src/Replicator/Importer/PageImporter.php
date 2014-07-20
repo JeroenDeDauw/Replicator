@@ -6,6 +6,7 @@ use Deserializers\Deserializer;
 use Deserializers\Exceptions\DeserializationException;
 use Queryr\EntityStore\EntityStore;
 use Queryr\EntityStore\ItemRow;
+use Queryr\EntityStore\PropertyRow;
 use Queryr\Replicator\Model\EntityPage;
 use Queryr\TermStore\TermStore;
 use Wikibase\DataModel\Entity\Entity;
@@ -94,9 +95,14 @@ class PageImporter {
 	}
 
 	private function insertIntoDumpStore( EntityPage $entityPage ) {
-		$itemRow = $this->itemRowFromEntityPage( $entityPage );
-
-		$this->entityStore->storeItemRow( $itemRow );
+		if ( $this->entity->getType() === 'item' ) {
+			$itemRow = $this->itemRowFromEntityPage( $entityPage );
+			$this->entityStore->storeItemRow( $itemRow );
+		}
+		else if ( $this->entity->getType() === 'property' ) {
+			$propertyRow = $this->propertyRowFromEntityPage( $entityPage );
+			$this->entityStore->storePropertyRow( $propertyRow );
+		}
 	}
 
 	private function itemRowFromEntityPage( EntityPage $entityPage ) {
@@ -106,6 +112,17 @@ class PageImporter {
 			$entityPage->getTitle(),
 			$entityPage->getRevisionId(),
 			$entityPage->getRevisionTime()
+		);
+	}
+
+	private function propertyRowFromEntityPage( EntityPage $entityPage ) {
+		return new PropertyRow(
+			$this->entity->getId()->getNumericId(),
+			$entityPage->getEntityJson(),
+			$entityPage->getTitle(),
+			$entityPage->getRevisionId(),
+			$entityPage->getRevisionTime(),
+			$this->entity->getDataTypeId()
 		);
 	}
 
