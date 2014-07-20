@@ -7,6 +7,7 @@ use Queryr\Replicator\Cli\Import\PagesImporterCli;
 use Queryr\Replicator\EntitySource\Api\GetEntitiesClient;
 use Queryr\Replicator\EntitySource\Api\Http;
 use Queryr\Replicator\EntitySource\BatchingEntityPageFetcher;
+use Queryr\Replicator\EntitySource\ReferencedEntityPageIterator;
 use Queryr\Replicator\ServiceFactory;
 use RuntimeException;
 use Symfony\Component\Console\Command\Command;
@@ -45,6 +46,13 @@ class ApiImportCommand extends Command {
 			InputOption::VALUE_OPTIONAL,
 			'The number of API requests to bundle together',
 			5
+		);
+
+		$this->addOption(
+			'include-references',
+			'r',
+			InputOption::VALUE_NONE,
+			'If referenced entities should also be imported'
 		);
 	}
 
@@ -93,6 +101,14 @@ class ApiImportCommand extends Command {
 
 		$iterator = new BatchingIterator( $batchingFetcher );
 		$iterator->setMaxBatchSize( (int)$input->getOption( 'batchsize' ) );
+
+		if ( $input->getOption( 'include-references' ) ) {
+			return new ReferencedEntityPageIterator(
+				$iterator,
+				$batchingFetcher,
+				$this->factory->newEntityDeserializer()
+			);
+		}
 
 		return $iterator;
 	}

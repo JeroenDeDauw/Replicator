@@ -28,8 +28,12 @@ class BatchingEntityPageFetcher implements BatchingFetcher {
 
 	public function __construct( EntityPageBatchFetcher $batchFetcher, array $pagesToFetch ) {
 		$this->batchFetcher = $batchFetcher;
-		$this->pagesToFetch = $pagesToFetch;
+		$this->pagesToFetch = array_unique( $pagesToFetch );
 		$this->rewind();
+	}
+
+	public function addPagesToFetch( array $pagesToFetch ) {
+		$this->pagesToFetch = array_unique( array_merge( $this->pagesToFetch, $pagesToFetch ) );
 	}
 
 	/**
@@ -41,7 +45,7 @@ class BatchingEntityPageFetcher implements BatchingFetcher {
 	 */
 	public function fetchNext( $maxFetchCount ) {
 		$idsInBatch = array_slice( $this->pagesToFetch, $this->position, $maxFetchCount );
-		$this->position += $maxFetchCount;
+		$this->position = min( $this->position + $maxFetchCount, count( $this->pagesToFetch ) );
 
 		if ( empty( $idsInBatch ) ) {
 			return array();
