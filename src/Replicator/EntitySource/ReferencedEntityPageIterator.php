@@ -8,6 +8,8 @@ use Iterator;
 use Queryr\Replicator\Model\EntityPage;
 use Wikibase\DataModel\Entity\EntityDocument;
 use Wikibase\DataModel\Entity\EntityId;
+use Wikibase\DataModel\Entity\Item;
+use Wikibase\DataModel\Entity\Property;
 
 /**
  * @licence GNU GPL v2+
@@ -74,7 +76,11 @@ class ReferencedEntityPageIterator implements Iterator {
 	}
 
 	private function addEntitiesReferencedByEntity( EntityDocument $entity ) {
-		$referencedEntities = $this->referencedEntitiesFinder->findForEntity( $entity );
+		if ( $entity->getType() !== 'item' ) {
+			return ;
+		}
+
+		$referencedEntities = $this->referencedEntitiesFinder->findForItem( $entity );
 
 		$extraEntitiesToFetch = [];
 
@@ -85,6 +91,7 @@ class ReferencedEntityPageIterator implements Iterator {
 		$this->extraEntitiesToFetch = array_merge( $this->extraEntitiesToFetch, $extraEntitiesToFetch );
 
 		$this->fetcher->addPagesToFetch( $extraEntitiesToFetch );
+
 	}
 
 	public function next() {
