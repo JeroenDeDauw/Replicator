@@ -41,7 +41,7 @@ class PageImporter {
 		try {
 			$this->doDeserializeStep( $entityPage );
 
-			if ( $this->entity->getType() !== 'item' ) {
+			if ( !in_array( $this->entity->getType(), [ 'item', 'property' ] ) ) {
 				return;
 			}
 
