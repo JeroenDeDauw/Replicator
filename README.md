@@ -72,7 +72,11 @@ with the page title needed to resume the import.
 
 Importing entities via the web API:
 
-    php replicator import:api Q1 Q2 Q1337
+    php replicator import:api Q1 Q2 Q1337 -v
+    
+Including referenced entities:
+
+    php replicator import:api Q1 Q2 Q1337 -v -r
 
 Import command help:
 
