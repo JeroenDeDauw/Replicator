@@ -48,9 +48,7 @@ class PageImporter {
 
 			$this->doDumpStoreStep( $entityPage );
 			$this->doTermStoreStep();
-
-			// TODO
-//			$this->doQueryStoreStep();
+			$this->doQueryStoreStep();
 
 			$this->reporter->endedSuccessfully();
 		}
