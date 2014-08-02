@@ -82,6 +82,10 @@ Import command help:
 
     php replicator --help import:api
 
+You can create a list of ids as follows:
+
+    for i in `seq 1 100`; do echo -n "Q$i "; done
+
 ## Running the tests
 
 Running the tests
