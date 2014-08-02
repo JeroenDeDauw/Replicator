@@ -74,9 +74,7 @@ class ServiceFactory {
 
 		$schema = new StoreSchema(
 			self::QUERY_ENGINE_PREFIX,
-			$handlers->withSimpleHandlers()
-				->withEntityIdHandler( new BasicEntityIdParser() )
-				->getHandlers()
+			$handlers->withSimpleHandlers()->getHandlers()
 		);
 
 		$config = new StoreConfig( 'QueryR Replicator QueryEngine' );

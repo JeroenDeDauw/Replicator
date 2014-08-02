@@ -66,9 +66,7 @@ class QueryEngineTest extends \PHPUnit_Framework_TestCase {
 
 		return new StoreSchema(
 			'qe_',
-			$handlersBuilder->withSimpleHandlers()
-				->withEntityIdHandler( new BasicEntityIdParser() )
-				->getHandlers()
+			$handlersBuilder->withSimpleHandlers()->getHandlers()
 		);
 	}
 
