@@ -74,7 +74,7 @@ class ServiceFactory {
 
 		$schema = new StoreSchema(
 			self::QUERY_ENGINE_PREFIX,
-			$handlers->withSimpleHandlers()->getHandlers()
+			$handlers->withSimpleMainSnakHandlers()->getHandlers()
 		);
 
 		$config = new StoreConfig( 'QueryR Replicator QueryEngine' );
@@ -104,17 +104,18 @@ class ServiceFactory {
 	}
 
 	public function newEntityDeserializer() {
-		$dataValueClasses = array_merge(
-			$GLOBALS['evilDataValueMap'],
-			array(
-				'globecoordinate' => 'DataValues\GlobeCoordinateValue',
-				'monolingualtext' => 'DataValues\MonolingualTextValue',
-				'multilingualtext' => 'DataValues\MultilingualTextValue',
-				'quantity' => 'DataValues\QuantityValue',
-				'time' => 'DataValues\TimeValue',
-				'wikibase-entityid' => 'Wikibase\DataModel\Entity\EntityIdValue',
-			)
-		);
+		$dataValueClasses = [
+			'boolean' => 'DataValues\BooleanValue',
+			'number' => 'DataValues\NumberValue',
+			'string' => 'DataValues\StringValue',
+			'unknown' => 'DataValues\UnknownValue',
+			'globecoordinate' => 'DataValues\GlobeCoordinateValue',
+			'monolingualtext' => 'DataValues\MonolingualTextValue',
+			'multilingualtext' => 'DataValues\MultilingualTextValue',
+			'quantity' => 'DataValues\QuantityValue',
+			'time' => 'DataValues\TimeValue',
+			'wikibase-entityid' => 'Wikibase\DataModel\Entity\EntityIdValue',
+		];
 
 		$factory = new DeserializerFactory(
 			new DataValueDeserializer( $dataValueClasses ),
