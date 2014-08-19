@@ -11,3 +11,5 @@ if ( !is_readable( __DIR__ . '/../vendor/autoload.php' ) ) {
 $loader = require_once( __DIR__ . '/../vendor/autoload.php' );
 
 $loader->addPsr4( 'Tests\\Queryr\\Replicator\\', 'tests/' );
+
+unset( $loader );
