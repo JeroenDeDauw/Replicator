@@ -4,9 +4,11 @@ namespace Queryr\Replicator\Importer;
 
 use Deserializers\Deserializer;
 use Deserializers\Exceptions\DeserializationException;
+use Queryr\EntityStore\Data\ItemInfo;
+use Queryr\EntityStore\Data\PropertyInfo;
 use Queryr\EntityStore\EntityStore;
-use Queryr\EntityStore\ItemRow;
-use Queryr\EntityStore\PropertyRow;
+use Queryr\EntityStore\Data\ItemRow;
+use Queryr\EntityStore\Data\PropertyRow;
 use Queryr\Replicator\Model\EntityPage;
 use Queryr\TermStore\TermStore;
 use Wikibase\DataModel\Entity\Entity;
@@ -105,22 +107,26 @@ class PageImporter {
 
 	private function itemRowFromEntityPage( EntityPage $entityPage ) {
 		return new ItemRow(
-			$this->entity->getId()->getNumericId(),
 			$entityPage->getEntityJson(),
-			$entityPage->getTitle(),
-			$entityPage->getRevisionId(),
-			$entityPage->getRevisionTime()
+			new ItemInfo(
+				$this->entity->getId()->getNumericId(),
+				$entityPage->getTitle(),
+				$entityPage->getRevisionId(),
+				$entityPage->getRevisionTime()
+			)
 		);
 	}
 
 	private function propertyRowFromEntityPage( EntityPage $entityPage ) {
 		return new PropertyRow(
-			$this->entity->getId()->getNumericId(),
 			$entityPage->getEntityJson(),
-			$entityPage->getTitle(),
-			$entityPage->getRevisionId(),
-			$entityPage->getRevisionTime(),
-			$this->entity->getDataTypeId()
+			new PropertyInfo(
+				$this->entity->getId()->getNumericId(),
+				$entityPage->getTitle(),
+				$entityPage->getRevisionId(),
+				$entityPage->getRevisionTime(),
+				$this->entity->getDataTypeId()
+			)
 		);
 	}
 
