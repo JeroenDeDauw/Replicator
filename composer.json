@@ -11,8 +11,8 @@
 		"queryr/term-store": "~0.1.0",
 
 		"wikibase/data-model": "~1.0@dev",
-		"wikibase/query-engine": "~0.3.0@dev",
-		"wikibase/internal-serialization": "~1.0@dev",
+		"wikibase/query-engine": "~0.3.0",
+		"wikibase/internal-serialization": "~1.1",
 
 		"jeroen/batching-iterator": "~2.1",
 
