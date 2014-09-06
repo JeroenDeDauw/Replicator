@@ -94,6 +94,10 @@ class ServiceFactory {
 		return $this->newEntityStoreFactory()->newEntityStore();
 	}
 
+	public function newItemStore() {
+		return $this->newEntityStoreFactory()->newItemStore();
+	}
+
 	private function newEntityStoreFactory() {
 		return new EntityStoreFactory(
 			$this->connection,

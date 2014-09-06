@@ -20,7 +20,8 @@
 	},
 	"require-dev": {
 		"ext-sqlite3": "*",
-		"whatthejeff/nyancat-phpunit-resultprinter": "~1.2"
+		"whatthejeff/nyancat-phpunit-resultprinter": "~1.2",
+		"jeroen/wikibase-data-fixtures": "~0.2"
 	},
 	"autoload": {
 		"psr-4": {

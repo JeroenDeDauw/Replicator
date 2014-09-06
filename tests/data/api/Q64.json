@@ -1,0 +1,6260 @@
+{
+	"entities": {
+		"Q64": {
+			"pageid": 190,
+			"ns": 0,
+			"title": "Q64",
+			"lastrevid": 154950425,
+			"modified": "2014-09-01T11:49:33Z",
+			"id": "Q64",
+			"type": "item",
+			"aliases": {
+				"zh": [
+					{
+						"language": "zh",
+						"value": "\u67cf\u6797\u5e02"
+					}
+				],
+				"zh-hans": [
+					{
+						"language": "zh-hans",
+						"value": "\u67cf\u6797\u5e02"
+					}
+				],
+				"zh-hant": [
+					{
+						"language": "zh-hant",
+						"value": "\u67cf\u6797\u5e02"
+					}
+				],
+				"zh-cn": [
+					{
+						"language": "zh-cn",
+						"value": "\u67cf\u6797\u5e02"
+					}
+				],
+				"zh-sg": [
+					{
+						"language": "zh-sg",
+						"value": "\u67cf\u6797\u5e02"
+					}
+				],
+				"zh-my": [
+					{
+						"language": "zh-my",
+						"value": "\u67cf\u6797\u5e02"
+					}
+				],
+				"zh-hk": [
+					{
+						"language": "zh-hk",
+						"value": "\u67cf\u6797\u5e02"
+					}
+				],
+				"zh-tw": [
+					{
+						"language": "zh-tw",
+						"value": "\u67cf\u6797\u5e02"
+					}
+				],
+				"zh-mo": [
+					{
+						"language": "zh-mo",
+						"value": "\u67cf\u6797\u5e02"
+					}
+				],
+				"de": [
+					{
+						"language": "de",
+						"value": "Stadt Berlin"
+					},
+					{
+						"language": "de",
+						"value": "Berlin, Deutschland"
+					},
+					{
+						"language": "de",
+						"value": "Bundeshauptstadt Berlin"
+					},
+					{
+						"language": "de",
+						"value": "Land Berlin"
+					},
+					{
+						"language": "de",
+						"value": "DE-BE"
+					}
+				],
+				"be": [
+					{
+						"language": "be",
+						"value": "\u0413\u043e\u0440\u0430\u0434 \u0411\u0435\u0440\u043b\u0456\u043d"
+					}
+				],
+				"en": [
+					{
+						"language": "en",
+						"value": "Berlin, Germany"
+					}
+				],
+				"ta": [
+					{
+						"language": "ta",
+						"value": "\u0baa\u0bc7\u0bb0\u0bcd\u0bb2\u0bbf\u0ba9\u0bcd"
+					}
+				],
+				"cs": [
+					{
+						"language": "cs",
+						"value": "Berlin"
+					}
+				],
+				"es": [
+					{
+						"language": "es",
+						"value": "Berlin"
+					}
+				],
+				"ksh": [
+					{
+						"language": "ksh",
+						"value": "Berlin"
+					}
+				]
+			},
+			"labels": {
+				"en": {
+					"language": "en",
+					"value": "Berlin"
+				},
+				"ru": {
+					"language": "ru",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"fr": {
+					"language": "fr",
+					"value": "Berlin"
+				},
+				"it": {
+					"language": "it",
+					"value": "Berlino"
+				},
+				"es": {
+					"language": "es",
+					"value": "Berl\u00edn"
+				},
+				"en-gb": {
+					"language": "en-gb",
+					"value": "Berlin"
+				},
+				"de": {
+					"language": "de",
+					"value": "Berlin"
+				},
+				"nl": {
+					"language": "nl",
+					"value": "Berlijn"
+				},
+				"be-tarask": {
+					"language": "be-tarask",
+					"value": "\u0411\u044d\u0440\u043b\u0456\u043d"
+				},
+				"nan": {
+					"language": "nan",
+					"value": "Berlin"
+				},
+				"pl": {
+					"language": "pl",
+					"value": "Berlin"
+				},
+				"ar": {
+					"language": "ar",
+					"value": "\u0628\u0631\u0644\u064a\u0646"
+				},
+				"lt": {
+					"language": "lt",
+					"value": "Berlynas"
+				},
+				"fi": {
+					"language": "fi",
+					"value": "Berliini"
+				},
+				"mk": {
+					"language": "mk",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"nn": {
+					"language": "nn",
+					"value": "Berlin"
+				},
+				"sv": {
+					"language": "sv",
+					"value": "Berlin"
+				},
+				"da": {
+					"language": "da",
+					"value": "Berlin"
+				},
+				"af": {
+					"language": "af",
+					"value": "Berlyn"
+				},
+				"eo": {
+					"language": "eo",
+					"value": "Berlino"
+				},
+				"bn": {
+					"language": "bn",
+					"value": "\u09ac\u09be\u09b0\u09cd\u09b2\u09bf\u09a8"
+				},
+				"mg": {
+					"language": "mg",
+					"value": "Berlin"
+				},
+				"ur": {
+					"language": "ur",
+					"value": "\u0628\u0631\u0644\u0646"
+				},
+				"ab": {
+					"language": "ab",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"ace": {
+					"language": "ace",
+					"value": "Berlin"
+				},
+				"am": {
+					"language": "am",
+					"value": "\u1260\u122d\u120a\u1295"
+				},
+				"an": {
+					"language": "an",
+					"value": "Berl\u00edn"
+				},
+				"ang": {
+					"language": "ang",
+					"value": "Berlin"
+				},
+				"arc": {
+					"language": "arc",
+					"value": "\u0712\u072a\u0720\u071d\u0722"
+				},
+				"arz": {
+					"language": "arz",
+					"value": "\u0628\u064a\u0631\u0644\u064a\u0646"
+				},
+				"ast": {
+					"language": "ast",
+					"value": "Berl\u00edn"
+				},
+				"ay": {
+					"language": "ay",
+					"value": "Berlin"
+				},
+				"az": {
+					"language": "az",
+					"value": "Berlin"
+				},
+				"ba": {
+					"language": "ba",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"bar": {
+					"language": "bar",
+					"value": "Berlin"
+				},
+				"be": {
+					"language": "be",
+					"value": "\u0411\u0435\u0440\u043b\u0456\u043d"
+				},
+				"bg": {
+					"language": "bg",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"bi": {
+					"language": "bi",
+					"value": "Berlin"
+				},
+				"bo": {
+					"language": "bo",
+					"value": "\u0f54\u0f7a\u0f62\u0f0b\u0f63\u0f72\u0f53 \u0f0d"
+				},
+				"br": {
+					"language": "br",
+					"value": "Berlin"
+				},
+				"bs": {
+					"language": "bs",
+					"value": "Berlin"
+				},
+				"bxr": {
+					"language": "bxr",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"ca": {
+					"language": "ca",
+					"value": "Berl\u00edn"
+				},
+				"ckb": {
+					"language": "ckb",
+					"value": "\u0628\u06d5\u0631\u0644\u06cc\u0646"
+				},
+				"co": {
+					"language": "co",
+					"value": "Berlinu"
+				},
+				"cs": {
+					"language": "cs",
+					"value": "Berl\u00edn"
+				},
+				"csb": {
+					"language": "csb",
+					"value": "Berl\u00ebno"
+				},
+				"cu": {
+					"language": "cu",
+					"value": "\u0411\u0454\u0440\u043b\u0438\u043d\u044a"
+				},
+				"cv": {
+					"language": "cv",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"cy": {
+					"language": "cy",
+					"value": "Berlin"
+				},
+				"diq": {
+					"language": "diq",
+					"value": "Berlin"
+				},
+				"dsb": {
+					"language": "dsb",
+					"value": "Barli\u0144"
+				},
+				"ee": {
+					"language": "ee",
+					"value": "Berlin"
+				},
+				"el": {
+					"language": "el",
+					"value": "\u0392\u03b5\u03c1\u03bf\u03bb\u03af\u03bd\u03bf"
+				},
+				"et": {
+					"language": "et",
+					"value": "Berliin"
+				},
+				"eu": {
+					"language": "eu",
+					"value": "Berlin"
+				},
+				"ext": {
+					"language": "ext",
+					"value": "Berl\u00edn"
+				},
+				"fa": {
+					"language": "fa",
+					"value": "\u0628\u0631\u0644\u06cc\u0646"
+				},
+				"fo": {
+					"language": "fo",
+					"value": "Berlin"
+				},
+				"frp": {
+					"language": "frp",
+					"value": "B\u00e8rlin"
+				},
+				"frr": {
+					"language": "frr",
+					"value": "Berlin"
+				},
+				"fur": {
+					"language": "fur",
+					"value": "Berlin"
+				},
+				"fy": {
+					"language": "fy",
+					"value": "Berlyn"
+				},
+				"ga": {
+					"language": "ga",
+					"value": "Beirl\u00edn"
+				},
+				"gag": {
+					"language": "gag",
+					"value": "Berlin"
+				},
+				"gan": {
+					"language": "gan",
+					"value": "\u67cf\u6797"
+				},
+				"gd": {
+					"language": "gd",
+					"value": "Berlin"
+				},
+				"gl": {
+					"language": "gl",
+					"value": "Berl\u00edn - Berlin"
+				},
+				"gn": {
+					"language": "gn",
+					"value": "Berlin"
+				},
+				"gv": {
+					"language": "gv",
+					"value": "Berleen"
+				},
+				"ha": {
+					"language": "ha",
+					"value": "Berlin"
+				},
+				"haw": {
+					"language": "haw",
+					"value": "Pelelina"
+				},
+				"he": {
+					"language": "he",
+					"value": "\u05d1\u05e8\u05dc\u05d9\u05df"
+				},
+				"hi": {
+					"language": "hi",
+					"value": "\u092c\u0930\u094d\u0932\u093f\u0928"
+				},
+				"hif": {
+					"language": "hif",
+					"value": "Berlin"
+				},
+				"hr": {
+					"language": "hr",
+					"value": "Berlin"
+				},
+				"hsb": {
+					"language": "hsb",
+					"value": "Berlin"
+				},
+				"ht": {
+					"language": "ht",
+					"value": "B\u00e8len"
+				},
+				"hu": {
+					"language": "hu",
+					"value": "Berlin"
+				},
+				"hy": {
+					"language": "hy",
+					"value": "\u0532\u0565\u057c\u056c\u056b\u0576"
+				},
+				"ia": {
+					"language": "ia",
+					"value": "Berlin"
+				},
+				"id": {
+					"language": "id",
+					"value": "Berlin"
+				},
+				"ie": {
+					"language": "ie",
+					"value": "Berlin"
+				},
+				"ilo": {
+					"language": "ilo",
+					"value": "Berlin"
+				},
+				"io": {
+					"language": "io",
+					"value": "Berlin"
+				},
+				"is": {
+					"language": "is",
+					"value": "Berl\u00edn"
+				},
+				"iu": {
+					"language": "iu",
+					"value": "\u1431\u1550\u14d6\u14d0"
+				},
+				"ja": {
+					"language": "ja",
+					"value": "\u30d9\u30eb\u30ea\u30f3"
+				},
+				"jbo": {
+					"language": "jbo",
+					"value": "berlin"
+				},
+				"jv": {
+					"language": "jv",
+					"value": "Berlin"
+				},
+				"ka": {
+					"language": "ka",
+					"value": "\u10d1\u10d4\u10e0\u10da\u10d8\u10dc\u10d8"
+				},
+				"kaa": {
+					"language": "kaa",
+					"value": "Berlin"
+				},
+				"kab": {
+					"language": "kab",
+					"value": "Berlin"
+				},
+				"kbd": {
+					"language": "kbd",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"kk": {
+					"language": "kk",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"kl": {
+					"language": "kl",
+					"value": "Berlin"
+				},
+				"kn": {
+					"language": "kn",
+					"value": "\u0cac\u0cb0\u0ccd\u0cb2\u0cbf\u0ca8\u0ccd"
+				},
+				"ko": {
+					"language": "ko",
+					"value": "\ubca0\ub97c\ub9b0"
+				},
+				"koi": {
+					"language": "koi",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"ksh": {
+					"language": "ksh",
+					"value": "B\u00e4lihn"
+				},
+				"ku": {
+					"language": "ku",
+					"value": "Berl\u00een"
+				},
+				"kv": {
+					"language": "kv",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"kw": {
+					"language": "kw",
+					"value": "Berlin"
+				},
+				"ky": {
+					"language": "ky",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"la": {
+					"language": "la",
+					"value": "Berolinum"
+				},
+				"lad": {
+					"language": "lad",
+					"value": "Berlin"
+				},
+				"lb": {
+					"language": "lb",
+					"value": "Berlin"
+				},
+				"lez": {
+					"language": "lez",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"lg": {
+					"language": "lg",
+					"value": "Berlin"
+				},
+				"li": {
+					"language": "li",
+					"value": "Berlien"
+				},
+				"lij": {
+					"language": "lij",
+					"value": "Berlin"
+				},
+				"lmo": {
+					"language": "lmo",
+					"value": "Berlin"
+				},
+				"ln": {
+					"language": "ln",
+					"value": "Berlin"
+				},
+				"ltg": {
+					"language": "ltg",
+					"value": "Berlins"
+				},
+				"lv": {
+					"language": "lv",
+					"value": "Berl\u012bne"
+				},
+				"mhr": {
+					"language": "mhr",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"mi": {
+					"language": "mi",
+					"value": "Pear\u012bni"
+				},
+				"ml": {
+					"language": "ml",
+					"value": "\u0d2c\u0d46\u0d7c\u0d32\u0d3f\u0d7b"
+				},
+				"mn": {
+					"language": "mn",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"mr": {
+					"language": "mr",
+					"value": "\u092c\u0930\u094d\u0932\u093f\u0928"
+				},
+				"mrj": {
+					"language": "mrj",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"ms": {
+					"language": "ms",
+					"value": "Berlin"
+				},
+				"mt": {
+					"language": "mt",
+					"value": "Berlin"
+				},
+				"mwl": {
+					"language": "mwl",
+					"value": "Berlin"
+				},
+				"my": {
+					"language": "my",
+					"value": "\u1018\u102c\u101c\u1004\u103a\u1019\u103c\u102d\u102f\u1037"
+				},
+				"myv": {
+					"language": "myv",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d \u043e\u0448"
+				},
+				"mzn": {
+					"language": "mzn",
+					"value": "\u0628\u0631\u0644\u06cc\u0646"
+				},
+				"na": {
+					"language": "na",
+					"value": "Berlin"
+				},
+				"nah": {
+					"language": "nah",
+					"value": "Berlin"
+				},
+				"nap": {
+					"language": "nap",
+					"value": "Berlino"
+				},
+				"nds": {
+					"language": "nds",
+					"value": "Berlin"
+				},
+				"nov": {
+					"language": "nov",
+					"value": "Berlin"
+				},
+				"nrm": {
+					"language": "nrm",
+					"value": "B\u00e8rl\u00een"
+				},
+				"oc": {
+					"language": "oc",
+					"value": "Berlin"
+				},
+				"os": {
+					"language": "os",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"pam": {
+					"language": "pam",
+					"value": "Berlin"
+				},
+				"pap": {
+					"language": "pap",
+					"value": "Berlin"
+				},
+				"pcd": {
+					"language": "pcd",
+					"value": "Berlin"
+				},
+				"pdc": {
+					"language": "pdc",
+					"value": "Berlin"
+				},
+				"pfl": {
+					"language": "pfl",
+					"value": "Balin"
+				},
+				"pih": {
+					"language": "pih",
+					"value": "Berlin"
+				},
+				"pms": {
+					"language": "pms",
+					"value": "Berlin"
+				},
+				"pnb": {
+					"language": "pnb",
+					"value": "\u0628\u0631\u0644\u0646"
+				},
+				"pnt": {
+					"language": "pnt",
+					"value": "\u0392\u03b5\u03c1\u03bf\u03bb\u03af\u03bd\u03bf\u03bd"
+				},
+				"ps": {
+					"language": "ps",
+					"value": "\u0628\u0631\u0644\u064a\u0646"
+				},
+				"pt": {
+					"language": "pt",
+					"value": "Berlim"
+				},
+				"qu": {
+					"language": "qu",
+					"value": "Berlin"
+				},
+				"rm": {
+					"language": "rm",
+					"value": "Berlin"
+				},
+				"rmy": {
+					"language": "rmy",
+					"value": "Berlin"
+				},
+				"rn": {
+					"language": "rn",
+					"value": "Berlin"
+				},
+				"ro": {
+					"language": "ro",
+					"value": "Berlin"
+				},
+				"rue": {
+					"language": "rue",
+					"value": "\u0411\u0435\u0440\u043b\u0456\u043d"
+				},
+				"rw": {
+					"language": "rw",
+					"value": "Berlin"
+				},
+				"sah": {
+					"language": "sah",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"sc": {
+					"language": "sc",
+					"value": "Berlino"
+				},
+				"scn": {
+					"language": "scn",
+					"value": "Birlinu"
+				},
+				"sco": {
+					"language": "sco",
+					"value": "Berlin"
+				},
+				"se": {
+					"language": "se",
+					"value": "Berlin"
+				},
+				"sh": {
+					"language": "sh",
+					"value": "Berlin"
+				},
+				"si": {
+					"language": "si",
+					"value": "\u0db6\u0dbb\u0dca\u0dbd\u0dd2\u0db1\u0dba"
+				},
+				"sk": {
+					"language": "sk",
+					"value": "Berl\u00edn"
+				},
+				"sl": {
+					"language": "sl",
+					"value": "Berlin"
+				},
+				"so": {
+					"language": "so",
+					"value": "Baarliin"
+				},
+				"sq": {
+					"language": "sq",
+					"value": "Berlini"
+				},
+				"sr": {
+					"language": "sr",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"srn": {
+					"language": "srn",
+					"value": "Berlin"
+				},
+				"stq": {
+					"language": "stq",
+					"value": "Berlin"
+				},
+				"sw": {
+					"language": "sw",
+					"value": "Berlin"
+				},
+				"szl": {
+					"language": "szl",
+					"value": "Berlin"
+				},
+				"ta": {
+					"language": "ta",
+					"value": "\u0baa\u0bc6\u0bb0\u0bcd\u0bb2\u0bbf\u0ba9\u0bcd"
+				},
+				"te": {
+					"language": "te",
+					"value": "\u0c2c\u0c46\u0c30\u0c4d\u0c32\u0c3f\u0c28\u0c4d"
+				},
+				"tet": {
+					"language": "tet",
+					"value": "Berl\u00edn"
+				},
+				"tg": {
+					"language": "tg",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"th": {
+					"language": "th",
+					"value": "\u0e40\u0e1a\u0e2d\u0e23\u0e4c\u0e25\u0e34\u0e19"
+				},
+				"tk": {
+					"language": "tk",
+					"value": "Berlin"
+				},
+				"tl": {
+					"language": "tl",
+					"value": "Berlin"
+				},
+				"tpi": {
+					"language": "tpi",
+					"value": "Berlin"
+				},
+				"tr": {
+					"language": "tr",
+					"value": "Berlin"
+				},
+				"tt": {
+					"language": "tt",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"tum": {
+					"language": "tum",
+					"value": "Berlin"
+				},
+				"tw": {
+					"language": "tw",
+					"value": "Berlin"
+				},
+				"ty": {
+					"language": "ty",
+					"value": "Berlin"
+				},
+				"udm": {
+					"language": "udm",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"ug": {
+					"language": "ug",
+					"value": "B\u00e9rlin"
+				},
+				"uk": {
+					"language": "uk",
+					"value": "\u0411\u0435\u0440\u043b\u0456\u043d"
+				},
+				"uz": {
+					"language": "uz",
+					"value": "Berlin"
+				},
+				"vec": {
+					"language": "vec",
+					"value": "Berlin"
+				},
+				"vep": {
+					"language": "vep",
+					"value": "Berlin"
+				},
+				"vi": {
+					"language": "vi",
+					"value": "Berlin"
+				},
+				"vls": {
+					"language": "vls",
+					"value": "Berlyn"
+				},
+				"vo": {
+					"language": "vo",
+					"value": "Berlin"
+				},
+				"war": {
+					"language": "war",
+					"value": "Berlin"
+				},
+				"wo": {
+					"language": "wo",
+					"value": "Berlin"
+				},
+				"xmf": {
+					"language": "xmf",
+					"value": "\u10d1\u10d4\u10e0\u10da\u10d8\u10dc\u10d8"
+				},
+				"yi": {
+					"language": "yi",
+					"value": "\u05d1\u05e2\u05e8\u05dc\u05d9\u05df"
+				},
+				"yo": {
+					"language": "yo",
+					"value": "Berlin"
+				},
+				"zea": {
+					"language": "zea",
+					"value": "Berlijn"
+				},
+				"zh": {
+					"language": "zh",
+					"value": "\u67cf\u6797"
+				},
+				"zh-cn": {
+					"language": "zh-cn",
+					"value": "\u67cf\u6797"
+				},
+				"zh-hans": {
+					"language": "zh-hans",
+					"value": "\u67cf\u6797"
+				},
+				"zh-hant": {
+					"language": "zh-hant",
+					"value": "\u67cf\u6797"
+				},
+				"zu": {
+					"language": "zu",
+					"value": "IBerlini"
+				},
+				"cbk-zam": {
+					"language": "cbk-zam",
+					"value": "Berl\u00edn"
+				},
+				"nds-nl": {
+					"language": "nds-nl",
+					"value": "Berlien"
+				},
+				"roa-tara": {
+					"language": "roa-tara",
+					"value": "Berline"
+				},
+				"fj": {
+					"language": "fj",
+					"value": "Berlin"
+				},
+				"pt-br": {
+					"language": "pt-br",
+					"value": "Berlim"
+				},
+				"yue": {
+					"language": "yue",
+					"value": "\u67cf\u6797"
+				},
+				"nb": {
+					"language": "nb",
+					"value": "Berlin"
+				},
+				"zh-sg": {
+					"language": "zh-sg",
+					"value": "\u67cf\u6797"
+				},
+				"zh-my": {
+					"language": "zh-my",
+					"value": "\u67cf\u6797"
+				},
+				"zh-hk": {
+					"language": "zh-hk",
+					"value": "\u67cf\u6797"
+				},
+				"zh-tw": {
+					"language": "zh-tw",
+					"value": "\u67cf\u6797"
+				},
+				"zh-mo": {
+					"language": "zh-mo",
+					"value": "\u67cf\u6797"
+				},
+				"new": {
+					"language": "new",
+					"value": "\u092c\u0930\u094d\u0932\u093f\u0928"
+				},
+				"ak": {
+					"language": "ak",
+					"value": "Berlin"
+				},
+				"or": {
+					"language": "or",
+					"value": "\u0b2c\u0b30\u0b4d\u0b32\u0b3f\u0b28"
+				},
+				"pa": {
+					"language": "pa",
+					"value": "\u0a2c\u0a30\u0a32\u0a3f\u0a28"
+				},
+				"ne": {
+					"language": "ne",
+					"value": "\u092c\u0930\u094d\u0932\u093f\u0928"
+				},
+				"tokipona": {
+					"language": "tokipona",
+					"value": "ma tomo Pelin"
+				},
+				"ce": {
+					"language": "ce",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"kg": {
+					"language": "kg",
+					"value": "Berlin (kizunga)"
+				},
+				"gsw": {
+					"language": "gsw",
+					"value": "Berlin"
+				},
+				"ceb": {
+					"language": "ceb",
+					"value": "Berlin"
+				},
+				"en-ca": {
+					"language": "en-ca",
+					"value": "Berlin"
+				},
+				"hak": {
+					"language": "hak",
+					"value": "Pak-l\u00ecm"
+				},
+				"de-at": {
+					"language": "de-at",
+					"value": "Berlin"
+				},
+				"sr-ec": {
+					"language": "sr-ec",
+					"value": "\u0411\u0435\u0440\u043b\u0438\u043d"
+				},
+				"sr-el": {
+					"language": "sr-el",
+					"value": "Berlin"
+				},
+				"crh-latn": {
+					"language": "crh-latn",
+					"value": "Berlin"
+				},
+				"sgs": {
+					"language": "sgs",
+					"value": "Berl\u012bns"
+				},
+				"lzh": {
+					"language": "lzh",
+					"value": "\u67cf\u6797"
+				},
+				"rup": {
+					"language": "rup",
+					"value": "Berlin"
+				},
+				"vro": {
+					"language": "vro",
+					"value": "Berliin"
+				},
+				"bm": {
+					"language": "bm",
+					"value": "Berlin"
+				},
+				"cdo": {
+					"language": "cdo",
+					"value": "B\u00e1ik-l\u00ecng"
+				}
+			},
+			"descriptions": {
+				"en": {
+					"language": "en",
+					"value": "capital city and state of Germany"
+				},
+				"it": {
+					"language": "it",
+					"value": "capitale della Germania"
+				},
+				"es": {
+					"language": "es",
+					"value": "ciudad capital de Alemania"
+				},
+				"de": {
+					"language": "de",
+					"value": "Hauptstadt von Deutschland"
+				},
+				"fr": {
+					"language": "fr",
+					"value": "capitale de l'Allemagne"
+				},
+				"nl": {
+					"language": "nl",
+					"value": "hoofdstad en deelstaat van Duitsland"
+				},
+				"pl": {
+					"language": "pl",
+					"value": "stolica Niemiec"
+				},
+				"en-gb": {
+					"language": "en-gb",
+					"value": "capital of Germany"
+				},
+				"nb": {
+					"language": "nb",
+					"value": "Tysklands hovedstad"
+				},
+				"ru": {
+					"language": "ru",
+					"value": "\u0441\u0442\u043e\u043b\u0438\u0446\u0430 \u0413\u0435\u0440\u043c\u0430\u043d\u0438\u0438"
+				},
+				"zh": {
+					"language": "zh",
+					"value": "\u5fb7\u570b\u9996\u90fd"
+				},
+				"zh-hans": {
+					"language": "zh-hans",
+					"value": "\u5fb7\u56fd\u9996\u90fd"
+				},
+				"zh-hant": {
+					"language": "zh-hant",
+					"value": "\u5fb7\u570b\u9996\u90fd"
+				},
+				"zh-cn": {
+					"language": "zh-cn",
+					"value": "\u5fb7\u56fd\u9996\u90fd"
+				},
+				"zh-sg": {
+					"language": "zh-sg",
+					"value": "\u5fb7\u56fd\u9996\u90fd"
+				},
+				"zh-my": {
+					"language": "zh-my",
+					"value": "\u5fb7\u56fd\u9996\u90fd"
+				},
+				"zh-hk": {
+					"language": "zh-hk",
+					"value": "\u5fb7\u570b\u9996\u90fd"
+				},
+				"zh-tw": {
+					"language": "zh-tw",
+					"value": "\u5fb7\u570b\u9996\u90fd"
+				},
+				"zh-mo": {
+					"language": "zh-mo",
+					"value": "\u5fb7\u570b\u9996\u90fd"
+				},
+				"ca": {
+					"language": "ca",
+					"value": "capital i ciutat m\u00e9s gran d'Alemanya"
+				},
+				"sv": {
+					"language": "sv",
+					"value": "huvudstad i Tyskland"
+				},
+				"hi": {
+					"language": "hi",
+					"value": "\u091c\u0930\u094d\u092e\u0928\u0940 \u0915\u093e \u0930\u093e\u091c\u0927\u093e\u0928\u0940"
+				},
+				"fi": {
+					"language": "fi",
+					"value": "Saksan p\u00e4\u00e4kaupunki"
+				},
+				"el": {
+					"language": "el",
+					"value": "\u03a0\u03c1\u03c9\u03c4\u03b5\u03cd\u03bf\u03c5\u03c3\u03b1 \u03ba\u03b1\u03b9 \u03b7 \u03bc\u03b5\u03b3\u03b1\u03bb\u03cd\u03c4\u03b5\u03c1\u03b7 \u03c3\u03b5 \u03ad\u03ba\u03c4\u03b1\u03c3\u03b7 \u03ba\u03b1\u03b9 \u03c0\u03bb\u03b7\u03b8\u03c5\u03c3\u03bc\u03cc \u03c0\u03cc\u03bb\u03b7 \u03c4\u03b7\u03c2 \u0393\u03b5\u03c1\u03bc\u03b1\u03bd\u03af\u03b1\u03c2"
+				},
+				"cs": {
+					"language": "cs",
+					"value": "m\u011bsto v N\u011bmecku"
+				},
+				"ilo": {
+					"language": "ilo",
+					"value": "kapitolio a siudad ti Alemania"
+				},
+				"uz": {
+					"language": "uz",
+					"value": "Olmoniya poytaxti"
+				},
+				"nds": {
+					"language": "nds",
+					"value": "H\u00f6\u00f6ftstadt vun D\u00fc\u00fctschland un en Bundsland"
+				},
+				"la": {
+					"language": "la",
+					"value": "caput Germaniae"
+				},
+				"pt-br": {
+					"language": "pt-br",
+					"value": "capital e estado da Alemanha"
+				},
+				"ta": {
+					"language": "ta",
+					"value": "\u0b9a\u0bc6\u0bb0\u0bc1\u0bae\u0ba9\u0bbf\u0baf\u0bbf\u0ba9\u0bcd \u0ba4\u0bb2\u0bc8\u0ba8\u0b95\u0bb0\u0bae\u0bcd \u0bae\u0bb1\u0bcd\u0bb1\u0bc1\u0bae\u0bcd \u0bae\u0bbe\u0ba8\u0bbf\u0bb2\u0bae\u0bcd"
+				},
+				"ko": {
+					"language": "ko",
+					"value": "\ub3c5\uc77c\uc758 \uc218\ub3c4"
+				},
+				"lv": {
+					"language": "lv",
+					"value": "V\u0101cijas galvaspils\u0113ta"
+				},
+				"sk": {
+					"language": "sk",
+					"value": "mesto v Nemecku"
+				},
+				"eo": {
+					"language": "eo",
+					"value": "urbo en Germanio"
+				},
+				"hr": {
+					"language": "hr",
+					"value": "Glavni grad Njema\u010dke"
+				},
+				"gl": {
+					"language": "gl",
+					"value": "cidade capital de Alema\u00f1a"
+				},
+				"bar": {
+					"language": "bar",
+					"value": "Hauptstod vo Deitschland"
+				},
+				"tokipona": {
+					"language": "tokipona",
+					"value": "ma tomo lawa pi ma Tosi"
+				},
+				"ja": {
+					"language": "ja",
+					"value": "\u30c9\u30a4\u30c4\u306e\u9996\u90fd"
+				},
+				"pt": {
+					"language": "pt",
+					"value": "cidade e capital alem\u00e3"
+				},
+				"de-at": {
+					"language": "de-at",
+					"value": "Hauptstadt von Deutschland"
+				},
+				"bg": {
+					"language": "bg",
+					"value": "\u0441\u0442\u043e\u043b\u0438\u0446\u0430 \u043d\u0430 \u0413\u0430\u0440\u043c\u0430\u043d\u0438\u044f"
+				},
+				"be-tarask": {
+					"language": "be-tarask",
+					"value": "\u0441\u0442\u0430\u043b\u0456\u0446\u0430 \u041d\u044f\u043c\u0435\u0447\u0447\u044b\u043d\u044b"
+				},
+				"sr": {
+					"language": "sr",
+					"value": "\u0433\u043b\u0430\u0432\u043d\u0438 \u0433\u0440\u0430\u0434 \u041d\u0435\u043c\u0430\u0447\u043a\u0435"
+				},
+				"sr-ec": {
+					"language": "sr-ec",
+					"value": "\u0433\u043b\u0430\u0432\u043d\u0438 \u0433\u0440\u0430\u0434 \u041d\u0435\u043c\u0430\u0447\u043a\u0435"
+				},
+				"sr-el": {
+					"language": "sr-el",
+					"value": "glavni grad Nema\u010dke"
+				},
+				"uk": {
+					"language": "uk",
+					"value": "\u0441\u0442\u043e\u043b\u0438\u0446\u044f \u0424\u0435\u0434\u0435\u0440\u0430\u0442\u0438\u0432\u043d\u043e\u0457 \u0420\u0435\u0441\u043f\u0443\u0431\u043b\u0456\u043a\u0438 \u041d\u0456\u043c\u0435\u0447\u0447\u0438\u043d\u0430, \u043e\u043a\u0440\u0435\u043c\u0430 \u0444\u0435\u0434\u0435\u0440\u0430\u043b\u044c\u043d\u0430 \u0437\u0435\u043c\u043b\u044f"
+				},
+				"hu": {
+					"language": "hu",
+					"value": "N\u00e9metorsz\u00e1g f\u0151v\u00e1rosa, egyben tartom\u00e1nya is"
+				},
+				"sco": {
+					"language": "sco",
+					"value": "caipital ceety an state o Germany"
+				}
+			},
+			"claims": {
+				"P1151": [
+					{
+						"id": "Q64$7b8a7106-4267-6f0c-11db-bd78839a5328",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P1151",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 3248436
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P31": [
+					{
+						"id": "q64$7AC2D237-994E-41A6-96F8-B17E42C3F690",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P31",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 515
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "preferred"
+					},
+					{
+						"id": "q64$6E79C141-9FE6-4996-A895-582DB477D62C",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P31",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 1901835
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$a908cf20-43b8-da2f-cfe0-550bb15fcc7f",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P31",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 200250
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$A1D60E41-40CE-4938-944D-B14A80E31421",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P31",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 257391
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "f4d3ce166a14c7c19f5647d65e51c29c16e7d459",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001990-10-03T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "44b172a8e4dadc736ff3ed15cf39d030a3c78fd6",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://data.un.org/CountryProfile.aspx?crName=Germany",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$95AB8CD2-4790-4EE5-8EBF-197A238F1A31",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P31",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 1549591
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "Q64$6065d662-4f48-091e-0b57-1284506cb978",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P31",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 1221156
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "Q64$F104F096-71E4-4C3F-9F9F-C0E2BAE7FC2E",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P31",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 262166
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P132": [
+					{
+						"id": "q64$3C2878C3-F710-4867-8BB0-B9B55C011197",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P132",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 1221156
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$425b828f-4815-95b5-6ecc-735da43c99b8",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P132",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 262166
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P150": [
+					{
+						"id": "q64$352C76AC-6219-4996-8D47-072CABABA2F6",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P150",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 163966
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$D0C6B579-632B-4271-9600-CC7823D3948D",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P150",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 158893
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$32EABD1A-2F40-4AC7-B8A4-79376B021040",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P150",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 163012
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$DDF6337F-972C-49B8-9A22-EC69EED5FF6C",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P150",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 158095
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$9ABEFE8B-A98C-49BA-99B6-E0EE903E62DE",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P150",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 158083
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$876D78A0-ACC9-4370-8CFC-AF90EB34B60B",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P150",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 158064
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$5DC60468-1A82-4889-B657-5860C44DE1CA",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P150",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 158106
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$BFBAD39D-8637-4A47-9025-D056279C2610",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P150",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 4071168
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$6A8832A4-4420-44C2-B9D6-7D96FE774135",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P150",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 158089
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$7EEDD2B6-2D90-4BCB-A9B1-B1BDB8C3B1C1",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P150",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 119284
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$2DB60366-3219-4220-A5F4-C105244CF156",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P150",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 329609
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$888422D9-F421-4A0F-AF74-6CC41388A993",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P150",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 158876
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P194": [
+					{
+						"id": "q64$EF376277-739D-4A1A-A4D2-1E1E06D8EC89",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P194",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 640859
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P209": [
+					{
+						"id": "Q64$4f5b59b0-4e1d-58d1-dd27-b58a4cf3bfb1",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P209",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 2515458
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P190": [
+					{
+						"id": "q64$9A084383-320F-4DB8-B26E-A1EBAB7A82B1",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 65
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "976dbff12e65ac7983b469b7df975c2993fb4da6",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001967-06-27T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "186697cb9c9987dcb56ff85447e01e2672460073",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "https://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$A7251924-7216-4EE0-81FA-F7511ACB8FFE",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 2807
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "33033947b980b77aba3566df64e463c67d9186ff",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001988-11-04T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "28425bb9aaea567f90cbbf2a1ff3e8f68869bc09",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$38C3E6A1-EF40-49A6-B2EA-F50640EB7843",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 406
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "c851b9d5d33f9b7fdb86dd8eddb14513b861fb0a",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001989-11-17T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "28425bb9aaea567f90cbbf2a1ff3e8f68869bc09",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$15BFCA52-43F2-4524-BCDF-87268316A437",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 270
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "8d4507342add86e5e79252e5797464cd866fe569",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001991-08-12T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "28425bb9aaea567f90cbbf2a1ff3e8f68869bc09",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$0FB996E2-AAF5-44AA-8187-9F1AB7391822",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 649
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "4031097852ec375d2ec501f165face439cd319c2",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001991-08-28T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "28425bb9aaea567f90cbbf2a1ff3e8f68869bc09",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$624252F1-A18F-4809-8937-0F27B58590D8",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 239
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "0346b0137dbd683a7f57d929279358540beb2e5e",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001992-06-01T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "186697cb9c9987dcb56ff85447e01e2672460073",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "https://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$5B4EA490-64CF-48BC-9700-F780AAAAEFB3",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 3630
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "9c9c50a9caf3994cf493f17162b918038728234c",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001994-04-13T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "28425bb9aaea567f90cbbf2a1ff3e8f68869bc09",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$26539399-4988-4AB5-BB07-02E9566328FA",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 269
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "a193fd4b2d870722fc2b3ab15264f62d1ee93eed",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001993-04-30T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "28425bb9aaea567f90cbbf2a1ff3e8f68869bc09",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$959D8891-1D81-41CA-A8BB-C655E4F045D6",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 1489
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "c8cbaad68711aff341e9c5ed3366f007f449f4f3",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001993-09-01T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "28425bb9aaea567f90cbbf2a1ff3e8f68869bc09",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$8278121F-87C5-4D52-A4A5-5562007C236E",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 956
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "3b46f0a8f812275712e718fb685b252040a5e848",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001994-04-05T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "28425bb9aaea567f90cbbf2a1ff3e8f68869bc09",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$3E9E606B-D193-4FA5-810A-3091F2A10907",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 1490
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "1bce810fb1cd203c2dbf8717efd8efa95cb8b980",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001994-05-14T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "28425bb9aaea567f90cbbf2a1ff3e8f68869bc09",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							},
+							{
+								"hash": "2a47ee53779f84a9e3e16cacd70daed9e46e8deb",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.metro.tokyo.jp/ENGLISH/PROFILE/IMG/2012_en_56-76.pdf",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$3283B8F2-FEA5-47C0-A3A5-31FC8ECE914D",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 1486
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "1ce7d7a0e940133b1e685d442da3703356db73ae",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001994-05-19T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "28425bb9aaea567f90cbbf2a1ff3e8f68869bc09",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$F4C9E69D-5659-4E2F-A79E-2F98FBD81554",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 1085
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "f0f7bb94595ef9078afdb7c8286c7e50582c51d5",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001995-06-10T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "28425bb9aaea567f90cbbf2a1ff3e8f68869bc09",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$8CC05307-033A-45E5-85D8-18F9BB0B1F0A",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 3935
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "6e8c58f07d9b2ce912e27596424b46038f4d14c2",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000002000-07-06T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "28425bb9aaea567f90cbbf2a1ff3e8f68869bc09",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$407459AB-4750-499A-AEE9-EFC51F8EA9A0",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 84
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "71766161087fd4cff86bce796c7686dde637affd",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000002000-10-10T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "28425bb9aaea567f90cbbf2a1ff3e8f68869bc09",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$7E371A06-94E8-4315-946E-C1EF5154A7B5",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 90
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "7bc6142340fb2715dc771d892af097cd469ff748",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001987-07-02T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "28425bb9aaea567f90cbbf2a1ff3e8f68869bc09",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					},
+					{
+						"id": "q64$30E63BDD-A3F2-42DD-8678-DCC726DB348D",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P190",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 1781
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "fedd0caf6fa7c7d61cdb26e2cfe304463b77dbde",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001992-08-28T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "28425bb9aaea567f90cbbf2a1ff3e8f68869bc09",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.berlin.de/rbmskzl/internationales/staedtepartnerschaften/",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					}
+				],
+				"P17": [
+					{
+						"id": "q64$25A421CA-14DF-463C-ACAD-F1199ADFACE7",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P17",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 183
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P1036": [
+					{
+						"id": "Q64$381ea90c-4c7e-7df3-93cd-7ac9a19ebb2a",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P1036",
+							"datatype": "string",
+							"datavalue": {
+								"value": "2--43155",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P213": [
+					{
+						"id": "Q64$005365b7-42d9-d5c0-2dcc-cf0f7ee9aa46",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P213",
+							"datatype": "string",
+							"datavalue": {
+								"value": "0000 0001 2341 9654",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P163": [
+					{
+						"id": "q64$D27312D4-2683-4E71-976D-F715B72EB59A",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P163",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 819691
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P41": [
+					{
+						"id": "q64$F38252C7-6ED6-4705-B854-9CD3A4E8BCBC",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P41",
+							"datatype": "commonsMedia",
+							"datavalue": {
+								"value": "Flag of Berlin.svg",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P94": [
+					{
+						"id": "q64$2EEAC668-2BD3-46FA-8635-77EAEADA6B22",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P94",
+							"datatype": "commonsMedia",
+							"datavalue": {
+								"value": "Coat of arms of Berlin.svg",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P47": [
+					{
+						"id": "q64$0E8C2E73-BA65-418A-852D-D13FF8E6C5D6",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P47",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 1208
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$1A853EAF-775B-4005-80D3-65F21DD6E61C",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P47",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 6115
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$601FE494-CE6D-4E6F-B66F-4989F0EAB2E8",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P47",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 6181
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$0D4B29DF-D6FE-4592-9A46-C95571DB761F",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P47",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 6178
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$522B172D-6066-4BB6-92BA-719942C0E034",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P47",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 6173
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$24C0AD7C-2918-405F-85DF-C3578A5CECA1",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P47",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 6146
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$4DC48700-E8B7-4FBB-A75B-D1F5B1C2A45A",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P47",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 6142
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$EC089D4B-8741-4252-93D9-E45A3F1A988E",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P47",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 1711
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$30CDB77D-49CB-4E52-A796-D2FF02D7CBAB",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P47",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 6139
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$A21979FE-641A-400C-9BFC-A437DFB1A891",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P47",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 6119
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P300": [
+					{
+						"id": "q64$8C88F067-C67D-4C90-9BAA-A5824D80D75F",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P300",
+							"datatype": "string",
+							"datavalue": {
+								"value": "DE-BE",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P402": [
+					{
+						"id": "q64$9FAECDA4-DAAF-4C95-A184-AE44FBD34E0C",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P402",
+							"datatype": "string",
+							"datavalue": {
+								"value": "62422",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P373": [
+					{
+						"id": "q64$79c2182d-4e36-fc06-4140-a90f5443e4fc",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P373",
+							"datatype": "string",
+							"datavalue": {
+								"value": "Berlin",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P237": [
+					{
+						"id": "q64$7fdca574-44cc-e12e-e31b-bde960c1a13e",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P237",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 819737
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P242": [
+					{
+						"id": "q64$cfe1008b-4b02-72e0-38e4-27279f6d76a1",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P242",
+							"datatype": "commonsMedia",
+							"datavalue": {
+								"value": "Locator map Berlin in Germany.svg",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$23536924-47aa-0acc-7d78-e30fd9e880c5",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P242",
+							"datatype": "commonsMedia",
+							"datavalue": {
+								"value": "Berlin, administrative divisions (+districts +boroughs +pop) - de - colored (less colors).svg",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P281": [
+					{
+						"id": "q64$2C1845ED-EA53-4446-BA03-A629481704CD",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P281",
+							"datatype": "string",
+							"datavalue": {
+								"value": "10115\u201314199",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "50f57a3dbac4708ce4ae4a827c0afac7fcdb4a5c",
+								"snaks": {
+									"P143": [
+										{
+											"snaktype": "value",
+											"property": "P143",
+											"datatype": "wikibase-item",
+											"datavalue": {
+												"value": {
+													"entity-type": "item",
+													"numeric-id": 11920
+												},
+												"type": "wikibase-entityid"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P143"
+								]
+							}
+						]
+					}
+				],
+				"P421": [
+					{
+						"id": "q64$812E0CAD-3041-4B51-A25E-BE9214C92D58",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P421",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 6655
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "50f57a3dbac4708ce4ae4a827c0afac7fcdb4a5c",
+								"snaks": {
+									"P143": [
+										{
+											"snaktype": "value",
+											"property": "P143",
+											"datatype": "wikibase-item",
+											"datavalue": {
+												"value": {
+													"entity-type": "item",
+													"numeric-id": 11920
+												},
+												"type": "wikibase-entityid"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P143"
+								]
+							}
+						]
+					}
+				],
+				"P473": [
+					{
+						"id": "q64$D34312C0-85CD-4207-A1FC-F4698B4917E4",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P473",
+							"datatype": "string",
+							"datavalue": {
+								"value": "030",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "50f57a3dbac4708ce4ae4a827c0afac7fcdb4a5c",
+								"snaks": {
+									"P143": [
+										{
+											"snaktype": "value",
+											"property": "P143",
+											"datatype": "wikibase-item",
+											"datavalue": {
+												"value": {
+													"entity-type": "item",
+													"numeric-id": 11920
+												},
+												"type": "wikibase-entityid"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P143"
+								]
+							}
+						]
+					}
+				],
+				"P214": [
+					{
+						"id": "q64$CA7E4BB3-5502-4B6D-B559-1F7EE4751ED4",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P214",
+							"datatype": "string",
+							"datavalue": {
+								"value": "122530980",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "f70116eac7f49194478b3025330bfd8dcffa3c69",
+								"snaks": {
+									"P143": [
+										{
+											"snaktype": "value",
+											"property": "P143",
+											"datatype": "wikibase-item",
+											"datavalue": {
+												"value": {
+													"entity-type": "item",
+													"numeric-id": 8447
+												},
+												"type": "wikibase-entityid"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P143"
+								]
+							}
+						]
+					}
+				],
+				"P227": [
+					{
+						"id": "q64$C8EC71C5-97F0-492C-98E0-5AE47AA882C1",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P227",
+							"datatype": "string",
+							"datavalue": {
+								"value": "4005728-8",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "f70116eac7f49194478b3025330bfd8dcffa3c69",
+								"snaks": {
+									"P143": [
+										{
+											"snaktype": "value",
+											"property": "P143",
+											"datatype": "wikibase-item",
+											"datavalue": {
+												"value": {
+													"entity-type": "item",
+													"numeric-id": 8447
+												},
+												"type": "wikibase-entityid"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P143"
+								]
+							}
+						]
+					}
+				],
+				"P395": [
+					{
+						"id": "q64$e0eaf663-4f00-d91a-feaa-f20468018a96",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P395",
+							"datatype": "string",
+							"datavalue": {
+								"value": "B",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "d6d655fd8fc3b840c5389f33264e33cd1b52f6a7",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "http://www.europeanplates.com/information/german-city-codes.html",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					}
+				],
+				"P131": [
+					{
+						"id": "q64$4722c10a-41ae-5a29-2c5e-00ef56b474a0",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P131",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 183
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P625": [
+					{
+						"id": "q64$A82559B1-DA8F-4E02-9F72-E304B90A9BDE",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P625",
+							"datatype": "globe-coordinate",
+							"datavalue": {
+								"value": {
+									"latitude": 52.516666666667,
+									"longitude": 13.383333333333,
+									"altitude": null,
+									"precision": 0.016666666666667,
+									"globe": "http://www.wikidata.org/entity/Q2"
+								},
+								"type": "globecoordinate"
+							}
+						},
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "d6e3ab4045fb3f3feea77895bc6b27e663fc878a",
+								"snaks": {
+									"P143": [
+										{
+											"snaktype": "value",
+											"property": "P143",
+											"datatype": "wikibase-item",
+											"datavalue": {
+												"value": {
+													"entity-type": "item",
+													"numeric-id": 206855
+												},
+												"type": "wikibase-entityid"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P143"
+								]
+							}
+						]
+					}
+				],
+				"P18": [
+					{
+						"id": "q64$be936178-4c08-4e19-7080-d8c419578c55",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P18",
+							"datatype": "commonsMedia",
+							"datavalue": {
+								"value": "Berlin - Alexanderplatz2.jpg",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$581f66f9-403f-e345-4bb8-ac6a4f472e12",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P18",
+							"datatype": "commonsMedia",
+							"datavalue": {
+								"value": "Berlin - Berliner Fernsehturm - Aerial view.jpg",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "q64$e85211ed-4a91-f236-1dc4-db2376cf9467",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P18",
+							"datatype": "commonsMedia",
+							"datavalue": {
+								"value": "Brandenburger Tor abends.jpg",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P501": [
+					{
+						"id": "q64$655f88f0-4391-4715-c767-6104b89aea2e",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P501",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 1208
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P910": [
+					{
+						"id": "Q64$6E7EA10E-F75D-41A8-8743-14F1C605FD82",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P910",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 4579913
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P6": [
+					{
+						"id": "q64$FCFCD0F8-B714-4E20-988B-DA746551B50E",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P6",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 8863
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "b51a9c1102ba07f54fb157983621430c8e9bd1ee",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000002001-06-16T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580"
+						],
+						"type": "statement",
+						"rank": "preferred"
+					},
+					{
+						"id": "Q64$ec350868-4120-0a1e-3c57-b3d9733b4cb4",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P6",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 60957
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "9f9f58c3ff6a0d317dc2b59a10bd72b77f1b902c",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001991-01-24T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							],
+							"P582": [
+								{
+									"hash": "54db847e2e447c97a2a6e92147356d3f2cd9e5d1",
+									"snaktype": "value",
+									"property": "P582",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000002001-06-16T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580",
+							"P582"
+						],
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "Q64$de33cac0-44bd-2bf2-400e-072816650722",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P6",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 61085
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P582": [
+								{
+									"hash": "bd85e69cec3c316ac8ae066d530c28ad2b6504bd",
+									"snaktype": "value",
+									"property": "P582",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001991-01-24T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							],
+							"P580": [
+								{
+									"hash": "4f8d98bf036ad1ab39cff017547cc66dd9abff58",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001989-03-16T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P582",
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "Q64$f1a06f76-4a86-a78c-23d4-cf53c40e6661",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P6",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 60957
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "d257e427087fd95263609a976566f1e8062da040",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001984-02-09T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							],
+							"P582": [
+								{
+									"hash": "cecdfd5f4873f1a70bc23155b309b64359edddf7",
+									"snaktype": "value",
+									"property": "P582",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001989-03-16T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580",
+							"P582"
+						],
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "Q64$9ae670cb-496a-0e9a-e4d7-88a6a8699a25",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P6",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 2567
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P582": [
+								{
+									"hash": "23994145a8cb77243ee3ceb90a6b28409227f2b2",
+									"snaktype": "value",
+									"property": "P582",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001984-02-09T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							],
+							"P580": [
+								{
+									"hash": "cbea1d372d318fea521d3107514b66e7b88574cb",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001981-06-11T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P582",
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "Q64$ff6523e8-407f-a48b-1e0e-e4f112395040",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P6",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 552483
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P582": [
+								{
+									"hash": "11523e97a827c9217e3ae0555d9f5a01a706c8db",
+									"snaktype": "value",
+									"property": "P582",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001981-06-11T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							],
+							"P580": [
+								{
+									"hash": "4cf247c95beb2394b2658600d3744c605e1972e6",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001981-01-23T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P582",
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "Q64$6b27448b-400e-da7e-e19d-014530750ec5",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P6",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 68748
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P582": [
+								{
+									"hash": "33d3071dc75ef03101454e024ab0555b17f405be",
+									"snaktype": "value",
+									"property": "P582",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001981-01-23T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							],
+							"P580": [
+								{
+									"hash": "0b9c07faafe3b9e95ff9314024a0eb6d2025d177",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001977-05-02T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P582",
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "Q64$d264e504-4418-cb03-d4a8-f34274a02ae4",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P6",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 215756
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P582": [
+								{
+									"hash": "a8753e71f7f601433a287cd0d72e99bf54ed7171",
+									"snaktype": "value",
+									"property": "P582",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001977-05-02T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							],
+							"P580": [
+								{
+									"hash": "951452126982f3ab492a565630f80cf3fb88d5b1",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001967-10-19T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P582",
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "Q64$f0153c86-471d-7f13-a8c9-c608cbd54b64",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P6",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 705862
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P582": [
+								{
+									"hash": "f3c3699ca2ce0f556515e51d40039545ec4afd3b",
+									"snaktype": "value",
+									"property": "P582",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001967-10-19T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							],
+							"P580": [
+								{
+									"hash": "8e0c61b40573482d97a020a61e598369c85c18c1",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001966-12-01T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P582",
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "Q64$34b62e97-4f07-2535-8a9b-fc32e7097180",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P6",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 2514
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P580": [
+								{
+									"hash": "daf4f73dac38c48360e4db102fb0135399f8bf48",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001957-10-03T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							],
+							"P582": [
+								{
+									"hash": "ff85cd5f3c54326bb770cc65ade0c3a100811212",
+									"snaktype": "value",
+									"property": "P582",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001966-12-01T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P580",
+							"P582"
+						],
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "Q64$2acec7e0-42ec-b059-7a80-cfc04dc739f1",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P6",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 96399
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P582": [
+								{
+									"hash": "b4a8ef5824dea7965f6fbfc3bc29ce9449875e6d",
+									"snaktype": "value",
+									"property": "P582",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001957-10-03T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							],
+							"P580": [
+								{
+									"hash": "708585c920c5b4720ab8806f9372929eca477a49",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001957-08-30T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P582",
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "Q64$4a38d161-4245-0f46-a8aa-70d4e47da713",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P6",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 650878
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P582": [
+								{
+									"hash": "719b70ad08b4526866cee3179ce552d725cc9688",
+									"snaktype": "value",
+									"property": "P582",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001957-08-30T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							],
+							"P580": [
+								{
+									"hash": "ff3bbab5a42eccbf67221414a3a18954b9365706",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001955-01-11T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P582",
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "Q64$7330db0a-4a28-6dba-2d73-c469cf3f052f",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P6",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 69232
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P582": [
+								{
+									"hash": "fd2e98e4533446da3932190d6b7e3ac9bf689426",
+									"snaktype": "value",
+									"property": "P582",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001955-01-11T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							],
+							"P580": [
+								{
+									"hash": "55596b2dbd23e4de4615c61dca7e45dc6b9b603f",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001953-10-22T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P582",
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal"
+					},
+					{
+						"id": "Q64$8a2a5ebb-4909-3024-b6ea-63d8da19b9f2",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P6",
+							"datatype": "wikibase-item",
+							"datavalue": {
+								"value": {
+									"entity-type": "item",
+									"numeric-id": 213561
+								},
+								"type": "wikibase-entityid"
+							}
+						},
+						"qualifiers": {
+							"P582": [
+								{
+									"hash": "981a634d5baf21a11fd3e8345ded67c412ad3a85",
+									"snaktype": "value",
+									"property": "P582",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001953-10-22T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							],
+							"P580": [
+								{
+									"hash": "98bde13ff8ec3b2c5edf75f9476232d66b46877f",
+									"snaktype": "value",
+									"property": "P580",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000001948-12-07T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P582",
+							"P580"
+						],
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P948": [
+					{
+						"id": "Q64$111778C7-CD36-4DE4-9CE4-5DF47889C36D",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P948",
+							"datatype": "commonsMedia",
+							"datavalue": {
+								"value": "Berlin banner.jpg",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P856": [
+					{
+						"id": "Q64$7effa81b-4fc8-ad36-5008-818027d1b465",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P856",
+							"datatype": "url",
+							"datavalue": {
+								"value": "http://www.berlin.de/",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P982": [
+					{
+						"id": "Q64$918a554c-4754-5810-faee-b4d692ccfee4",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P982",
+							"datatype": "string",
+							"datavalue": {
+								"value": "c9ac1239-e832-41bc-9930-e252a1fd1105",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P998": [
+					{
+						"id": "Q64$E2E66BE4-E721-4BCE-B478-B8FB551951DE",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P998",
+							"datatype": "string",
+							"datavalue": {
+								"value": "Regional/Europe/Germany/States/Berlin/",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P439": [
+					{
+						"id": "Q64$f9bd8a0a-41b3-6c03-7abe-5395dcfd9b35",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P439",
+							"datatype": "string",
+							"datavalue": {
+								"value": "11000000",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P605": [
+					{
+						"id": "Q64$65e1c6fa-4081-97aa-c84f-8a2427c05e80",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P605",
+							"datatype": "string",
+							"datavalue": {
+								"value": "DE3",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "7eb64cf9621d34c54fd4bd040ed4b61a88c4a1a0",
+								"snaks": {
+									"P143": [
+										{
+											"snaktype": "value",
+											"property": "P143",
+											"datatype": "wikibase-item",
+											"datavalue": {
+												"value": {
+													"entity-type": "item",
+													"numeric-id": 328
+												},
+												"type": "wikibase-entityid"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P143"
+								]
+							}
+						]
+					}
+				],
+				"P782": [
+					{
+						"id": "Q64$f486e767-4412-1062-88eb-159677778285",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P782",
+							"datatype": "string",
+							"datavalue": {
+								"value": "11000000",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P349": [
+					{
+						"id": "Q64$75AAD91E-DBEB-43F8-8B61-E7A30A150203",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P349",
+							"datatype": "string",
+							"datavalue": {
+								"value": "00629194",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal"
+					}
+				],
+				"P646": [
+					{
+						"id": "Q64$7567331F-C73B-4B99-904C-D19EA677269E",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P646",
+							"datatype": "string",
+							"datavalue": {
+								"value": "/m/0156q",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "b923b0d68beb300866b87ead39f61e63ec30d8af",
+								"snaks": {
+									"P248": [
+										{
+											"snaktype": "value",
+											"property": "P248",
+											"datatype": "wikibase-item",
+											"datavalue": {
+												"value": {
+													"entity-type": "item",
+													"numeric-id": 15241312
+												},
+												"type": "wikibase-entityid"
+											}
+										}
+									],
+									"P577": [
+										{
+											"snaktype": "value",
+											"property": "P577",
+											"datatype": "time",
+											"datavalue": {
+												"value": {
+													"time": "+00000002013-10-28T00:00:00Z",
+													"timezone": 0,
+													"before": 0,
+													"after": 0,
+													"precision": 11,
+													"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+												},
+												"type": "time"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P248",
+									"P577"
+								]
+							}
+						]
+					}
+				],
+				"P244": [
+					{
+						"id": "Q64$9F6FF48C-5318-44B8-994D-170446E1AD5D",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P244",
+							"datatype": "string",
+							"datavalue": {
+								"value": "n79034972",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "e807638f7ca37ae1cde9b9003654d68d65f51d06",
+								"snaks": {
+									"P143": [
+										{
+											"snaktype": "value",
+											"property": "P143",
+											"datatype": "wikibase-item",
+											"datavalue": {
+												"value": {
+													"entity-type": "item",
+													"numeric-id": 191769
+												},
+												"type": "wikibase-entityid"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P143"
+								]
+							}
+						]
+					}
+				],
+				"P901": [
+					{
+						"id": "Q64$CC86ED90-D605-4B14-96C1-6ABA19764A38",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P901",
+							"datatype": "string",
+							"datavalue": {
+								"value": "GM16",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "65f7f9fb11be204be9d7213b9191412423f31da0",
+								"snaks": {
+									"P143": [
+										{
+											"snaktype": "value",
+											"property": "P143",
+											"datatype": "wikibase-item",
+											"datavalue": {
+												"value": {
+													"entity-type": "item",
+													"numeric-id": 328
+												},
+												"type": "wikibase-entityid"
+											}
+										}
+									],
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "https://en.wikipedia.org/w/index.php?title=List_of_FIPS_region_codes_(G%E2%80%93I)&oldid=575296220",
+												"type": "string"
+											}
+										}
+									],
+									"P364": [
+										{
+											"snaktype": "value",
+											"property": "P364",
+											"datatype": "wikibase-item",
+											"datavalue": {
+												"value": {
+													"entity-type": "item",
+													"numeric-id": 1860
+												},
+												"type": "wikibase-entityid"
+											}
+										}
+									],
+									"P357": [
+										{
+											"snaktype": "value",
+											"property": "P357",
+											"datatype": "string",
+											"datavalue": {
+												"value": "List of FIPS region codes (G-I)",
+												"type": "string"
+											}
+										}
+									],
+									"P813": [
+										{
+											"snaktype": "value",
+											"property": "P813",
+											"datatype": "time",
+											"datavalue": {
+												"value": {
+													"time": "+00000002013-12-30T00:00:00Z",
+													"timezone": 0,
+													"before": 0,
+													"after": 0,
+													"precision": 11,
+													"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+												},
+												"type": "time"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P143",
+									"P854",
+									"P364",
+									"P357",
+									"P813"
+								]
+							}
+						]
+					}
+				],
+				"P1082": [
+					{
+						"id": "Q64$df08fa42-4640-da0c-5c99-bb9d3fa20c05",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P1082",
+							"datatype": "quantity",
+							"datavalue": {
+								"value": {
+									"amount": "+3401147",
+									"unit": "1",
+									"upperBound": "+3401147",
+									"lowerBound": "+3401147"
+								},
+								"type": "quantity"
+							}
+						},
+						"qualifiers": {
+							"P585": [
+								{
+									"hash": "089da66743cb39ec36e8b7906aec82dfff107067",
+									"snaktype": "value",
+									"property": "P585",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000002013-08-31T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P585"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "004ec6fbee857649acdbdbad4f97b2c8571df97b",
+								"snaks": {
+									"P143": [
+										{
+											"snaktype": "value",
+											"property": "P143",
+											"datatype": "wikibase-item",
+											"datavalue": {
+												"value": {
+													"entity-type": "item",
+													"numeric-id": 48183
+												},
+												"type": "wikibase-entityid"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P143"
+								]
+							}
+						]
+					},
+					{
+						"id": "Q64$a4470780-462d-313a-7431-3306ff0336be",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P1082",
+							"datatype": "quantity",
+							"datavalue": {
+								"value": {
+									"amount": "+3419623",
+									"unit": "1",
+									"upperBound": "+3419623",
+									"lowerBound": "+3419623"
+								},
+								"type": "quantity"
+							}
+						},
+						"qualifiers": {
+							"P585": [
+								{
+									"hash": "6b6d3eb2b3f4e0c7ed44ba570d55aed61d13c5ce",
+									"snaktype": "value",
+									"property": "P585",
+									"datatype": "time",
+									"datavalue": {
+										"value": {
+											"time": "+00000002013-11-30T00:00:00Z",
+											"timezone": 0,
+											"before": 0,
+											"after": 0,
+											"precision": 11,
+											"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+										},
+										"type": "time"
+									}
+								}
+							]
+						},
+						"qualifiers-order": [
+							"P585"
+						],
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "14357f17098703885fb2cb36413dd6457eef3d0d",
+								"snaks": {
+									"P854": [
+										{
+											"snaktype": "value",
+											"property": "P854",
+											"datatype": "url",
+											"datavalue": {
+												"value": "https://www.statistik-berlin-brandenburg.de/Publikationen/OTab/2014/OT_A01-10-00_124_201311_BE.pdf",
+												"type": "string"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P854"
+								]
+							}
+						]
+					}
+				],
+				"P268": [
+					{
+						"id": "Q64$2596E148-3D29-4617-987D-9B26D868B127",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P268",
+							"datatype": "string",
+							"datavalue": {
+								"value": "15298132w",
+								"type": "string"
+							}
+						},
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "a51d6594fee36c7452eaed2db35a4833613a7078",
+								"snaks": {
+									"P143": [
+										{
+											"snaktype": "value",
+											"property": "P143",
+											"datatype": "wikibase-item",
+											"datavalue": {
+												"value": {
+													"entity-type": "item",
+													"numeric-id": 54919
+												},
+												"type": "wikibase-entityid"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P143"
+								]
+							}
+						]
+					}
+				],
+				"P571": [
+					{
+						"id": "Q64$E3806EC8-210D-4380-BCF7-B05592E5555B",
+						"mainsnak": {
+							"snaktype": "value",
+							"property": "P571",
+							"datatype": "time",
+							"datavalue": {
+								"value": {
+									"time": "+00000001237-01-01T00:00:00Z",
+									"timezone": 0,
+									"before": 0,
+									"after": 0,
+									"precision": 9,
+									"calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+								},
+								"type": "time"
+							}
+						},
+						"type": "statement",
+						"rank": "normal",
+						"references": [
+							{
+								"hash": "7eb64cf9621d34c54fd4bd040ed4b61a88c4a1a0",
+								"snaks": {
+									"P143": [
+										{
+											"snaktype": "value",
+											"property": "P143",
+											"datatype": "wikibase-item",
+											"datavalue": {
+												"value": {
+													"entity-type": "item",
+													"numeric-id": 328
+												},
+												"type": "wikibase-entityid"
+											}
+										}
+									]
+								},
+								"snaks-order": [
+									"P143"
+								]
+							}
+						]
+					}
+				]
+			},
+			"sitelinks": {
+				"abwiki": {
+					"site": "abwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"acewiki": {
+					"site": "acewiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"afwiki": {
+					"site": "afwiki",
+					"title": "Berlyn",
+					"badges": [
+						"Q17437796"
+					]
+				},
+				"akwiki": {
+					"site": "akwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"alswiki": {
+					"site": "alswiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"amwiki": {
+					"site": "amwiki",
+					"title": "\u1260\u122d\u120a\u1295",
+					"badges": []
+				},
+				"angwiki": {
+					"site": "angwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"anwiki": {
+					"site": "anwiki",
+					"title": "Berl\u00edn",
+					"badges": []
+				},
+				"arcwiki": {
+					"site": "arcwiki",
+					"title": "\u0712\u072a\u0720\u071d\u0722",
+					"badges": []
+				},
+				"arwiki": {
+					"site": "arwiki",
+					"title": "\u0628\u0631\u0644\u064a\u0646",
+					"badges": []
+				},
+				"arzwiki": {
+					"site": "arzwiki",
+					"title": "\u0628\u064a\u0631\u0644\u064a\u0646",
+					"badges": []
+				},
+				"astwiki": {
+					"site": "astwiki",
+					"title": "Berl\u00edn",
+					"badges": []
+				},
+				"aywiki": {
+					"site": "aywiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"azwiki": {
+					"site": "azwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"barwiki": {
+					"site": "barwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"bat_smgwiki": {
+					"site": "bat_smgwiki",
+					"title": "Berl\u012bns",
+					"badges": []
+				},
+				"bawiki": {
+					"site": "bawiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"be_x_oldwiki": {
+					"site": "be_x_oldwiki",
+					"title": "\u0411\u044d\u0440\u043b\u0456\u043d",
+					"badges": []
+				},
+				"bewiki": {
+					"site": "bewiki",
+					"title": "\u0413\u043e\u0440\u0430\u0434 \u0411\u0435\u0440\u043b\u0456\u043d",
+					"badges": []
+				},
+				"bgwiki": {
+					"site": "bgwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"biwiki": {
+					"site": "biwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"bmwiki": {
+					"site": "bmwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"bnwiki": {
+					"site": "bnwiki",
+					"title": "\u09ac\u09be\u09b0\u09cd\u09b2\u09bf\u09a8",
+					"badges": []
+				},
+				"bowiki": {
+					"site": "bowiki",
+					"title": "\u0f54\u0f7a\u0f62\u0f0b\u0f63\u0f72\u0f53\u0f0d",
+					"badges": []
+				},
+				"brwiki": {
+					"site": "brwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"bswiki": {
+					"site": "bswiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"bxrwiki": {
+					"site": "bxrwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"cawiki": {
+					"site": "cawiki",
+					"title": "Berl\u00edn",
+					"badges": []
+				},
+				"cbk_zamwiki": {
+					"site": "cbk_zamwiki",
+					"title": "Berl\u00edn",
+					"badges": []
+				},
+				"cdowiki": {
+					"site": "cdowiki",
+					"title": "B\u00e1ik-l\u00ecng",
+					"badges": []
+				},
+				"cebwiki": {
+					"site": "cebwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"cewiki": {
+					"site": "cewiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"ckbwiki": {
+					"site": "ckbwiki",
+					"title": "\u0628\u06d5\u0631\u0644\u06cc\u0646",
+					"badges": []
+				},
+				"commonswiki": {
+					"site": "commonswiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"cowiki": {
+					"site": "cowiki",
+					"title": "Berlinu",
+					"badges": []
+				},
+				"crhwiki": {
+					"site": "crhwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"csbwiki": {
+					"site": "csbwiki",
+					"title": "Berl\u00ebno",
+					"badges": []
+				},
+				"cswiki": {
+					"site": "cswiki",
+					"title": "Berl\u00edn",
+					"badges": []
+				},
+				"cswikiquote": {
+					"site": "cswikiquote",
+					"title": "Berl\u00edn",
+					"badges": []
+				},
+				"cuwiki": {
+					"site": "cuwiki",
+					"title": "\u0411\u0454\u0440\u043b\u0438\u043d\u044a",
+					"badges": []
+				},
+				"cvwiki": {
+					"site": "cvwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"cywiki": {
+					"site": "cywiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"dawiki": {
+					"site": "dawiki",
+					"title": "Berlin",
+					"badges": [
+						"Q17437798"
+					]
+				},
+				"dewiki": {
+					"site": "dewiki",
+					"title": "Berlin",
+					"badges": [
+						"Q17437798"
+					]
+				},
+				"dewikiquote": {
+					"site": "dewikiquote",
+					"title": "Berlin",
+					"badges": []
+				},
+				"dewikisource": {
+					"site": "dewikisource",
+					"title": "Berlin",
+					"badges": []
+				},
+				"dewikivoyage": {
+					"site": "dewikivoyage",
+					"title": "Berlin",
+					"badges": []
+				},
+				"diqwiki": {
+					"site": "diqwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"dsbwiki": {
+					"site": "dsbwiki",
+					"title": "Barli\u0144",
+					"badges": []
+				},
+				"eewiki": {
+					"site": "eewiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"elwiki": {
+					"site": "elwiki",
+					"title": "\u0392\u03b5\u03c1\u03bf\u03bb\u03af\u03bd\u03bf",
+					"badges": []
+				},
+				"enwiki": {
+					"site": "enwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"enwikiquote": {
+					"site": "enwikiquote",
+					"title": "Berlin",
+					"badges": []
+				},
+				"enwikivoyage": {
+					"site": "enwikivoyage",
+					"title": "Berlin",
+					"badges": []
+				},
+				"eowiki": {
+					"site": "eowiki",
+					"title": "Berlino",
+					"badges": []
+				},
+				"eowikiquote": {
+					"site": "eowikiquote",
+					"title": "Berlino",
+					"badges": []
+				},
+				"eswiki": {
+					"site": "eswiki",
+					"title": "Berl\u00edn",
+					"badges": []
+				},
+				"eswikiquote": {
+					"site": "eswikiquote",
+					"title": "Berl\u00edn",
+					"badges": []
+				},
+				"eswikivoyage": {
+					"site": "eswikivoyage",
+					"title": "Berl\u00edn",
+					"badges": []
+				},
+				"etwiki": {
+					"site": "etwiki",
+					"title": "Berliin",
+					"badges": []
+				},
+				"euwiki": {
+					"site": "euwiki",
+					"title": "Berlin",
+					"badges": [
+						"Q17437796"
+					]
+				},
+				"extwiki": {
+					"site": "extwiki",
+					"title": "Berl\u00edn",
+					"badges": []
+				},
+				"fawiki": {
+					"site": "fawiki",
+					"title": "\u0628\u0631\u0644\u06cc\u0646",
+					"badges": []
+				},
+				"fiu_vrowiki": {
+					"site": "fiu_vrowiki",
+					"title": "Berliin",
+					"badges": []
+				},
+				"fiwiki": {
+					"site": "fiwiki",
+					"title": "Berliini",
+					"badges": [
+						"Q17437798"
+					]
+				},
+				"fjwiki": {
+					"site": "fjwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"fowiki": {
+					"site": "fowiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"frpwiki": {
+					"site": "frpwiki",
+					"title": "B\u00e8rlin",
+					"badges": []
+				},
+				"frrwiki": {
+					"site": "frrwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"frwiki": {
+					"site": "frwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"frwikivoyage": {
+					"site": "frwikivoyage",
+					"title": "Berlin",
+					"badges": []
+				},
+				"furwiki": {
+					"site": "furwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"fywiki": {
+					"site": "fywiki",
+					"title": "Berlyn",
+					"badges": []
+				},
+				"gagwiki": {
+					"site": "gagwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"ganwiki": {
+					"site": "ganwiki",
+					"title": "\u67cf\u6797",
+					"badges": []
+				},
+				"gawiki": {
+					"site": "gawiki",
+					"title": "Beirl\u00edn",
+					"badges": []
+				},
+				"gdwiki": {
+					"site": "gdwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"glwiki": {
+					"site": "glwiki",
+					"title": "Berl\u00edn",
+					"badges": []
+				},
+				"gnwiki": {
+					"site": "gnwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"gvwiki": {
+					"site": "gvwiki",
+					"title": "Berleen",
+					"badges": []
+				},
+				"hakwiki": {
+					"site": "hakwiki",
+					"title": "Pak-l\u00ecm",
+					"badges": []
+				},
+				"hawiki": {
+					"site": "hawiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"hawwiki": {
+					"site": "hawwiki",
+					"title": "Pelelina",
+					"badges": []
+				},
+				"hewiki": {
+					"site": "hewiki",
+					"title": "\u05d1\u05e8\u05dc\u05d9\u05df",
+					"badges": []
+				},
+				"hewikivoyage": {
+					"site": "hewikivoyage",
+					"title": "\u05d1\u05e8\u05dc\u05d9\u05df",
+					"badges": []
+				},
+				"hifwiki": {
+					"site": "hifwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"hiwiki": {
+					"site": "hiwiki",
+					"title": "\u092c\u0930\u094d\u0932\u093f\u0928",
+					"badges": []
+				},
+				"hrwiki": {
+					"site": "hrwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"hsbwiki": {
+					"site": "hsbwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"htwiki": {
+					"site": "htwiki",
+					"title": "B\u00e8len",
+					"badges": []
+				},
+				"huwiki": {
+					"site": "huwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"huwikiquote": {
+					"site": "huwikiquote",
+					"title": "Berlin",
+					"badges": []
+				},
+				"hywiki": {
+					"site": "hywiki",
+					"title": "\u0532\u0565\u057c\u056c\u056b\u0576",
+					"badges": []
+				},
+				"iawiki": {
+					"site": "iawiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"idwiki": {
+					"site": "idwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"iewiki": {
+					"site": "iewiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"ilowiki": {
+					"site": "ilowiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"iowiki": {
+					"site": "iowiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"iswiki": {
+					"site": "iswiki",
+					"title": "Berl\u00edn",
+					"badges": []
+				},
+				"itwiki": {
+					"site": "itwiki",
+					"title": "Berlino",
+					"badges": []
+				},
+				"itwikiquote": {
+					"site": "itwikiquote",
+					"title": "Berlino",
+					"badges": []
+				},
+				"itwikivoyage": {
+					"site": "itwikivoyage",
+					"title": "Berlino",
+					"badges": []
+				},
+				"iuwiki": {
+					"site": "iuwiki",
+					"title": "\u1431\u1550\u14d6\u14d0",
+					"badges": []
+				},
+				"jawiki": {
+					"site": "jawiki",
+					"title": "\u30d9\u30eb\u30ea\u30f3",
+					"badges": []
+				},
+				"jbowiki": {
+					"site": "jbowiki",
+					"title": "berlin",
+					"badges": []
+				},
+				"jvwiki": {
+					"site": "jvwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"kaawiki": {
+					"site": "kaawiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"kabwiki": {
+					"site": "kabwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"kawiki": {
+					"site": "kawiki",
+					"title": "\u10d1\u10d4\u10e0\u10da\u10d8\u10dc\u10d8",
+					"badges": []
+				},
+				"kbdwiki": {
+					"site": "kbdwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"kgwiki": {
+					"site": "kgwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"kkwiki": {
+					"site": "kkwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"klwiki": {
+					"site": "klwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"knwiki": {
+					"site": "knwiki",
+					"title": "\u0cac\u0cb0\u0ccd\u0cb2\u0cbf\u0ca8\u0ccd",
+					"badges": []
+				},
+				"koiwiki": {
+					"site": "koiwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"kowiki": {
+					"site": "kowiki",
+					"title": "\ubca0\ub97c\ub9b0",
+					"badges": []
+				},
+				"kshwiki": {
+					"site": "kshwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"kuwiki": {
+					"site": "kuwiki",
+					"title": "Berl\u00een",
+					"badges": []
+				},
+				"kvwiki": {
+					"site": "kvwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"kwwiki": {
+					"site": "kwwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"kywiki": {
+					"site": "kywiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"ladwiki": {
+					"site": "ladwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"lawiki": {
+					"site": "lawiki",
+					"title": "Berolinum",
+					"badges": [
+						"Q17437796"
+					]
+				},
+				"lbwiki": {
+					"site": "lbwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"lezwiki": {
+					"site": "lezwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"lgwiki": {
+					"site": "lgwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"lijwiki": {
+					"site": "lijwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"liwiki": {
+					"site": "liwiki",
+					"title": "Berlien",
+					"badges": []
+				},
+				"lmowiki": {
+					"site": "lmowiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"lnwiki": {
+					"site": "lnwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"ltgwiki": {
+					"site": "ltgwiki",
+					"title": "Berlins",
+					"badges": []
+				},
+				"ltwiki": {
+					"site": "ltwiki",
+					"title": "Berlynas",
+					"badges": []
+				},
+				"lvwiki": {
+					"site": "lvwiki",
+					"title": "Berl\u012bne",
+					"badges": []
+				},
+				"mgwiki": {
+					"site": "mgwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"mhrwiki": {
+					"site": "mhrwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"miwiki": {
+					"site": "miwiki",
+					"title": "Pear\u012bni",
+					"badges": []
+				},
+				"mkwiki": {
+					"site": "mkwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": [
+						"Q17437796"
+					]
+				},
+				"mlwiki": {
+					"site": "mlwiki",
+					"title": "\u0d2c\u0d46\u0d7c\u0d32\u0d3f\u0d7b",
+					"badges": []
+				},
+				"mnwiki": {
+					"site": "mnwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"mrjwiki": {
+					"site": "mrjwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"mrwiki": {
+					"site": "mrwiki",
+					"title": "\u092c\u0930\u094d\u0932\u093f\u0928",
+					"badges": []
+				},
+				"mswiki": {
+					"site": "mswiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"mtwiki": {
+					"site": "mtwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"mwlwiki": {
+					"site": "mwlwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"myvwiki": {
+					"site": "myvwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d \u043e\u0448",
+					"badges": []
+				},
+				"mywiki": {
+					"site": "mywiki",
+					"title": "\u1018\u102c\u101c\u1004\u103a\u1019\u103c\u102d\u102f\u1037",
+					"badges": []
+				},
+				"mznwiki": {
+					"site": "mznwiki",
+					"title": "\u0628\u0631\u0644\u06cc\u0646",
+					"badges": []
+				},
+				"nahwiki": {
+					"site": "nahwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"napwiki": {
+					"site": "napwiki",
+					"title": "Berlino",
+					"badges": []
+				},
+				"nawiki": {
+					"site": "nawiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"nds_nlwiki": {
+					"site": "nds_nlwiki",
+					"title": "Berlien",
+					"badges": []
+				},
+				"ndswiki": {
+					"site": "ndswiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"newiki": {
+					"site": "newiki",
+					"title": "\u092c\u0930\u094d\u0932\u093f\u0928",
+					"badges": []
+				},
+				"newwiki": {
+					"site": "newwiki",
+					"title": "\u092c\u0930\u094d\u0932\u093f\u0928",
+					"badges": []
+				},
+				"nlwiki": {
+					"site": "nlwiki",
+					"title": "Berlijn",
+					"badges": []
+				},
+				"nlwikivoyage": {
+					"site": "nlwikivoyage",
+					"title": "Berlijn",
+					"badges": []
+				},
+				"nnwiki": {
+					"site": "nnwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"nnwikiquote": {
+					"site": "nnwikiquote",
+					"title": "Berlin",
+					"badges": []
+				},
+				"novwiki": {
+					"site": "novwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"nowiki": {
+					"site": "nowiki",
+					"title": "Berlin",
+					"badges": [
+						"Q17437798"
+					]
+				},
+				"nrmwiki": {
+					"site": "nrmwiki",
+					"title": "B\u00e8rl\u00een",
+					"badges": []
+				},
+				"ocwiki": {
+					"site": "ocwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"orwiki": {
+					"site": "orwiki",
+					"title": "\u0b2c\u0b30\u0b4d\u0b32\u0b3f\u0b28",
+					"badges": []
+				},
+				"oswiki": {
+					"site": "oswiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"pamwiki": {
+					"site": "pamwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"papwiki": {
+					"site": "papwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"pawiki": {
+					"site": "pawiki",
+					"title": "\u0a2c\u0a30\u0a32\u0a3f\u0a28",
+					"badges": []
+				},
+				"pcdwiki": {
+					"site": "pcdwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"pdcwiki": {
+					"site": "pdcwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"pflwiki": {
+					"site": "pflwiki",
+					"title": "Balin",
+					"badges": []
+				},
+				"pihwiki": {
+					"site": "pihwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"plwiki": {
+					"site": "plwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"plwikiquote": {
+					"site": "plwikiquote",
+					"title": "Berlin",
+					"badges": []
+				},
+				"plwikivoyage": {
+					"site": "plwikivoyage",
+					"title": "Berlin",
+					"badges": []
+				},
+				"pmswiki": {
+					"site": "pmswiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"pnbwiki": {
+					"site": "pnbwiki",
+					"title": "\u0628\u0631\u0644\u0646",
+					"badges": []
+				},
+				"pntwiki": {
+					"site": "pntwiki",
+					"title": "\u0392\u03b5\u03c1\u03bf\u03bb\u03af\u03bd\u03bf\u03bd",
+					"badges": []
+				},
+				"pswiki": {
+					"site": "pswiki",
+					"title": "\u0628\u0631\u0644\u064a\u0646",
+					"badges": []
+				},
+				"ptwiki": {
+					"site": "ptwiki",
+					"title": "Berlim",
+					"badges": []
+				},
+				"ptwikivoyage": {
+					"site": "ptwikivoyage",
+					"title": "Berlim",
+					"badges": []
+				},
+				"quwiki": {
+					"site": "quwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"rmwiki": {
+					"site": "rmwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"rmywiki": {
+					"site": "rmywiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"rnwiki": {
+					"site": "rnwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"roa_tarawiki": {
+					"site": "roa_tarawiki",
+					"title": "Berline",
+					"badges": []
+				},
+				"rowiki": {
+					"site": "rowiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"rowikivoyage": {
+					"site": "rowikivoyage",
+					"title": "Berlin",
+					"badges": []
+				},
+				"ruewiki": {
+					"site": "ruewiki",
+					"title": "\u0411\u0435\u0440\u043b\u0456\u043d",
+					"badges": []
+				},
+				"ruwiki": {
+					"site": "ruwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"ruwikiquote": {
+					"site": "ruwikiquote",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"ruwikivoyage": {
+					"site": "ruwikivoyage",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"rwwiki": {
+					"site": "rwwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"sahwiki": {
+					"site": "sahwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"scnwiki": {
+					"site": "scnwiki",
+					"title": "Birlinu",
+					"badges": []
+				},
+				"scowiki": {
+					"site": "scowiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"scwiki": {
+					"site": "scwiki",
+					"title": "Berlino",
+					"badges": []
+				},
+				"sewiki": {
+					"site": "sewiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"shwiki": {
+					"site": "shwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"simplewiki": {
+					"site": "simplewiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"siwiki": {
+					"site": "siwiki",
+					"title": "\u0db6\u0dbb\u0dca\u0dbd\u0dd2\u0db1\u0dba",
+					"badges": []
+				},
+				"skwiki": {
+					"site": "skwiki",
+					"title": "Berl\u00edn",
+					"badges": []
+				},
+				"skwikiquote": {
+					"site": "skwikiquote",
+					"title": "Berl\u00edn",
+					"badges": []
+				},
+				"slwiki": {
+					"site": "slwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"sowiki": {
+					"site": "sowiki",
+					"title": "Baarliin",
+					"badges": []
+				},
+				"sqwiki": {
+					"site": "sqwiki",
+					"title": "Berlini",
+					"badges": []
+				},
+				"srnwiki": {
+					"site": "srnwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"srwiki": {
+					"site": "srwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"srwikiquote": {
+					"site": "srwikiquote",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"stqwiki": {
+					"site": "stqwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"svwiki": {
+					"site": "svwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"svwikiquote": {
+					"site": "svwikiquote",
+					"title": "Berlin",
+					"badges": []
+				},
+				"svwikivoyage": {
+					"site": "svwikivoyage",
+					"title": "Berlin",
+					"badges": []
+				},
+				"swwiki": {
+					"site": "swwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"szlwiki": {
+					"site": "szlwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"tawiki": {
+					"site": "tawiki",
+					"title": "\u0baa\u0bc6\u0bb0\u0bcd\u0bb2\u0bbf\u0ba9\u0bcd",
+					"badges": []
+				},
+				"tetwiki": {
+					"site": "tetwiki",
+					"title": "Berl\u00edn",
+					"badges": []
+				},
+				"tewiki": {
+					"site": "tewiki",
+					"title": "\u0c2c\u0c46\u0c30\u0c4d\u0c32\u0c3f\u0c28\u0c4d",
+					"badges": []
+				},
+				"tgwiki": {
+					"site": "tgwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"thwiki": {
+					"site": "thwiki",
+					"title": "\u0e40\u0e1a\u0e2d\u0e23\u0e4c\u0e25\u0e34\u0e19",
+					"badges": [
+						"Q17437798"
+					]
+				},
+				"tkwiki": {
+					"site": "tkwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"tlwiki": {
+					"site": "tlwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"tpiwiki": {
+					"site": "tpiwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"trwiki": {
+					"site": "trwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"ttwiki": {
+					"site": "ttwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": [
+						"Q17437796"
+					]
+				},
+				"tumwiki": {
+					"site": "tumwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"twwiki": {
+					"site": "twwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"tywiki": {
+					"site": "tywiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"udmwiki": {
+					"site": "udmwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0438\u043d",
+					"badges": []
+				},
+				"ugwiki": {
+					"site": "ugwiki",
+					"title": "B\u00e9rlin",
+					"badges": []
+				},
+				"ukwiki": {
+					"site": "ukwiki",
+					"title": "\u0411\u0435\u0440\u043b\u0456\u043d",
+					"badges": []
+				},
+				"ukwikivoyage": {
+					"site": "ukwikivoyage",
+					"title": "\u0411\u0435\u0440\u043b\u0456\u043d",
+					"badges": []
+				},
+				"urwiki": {
+					"site": "urwiki",
+					"title": "\u0628\u0631\u0644\u0646",
+					"badges": []
+				},
+				"uzwiki": {
+					"site": "uzwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"vecwiki": {
+					"site": "vecwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"vepwiki": {
+					"site": "vepwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"viwiki": {
+					"site": "viwiki",
+					"title": "Berlin",
+					"badges": [
+						"Q17437796"
+					]
+				},
+				"viwikivoyage": {
+					"site": "viwikivoyage",
+					"title": "Berlin",
+					"badges": []
+				},
+				"vlswiki": {
+					"site": "vlswiki",
+					"title": "Berlyn",
+					"badges": []
+				},
+				"vowiki": {
+					"site": "vowiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"warwiki": {
+					"site": "warwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"wowiki": {
+					"site": "wowiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"xmfwiki": {
+					"site": "xmfwiki",
+					"title": "\u10d1\u10d4\u10e0\u10da\u10d8\u10dc\u10d8",
+					"badges": []
+				},
+				"yiwiki": {
+					"site": "yiwiki",
+					"title": "\u05d1\u05e2\u05e8\u05dc\u05d9\u05df",
+					"badges": []
+				},
+				"yowiki": {
+					"site": "yowiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"zeawiki": {
+					"site": "zeawiki",
+					"title": "Berlijn",
+					"badges": []
+				},
+				"zh_classicalwiki": {
+					"site": "zh_classicalwiki",
+					"title": "\u67cf\u6797",
+					"badges": []
+				},
+				"zh_min_nanwiki": {
+					"site": "zh_min_nanwiki",
+					"title": "Berlin",
+					"badges": []
+				},
+				"zh_yuewiki": {
+					"site": "zh_yuewiki",
+					"title": "\u67cf\u6797",
+					"badges": []
+				},
+				"zhwiki": {
+					"site": "zhwiki",
+					"title": "\u67cf\u6797",
+					"badges": []
+				},
+				"zhwikivoyage": {
+					"site": "zhwikivoyage",
+					"title": "\u67cf\u6797",
+					"badges": []
+				},
+				"zuwiki": {
+					"site": "zuwiki",
+					"title": "IBerlini",
+					"badges": []
+				}
+			}
+		}
+	},
+	"success": 1
+}
