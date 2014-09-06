@@ -8,8 +8,8 @@ use Queryr\EntityStore\Data\EntityPageInfo;
 use Queryr\EntityStore\Data\PropertyInfo;
 use Queryr\EntityStore\Data\PropertyRow;
 use Queryr\EntityStore\EntityStore;
+use Queryr\EntityStore\InstanceOfTypeExtractor;
 use Queryr\EntityStore\ItemRowFactory;
-use Queryr\Replicator\ItemTypeExtractor;
 use Queryr\Replicator\Model\EntityPage;
 use Queryr\TermStore\TermStore;
 use Wikibase\DataModel\Entity\Entity;
@@ -109,7 +109,7 @@ class PageImporter {
 	private function itemRowFromEntityPage( EntityPage $entityPage ) {
 		$rowFactory = new ItemRowFactory(
 			new FakingEntitySerializer( $entityPage->getEntityJson() ),
-			new ItemTypeExtractor()
+			new InstanceOfTypeExtractor()
 		);
 
 		return $rowFactory->newFromItemAndPageInfo(
