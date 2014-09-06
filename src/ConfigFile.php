@@ -18,7 +18,7 @@ class ConfigFile {
 	}
 
 	private function __construct() {
-		$this->configDir = __DIR__ . '/../../config/';
+		$this->configDir = __DIR__ . '/../config/';
 		$this->configPath = $this->configDir . 'db.json';
 	}
 
