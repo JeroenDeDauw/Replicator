@@ -8,6 +8,7 @@ use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\DriverManager;
 use Queryr\EntityStore\EntityStore;
 use Queryr\EntityStore\EntityStoreConfig;
+use Queryr\EntityStore\EntityStoreFactory;
 use Queryr\EntityStore\EntityStoreInstaller;
 use Queryr\TermStore\TermStore;
 use Queryr\TermStore\TermStoreConfig;
@@ -82,15 +83,19 @@ class ServiceFactory {
 		return new SQLStore( $schema, $config );
 	}
 
-	public function newDumpStoreInstaller() {
+	public function newEntityStoreInstaller() {
 		return new EntityStoreInstaller(
 			$this->connection->getSchemaManager(),
 			new EntityStoreConfig( self::ENTITY_STORE_PREFIX )
 		);
 	}
 
-	public function newDumpStore() {
-		return new EntityStore(
+	public function newEntityStore() {
+		return $this->newEntityStoreFactory()->newEntityStore();
+	}
+
+	private function newEntityStoreFactory() {
+		return new EntityStoreFactory(
 			$this->connection,
 			new EntityStoreConfig( self::ENTITY_STORE_PREFIX )
 		);

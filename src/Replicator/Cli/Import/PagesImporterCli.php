@@ -50,7 +50,7 @@ class PagesImporterCli {
 
 	private function newImporter( PageImportReporter $reporter ) {
 		return new PageImporter(
-			$this->factory->newDumpStore(),
+			$this->factory->newEntityStore(),
 			$this->factory->newEntityDeserializer(),
 			$this->factory->newQueryStoreWriter(),
 			$reporter,

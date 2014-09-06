@@ -39,7 +39,7 @@ class UninstallCommandExecutor {
 		$this->tryTask(
 			'Removing dump store',
 			function() {
-				$this->factory->newDumpStoreInstaller()->uninstall();
+				$this->factory->newEntityStoreInstaller()->uninstall();
 			}
 		);
 	}

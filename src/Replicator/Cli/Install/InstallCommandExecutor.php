@@ -42,7 +42,7 @@ class InstallCommandExecutor {
 		$this->tryTask(
 			'Creating dump store',
 			function() {
-				$this->factory->newDumpStoreInstaller()->install();
+				$this->factory->newEntityStoreInstaller()->install();
 			}
 		);
 	}

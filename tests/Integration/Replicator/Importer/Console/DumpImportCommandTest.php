@@ -23,7 +23,7 @@ class DumpImportCommandTest extends \PHPUnit_Framework_TestCase {
 	public function setUp() {
 		$this->factory = ServiceFactory::newFromConnection( $this->newConnection() );
 
-		$this->factory->newDumpStoreInstaller()->install();
+		$this->factory->newEntityStoreInstaller()->install();
 		$this->factory->newQueryEngineInstaller()->install();
 		$this->factory->newTermStoreInstaller()->install();
 	}
