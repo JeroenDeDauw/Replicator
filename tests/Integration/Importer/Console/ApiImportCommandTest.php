@@ -8,6 +8,7 @@ use Queryr\Replicator\Cli\Command\DumpImportCommand;
 use Queryr\Replicator\EntitySource\Api\Http;
 use Queryr\Replicator\ServiceFactory;
 use Symfony\Component\Console\Tester\CommandTester;
+use Tests\Queryr\Replicator\Integration\TestEnvironment;
 
 /**
  * @covers Queryr\Replicator\Cli\Command\ApiImportCommand
@@ -16,26 +17,6 @@ use Symfony\Component\Console\Tester\CommandTester;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class ApiImportCommandTest extends \PHPUnit_Framework_TestCase {
-
-	/**
-	 * @var ServiceFactory
-	 */
-	private $factory;
-
-	public function setUp() {
-		$this->factory = ServiceFactory::newFromConnection( $this->newConnection() );
-
-		$this->factory->newEntityStoreInstaller()->install();
-		$this->factory->newQueryEngineInstaller()->install();
-		$this->factory->newTermStoreInstaller()->install();
-	}
-
-	private function newConnection() {
-		return DriverManager::getConnection( array(
-			'driver' => 'pdo_sqlite',
-			'memory' => true,
-		) );
-	}
 
 	public function testEntityIdInOutput() {
 		$output = $this->getOutputForArgs( [
@@ -56,7 +37,7 @@ class ApiImportCommandTest extends \PHPUnit_Framework_TestCase {
 
 	private function newCommandTester() {
 		$command = new ApiImportCommand();
-		$command->setServiceFactory( $this->factory );
+		$command->setServiceFactory( TestEnvironment::newInstance()->getFactory() );
 		$command->setHttp( new FakeHttp() );
 
 		return new CommandTester( $command );
