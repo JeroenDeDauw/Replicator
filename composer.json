@@ -7,7 +7,7 @@
 		"ext-pcntl": "*",
 
 		"queryr/dump-reader": "~0.1.0",
-		"queryr/entity-store": "~0.5.3",
+		"queryr/entity-store": "~0.6.0",
 		"queryr/term-store": "~0.1.0",
 
 		"wikibase/data-model": "~1.0",

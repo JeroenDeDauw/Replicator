@@ -108,7 +108,7 @@ class PageImporter {
 
 	private function itemRowFromEntityPage( EntityPage $entityPage ) {
 		$rowFactory = new ItemRowFactory(
-			new FakingEntitySerializer( $entityPage->getEntityJson() ),
+			new FakingEntitySerializer( json_decode( $entityPage->getEntityJson(), true ) ),
 			new InstanceOfTypeExtractor()
 		);
 

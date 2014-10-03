@@ -38,6 +38,9 @@ class PageImporterTest extends \PHPUnit_Framework_TestCase {
 		$this->assertSame( 'Q64', $itemRow->getPageTitle() );
 		$this->assertSame( 515, $itemRow->getItemType() );
 		$this->assertSame( 'Berlin', $itemRow->getEnglishLabel() );
+		$this->assertSame( 'Berlin', $itemRow->getEnglishWikipediaTitle() );
+
+		$this->assertInternalType( 'array', json_decode( $itemRow->getItemJson(), true ) );
 	}
 
 }
