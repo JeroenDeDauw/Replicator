@@ -112,13 +112,13 @@ class ServiceFactory {
 		);
 	}
 
-	public function newEntityDeserializer() {
+	private function newDataValueDeserializer() {
 		$dataValueClasses = [
 			'boolean' => 'DataValues\BooleanValue',
 			'number' => 'DataValues\NumberValue',
 			'string' => 'DataValues\StringValue',
 			'unknown' => 'DataValues\UnknownValue',
-			'globecoordinate' => 'DataValues\GlobeCoordinateValue',
+			'globecoordinate' => 'DataValues\GlobeCoordinateValue', // Geo\Values\
 			'monolingualtext' => 'DataValues\MonolingualTextValue',
 			'multilingualtext' => 'DataValues\MultilingualTextValue',
 			'quantity' => 'DataValues\QuantityValue',
@@ -126,9 +126,26 @@ class ServiceFactory {
 			'wikibase-entityid' => 'Wikibase\DataModel\Entity\EntityIdValue',
 		];
 
+		return new DataValueDeserializer( $dataValueClasses );
+	}
+
+	private function newEntityIdParser() {
+		return new BasicEntityIdParser();
+	}
+
+	public function newLegacyEntityDeserializer() {
 		$factory = new DeserializerFactory(
-			new DataValueDeserializer( $dataValueClasses ),
-			new BasicEntityIdParser()
+			$this->newDataValueDeserializer(),
+			$this->newEntityIdParser()
+		);
+
+		return $factory->newEntityDeserializer();
+	}
+
+	public function newCurrentEntityDeserializer() {
+		$factory = new \Wikibase\DataModel\DeserializerFactory(
+			$this->newDataValueDeserializer(),
+			$this->newEntityIdParser()
 		);
 
 		return $factory->newEntityDeserializer();

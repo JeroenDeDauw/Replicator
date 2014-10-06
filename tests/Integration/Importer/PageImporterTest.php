@@ -17,7 +17,7 @@ class PageImporterTest extends \PHPUnit_Framework_TestCase {
 
 		$pageImporter = new PageImporter(
 			$factory->newEntityStore(),
-			$factory->newEntityDeserializer(),
+			$factory->newLegacyEntityDeserializer(),
 			$factory->newQueryStoreWriter(),
 			$this->getMock( 'Queryr\Replicator\Importer\PageImportReporter' ),
 			$factory->newTermStore()

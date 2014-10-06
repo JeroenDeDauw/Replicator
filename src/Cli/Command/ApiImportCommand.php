@@ -106,7 +106,7 @@ class ApiImportCommand extends Command {
 			return new ReferencedEntityPageIterator(
 				$iterator,
 				$batchingFetcher,
-				$this->factory->newEntityDeserializer()
+				$this->factory->newLegacyEntityDeserializer()
 			);
 		}
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Queryr\Replicator\Importer\Console;
+namespace Tests\Queryr\Replicator\EntitySource\Api;
 
 use BatchingIterator\BatchingIterator;
 use Queryr\Replicator\EntitySource\BatchingEntityPageFetcher;
