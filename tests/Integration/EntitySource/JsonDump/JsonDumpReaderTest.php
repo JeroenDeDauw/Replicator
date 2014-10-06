@@ -2,7 +2,6 @@
 
 namespace Tests\Queryr\Replicator\EntitySource\JsonDump;
 
-use Queryr\DumpReader\Revision;
 use Queryr\Replicator\EntitySource\JsonDump\JsonDumpReader;
 use Tests\Queryr\Replicator\Integration\TestEnvironment;
 
@@ -28,13 +27,6 @@ class JsonDumpReaderTest extends \PHPUnit_Framework_TestCase {
 	private function assertFindsAnotherEntity( JsonDumpReader $reader ) {
 		$entity = $reader->nextEntity();
 		$this->assertInstanceOf( 'Wikibase\DataModel\Entity\EntityDocument', $entity );
-	}
-
-	private function assertHasEntityJson( Revision $revision ) {
-		$entityArray = json_decode( $revision->getText(), true );
-		$this->assertInternalType( 'array', $entityArray );
-
-		$this->assertArrayHasKey( 'entity', $entityArray );
 	}
 
 	public function testGivenFileWithNoEntities_nullIsReturned() {
