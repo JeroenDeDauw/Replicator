@@ -66,7 +66,9 @@ class PagesImporterCli {
 	}
 
 	private function newReporter() {
-		return $this->output->isVerbose() ? new VerboseReporter( $this->output ) : new SimpleReporter( $this->output );
+		return $this->output->isVerbose() ?
+			new VerboseReporter( $this->output, $this->output->isVeryVerbose() )
+			: new SimpleReporter( $this->output );
 	}
 
 

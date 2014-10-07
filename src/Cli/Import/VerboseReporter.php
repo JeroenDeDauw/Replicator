@@ -13,11 +13,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 class VerboseReporter implements PageImportReporter {
 
 	private $output;
+	private $veryVerbose;
 
 	private $number = 0;
+	private $stepStartTime;
 
-	public function __construct( OutputInterface $output ) {
+	public function __construct( OutputInterface $output, $veryVerbose = false ) {
 		$this->output = $output;
+		$this->veryVerbose = $veryVerbose;
 	}
 
 	public function started( EntityPage $entityPage ) {
@@ -36,11 +39,20 @@ class VerboseReporter implements PageImportReporter {
 	}
 
 	public function stepStarted( $message ) {
+		$this->stepStartTime = microtime( true );
 		$this->output->write( "<comment>\t* $message... </comment>" );
 	}
 
 	public function stepCompleted() {
-		$this->output->writeln( "<comment>done.</comment>" );
+		if ( $this->veryVerbose ) {
+			$ms = round( ( microtime( true ) - $this->stepStartTime ) * 1000, 2 );
+			$details = " ($ms ms)";
+		}
+		else {
+			$details = '';
+		}
+
+		$this->output->writeln( "<comment>done$details.</comment>" );
 	}
 
 }
