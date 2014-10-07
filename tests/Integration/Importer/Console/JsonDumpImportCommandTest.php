@@ -2,25 +2,21 @@
 
 namespace Tests\Queryr\Replicator\Importer\Console;
 
-use Doctrine\DBAL\DriverManager;
-use Queryr\Replicator\Cli\Command\ApiImportCommand;
-use Queryr\Replicator\Cli\Command\XmlDumpImportCommand;
-use Queryr\Replicator\EntitySource\Api\Http;
-use Queryr\Replicator\ServiceFactory;
+use Queryr\Replicator\Cli\Command\JsonDumpImportCommand;
 use Symfony\Component\Console\Tester\CommandTester;
 use Tests\Queryr\Replicator\Integration\TestEnvironment;
 
 /**
- * @covers Queryr\Replicator\Cli\Command\ApiImportCommand
+ * @covers Queryr\Replicator\Cli\Command\JsonDumpImportCommand
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ApiImportCommandTest extends \PHPUnit_Framework_TestCase {
+class JsonDumpImportCommandTest extends \PHPUnit_Framework_TestCase {
 
 	public function testEntityIdInOutput() {
 		$output = $this->getOutputForArgs( [
-			'entities' => [ 'Q1' ]
+			'file' => 'tests/data/simple/one-item.json'
 		] );
 
 		$this->assertContains( 'Q1', $output );
@@ -36,24 +32,10 @@ class ApiImportCommandTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function newCommandTester() {
-		$command = new ApiImportCommand();
+		$command = new JsonDumpImportCommand();
 		$command->setServiceFactory( TestEnvironment::newInstance()->getFactory() );
-		$command->setHttp( new FakeHttp() );
 
 		return new CommandTester( $command );
-	}
-
-}
-
-class FakeHttp extends Http {
-
-	public function get( $url ) {
-		if ( $url === 'https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q1&format=json' ) {
-			return file_get_contents( __DIR__ . '/../../../data/api/Q1.json' );
-		}
-		else {
-			throw new \Exception();
-		}
 	}
 
 }

@@ -10,6 +10,4 @@ interface StatsReporter {
 
 	public function reportStats( ImportStats $stats );
 
-	public function reportAbortion( $pageTitle );
-
 }

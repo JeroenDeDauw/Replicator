@@ -13,12 +13,14 @@ class PagesImporter {
 
 	private $importer;
 	private $statsReporter;
+	private $onAborted;
 
 	private $shouldStop = false;
 
-	public function __construct( PageImporter $importer, StatsReporter $statsReporter ) {
+	public function __construct( PageImporter $importer, StatsReporter $statsReporter, callable $onAborted = null ) {
 		$this->importer = $importer;
 		$this->statsReporter = $statsReporter;
+		$this->onAborted = $onAborted;
 	}
 
 	public function importPages( Iterator $entityPageIterator ) {
@@ -46,7 +48,9 @@ class PagesImporter {
 
 			pcntl_signal_dispatch();
 			if ( $this->shouldStop ) {
-				$this->statsReporter->reportAbortion( $entityPage->getTitle() );
+				if ( $this->onAborted !== null ) {
+					call_user_func( $this->onAborted, $entityPage->getTitle() );
+				}
 				return;
 			}
 		}

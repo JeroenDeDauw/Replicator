@@ -53,20 +53,20 @@ List of commands:
 
     php replicator
 
-#### Importing dumps
+#### Importing JSON dumps
 
-Importing an XML dump:
+Importing a JSON dump:
 
-    php replicator import:dump tests/data/big/5341-revs-3-props.xml -v
+    php replicator import:dump tests/data/big/1000-entities.json -v
 
 Import command help:
 
     php replicator --help import:dump
 
 The command can be aborted with `ctrl+c`. It will exit gracefully and provide you
-with the page title needed to resume the import.
+with the page position marker needed to resume the import.
 
-    php replicator import:dump tests/data/big/5341-revs-3-props.xml --continue Q15826105 -v
+    php replicator import:dump tests/data/big/1000-entities.json -v --continue 2557421
 
 #### Importing from the Wikidata.org API
 
@@ -85,6 +85,21 @@ Import command help:
 You can create a list of ids as follows:
 
     for i in `seq 1 100`; do echo -n "Q$i "; done
+
+#### Importing XML dumps
+
+Importing an XML dump:
+
+    php replicator import:xmldump tests/data/big/5341-revs-3-props.xml -v
+
+Import command help:
+
+    php replicator --help import:xmldump
+
+The command can be aborted with `ctrl+c`. It will exit gracefully and provide you
+with the page title needed to resume the import.
+
+    php replicator import:xmldump tests/data/big/5341-revs-3-props.xml --continue Q15826105 -v
 
 ## Running the tests
 

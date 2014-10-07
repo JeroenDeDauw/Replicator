@@ -2,11 +2,6 @@
 
 namespace Queryr\Replicator\EntitySource\JsonDump;
 
-use Deserializers\Deserializer;
-use Deserializers\Exceptions\DeserializationException;
-use Queryr\DumpReader\DumpReaderException;
-use Wikibase\DataModel\Entity\EntityDocument;
-
 /**
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
@@ -19,22 +14,15 @@ class JsonDumpReader {
 	private $dumpFile;
 
 	/**
-	 * @var Deserializer
-	 */
-	private $deserilaizer;
-
-	/**
 	 * @var resource
 	 */
 	private $handle;
 
 	/**
 	 * @param string $dumpFilePath
-	 * @param Deserializer $entityDeserilaizer
 	 */
-	public function __construct( $dumpFilePath, Deserializer $entityDeserilaizer ) {
+	public function __construct( $dumpFilePath ) {
 		$this->dumpFile = $dumpFilePath;
-		$this->deserilaizer = $entityDeserilaizer;
 
 		$this->initReader();
 	}
@@ -57,10 +45,9 @@ class JsonDumpReader {
 	}
 
 	/**
-	 * @return EntityDocument|null
-	 * @throws DumpReaderException
+	 * @return string|null
 	 */
-	public function nextEntity() {
+	public function nextJsonLine() {
 		do {
 			$line = fgets( $this->handle );
 
@@ -68,15 +55,8 @@ class JsonDumpReader {
 				return null;
 			}
 
-			if ( $line !== "[\n" ) {
-				$data = json_decode( rtrim( $line, ",\n\r" ), true );
-
-				if ( $data !== null ) {
-					try {
-						return $this->deserilaizer->deserialize( $data );
-					}
-					catch ( DeserializationException $ex ) {}
-				}
+			if ( $line{0} === '{' ) {
+				return rtrim( $line, ",\n\r" );
 			}
 		} while ( true );
 

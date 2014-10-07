@@ -60,10 +60,4 @@ class ConsoleStatsReporter implements StatsReporter {
 		}
 	}
 
-	public function reportAbortion( $pageTitle ) {
-		$this->output->writeln( "\n" );
-		$this->output->writeln( "<info>Import process aborted</info>" );
-		$this->output->writeln( "<comment>To resume, run with</comment> --continue=$pageTitle" );
-	}
-
 }

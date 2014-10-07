@@ -18,10 +18,10 @@ use Symfony\Component\Console\Output\OutputInterface;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class DumpImportCommand extends Command {
+class XmlDumpImportCommand extends Command {
 
 	protected function configure() {
-		$this->setName( 'import:dump' );
+		$this->setName( 'import:xmldump' );
 		$this->setDescription( 'Imports entities from an XML dump' );
 
 		$this->addArgument(
@@ -59,7 +59,13 @@ class DumpImportCommand extends Command {
 			}
 		}
 
-		$importer = new PagesImporterCli( $input, $output, $this->factory );
+		$onAborted = function( $pageTitle ) use ( $output ) {
+			$output->writeln( "\n" );
+			$output->writeln( "<info>Import process aborted</info>" );
+			$output->writeln( "<comment>To resume, run with</comment> --continue=$pageTitle" );
+		};
+
+		$importer = new PagesImporterCli( $input, $output, $this->factory, $onAborted );
 
 		$entityPageIterator = new DumpEntityPageIterator( $this->getDumpIterator( $input, $output ) );
 		$importer->runImport( $entityPageIterator );

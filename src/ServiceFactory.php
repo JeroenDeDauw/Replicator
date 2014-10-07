@@ -3,6 +3,7 @@
 namespace Queryr\Replicator;
 
 use DataValues\Deserializers\DataValueDeserializer;
+use DataValues\Serializers\DataValueSerializer;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\DriverManager;
@@ -15,6 +16,7 @@ use Queryr\TermStore\TermStoreConfig;
 use Queryr\TermStore\TermStoreInstaller;
 use RuntimeException;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
+use Wikibase\DataModel\SerializerFactory;
 use Wikibase\InternalSerialization\DeserializerFactory;
 use Wikibase\QueryEngine\SQLStore\DataValueHandlersBuilder;
 use Wikibase\QueryEngine\SQLStore\SQLStore;
@@ -149,6 +151,14 @@ class ServiceFactory {
 		);
 
 		return $factory->newEntityDeserializer();
+	}
+
+	public function newCurrentEntitySerializer() {
+		$factory = new SerializerFactory(
+			new DataValueSerializer()
+		);
+
+		return $factory->newEntitySerializer();
 	}
 
 	public function newQueryStoreWriter() {

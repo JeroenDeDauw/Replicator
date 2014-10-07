@@ -3,7 +3,8 @@
 namespace Queryr\Replicator\Cli;
 
 use Queryr\Replicator\Cli\Command\ApiImportCommand;
-use Queryr\Replicator\Cli\Command\DumpImportCommand;
+use Queryr\Replicator\Cli\Command\JsonDumpImportCommand;
+use Queryr\Replicator\Cli\Command\XmlDumpImportCommand;
 use Queryr\Replicator\Cli\Command\InstallCommand;
 use Queryr\Replicator\Cli\Command\RunTestsCommand;
 use Queryr\Replicator\Cli\Command\UninstallCommand;
@@ -43,8 +44,9 @@ class ReplicatorCli {
 
 		$this->app->add( new RunTestsCommand() );
 
-		$this->app->add( new DumpImportCommand() );
+		$this->app->add( new XmlDumpImportCommand() );
 		$this->app->add( new ApiImportCommand() );
+		$this->app->add( new JsonDumpImportCommand() );
 	}
 
 	public function run() {

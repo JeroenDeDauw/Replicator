@@ -27,68 +27,54 @@ class JsonDumpReaderTest extends \PHPUnit_Framework_TestCase {
 		return __DIR__ . '/../../../data/' . $fileName;
 	}
 
-	private function assertFindsAnotherEntity( JsonDumpReader $reader ) {
-		$entity = $reader->nextEntity();
-		$this->assertInstanceOf( 'Wikibase\DataModel\Entity\EntityDocument', $entity );
+	private function assertFindsAnotherJsonLine( JsonDumpReader $reader ) {
+		$this->assertJson( $reader->nextJsonLine() );
 	}
 
-	private function assertFindsEntity( JsonDumpReader $reader, EntityId $expectedId ) {
-		$entity = $reader->nextEntity();
-		$this->assertInstanceOf( 'Wikibase\DataModel\Entity\EntityDocument', $entity );
-		$this->assertEquals( $expectedId, $entity->getId() );
+	private function assertFindsEntity( JsonDumpReader $reader, $expectedId ) {
+		$line = $reader->nextJsonLine();
+		$this->assertJson( $line );
+		$this->assertContains( $expectedId, $line );
 	}
 
 	public function testGivenFileWithNoEntities_nullIsReturned() {
 		$reader = $this->newReaderForFile( 'simple/empty.json' );
 
-		$this->assertNull( $reader->nextEntity() );
+		$this->assertNull( $reader->nextJsonLine() );
 	}
 
 	public function testGivenFileWithOneEntity_oneEntityIsFound() {
 		$reader = $this->newReaderForFile( 'simple/one-item.json' );
 
-		$this->assertFindsAnotherEntity( $reader );
-		$this->assertNull( $reader->nextEntity() );
+		$this->assertFindsAnotherJsonLine( $reader );
+		$this->assertNull( $reader->nextJsonLine() );
 	}
 
 	public function testGivenFileWithFiveEntites_fiveEntityAreFound() {
 		$reader = $this->newReaderForFile( 'simple/five-entities.json' );
 
-		$this->assertFindsAnotherEntity( $reader );
-		$this->assertFindsAnotherEntity( $reader );
-		$this->assertFindsAnotherEntity( $reader );
-		$this->assertFindsAnotherEntity( $reader );
-		$this->assertFindsAnotherEntity( $reader );
-		$this->assertNull( $reader->nextEntity() );
-	}
-
-	public function testGivenFileWithInvalidEntity_noEntityIsFound() {
-		$reader = $this->newReaderForFile( 'invalid/invalid-item.json' );
-		$this->assertNull( $reader->nextEntity() );
-	}
-
-	public function testGivenFileWithInvalidEntities_validEntitiesAreFound() {
-		$reader = $this->newReaderForFile( 'invalid/3valid-2invalid.json' );
-		$this->assertFindsAnotherEntity( $reader );
-		$this->assertFindsAnotherEntity( $reader );
-		$this->assertFindsAnotherEntity( $reader );
-		$this->assertNull( $reader->nextEntity() );
+		$this->assertFindsAnotherJsonLine( $reader );
+		$this->assertFindsAnotherJsonLine( $reader );
+		$this->assertFindsAnotherJsonLine( $reader );
+		$this->assertFindsAnotherJsonLine( $reader );
+		$this->assertFindsAnotherJsonLine( $reader );
+		$this->assertNull( $reader->nextJsonLine() );
 	}
 
 	public function testRewind() {
 		$reader = $this->newReaderForFile( 'simple/one-item.json' );
 
-		$this->assertFindsAnotherEntity( $reader );
+		$this->assertFindsAnotherJsonLine( $reader );
 		$reader->rewind();
-		$this->assertFindsAnotherEntity( $reader );
-		$this->assertNull( $reader->nextEntity() );
+		$this->assertFindsAnotherJsonLine( $reader );
+		$this->assertNull( $reader->nextJsonLine() );
 	}
 
 	public function testResumeFromPosition() {
 		$reader = $this->newReaderForFile( 'simple/five-entities.json' );
 
-		$this->assertFindsEntity( $reader, new ItemId( 'Q1' ) );
-		$this->assertFindsEntity( $reader, new ItemId( 'Q8' ) );
+		$this->assertFindsEntity( $reader, 'Q1' );
+		$this->assertFindsEntity( $reader, 'Q8' );
 
 		$position = $reader->getPosition();
 		unset( $reader );
@@ -96,14 +82,14 @@ class JsonDumpReaderTest extends \PHPUnit_Framework_TestCase {
 		$newReader = $this->newReaderForFile( 'simple/five-entities.json' );
 		$newReader->seekToPosition( $position );
 
-		$this->assertFindsEntity( $newReader, new PropertyId( 'P16' ) );
+		$this->assertFindsEntity( $newReader, 'P16' );
 	}
 
 	public function testFindsAllEntitiesInBigFile() {
 		$reader = $this->newReaderForFile( 'big/1000-entities.json' );
 
 		foreach ( range( 0, 20 ) as $i ) {
-			$this->assertFindsAnotherEntity( $reader );
+			$this->assertFindsAnotherJsonLine( $reader );
 		}
 
 		//$this->assertNull( $reader->nextEntity() );

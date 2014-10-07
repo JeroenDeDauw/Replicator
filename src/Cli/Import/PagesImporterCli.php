@@ -30,16 +30,23 @@ class PagesImporterCli {
 	 */
 	private $factory = null;
 
-	public function __construct( InputInterface $input, OutputInterface $output, ServiceFactory $factory ) {
+	/**
+	 * @var callable|null
+	 */
+	private $onAborted;
+
+	public function __construct( InputInterface $input, OutputInterface $output, ServiceFactory $factory, callable $onAborted = null ) {
 		$this->input = $input;
 		$this->output = $output;
 		$this->factory = $factory;
+		$this->onAborted = $onAborted;
 	}
 
 	public function runImport( \Iterator $entityPageIterator ) {
 		$pagesImporter = new PagesImporter(
 			$this->newImporter( $this->newReporter() ),
-			new ConsoleStatsReporter( $this->output )
+			new ConsoleStatsReporter( $this->output ),
+			$this->onAborted
 		);
 
 		pcntl_signal( SIGINT, [ $pagesImporter, 'stop' ] );

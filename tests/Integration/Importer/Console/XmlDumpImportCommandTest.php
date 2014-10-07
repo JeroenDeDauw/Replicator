@@ -3,18 +3,18 @@
 namespace Tests\Queryr\Replicator\Importer\Console;
 
 use Doctrine\DBAL\DriverManager;
-use Queryr\Replicator\Cli\Command\DumpImportCommand;
+use Queryr\Replicator\Cli\Command\XmlDumpImportCommand;
 use Queryr\Replicator\ServiceFactory;
 use Symfony\Component\Console\Tester\CommandTester;
 use Tests\Queryr\Replicator\Integration\TestEnvironment;
 
 /**
- * @covers Queryr\Replicator\Cli\Command\DumpImportCommand
+ * @covers Queryr\Replicator\Cli\Command\XmlDumpImportCommand
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class DumpImportCommandTest extends \PHPUnit_Framework_TestCase {
+class XmlDumpImportCommandTest extends \PHPUnit_Framework_TestCase {
 
 	public function testEntityIdInOutput() {
 		$output = $this->getOutputForArgs( [
@@ -34,7 +34,7 @@ class DumpImportCommandTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function newCommandTester() {
-		$command = new DumpImportCommand();
+		$command = new XmlDumpImportCommand();
 		$command->setServiceFactory( TestEnvironment::newInstance()->getFactory() );
 
 		return new CommandTester( $command );
