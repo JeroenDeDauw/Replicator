@@ -61,19 +61,7 @@ class JsonDumpImportCommand extends Command {
 
 		$reader = new JsonDumpReader(
 			$input->getArgument( 'file' ),
-			$this->factory->newCurrentEntityDeserializer()
-		);
-
-		$continuePosition = $input->getOption( 'continue' );
-
-		if ( $continuePosition !== null ) {
-			$reader->seekToPosition( (int)$continuePosition );
-			$reader->nextJsonLine();
-		}
-
-		$iterator = new JsonDumpIterator(
-			$reader,
-			$this->factory->newCurrentEntityDeserializer()
+			$input->getOption( 'continue' ) === null ? 0 : (int)$input->getOption( 'continue' )
 		);
 
 		$onAborted = function() use ( $output, $reader ) {
@@ -84,10 +72,19 @@ class JsonDumpImportCommand extends Command {
 
 		$importer = new PagesImporterCli( $input, $output, $this->factory, $onAborted );
 
-		$importer->runImport( $this->newEntityPageIterator( $iterator ) );
+		$importer->runImport( $this->newEntityPageIterator( $reader ) );
 	}
 
-	private function newEntityPageIterator( JsonDumpIterator $dumpIterator ) {
+	private function newEntityPageIterator( JsonDumpReader $reader ) {
+		$iterator = new JsonDumpIterator(
+			$reader,
+			$this->factory->newCurrentEntityDeserializer()
+		);
+
+		return $this->newEntityPageGenerator( $iterator );
+	}
+
+	private function newEntityPageGenerator( JsonDumpIterator $dumpIterator ) {
 		foreach ( $dumpIterator as $entity ) {
 			yield new EntityPage(
 				$dumpIterator->getCurrentJson(),

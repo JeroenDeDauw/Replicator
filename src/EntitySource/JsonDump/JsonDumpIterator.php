@@ -104,10 +104,8 @@ class JsonDumpIterator implements \Iterator {
 	public function rewind() {
 		$this->current = null;
 		$this->currentJson = null;
+		$this->dumpReader->rewind();
 		$this->next();
-
-		// To fully implement this, such a call needs to happen
-		// $this->dumpReader->rewind();
 	}
 
 }

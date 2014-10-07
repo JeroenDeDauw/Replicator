@@ -3,10 +3,6 @@
 namespace Tests\Queryr\Replicator\EntitySource\JsonDump;
 
 use Queryr\Replicator\EntitySource\JsonDump\JsonDumpReader;
-use Tests\Queryr\Replicator\Integration\TestEnvironment;
-use Wikibase\DataModel\Entity\EntityId;
-use Wikibase\DataModel\Entity\ItemId;
-use Wikibase\DataModel\Entity\PropertyId;
 
 /**
  * @covers Queryr\Replicator\EntitySource\JsonDump\JsonDumpReader
@@ -18,8 +14,7 @@ class JsonDumpReaderTest extends \PHPUnit_Framework_TestCase {
 
 	private function newReaderForFile( $fileName ) {
 		return new JsonDumpReader(
-			$this->getFilePath( $fileName ),
-			TestEnvironment::newInstance()->getFactory()->newCurrentEntityDeserializer()
+			$this->getFilePath( $fileName )
 		);
 	}
 

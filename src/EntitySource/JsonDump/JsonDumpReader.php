@@ -14,15 +14,22 @@ class JsonDumpReader {
 	private $dumpFile;
 
 	/**
+	 * @var int
+	 */
+	private $initialPosition;
+
+	/**
 	 * @var resource
 	 */
 	private $handle;
 
 	/**
 	 * @param string $dumpFilePath
+	 * @param int $initialPosition
 	 */
-	public function __construct( $dumpFilePath ) {
+	public function __construct( $dumpFilePath, $initialPosition = 0 ) {
 		$this->dumpFile = $dumpFilePath;
+		$this->initialPosition = $initialPosition;
 
 		$this->initReader();
 	}
@@ -40,8 +47,7 @@ class JsonDumpReader {
 	}
 
 	public function rewind() {
-		$this->closeReader();
-		$this->initReader();
+		fseek( $this->handle, $this->initialPosition );
 	}
 
 	/**
