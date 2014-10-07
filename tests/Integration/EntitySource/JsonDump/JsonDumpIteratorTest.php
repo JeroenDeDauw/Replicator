@@ -89,39 +89,5 @@ class JsonDumpIteratorTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertFindsEntities( [ 'P16', 'P19', 'P22' ], $newIterator );
 	}
-//
-//	public function testRewind() {
-//		$iterator = $this->newIteratorForFile( 'simple/one-item.json' );
-//
-//		$this->assertFindsAnotherEntity( $iterator );
-//		$iterator->rewind();
-//		$this->assertFindsAnotherEntity( $iterator );
-//		$this->assertNull( $iterator->nextJsonLine() );
-//	}
-//
-//	public function testResumeFromPosition() {
-//		$iterator = $this->newIteratorForFile( 'simple/five-entities.json' );
-//
-//		$this->assertFindsEntity( $iterator, new ItemId( 'Q1' ) );
-//		$this->assertFindsEntity( $iterator, new ItemId( 'Q8' ) );
-//
-//		$position = $iterator->getPosition();
-//		unset( $iterator );
-//
-//		$newReader = $this->newIteratorForFile( 'simple/five-entities.json' );
-//		$newReader->seekToPosition( $position );
-//
-//		$this->assertFindsEntity( $newReader, new PropertyId( 'P16' ) );
-//	}
-//
-//	public function testFindsAllEntitiesInBigFile() {
-//		$iterator = $this->newIteratorForFile( 'big/1000-entities.json' );
-//
-//		foreach ( range( 0, 20 ) as $i ) {
-//			$this->assertFindsAnotherEntity( $iterator );
-//		}
-//
-//		//$this->assertNull( $iterator->nextEntity() );
-//	}
 
 }

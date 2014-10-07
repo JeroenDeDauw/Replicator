@@ -48,7 +48,7 @@ class BatchingEntityPageFetcher implements BatchingFetcher {
 		$this->position = min( $this->position + $maxFetchCount, count( $this->pagesToFetch ) );
 
 		if ( empty( $idsInBatch ) ) {
-			return array();
+			return [];
 		}
 
 		return $this->batchFetcher->fetchEntityPages( $idsInBatch );
@@ -56,8 +56,6 @@ class BatchingEntityPageFetcher implements BatchingFetcher {
 
 	/**
 	 * @see BatchingFetcher::rewind
-	 *
-	 * @since 2.0
 	 */
 	public function rewind() {
 		$this->position = 0;
