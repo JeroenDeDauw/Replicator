@@ -83,4 +83,22 @@ class JsonDumpReader {
 		return null;
 	}
 
+	/**
+	 * @return int
+	 */
+	public function getPosition() {
+		if ( PHP_INT_SIZE < 8 ) {
+			throw new \RuntimeException( 'Cannot reliably get the file position on 32bit PHP' );
+		}
+
+		return ftell( $this->handle );
+	}
+
+	/**
+	 * @param int $position
+	 */
+	public function seekToPosition( $position ) {
+		fseek( $this->handle, $position );
+	}
+
 }

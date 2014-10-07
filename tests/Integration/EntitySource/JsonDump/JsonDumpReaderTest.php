@@ -4,6 +4,9 @@ namespace Tests\Queryr\Replicator\EntitySource\JsonDump;
 
 use Queryr\Replicator\EntitySource\JsonDump\JsonDumpReader;
 use Tests\Queryr\Replicator\Integration\TestEnvironment;
+use Wikibase\DataModel\Entity\EntityId;
+use Wikibase\DataModel\Entity\ItemId;
+use Wikibase\DataModel\Entity\PropertyId;
 
 /**
  * @covers Queryr\Replicator\EntitySource\JsonDump\JsonDumpReader
@@ -27,6 +30,12 @@ class JsonDumpReaderTest extends \PHPUnit_Framework_TestCase {
 	private function assertFindsAnotherEntity( JsonDumpReader $reader ) {
 		$entity = $reader->nextEntity();
 		$this->assertInstanceOf( 'Wikibase\DataModel\Entity\EntityDocument', $entity );
+	}
+
+	private function assertFindsEntity( JsonDumpReader $reader, EntityId $expectedId ) {
+		$entity = $reader->nextEntity();
+		$this->assertInstanceOf( 'Wikibase\DataModel\Entity\EntityDocument', $entity );
+		$this->assertEquals( $expectedId, $entity->getId() );
 	}
 
 	public function testGivenFileWithNoEntities_nullIsReturned() {
@@ -64,6 +73,40 @@ class JsonDumpReaderTest extends \PHPUnit_Framework_TestCase {
 		$this->assertFindsAnotherEntity( $reader );
 		$this->assertFindsAnotherEntity( $reader );
 		$this->assertNull( $reader->nextEntity() );
+	}
+
+	public function testRewind() {
+		$reader = $this->newReaderForFile( 'simple/one-item.json' );
+
+		$this->assertFindsAnotherEntity( $reader );
+		$reader->rewind();
+		$this->assertFindsAnotherEntity( $reader );
+		$this->assertNull( $reader->nextEntity() );
+	}
+
+	public function testResumeFromPosition() {
+		$reader = $this->newReaderForFile( 'simple/five-entities.json' );
+
+		$this->assertFindsEntity( $reader, new ItemId( 'Q1' ) );
+		$this->assertFindsEntity( $reader, new ItemId( 'Q8' ) );
+
+		$position = $reader->getPosition();
+		unset( $reader );
+
+		$newReader = $this->newReaderForFile( 'simple/five-entities.json' );
+		$newReader->seekToPosition( $position );
+
+		$this->assertFindsEntity( $newReader, new PropertyId( 'P16' ) );
+	}
+
+	public function testFindsAllEntitiesInBigFile() {
+		$reader = $this->newReaderForFile( 'big/1000-entities.json' );
+
+		foreach ( range( 0, 20 ) as $i ) {
+			$this->assertFindsAnotherEntity( $reader );
+		}
+
+		//$this->assertNull( $reader->nextEntity() );
 	}
 
 }
