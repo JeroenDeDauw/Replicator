@@ -7,7 +7,8 @@ use Ask\Language\Description\ValueDescription;
 use Ask\Language\Option\QueryOptions;
 use DataValues\NumberValue;
 use Doctrine\DBAL\DriverManager;
-use Wikibase\DataModel\Claim\Statement;
+use Wikibase\DataModel\Claim\Claim;
+use Wikibase\DataModel\Statement\Statement;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
 use Wikibase\DataModel\Entity\EntityIdValue;
 use Wikibase\DataModel\Entity\Item;
@@ -82,9 +83,9 @@ class QueryEngineTest extends \PHPUnit_Framework_TestCase {
 		$item = Item::newEmpty();
 		$item->setId( new ItemId( 'Q100' ) );
 
-		$claim = new Statement( new PropertyValueSnak( 42, new NumberValue( 1337 ) ) );
-		$claim->setGuid( 'foo claim' );
-		$item->addClaim( $claim );
+		$statement = new Statement( new Claim( new PropertyValueSnak( 42, new NumberValue( 1337 ) ) ) );
+		$statement->setGuid( 'foo claim' );
+		$item->getStatements()->addStatement( $statement );
 
 		$this->writer->insertEntity( $item );
 

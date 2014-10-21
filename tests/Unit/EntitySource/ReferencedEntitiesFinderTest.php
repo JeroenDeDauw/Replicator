@@ -4,7 +4,8 @@ namespace Tests\Queryr\Replicator\EntitySource;
 
 use DataValues\StringValue;
 use Queryr\Replicator\EntitySource\ReferencedEntitiesFinder;
-use Wikibase\DataModel\Claim\Statement;
+use Wikibase\DataModel\Claim\Claim;
+use Wikibase\DataModel\Statement\Statement;
 use Wikibase\DataModel\Entity\EntityIdValue;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\DataModel\Entity\ItemId;
@@ -38,17 +39,17 @@ class ReferencedEntitiesFinderTest extends \PHPUnit_Framework_TestCase {
 	public function testGivenItemWithValuelessStatements_propertyReferencesAreFound() {
 		$item = Item::newEmpty();
 
-		$statement = new Statement( new PropertyNoValueSnak( 42 ) );
+		$statement = new Statement( new Claim( new PropertyNoValueSnak( 42 ) ) );
 		$statement->setGuid( 'aaa' );
-		$item->addClaim( $statement );
+		$item->getStatements()->addStatement( $statement );
 
-		$statement = new Statement( new PropertyNoValueSnak( 1337 ) );
+		$statement = new Statement( new Claim( new PropertyNoValueSnak( 1337 ) ) );
 		$statement->setGuid( 'bbb' );
-		$item->addClaim( $statement );
+		$item->getStatements()->addStatement( $statement );
 
-		$statement = new Statement( new PropertySomeValueSnak( 42 ) );
+		$statement = new Statement( new Claim( new PropertySomeValueSnak( 42 ) ) );
 		$statement->setGuid( 'ccc' );
-		$item->addClaim( $statement );
+		$item->getStatements()->addStatement( $statement );
 
 		$this->assertFindsReferencesForItem(
 			[ new PropertyId( 'P42' ), new PropertyId( 'P1337' ) ],
@@ -59,17 +60,17 @@ class ReferencedEntitiesFinderTest extends \PHPUnit_Framework_TestCase {
 	public function testGivenItemWithValueStatements_itemReferencesAreFound() {
 		$item = Item::newEmpty();
 
-		$statement = new Statement( new PropertyValueSnak( 1, new StringValue( 'foo' ) ) );
+		$statement = new Statement( new Claim( new PropertyValueSnak( 1, new StringValue( 'foo' ) ) ) );
 		$statement->setGuid( 'aaa' );
-		$item->addClaim( $statement );
+		$item->getStatements()->addStatement( $statement );
 
-		$statement = new Statement( new PropertyValueSnak( 1, new EntityIdValue( new ItemId( 'Q42' ) ) ) );
+		$statement = new Statement( new Claim( new PropertyValueSnak( 1, new EntityIdValue( new ItemId( 'Q42' ) ) ) ) );
 		$statement->setGuid( 'bbb' );
-		$item->addClaim( $statement );
+		$item->getStatements()->addStatement( $statement );
 
-		$statement = new Statement( new PropertyValueSnak( 1, new EntityIdValue( new ItemId( 'Q1337' ) ) ) );
+		$statement = new Statement( new Claim( new PropertyValueSnak( 1, new EntityIdValue( new ItemId( 'Q1337' ) ) ) ) );
 		$statement->setGuid( 'ccc' );
-		$item->addClaim( $statement );
+		$item->getStatements()->addStatement( $statement );
 
 		$this->assertFindsReferencesForItem(
 			[ new PropertyId( 'P1' ), new ItemId( 'Q42' ), new ItemId( 'Q1337' ) ],
