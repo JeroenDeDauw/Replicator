@@ -16,13 +16,15 @@
 		"wikibase/internal-serialization": "~1.1",
 
 		"jeroen/batching-iterator": "~2.1",
+		"jeroen/json-dump-reader": "~0.1.0",
 
 		"symfony/console": "~2.4"
 	},
 	"require-dev": {
 		"ext-sqlite3": "*",
 		"whatthejeff/nyancat-phpunit-resultprinter": "~1.2",
-		"jeroen/wikibase-data-fixtures": "~0.2"
+		"jeroen/wikibase-data-fixtures": "~0.2",
+		"jeroen/json-dump-data": "~0.1.0"
 	},
 	"autoload": {
 		"psr-4": {

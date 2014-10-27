@@ -7,7 +7,6 @@ use DataValues\Serializers\DataValueSerializer;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\DriverManager;
-use Queryr\EntityStore\EntityStore;
 use Queryr\EntityStore\EntityStoreConfig;
 use Queryr\EntityStore\EntityStoreFactory;
 use Queryr\EntityStore\EntityStoreInstaller;
