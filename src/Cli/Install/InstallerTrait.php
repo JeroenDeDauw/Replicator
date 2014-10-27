@@ -3,7 +3,7 @@
 namespace Queryr\Replicator\Cli\Install;
 
 use Doctrine\DBAL\DriverManager;
-use Queryr\Replicator\ConfigFile;
+use Queryr\Replicator\DatabaseConfigFile;
 use Queryr\Replicator\ServiceFactory;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -59,7 +59,7 @@ trait InstallerTrait {
 		$config = $this->tryTask(
 			'Reading database configuration file (config/db.json)',
 			function() {
-				return ConfigFile::newInstance()->read();
+				return DatabaseConfigFile::newInstance()->read();
 			}
 		);
 

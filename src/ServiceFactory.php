@@ -7,6 +7,8 @@ use DataValues\Serializers\DataValueSerializer;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\DriverManager;
+use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 use Queryr\EntityStore\EntityStoreConfig;
 use Queryr\EntityStore\EntityStoreFactory;
 use Queryr\EntityStore\EntityStoreInstaller;
@@ -41,7 +43,7 @@ class ServiceFactory {
 	 * @throws RuntimeException
 	 */
 	public static function newFromConfig() {
-		$config = ConfigFile::newInstance()->read();
+		$config = DatabaseConfigFile::newInstance()->read();
 
 		try {
 			$connection = DriverManager::getConnection( $config );
@@ -55,10 +57,23 @@ class ServiceFactory {
 		return new self( $connection );
 	}
 
+	/**
+	 * @var Connection
+	 */
 	private $connection;
+
+	/**
+	 * @var LoggerInterface
+	 */
+	private $logger;
 
 	private function __construct( Connection $connection ) {
 		$this->connection = $connection;
+		$this->logger = new NullLogger();
+	}
+
+	public function setLogger( LoggerInterface $logger ) {
+		$this->logger = $logger;
 	}
 
 	public function newQueryEngineInstaller() {

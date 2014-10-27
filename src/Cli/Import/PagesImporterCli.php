@@ -2,6 +2,9 @@
 
 namespace Queryr\Replicator\Cli\Import;
 
+use Psr\Log\NullLogger;
+use Queryr\Replicator\Importer\CompositeReporter;
+use Queryr\Replicator\Importer\LoggingReporter;
 use Queryr\Replicator\Importer\PageImporter;
 use Queryr\Replicator\Importer\PageImportReporter;
 use Queryr\Replicator\Importer\PagesImporter;
@@ -56,6 +59,7 @@ class PagesImporterCli {
 	}
 
 	private function newImporter( PageImportReporter $reporter ) {
+		// TODO: move into factory
 		return new PageImporter(
 			$this->factory->newEntityStore(),
 			$this->factory->newLegacyEntityDeserializer(),
@@ -66,9 +70,13 @@ class PagesImporterCli {
 	}
 
 	private function newReporter() {
-		return $this->output->isVerbose() ?
+		$cliReporter = $this->output->isVerbose() ?
 			new VerboseReporter( $this->output, $this->output->isVeryVerbose() )
 			: new SimpleReporter( $this->output );
+
+		$loggingReporter = new LoggingReporter( new NullLogger() );
+
+		return new CompositeReporter( $loggingReporter, $cliReporter );
 	}
 
 
