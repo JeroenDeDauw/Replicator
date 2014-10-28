@@ -7,6 +7,9 @@ use DataValues\Serializers\DataValueSerializer;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\DriverManager;
+use Monolog\Formatter\JsonFormatter;
+use Monolog\Formatter\LineFormatter;
+use Monolog\Handler\BufferHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Log\LoggerInterface;
@@ -86,8 +89,14 @@ class ServiceFactory {
 	public function newProductionLogger() {
 		$logger = new Logger( 'Replicator logger' );
 
-		$logger->pushHandler( new StreamHandler( $this->newLoggerPath( ( new \DateTime() )->format( 'Y-m-d\TH:i:s\Z' ) ) ) );
-		$logger->pushHandler( new StreamHandler( $this->newLoggerPath( 'error' ), Logger::ERROR ) );
+		$streamHandler = new StreamHandler( $this->newLoggerPath( ( new \DateTime() )->format( 'Y-m-d\TH:i:s\Z' ) ) );
+		$bufferHandler = new BufferHandler( $streamHandler, 500, Logger::INFO );
+		$streamHandler->setFormatter( new LineFormatter( "%message%\n" ) );
+		$logger->pushHandler( $bufferHandler );
+
+		$errorHandler = new StreamHandler( $this->newLoggerPath( 'error' ), Logger::ERROR );
+		$errorHandler->setFormatter( new JsonFormatter() );
+		$logger->pushHandler( $errorHandler );
 
 		return $logger;
 	}

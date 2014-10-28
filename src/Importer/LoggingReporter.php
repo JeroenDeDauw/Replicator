@@ -25,7 +25,7 @@ class LoggingReporter implements PageImportReporter {
 	}
 
 	public function endedSuccessfully() {
-		$this->logger->info( 'Entity imported' );
+		$this->logger->debug( 'Entity imported' );
 	}
 
 	public function endedWithError( Exception $ex ) {
