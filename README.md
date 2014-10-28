@@ -13,7 +13,7 @@ QueryR Replicator is an application for replicating a [Wikibase](http://wikiba.s
 A CLI application using the [Symfony Console component]
 (http://symfony.com/doc/current/components/console/introduction.html).
 
-#### Installation
+### Installation
 
 Clone the git repository and move into its directory.
 
@@ -41,7 +41,7 @@ function.
     git pull
     composer update
 
-#### Removal
+### Removal
 
 This will remove Replicator from the system, without deleting the application files themselves.
 
@@ -100,6 +100,13 @@ The command can be aborted with `ctrl+c`. It will exit gracefully and provide yo
 with the page title needed to resume the import.
 
     php replicator import:xmldump tests/data/big/5341-revs-3-props.xml --continue Q15826105 -v
+
+### Logging
+
+All logs are written into `var/log`. Each import run writes a detailed log to a dedicated file,
+which gets named based on the time the import started. Error events get written to errors.log,
+which is a general error file, appended to by each import run.
+
 
 ## Running the tests
 

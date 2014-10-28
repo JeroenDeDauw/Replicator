@@ -7,11 +7,19 @@ use DataValues\Serializers\DataValueSerializer;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\DriverManager;
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Queryr\EntityStore\EntityStoreConfig;
 use Queryr\EntityStore\EntityStoreFactory;
 use Queryr\EntityStore\EntityStoreInstaller;
+use Queryr\Replicator\Importer\CompositeReporter;
+use Queryr\Replicator\Importer\LoggingReporter;
+use Queryr\Replicator\Importer\PageImporter;
+use Queryr\Replicator\Importer\PageImportReporter;
+use Queryr\Replicator\Importer\PagesImporter;
+use Queryr\Replicator\Importer\StatsReporter;
 use Queryr\TermStore\TermStore;
 use Queryr\TermStore\TermStoreConfig;
 use Queryr\TermStore\TermStoreInstaller;
@@ -54,7 +62,10 @@ class ServiceFactory {
 			);
 		}
 
-		return new self( $connection );
+		$factory = new self( $connection );
+		$factory->setLogger( $factory->newProductionLogger() );
+
+		return $factory;
 	}
 
 	/**
@@ -70,6 +81,19 @@ class ServiceFactory {
 	private function __construct( Connection $connection ) {
 		$this->connection = $connection;
 		$this->logger = new NullLogger();
+	}
+
+	public function newProductionLogger() {
+		$logger = new Logger( 'Replicator logger' );
+
+		$logger->pushHandler( new StreamHandler( $this->newLoggerPath( ( new \DateTime() )->format( 'Y-m-d\TH:i:s\Z' ) ) ) );
+		$logger->pushHandler( new StreamHandler( $this->newLoggerPath( 'error' ), Logger::ERROR ) );
+
+		return $logger;
+	}
+
+	private function newLoggerPath( $fileName ) {
+		return __DIR__ . '/../var/log/' . $fileName . '.log';
 	}
 
 	public function setLogger( LoggerInterface $logger ) {
@@ -103,6 +127,29 @@ class ServiceFactory {
 		return new EntityStoreInstaller(
 			$this->connection->getSchemaManager(),
 			new EntityStoreConfig( self::ENTITY_STORE_PREFIX )
+		);
+	}
+
+	public function newPagesImporter( PageImportReporter $reporter,
+		StatsReporter $statsReporter, callable $onAborted = null ) {
+
+		return new PagesImporter(
+			$this->newPageImporter( $reporter ),
+			$statsReporter,
+			$onAborted
+		);
+	}
+
+	public function newPageImporter( PageImportReporter $reporter ) {
+		$loggingReporter = new LoggingReporter( $this->logger );
+		$compositeReporter = new CompositeReporter( $loggingReporter, $reporter );
+
+		return new PageImporter(
+			$this->newEntityStore(),
+			$this->newLegacyEntityDeserializer(),
+			$this->newQueryStoreWriter(),
+			$compositeReporter,
+			$this->newTermStore()
 		);
 	}
 

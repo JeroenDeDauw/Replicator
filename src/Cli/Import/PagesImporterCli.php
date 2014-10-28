@@ -2,12 +2,6 @@
 
 namespace Queryr\Replicator\Cli\Import;
 
-use Psr\Log\NullLogger;
-use Queryr\Replicator\Importer\CompositeReporter;
-use Queryr\Replicator\Importer\LoggingReporter;
-use Queryr\Replicator\Importer\PageImporter;
-use Queryr\Replicator\Importer\PageImportReporter;
-use Queryr\Replicator\Importer\PagesImporter;
 use Queryr\Replicator\ServiceFactory;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -46,8 +40,8 @@ class PagesImporterCli {
 	}
 
 	public function runImport( \Iterator $entityPageIterator ) {
-		$pagesImporter = new PagesImporter(
-			$this->newImporter( $this->newReporter() ),
+		$pagesImporter = $this->factory->newPagesImporter(
+			$this->newReporter(),
 			new ConsoleStatsReporter( $this->output ),
 			$this->onAborted
 		);
@@ -58,25 +52,10 @@ class PagesImporterCli {
 		$pagesImporter->importPages( $entityPageIterator );
 	}
 
-	private function newImporter( PageImportReporter $reporter ) {
-		// TODO: move into factory
-		return new PageImporter(
-			$this->factory->newEntityStore(),
-			$this->factory->newLegacyEntityDeserializer(),
-			$this->factory->newQueryStoreWriter(),
-			$reporter,
-			$this->factory->newTermStore()
-		);
-	}
-
 	private function newReporter() {
-		$cliReporter = $this->output->isVerbose() ?
+		return $this->output->isVerbose() ?
 			new VerboseReporter( $this->output, $this->output->isVeryVerbose() )
 			: new SimpleReporter( $this->output );
-
-		$loggingReporter = new LoggingReporter( new NullLogger() );
-
-		return new CompositeReporter( $loggingReporter, $cliReporter );
 	}
 
 
