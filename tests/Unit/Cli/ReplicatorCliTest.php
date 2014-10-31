@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Queryr\Replicator;
+namespace Tests\Queryr\Replicator\Cli;
 
 use Queryr\Replicator\Cli\ReplicatorCli;
 

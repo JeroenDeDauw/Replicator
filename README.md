@@ -82,9 +82,13 @@ Import command help:
 
     php replicator --help import:api
 
-You can create a list of ids as follows:
+It is possible to specify ID ranges:
 
-    for i in `seq 1 100`; do echo -n "Q$i "; done
+    php replicator import:api Q1-Q1000
+
+Multiple ranges and single IDs can be specified:
+
+    php replicator import:api Q1 Q100-Q102 P43-P45 Q64
 
 #### Importing XML dumps
 

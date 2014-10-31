@@ -4,6 +4,7 @@ namespace Queryr\Replicator\Cli\Command;
 
 use BatchingIterator\BatchingIterator;
 use Queryr\Replicator\Cli\Import\PagesImporterCli;
+use Queryr\Replicator\EntityIdListNormalizer;
 use Queryr\Replicator\EntitySource\Api\GetEntitiesClient;
 use Queryr\Replicator\EntitySource\Api\Http;
 use Queryr\Replicator\EntitySource\BatchingEntityPageFetcher;
@@ -15,6 +16,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Wikibase\DataModel\Entity\BasicEntityIdParser;
 
 /**
  * @licence GNU GPL v2+
@@ -94,9 +96,16 @@ class ApiImportCommand extends Command {
 	private function getEntityPageIterator( InputInterface $input ) {
 		$http = $this->http === null ? new Http() : $this->http;
 
+		$idListNormalizer = new EntityIdListNormalizer( new BasicEntityIdParser() );
+		$ids = [];
+
+		foreach ( $idListNormalizer->getNormalized( $input->getArgument( 'entities' ) ) as $id ) {
+			  $ids[] = $id->getSerialization();
+		}
+
 		$batchingFetcher = new BatchingEntityPageFetcher(
 			new GetEntitiesClient( $http ),
-			$input->getArgument( 'entities' )
+			$ids
 		);
 
 		$iterator = new BatchingIterator( $batchingFetcher );
