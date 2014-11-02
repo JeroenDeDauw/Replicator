@@ -47,7 +47,7 @@ class ApiImportCommand extends Command {
 			'b',
 			InputOption::VALUE_OPTIONAL,
 			'The number of API requests to bundle together',
-			5
+			10
 		);
 
 		$this->addOption(

@@ -35,7 +35,11 @@ class GetEntitiesInterpreter {
 		$entityPages = [];
 
 		foreach ( $entityPagesData as $key => $entityPageData ) {
-			if ( array_key_exists( 'id', $entityPageData ) && $entityPageData['id'] === $key ) {
+			$isActualEntity = array_key_exists( 'id', $entityPageData )
+				&& $entityPageData['id'] === $key
+				&& !array_key_exists( 'missing', $entityPageData );
+
+			if ( $isActualEntity ) {
 				$entityPages[] = $this->constructEntityPage( $entityPageData );
 			}
 		}
