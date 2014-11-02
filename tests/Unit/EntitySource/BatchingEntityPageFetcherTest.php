@@ -21,8 +21,8 @@ class BatchingEntityPageFetcherTest extends \PHPUnit_Framework_TestCase {
 		$this->assertSame( [], $fetcher->fetchNext( 10 ) );
 	}
 
-	private function newFetcherForPages( array $entityIds ) {
-		return new BatchingEntityPageFetcher( new FakeEntityPageBatchFetcher(), $entityIds );
+	private function newFetcherForPages( array $entityIds, array $idsToIgnore = [] ) {
+		return new BatchingEntityPageFetcher( new FakeEntityPageBatchFetcher( $idsToIgnore ), $entityIds );
 	}
 
 	public function testRewind() {
@@ -76,9 +76,24 @@ class BatchingEntityPageFetcherTest extends \PHPUnit_Framework_TestCase {
 		$this->assertSame( [ 'Q3', 'Q4' ], $fetcher->fetchNext( 3 ) );
 	}
 
+	public function testWhenFullBatchIsEmpty_theNextBatchIsRequested() {
+		$fetcher = $this->newFetcherForPages(
+			[ 'Q1', 'Q2', 'Q3', 'Q4', 'Q5' ], // These IDs are requested
+			[ 'Q1', 'Q2', 'Q3' ] // These IDs are not found
+		);
+
+		$this->assertSame( [ 'Q4', 'Q5' ], $fetcher->fetchNext( 3 ) );
+	}
+
 }
 
 class FakeEntityPageBatchFetcher implements EntityPageBatchFetcher {
+
+	private $idsToIgnore;
+
+	public function __construct( array $idsToIgnore = [] ) {
+		$this->idsToIgnore = $idsToIgnore;
+	}
 
 	/**
 	 * @param string[] $entityIds
@@ -86,7 +101,7 @@ class FakeEntityPageBatchFetcher implements EntityPageBatchFetcher {
 	 * @return EntityPage[]
 	 */
 	public function fetchEntityPages( array $entityIds ) {
-		return $entityIds;
+		return array_diff( $entityIds, $this->idsToIgnore );
 	}
 
 }

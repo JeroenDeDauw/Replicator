@@ -44,14 +44,23 @@ class BatchingEntityPageFetcher implements BatchingFetcher {
 	 * @return EntityPage[]
 	 */
 	public function fetchNext( $maxFetchCount ) {
-		$idsInBatch = array_slice( $this->pagesToFetch, $this->position, $maxFetchCount );
-		$this->position = min( $this->position + $maxFetchCount, count( $this->pagesToFetch ) );
-
-		if ( empty( $idsInBatch ) ) {
-			return [];
+		if ( !is_int( $maxFetchCount ) || $maxFetchCount < 1 ) {
+			throw new \InvalidArgumentException( '$maxFetchCount needs to be int > 0' );
 		}
 
-		return $this->batchFetcher->fetchEntityPages( $idsInBatch );
+		do {
+			$idsInBatch = array_slice( $this->pagesToFetch, $this->position, $maxFetchCount );
+			$this->position = min( $this->position + $maxFetchCount, count( $this->pagesToFetch ) );
+
+
+			if ( empty( $idsInBatch ) ) {
+				return [];
+			}
+
+			 $foundPages = $this->batchFetcher->fetchEntityPages( $idsInBatch );
+		} while( $foundPages === [] );
+
+		return $foundPages;
 	}
 
 	/**

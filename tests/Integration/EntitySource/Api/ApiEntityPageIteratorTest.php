@@ -37,7 +37,7 @@ class ApiEntityPageIteratorTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider batchProvider
 	 */
-	public function testCorrectAmountOfCallsAreMadeToTheBatchFetcher( $ids, $maxBatchSize, $expectedCallCount ) {
+	public function testCorrectAmountOfCallsAreMadeToTheBatchFetcher( array $ids, $maxBatchSize, $expectedCallCount ) {
 		$fetcher = $this->newFetcherMock();
 
 		$fetcher->expects( $this->exactly( $expectedCallCount ) )

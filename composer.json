@@ -23,7 +23,6 @@
 	},
 	"require-dev": {
 		"ext-sqlite3": "*",
-		"whatthejeff/nyancat-phpunit-resultprinter": "~1.2",
 		"jeroen/wikibase-data-fixtures": "~0.2",
 		"jeroen/json-dump-data": "~0.1.0"
 	},
