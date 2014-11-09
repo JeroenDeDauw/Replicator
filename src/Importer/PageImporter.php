@@ -85,7 +85,7 @@ class PageImporter {
 	}
 
 	private function insertIntoQueryStore() {
-		$this->queryStoreWriter->insertEntity( $this->entity );
+		$this->queryStoreWriter->updateEntity( $this->entity );
 	}
 
 	private function insertIntoTermStore() {
