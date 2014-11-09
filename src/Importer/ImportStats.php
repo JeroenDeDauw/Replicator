@@ -10,7 +10,6 @@ class ImportStats {
 
 	private $count = 0;
 	private $errorCount = 0;
-	private $errorMessages = [];
 	private $durationInMs;
 
 	public function recordSuccess() {
@@ -20,22 +19,10 @@ class ImportStats {
 	public function recordError( \Exception $ex ) {
 		$this->count++;
 		$this->errorCount++;
-		$this->recordErrorMessage( $ex->getMessage() );
 	}
 
 	public function setDuration( $durationInMs ) {
 		$this->durationInMs = $durationInMs;
-	}
-
-	private function recordErrorMessage( $message ) {
-		$message = $this->getNiceMessage( $message );
-
-		if ( array_key_exists( $message, $this->errorMessages ) ) {
-			$this->errorMessages[$message]++;
-		}
-		else {
-			$this->errorMessages[$message] = 1;
-		}
 	}
 
 	private function getNiceMessage( $message ) {
@@ -52,11 +39,6 @@ class ImportStats {
 
 	public function getErrorCount() {
 		return $this->errorCount;
-	}
-
-	public function getErrorMessages() {
-		arsort( $this->errorMessages, SORT_NUMERIC );
-		return $this->errorMessages;
 	}
 
 	public function getSuccessCount() {

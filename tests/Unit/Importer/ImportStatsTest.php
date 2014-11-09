@@ -42,45 +42,6 @@ class ImportStatsTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals( 1, $this->stats->getErrorCount() );
 	}
 
-	public function testGetErrorMessagesReturnsEmptyArrayWhenThereAreNoErrors() {
-		$this->stats->recordSuccess();
-
-		$this->assertEquals( array(), $this->stats->getErrorMessages() );
-	}
-
-	public function testGetErrorMessagesReturnsArrayWithMessagesAsKeysAndCountsAsValues() {
-		$this->stats->recordError( new Exception( '~[,,_,,]:3' ) );
-		$this->stats->recordError( new Exception( 'not enough kittens' ) );
-		$this->stats->recordError( new Exception( 'to much foobar' ) );
-		$this->stats->recordError( new Exception( 'not enough kittens' ) );
-		$this->stats->recordError( new Exception( 'not enough kittens' ) );
-		$this->stats->recordError( new Exception( 'to much foobar' ) );
-
-		$this->assertEquals(
-			[
-				'not enough kittens' => 3,
-				'to much foobar' => 2,
-				'~[,,_,,]:3' => 1,
-			],
-			$this->stats->getErrorMessages()
-		);
-
-		$this->assertEquals( [3, 2, 1], array_values( $this->stats->getErrorMessages() ) );
-	}
-
-	public function testDuplicateEntriesAreOneElementInArray() {
-		$this->stats->recordError( new Exception( "Duplicate entry 'jo2010555010-P691-Q15830226' for key 'value_property'" ) );
-		$this->stats->recordError( new Exception( "Duplicate entry 'jk01041856-P691-Q15830225' for key 'value_property'" ) );
-		$this->stats->recordError( new Exception( "Duplicate entry 'Q5-P31-Q15830216' for key 'value_property'" ) );
-
-		$this->assertEquals(
-			[
-				'Duplicate entry' => 3
-			],
-			$this->stats->getErrorMessages()
-		);
-	}
-
 	public function testOnlySuccessAddsToSuccessCount() {
 		$this->stats->recordSuccess();
 		$this->stats->recordError( new Exception( 'not enough kittens' ) );

@@ -40,24 +40,6 @@ class ConsoleStatsReporter implements StatsReporter {
 				$stats->getEntityCount() / $stats->getDurationInMs()
 			)
 		);
-
-		$errors = $stats->getErrorMessages();
-
-		if ( !empty( $errors ) ) {
-			$this->reportErrors( $errors );
-		}
-	}
-
-	private function reportErrors( array $errors ) {
-		$this->output->writeln( "\nErrors:" );
-
-		foreach ( $errors as $errorMessage => $errorCount ) {
-			$this->output->writeln( sprintf(
-				"\t* %d times: %s",
-				$errorCount,
-				$errorMessage
-			) );
-		}
 	}
 
 }
