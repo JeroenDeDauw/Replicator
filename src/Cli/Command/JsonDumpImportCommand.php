@@ -87,10 +87,13 @@ class JsonDumpImportCommand extends Command {
 
 		$importer->runImport( $iterator );
 
+		$this->outputMaxContinuation( $input, $output, $reader );
+	}
+
+	private function outputMaxContinuation( InputInterface $input, OutputInterface $output, JsonDumpReader $reader ) {
 		if ( is_numeric( $input->getOption( 'max' ) ) ) {
 			$max = (int)$input->getOption( 'max' );
-			$output->writeln( "\n<info>Aborted import due to reaching the max of $max entities</info>" );
-			$output->writeln( "<comment>To continue from current position, run with</comment> --continue=" . $reader->getPosition() );
+			$output->writeln( "\n<comment>To continue from current position, run with</comment> --continue=" . $reader->getPosition() );
 		}
 	}
 
