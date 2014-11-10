@@ -90,7 +90,7 @@ class ServiceFactory {
 		$logger = new Logger( 'Replicator logger' );
 
 		$streamHandler = new StreamHandler( $this->newLoggerPath( ( new \DateTime() )->format( 'Y-m-d\TH:i:s\Z' ) ) );
-		$bufferHandler = new BufferHandler( $streamHandler, 500, Logger::INFO );
+		$bufferHandler = new BufferHandler( $streamHandler, 500, Logger::INFO, true, true );
 		$streamHandler->setFormatter( new LineFormatter( "%message%\n" ) );
 		$logger->pushHandler( $bufferHandler );
 
