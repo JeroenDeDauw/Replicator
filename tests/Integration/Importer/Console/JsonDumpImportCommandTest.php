@@ -16,10 +16,15 @@ class JsonDumpImportCommandTest extends \PHPUnit_Framework_TestCase {
 
 	public function testEntityIdInOutput() {
 		$output = $this->getOutputForArgs( [
-			'file' => 'tests/data/simple/one-item.json'
+			'file' => 'tests/data/simple/five-entities.json'
 		] );
 
 		$this->assertContains( 'Q1', $output );
+		$this->assertContains( 'Q8', $output );
+		$this->assertContains( 'P16', $output );
+		$this->assertContains( 'P19', $output );
+		$this->assertContains( 'P22', $output );
+
 		$this->assertContains( 'Entity imported', $output );
 	}
 
@@ -36,6 +41,21 @@ class JsonDumpImportCommandTest extends \PHPUnit_Framework_TestCase {
 		$command->setServiceFactory( TestEnvironment::newInstance()->getFactory() );
 
 		return new CommandTester( $command );
+	}
+
+	public function testMaxArgumentIsRespected() {
+		$output = $this->getOutputForArgs( [
+			'file' => 'tests/data/simple/five-entities.json',
+			'--max' => '3'
+		] );
+
+		$this->assertContains( 'Q1', $output );
+		$this->assertContains( 'Q8', $output );
+		$this->assertContains( 'P16', $output );
+		$this->assertNotContains( 'P19', $output );
+		$this->assertNotContains( 'P22', $output );
+
+		$this->assertContains( '--continue', $output );
 	}
 
 }

@@ -36,6 +36,13 @@ class JsonDumpImportCommand extends Command {
 			InputOption::VALUE_OPTIONAL,
 			'The position to resume import from'
 		);
+
+		$this->addOption(
+			'max',
+			'm',
+			InputOption::VALUE_OPTIONAL,
+			'The maximum number of entities to import'
+		);
 	}
 
 	/**
@@ -72,7 +79,19 @@ class JsonDumpImportCommand extends Command {
 
 		$importer = new PagesImporterCli( $input, $output, $this->factory, $onAborted );
 
-		$importer->runImport( $this->newEntityPageIterator( $reader ) );
+		$iterator = $this->newEntityPageIterator( $reader );
+
+		if ( is_numeric( $input->getOption( 'max' ) ) ) {
+			$iterator = new \LimitIterator( $iterator, 0, (int)$input->getOption( 'max' ) );
+		}
+
+		$importer->runImport( $iterator );
+
+		if ( is_numeric( $input->getOption( 'max' ) ) ) {
+			$max = (int)$input->getOption( 'max' );
+			$output->writeln( "\n<info>Aborted import due to reaching the max of $max entities</info>" );
+			$output->writeln( "<comment>To continue from current position, run with</comment> --continue=" . $reader->getPosition() );
+		}
 	}
 
 	private function newEntityPageIterator( JsonDumpReader $reader ) {
