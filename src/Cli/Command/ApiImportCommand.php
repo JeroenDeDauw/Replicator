@@ -31,7 +31,7 @@ class ApiImportCommand extends Command {
 		$this->addArgument(
 			'entities',
 			InputArgument::IS_ARRAY,
-			'The ids of the entities to import'
+			'The IDs of the entities to import, separated by spaces. ID ranges can be specified: Q1-Q100'
 		);
 
 //		$this->addOption(
