@@ -23,6 +23,7 @@ use Queryr\Replicator\Importer\PageImporter;
 use Queryr\Replicator\Importer\PageImportReporter;
 use Queryr\Replicator\Importer\PagesImporter;
 use Queryr\Replicator\Importer\StatsReporter;
+use Queryr\Replicator\Model\EntityPage;
 use Queryr\TermStore\TermStore;
 use Queryr\TermStore\TermStoreConfig;
 use Queryr\TermStore\TermStoreInstaller;
@@ -30,6 +31,8 @@ use RuntimeException;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
 use Wikibase\DataModel\SerializerFactory;
 use Wikibase\InternalSerialization\DeserializerFactory;
+use Wikibase\JsonDumpReader\JsonDumpIterator;
+use Wikibase\JsonDumpReader\JsonDumpReader;
 use Wikibase\QueryEngine\SQLStore\DataValueHandlersBuilder;
 use Wikibase\QueryEngine\SQLStore\SQLStore;
 use Wikibase\QueryEngine\SQLStore\StoreConfig;
@@ -147,6 +150,28 @@ class ServiceFactory {
 			$statsReporter,
 			$onAborted
 		);
+	}
+
+	public function newJsonEntityPageIterator( JsonDumpReader $reader ) {
+		$iterator = new JsonDumpIterator(
+			$reader,
+			$this->newCurrentEntityDeserializer()
+		);
+
+		return $this->newEntityPageGenerator( $iterator );
+	}
+
+	private function newEntityPageGenerator( JsonDumpIterator $dumpIterator ) {
+		foreach ( $dumpIterator as $entity ) {
+			yield new EntityPage(
+				$dumpIterator->getCurrentJson(),
+				// TODO
+				$entity->getType() === 'property' ? 'Property:' . $entity->getId() : $entity->getId(),
+				0,
+				0,
+				( new \DateTime() )->format( 'Y-m-d\TH:i:s\Z' )
+			);
+		}
 	}
 
 	public function newPageImporter( PageImportReporter $reporter ) {

@@ -79,7 +79,7 @@ class JsonDumpImportCommand extends Command {
 
 		$importer = new PagesImporterCli( $input, $output, $this->factory, $onAborted );
 
-		$iterator = $this->newEntityPageIterator( $reader );
+		$iterator = $this->factory->newJsonEntityPageIterator( $reader );
 
 		if ( is_numeric( $input->getOption( 'max' ) ) ) {
 			$iterator = new \LimitIterator( $iterator, 0, (int)$input->getOption( 'max' ) );
@@ -92,30 +92,7 @@ class JsonDumpImportCommand extends Command {
 
 	private function outputMaxContinuation( InputInterface $input, OutputInterface $output, JsonDumpReader $reader ) {
 		if ( is_numeric( $input->getOption( 'max' ) ) ) {
-			$max = (int)$input->getOption( 'max' );
 			$output->writeln( "\n<comment>To continue from current position, run with</comment> --continue=" . $reader->getPosition() );
-		}
-	}
-
-	private function newEntityPageIterator( JsonDumpReader $reader ) {
-		$iterator = new JsonDumpIterator(
-			$reader,
-			$this->factory->newCurrentEntityDeserializer()
-		);
-
-		return $this->newEntityPageGenerator( $iterator );
-	}
-
-	private function newEntityPageGenerator( JsonDumpIterator $dumpIterator ) {
-		foreach ( $dumpIterator as $entity ) {
-			yield new EntityPage(
-				$dumpIterator->getCurrentJson(),
-				// TODO
-				$entity->getType() === 'property' ? 'Property:' . $entity->getId() : $entity->getId(),
-				0,
-				0,
-				( new \DateTime() )->format( 'Y-m-d\TH:i:s\Z' )
-			);
 		}
 	}
 
