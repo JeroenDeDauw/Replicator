@@ -26,6 +26,7 @@ class PageImportingTest extends \PHPUnit_Framework_TestCase {
 		$this->assertTrue( true );
 
 		// TODO: test with error occuring in QE, next entities sitll need to be inserted
+		// 2555: Q9659
 	}
 
 }
