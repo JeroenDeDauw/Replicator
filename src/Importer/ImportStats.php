@@ -25,14 +25,6 @@ class ImportStats {
 		$this->durationInMs = $durationInMs;
 	}
 
-	private function getNiceMessage( $message ) {
-		if ( strpos( $message, 'Duplicate entry' ) === 0 ) {
-			return 'Duplicate entry';
-		}
-
-		return $message;
-	}
-
 	public function getEntityCount() {
 		return $this->count;
 	}

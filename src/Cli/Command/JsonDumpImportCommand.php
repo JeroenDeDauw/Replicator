@@ -3,7 +3,6 @@
 namespace Queryr\Replicator\Cli\Command;
 
 use Queryr\Replicator\Cli\Import\PagesImporterCli;
-use Queryr\Replicator\Model\EntityPage;
 use Queryr\Replicator\ServiceFactory;
 use RuntimeException;
 use Symfony\Component\Console\Command\Command;
@@ -11,7 +10,6 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Wikibase\JsonDumpReader\JsonDumpIterator;
 use Wikibase\JsonDumpReader\JsonDumpReader;
 
 /**
