@@ -5,7 +5,6 @@ namespace Tests\Queryr\Replicator\EntitySource;
 use DataValues\StringValue;
 use Queryr\Replicator\EntitySource\ReferencedEntitiesFinder;
 use Wikibase\DataModel\Claim\Claim;
-use Wikibase\DataModel\Statement\Statement;
 use Wikibase\DataModel\Entity\EntityIdValue;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\DataModel\Entity\ItemId;
@@ -13,6 +12,7 @@ use Wikibase\DataModel\Entity\PropertyId;
 use Wikibase\DataModel\Snak\PropertyNoValueSnak;
 use Wikibase\DataModel\Snak\PropertySomeValueSnak;
 use Wikibase\DataModel\Snak\PropertyValueSnak;
+use Wikibase\DataModel\Statement\Statement;
 
 /**
  * @covers Queryr\Replicator\EntitySource\ReferencedEntitiesFinder

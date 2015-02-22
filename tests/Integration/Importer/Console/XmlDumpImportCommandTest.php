@@ -2,9 +2,7 @@
 
 namespace Tests\Queryr\Replicator\Importer\Console;
 
-use Doctrine\DBAL\DriverManager;
 use Queryr\Replicator\Cli\Command\XmlDumpImportCommand;
-use Queryr\Replicator\ServiceFactory;
 use Symfony\Component\Console\Tester\CommandTester;
 use Tests\Queryr\Replicator\Integration\TestEnvironment;
 

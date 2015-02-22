@@ -2,10 +2,6 @@
 
 namespace Tests\Queryr\Replicator\EntitySource;
 
-use Queryr\Replicator\EntitySource\BatchingEntityPageFetcher;
-use Queryr\Replicator\EntitySource\ReferencedEntityPageIterator;
-use Queryr\Replicator\Model\EntityPage;
-
 /**
  * @covers Queryr\Replicator\EntitySource\ReferencedEntityPageIterator
  *
