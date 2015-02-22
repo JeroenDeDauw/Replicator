@@ -10,7 +10,7 @@
 		"queryr/entity-store": "~0.6.0",
 		"queryr/term-store": "~0.2.1",
 
-		"wikibase/data-model": "~2.0",
+		"wikibase/data-model": "~2.5",
 		"wikibase/query-engine": "~0.4@dev",
 		"wikibase/data-model-serialization": "~1.1",
 		"wikibase/internal-serialization": "~1.1",
