@@ -21,10 +21,10 @@ class ReferencedEntitiesFinder {
 	public function findForItem( Item $item ) {
 		$references = [];
 
-		foreach ( $item->getClaims() as $claim ) {
-			$references[] = $claim->getPropertyId();
+		foreach ( $item->getStatements()->toArray() as $statement ) {
+			$references[] = $statement->getPropertyId();
 
-			$mainSnak = $claim->getMainSnak();
+			$mainSnak = $statement->getMainSnak();
 
 			if ( $mainSnak instanceof PropertyValueSnak && $mainSnak->getDataValue() instanceof EntityIdValue ) {
 				$references[] = $mainSnak->getDataValue()->getEntityId();
