@@ -32,12 +32,12 @@ class ReferencedEntitiesFinderTest extends \PHPUnit_Framework_TestCase {
 	public function testGivenEmptyItem_noReferencesAreFound() {
 		$this->assertFindsReferencesForItem(
 			[],
-			Item::newEmpty()
+			new Item()
 		);
 	}
 
 	public function testGivenItemWithValuelessStatements_propertyReferencesAreFound() {
-		$item = Item::newEmpty();
+		$item = new Item();
 
 		$statement = new Statement( new Claim( new PropertyNoValueSnak( 42 ) ) );
 		$statement->setGuid( 'aaa' );
@@ -58,7 +58,7 @@ class ReferencedEntitiesFinderTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGivenItemWithValueStatements_itemReferencesAreFound() {
-		$item = Item::newEmpty();
+		$item = new Item();
 
 		$statement = new Statement( new Claim( new PropertyValueSnak( 1, new StringValue( 'foo' ) ) ) );
 		$statement->setGuid( 'aaa' );

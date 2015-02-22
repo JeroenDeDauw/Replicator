@@ -80,7 +80,7 @@ class QueryEngineTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testInsertItem() {
-		$item = Item::newEmpty();
+		$item = new Item();
 		$item->setId( new ItemId( 'Q100' ) );
 
 		$statement = new Statement( new Claim( new PropertyValueSnak( 42, new NumberValue( 1337 ) ) ) );
