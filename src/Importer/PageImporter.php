@@ -12,7 +12,7 @@ use Queryr\EntityStore\InstanceOfTypeExtractor;
 use Queryr\EntityStore\ItemRowFactory;
 use Queryr\Replicator\Model\EntityPage;
 use Queryr\TermStore\TermStore;
-use Wikibase\DataModel\Entity\Entity;
+use Wikibase\DataModel\Entity\EntityDocument;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\QueryEngine\QueryStoreWriter;
 
@@ -25,7 +25,7 @@ class PageImporter {
 	private $termStore;
 
 	/**
-	 * @var Entity
+	 * @var EntityDocument
 	 */
 	private $entity;
 
