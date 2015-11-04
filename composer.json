@@ -6,24 +6,24 @@
 		"ext-PDO": "*",
 		"ext-pcntl": "*",
 
-		"queryr/dump-reader": "~0.1.0",
-		"queryr/entity-store": "~0.6.0",
-		"queryr/term-store": "~0.2.1",
+		"wikibase/data-model": "~4.0|~3.0",
+		"wikibase/data-model-serialization": "~2.0",
+		"wikibase/internal-serialization": "~2.0",
 
-		"wikibase/data-model": "~2.5",
-		"wikibase/query-engine": "~0.4@dev",
-		"wikibase/data-model-serialization": "~1.1",
-		"wikibase/internal-serialization": "~1.1",
+		"queryr/entity-store": "~1.0",
+		"queryr/term-store": "~1.0",
+		"queryr/xml-dump-reader": "~0.1.1",
 
 		"jeroen/batching-iterator": "~2.1",
-		"jeroen/json-dump-reader": "~0.1.0",
+		"jeroen/json-dump-reader": "~0.2.0",
+		"jeroen/query-engine": "~0.5",
 
 		"symfony/console": "~2.4",
 		"monolog/monolog": "~1.11.0"
 	},
 	"require-dev": {
 		"ext-sqlite3": "*",
-		"jeroen/wikibase-data-fixtures": "~0.2",
+		"jeroen/wikibase-data-fixtures": "~1.0",
 		"jeroen/json-dump-data": "~0.1.0"
 	},
 	"autoload": {
@@ -38,19 +38,5 @@
 	},
 	"bin": [
 		"replicator"
-	],
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "git@github.com:Queryr/DumpReader.git"
-		},
-		{
-			"type": "vcs",
-			"url": "git@github.com:Queryr/EntityStore.git"
-		},
-		{
-			"type": "vcs",
-			"url": "git@github.com:Queryr/TermStore.git"
-		}
 	]
 }

@@ -16,7 +16,7 @@ use Wikibase\DataModel\Entity\PropertyId;
 use Wikibase\DataModel\Snak\PropertyValueSnak;
 use Wikibase\DataModel\Statement\Statement;
 use Wikibase\QueryEngine\PropertyDataValueTypeLookup;
-use Wikibase\QueryEngine\QueryEngine;
+use Wikibase\QueryEngine\DescriptionMatchFinder;
 use Wikibase\QueryEngine\QueryStoreWriter;
 use Wikibase\QueryEngine\SQLStore\DataValueHandlersBuilder;
 use Wikibase\QueryEngine\SQLStore\SQLStore;
@@ -35,7 +35,7 @@ class QueryEngineTest extends \PHPUnit_Framework_TestCase {
 	private $writer;
 
 	/**
-	 * @var QueryEngine
+	 * @var DescriptionMatchFinder
 	 */
 	private $queryEngine;
 
@@ -48,7 +48,7 @@ class QueryEngineTest extends \PHPUnit_Framework_TestCase {
 
 		$this->writer = $sqlStore->newWriter( $connection );
 
-		$this->queryEngine = $sqlStore->newQueryEngine(
+		$this->queryEngine = $sqlStore->newDescriptionMatchFinder(
 			$connection,
 			new StubPropertyDataValueTypeLookup(),
 			new BasicEntityIdParser()
@@ -83,7 +83,7 @@ class QueryEngineTest extends \PHPUnit_Framework_TestCase {
 		$item = new Item();
 		$item->setId( new ItemId( 'Q100' ) );
 
-		$statement = new Statement( new Claim( new PropertyValueSnak( 42, new NumberValue( 1337 ) ) ) );
+		$statement = new Statement( new PropertyValueSnak( 42, new NumberValue( 1337 ) ) );
 		$statement->setGuid( 'foo claim' );
 		$item->getStatements()->addStatement( $statement );
 

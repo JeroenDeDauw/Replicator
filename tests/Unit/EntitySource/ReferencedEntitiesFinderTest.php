@@ -39,15 +39,15 @@ class ReferencedEntitiesFinderTest extends \PHPUnit_Framework_TestCase {
 	public function testGivenItemWithValuelessStatements_propertyReferencesAreFound() {
 		$item = new Item();
 
-		$statement = new Statement( new Claim( new PropertyNoValueSnak( 42 ) ) );
+		$statement = new Statement( new PropertyNoValueSnak( 42 ) );
 		$statement->setGuid( 'aaa' );
 		$item->getStatements()->addStatement( $statement );
 
-		$statement = new Statement( new Claim( new PropertyNoValueSnak( 1337 ) ) );
+		$statement = new Statement( new PropertyNoValueSnak( 1337 ) );
 		$statement->setGuid( 'bbb' );
 		$item->getStatements()->addStatement( $statement );
 
-		$statement = new Statement( new Claim( new PropertySomeValueSnak( 42 ) ) );
+		$statement = new Statement( new PropertySomeValueSnak( 42 ) );
 		$statement->setGuid( 'ccc' );
 		$item->getStatements()->addStatement( $statement );
 
@@ -60,15 +60,15 @@ class ReferencedEntitiesFinderTest extends \PHPUnit_Framework_TestCase {
 	public function testGivenItemWithValueStatements_itemReferencesAreFound() {
 		$item = new Item();
 
-		$statement = new Statement( new Claim( new PropertyValueSnak( 1, new StringValue( 'foo' ) ) ) );
+		$statement = new Statement( new PropertyValueSnak( 1, new StringValue( 'foo' ) ) );
 		$statement->setGuid( 'aaa' );
 		$item->getStatements()->addStatement( $statement );
 
-		$statement = new Statement( new Claim( new PropertyValueSnak( 1, new EntityIdValue( new ItemId( 'Q42' ) ) ) ) );
+		$statement = new Statement( new PropertyValueSnak( 1, new EntityIdValue( new ItemId( 'Q42' ) ) ) );
 		$statement->setGuid( 'bbb' );
 		$item->getStatements()->addStatement( $statement );
 
-		$statement = new Statement( new Claim( new PropertyValueSnak( 1, new EntityIdValue( new ItemId( 'Q1337' ) ) ) ) );
+		$statement = new Statement( new PropertyValueSnak( 1, new EntityIdValue( new ItemId( 'Q1337' ) ) ) );
 		$statement->setGuid( 'ccc' );
 		$item->getStatements()->addStatement( $statement );
 
