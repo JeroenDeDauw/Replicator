@@ -29,7 +29,9 @@ class ReferencedEntityPageIterator implements Iterator {
 	 */
 	private $extraEntitiesToFetch = [];
 
-	public function __construct( Iterator $entityPageIterator, BatchingEntityPageFetcher $fetcher, Deserializer $entityDeserializer ) {
+	public function __construct( Iterator $entityPageIterator, BatchingEntityPageFetcher $fetcher,
+			Deserializer $entityDeserializer ) {
+
 		$this->innerIterator = $entityPageIterator;
 		$this->fetcher = $fetcher;
 		$this->entityDeserializer = $entityDeserializer;
@@ -75,7 +77,7 @@ class ReferencedEntityPageIterator implements Iterator {
 
 	private function addEntitiesReferencedByEntity( EntityDocument $entity ) {
 		if ( $entity->getType() !== 'item' ) {
-			return ;
+			return;
 		}
 
 		$referencedEntities = $this->referencedEntitiesFinder->findForItem( $entity );

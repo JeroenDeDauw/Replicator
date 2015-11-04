@@ -4,11 +4,10 @@ namespace Tests\Queryr\Replicator\EntitySource\Api;
 
 use BatchingIterator\BatchingIterator;
 use Queryr\Replicator\EntitySource\BatchingEntityPageFetcher;
-use Queryr\Replicator\EntitySource\EntityPageBatchFetcher;
-use Queryr\Replicator\Model\EntityPage;
+use Tests\Queryr\Replicator\Fixtures\FakeEntityPagesFetcher;
 
 /**
- * @covers Queryr\Replicator\EntitySource\Api\ApiEntityPageIterator
+ * @covers Queryr\Replicator\EntitySource\BatchingEntityPageFetcher
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
@@ -100,32 +99,6 @@ class ApiEntityPageIteratorTest extends \PHPUnit_Framework_TestCase {
 				2
 			],
 		];
-	}
-
-}
-
-class FakeEntityPagesFetcher implements EntityPageBatchFetcher {
-
-	private $pages;
-
-	public function __construct( array $pages = [] ) {
-		$this->pages = $pages;
-	}
-
-	/**
-	 * @param string[] $entityIds
-	 * @return EntityPage[]
-	 */
-	public function fetchEntityPages( array $entityIds ) {
-		$pages = [];
-
-		foreach ( $entityIds as $entityId ) {
-			if ( array_key_exists( $entityId, $this->pages ) ) {
-				$pages[] = $this->pages[$entityId];
-			}
-		}
-
-		return $pages;
 	}
 
 }

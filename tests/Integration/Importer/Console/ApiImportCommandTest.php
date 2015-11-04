@@ -3,8 +3,8 @@
 namespace Tests\Queryr\Replicator\Importer\Console;
 
 use Queryr\Replicator\Cli\Command\ApiImportCommand;
-use Queryr\Replicator\EntitySource\Api\Http;
 use Symfony\Component\Console\Tester\CommandTester;
+use Tests\Queryr\Replicator\Fixtures\FakeHttp;
 use Tests\Queryr\Replicator\Integration\TestEnvironment;
 
 /**
@@ -42,15 +42,3 @@ class ApiImportCommandTest extends \PHPUnit_Framework_TestCase {
 
 }
 
-class FakeHttp extends Http {
-
-	public function get( $url ) {
-		if ( $url === 'https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q1&format=json' ) {
-			return file_get_contents( __DIR__ . '/../../../data/api/Q1.json' );
-		}
-		else {
-			throw new \Exception();
-		}
-	}
-
-}

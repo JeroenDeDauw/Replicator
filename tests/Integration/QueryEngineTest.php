@@ -7,6 +7,7 @@ use Ask\Language\Description\ValueDescription;
 use Ask\Language\Option\QueryOptions;
 use DataValues\NumberValue;
 use Doctrine\DBAL\DriverManager;
+use Tests\Queryr\Replicator\Fixtures\StubPropertyDataValueTypeLookup;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
 use Wikibase\DataModel\Entity\EntityIdValue;
 use Wikibase\DataModel\Entity\Item;
@@ -15,7 +16,6 @@ use Wikibase\DataModel\Entity\PropertyId;
 use Wikibase\DataModel\Snak\PropertyValueSnak;
 use Wikibase\DataModel\Statement\Statement;
 use Wikibase\QueryEngine\DescriptionMatchFinder;
-use Wikibase\QueryEngine\PropertyDataValueTypeLookup;
 use Wikibase\QueryEngine\QueryStoreWriter;
 use Wikibase\QueryEngine\SQLStore\DataValueHandlersBuilder;
 use Wikibase\QueryEngine\SQLStore\SQLStore;
@@ -99,14 +99,6 @@ class QueryEngineTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$this->assertEquals( array( 'Q100' ), $ids );
-	}
-
-}
-
-class StubPropertyDataValueTypeLookup implements PropertyDataValueTypeLookup {
-
-	public function getDataValueTypeForProperty( PropertyId $propertyId ) {
-		return 'number';
 	}
 
 }

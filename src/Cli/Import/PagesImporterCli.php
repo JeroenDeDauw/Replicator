@@ -32,7 +32,9 @@ class PagesImporterCli {
 	 */
 	private $onAborted;
 
-	public function __construct( InputInterface $input, OutputInterface $output, ServiceFactory $factory, callable $onAborted = null ) {
+	public function __construct( InputInterface $input, OutputInterface $output,
+			ServiceFactory $factory, callable $onAborted = null ) {
+
 		$this->input = $input;
 		$this->output = $output;
 		$this->factory = $factory;

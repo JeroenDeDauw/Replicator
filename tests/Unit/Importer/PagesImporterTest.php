@@ -26,11 +26,11 @@ class PagesImporterTest extends \PHPUnit_Framework_TestCase {
 
 		$importer = new PagesImporter( $pageImporter, $statsReporter );
 
-		$importer->importPages( new \ArrayIterator( array(
+		$importer->importPages( new \ArrayIterator( [
 			new EntityPage( 'first', 'first', 1, 100, 'foo' ),
-			new EntityPage( 'second','second', 2, 200, 'foo' ),
+			new EntityPage( 'second', 'second', 2, 200, 'foo' ),
 			new EntityPage( 'third', 'third', 3, 300, 'foo' )
-		) ) );
+		] ) );
 	}
 
 }

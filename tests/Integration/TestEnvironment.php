@@ -12,9 +12,7 @@ use Queryr\Replicator\ServiceFactory;
 class TestEnvironment {
 
 	public static function newInstance() {
-		$instance = new self();
-		$instance->initialize();
-		return $instance;
+		return new self();
 	}
 
 	/**
@@ -22,12 +20,10 @@ class TestEnvironment {
 	 */
 	private $factory;
 
-	private function __construct() {}
-
-	private function initialize() {
+	private function __construct() {
 		$connection = DriverManager::getConnection( array(
-			'driver' => 'pdo_sqlite',
-			'memory' => true,
+				'driver' => 'pdo_sqlite',
+				'memory' => true,
 		) );
 
 		$this->factory = ServiceFactory::newFromConnection( $connection );

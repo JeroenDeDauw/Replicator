@@ -2,4 +2,5 @@
 
 namespace Queryr\Replicator\Cli\Install;
 
-class InstallationException extends \RuntimeException {}
+class InstallationException extends \RuntimeException {
+}

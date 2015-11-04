@@ -34,7 +34,7 @@ class VerboseReporter implements PageImportReporter {
 	}
 
 	public function endedWithError( \Exception $ex ) {
-		$this->output->writeln( "<error>FAILED!</error>" );
+		$this->output->writeln( '<error>FAILED!</error>' );
 		$this->output->writeln( "\t <error>Error details: " . $ex->getMessage() . '</error>' );
 	}
 

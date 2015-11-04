@@ -3,8 +3,7 @@
 namespace Tests\Queryr\Replicator\EntitySource;
 
 use Queryr\Replicator\EntitySource\BatchingEntityPageFetcher;
-use Queryr\Replicator\EntitySource\EntityPageBatchFetcher;
-use Queryr\Replicator\Model\EntityPage;
+use Tests\Queryr\Replicator\Fixtures\FakeEntityPageBatchFetcher;
 
 /**
  * @covers Queryr\Replicator\EntitySource\BatchingEntityPageFetcher
@@ -83,25 +82,6 @@ class BatchingEntityPageFetcherTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$this->assertSame( [ 'Q4', 'Q5' ], $fetcher->fetchNext( 3 ) );
-	}
-
-}
-
-class FakeEntityPageBatchFetcher implements EntityPageBatchFetcher {
-
-	private $idsToIgnore;
-
-	public function __construct( array $idsToIgnore = [] ) {
-		$this->idsToIgnore = $idsToIgnore;
-	}
-
-	/**
-	 * @param string[] $entityIds
-	 *
-	 * @return EntityPage[]
-	 */
-	public function fetchEntityPages( array $entityIds ) {
-		return array_diff( $entityIds, $this->idsToIgnore );
 	}
 
 }

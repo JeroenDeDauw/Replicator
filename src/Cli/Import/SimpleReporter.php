@@ -27,18 +27,19 @@ class SimpleReporter implements PageImportReporter {
 	}
 
 	public function endedSuccessfully() {
-		$this->output->writeln( "<info> Entity imported.</info>" );
+		$this->output->writeln( '<info> Entity imported.</info>' );
 	}
 
 	public function endedWithError( \Exception $ex ) {
-		$this->output->writeln( "<error>FAILED!</error>" );
-		$this->output->writeln( "<error>Error details: " . $ex->getMessage() . '</error>' );
+		$this->output->writeln( '<error>FAILED!</error>' );
+		$this->output->writeln( '<error>Error details: ' . $ex->getMessage() . '</error>' );
 	}
 
-	public function stepStarted( $message ) {}
+	public function stepStarted( $message ) {
+	}
 
 	public function stepCompleted() {
-		$this->output->write( "<info>..</info>" );
+		$this->output->write( '<info>..</info>' );
 	}
 
 }

@@ -62,8 +62,8 @@ class EntityIdListNormalizer {
 			throw new InvalidArgumentException( 'The end of the range needs to be bigger than its start' );
 		}
 
-
-		for ( $i = $startId->getNumericId(); $i <= $endId->getNumericId(); $i++ ) {
+		$numericId = $endId->getNumericId();
+		for ( $i = $startId->getNumericId(); $i <= $numericId; $i++ ) {
 			yield $startId::newFromNumber( $i );
 		}
 	}

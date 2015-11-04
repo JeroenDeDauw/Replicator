@@ -41,6 +41,8 @@ use Wikibase\QueryEngine\SQLStore\StoreSchema;
 /**
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ *
+ * @SuppressWarnings(PHPMD)
  */
 class ServiceFactory {
 

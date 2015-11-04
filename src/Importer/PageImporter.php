@@ -100,7 +100,7 @@ class PageImporter {
 			$itemRow = $this->itemRowFromEntityPage( $entityPage );
 			$this->entityStore->storeItemRow( $itemRow );
 		}
-		else if ( $this->entity->getType() === 'property' ) {
+		elseif ( $this->entity->getType() === 'property' ) {
 			$propertyRow = $this->propertyRowFromEntityPage( $entityPage );
 			$this->entityStore->storePropertyRow( $propertyRow );
 		}
