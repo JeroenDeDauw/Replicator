@@ -1,12 +1,21 @@
 {
 	"name": "queryr/replicator",
+	"homepage": "https://github.com/JeroenDeDauw/Replicator",
+	"authors": [
+		{
+			"name": "Jeroen De Dauw",
+			"email": "jeroendedauw@gmail.com",
+			"homepage": "http://jeroendedauw.com"
+		}
+	],
 	"require": {
 		"php": ">=5.5.0",
+
 		"ext-mysql": "*",
 		"ext-PDO": "*",
 		"ext-pcntl": "*",
 
-		"wikibase/data-model": "~4.0|~3.0",
+		"wikibase/data-model": "~4.0",
 		"wikibase/data-model-serialization": "~2.0",
 		"wikibase/internal-serialization": "~2.0",
 
