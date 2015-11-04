@@ -1,5 +1,9 @@
 # QueryR Replicator
 
+[![Build Status](https://secure.travis-ci.org/JeroenDeDauw/Replicator.png?branch=master)](http://travis-ci.org/JeroenDeDauw/Replicator)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/JeroenDeDauw/Replicator/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/JeroenDeDauw/Replicator/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/JeroenDeDauw/Replicator/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/JeroenDeDauw/Replicator/?branch=master)
+
 QueryR Replicator is an application for replicating a [Wikibase](http://wikiba.se/) entity base.
 
 ## System dependencies
