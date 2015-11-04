@@ -4,7 +4,6 @@ namespace Tests\Queryr\Replicator\EntitySource;
 
 use DataValues\StringValue;
 use Queryr\Replicator\EntitySource\ReferencedEntitiesFinder;
-use Wikibase\DataModel\Claim\Claim;
 use Wikibase\DataModel\Entity\EntityIdValue;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\DataModel\Entity\ItemId;

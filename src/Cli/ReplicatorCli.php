@@ -3,11 +3,11 @@
 namespace Queryr\Replicator\Cli;
 
 use Queryr\Replicator\Cli\Command\ApiImportCommand;
-use Queryr\Replicator\Cli\Command\JsonDumpImportCommand;
-use Queryr\Replicator\Cli\Command\XmlDumpImportCommand;
 use Queryr\Replicator\Cli\Command\InstallCommand;
+use Queryr\Replicator\Cli\Command\JsonDumpImportCommand;
 use Queryr\Replicator\Cli\Command\RunTestsCommand;
 use Queryr\Replicator\Cli\Command\UninstallCommand;
+use Queryr\Replicator\Cli\Command\XmlDumpImportCommand;
 use Symfony\Component\Console\Application;
 
 /**
