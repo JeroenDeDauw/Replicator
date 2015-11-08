@@ -15,7 +15,7 @@ class UninstallCommand extends Command {
 
 	protected function configure() {
 		$this->setName( 'uninstall' );
-		$this->setDescription( 'Uninstalls QueryR Replicator.' );
+		$this->setDescription( 'Uninstalls QueryR Replicator' );
 	}
 
 	protected function execute( InputInterface $input, OutputInterface $output ) {
