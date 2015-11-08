@@ -19,8 +19,8 @@ use Wikibase\JsonDumpReader\JsonDumpReader;
 class JsonDumpImportCommand extends Command {
 
 	protected function configure() {
-		$this->setName( 'import:dump' );
-		$this->setDescription( 'Imports entities from a JSON dump' );
+		$this->setName( 'import:json' );
+		$this->setDescription( 'Imports entities from an extracted JSON dump' );
 
 		$this->addArgument(
 			'file',

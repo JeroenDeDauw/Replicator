@@ -61,16 +61,16 @@ List of commands:
 
 Importing a JSON dump:
 
-    php replicator import:dump tests/data/big/1000-entities.json -v
+    php replicator import:json tests/data/big/1000-entities.json -v
 
 Import command help:
 
-    php replicator --help import:dump
+    php replicator help import:json
 
 The command can be aborted with `ctrl+c`. It will exit gracefully and provide you
 with the page position marker needed to resume the import.
 
-    php replicator import:dump tests/data/big/1000-entities.json -v --continue 2557421
+    php replicator import:json tests/data/big/1000-entities.json -v --continue 2557421
 
 #### Importing from the Wikidata.org API
 
@@ -84,7 +84,7 @@ Including referenced entities:
 
 Import command help:
 
-    php replicator --help import:api
+    php replicator help import:api
 
 It is possible to specify ID ranges:
 
@@ -98,16 +98,16 @@ Multiple ranges and single IDs can be specified:
 
 Importing an XML dump:
 
-    php replicator import:xmldump tests/data/big/5341-revs-3-props.xml -v
+    php replicator import:xml tests/data/big/5341-revs-3-props.xml -v
 
 Import command help:
 
-    php replicator --help import:xmldump
+    php replicator help import:xml
 
 The command can be aborted with `ctrl+c`. It will exit gracefully and provide you
 with the page title needed to resume the import.
 
-    php replicator import:xmldump tests/data/big/5341-revs-3-props.xml --continue Q15826105 -v
+    php replicator import:xml tests/data/big/5341-revs-3-props.xml --continue Q15826105 -v
 
 ### Logging
 

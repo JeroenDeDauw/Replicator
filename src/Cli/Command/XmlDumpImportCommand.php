@@ -21,8 +21,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 class XmlDumpImportCommand extends Command {
 
 	protected function configure() {
-		$this->setName( 'import:xmldump' );
-		$this->setDescription( 'Imports entities from an XML dump' );
+		$this->setName( 'import:xml' );
+		$this->setDescription( 'Imports entities from an extracted XML dump' );
 
 		$this->addArgument(
 			'file',
