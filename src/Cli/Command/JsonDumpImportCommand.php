@@ -10,7 +10,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Wikibase\JsonDumpReader\JsonDumpReader;
+use Wikibase\JsonDumpReader\Reader\ExtractedDumpReader;
 
 /**
  * @licence GNU GPL v2+
@@ -64,7 +64,7 @@ class JsonDumpImportCommand extends Command {
 			}
 		}
 
-		$reader = new JsonDumpReader(
+		$reader = new ExtractedDumpReader(
 			$input->getArgument( 'file' ),
 			$input->getOption( 'continue' ) === null ? 0 : (int)$input->getOption( 'continue' )
 		);
@@ -88,7 +88,7 @@ class JsonDumpImportCommand extends Command {
 		$this->outputMaxContinuation( $input, $output, $reader );
 	}
 
-	private function outputMaxContinuation( InputInterface $input, OutputInterface $output, JsonDumpReader $reader ) {
+	private function outputMaxContinuation( InputInterface $input, OutputInterface $output, ExtractedDumpReader $reader ) {
 		if ( is_numeric( $input->getOption( 'max' ) ) ) {
 			$output->writeln(
 					"\n<comment>To continue from current position, run with</comment> --continue=" . $reader->getPosition()

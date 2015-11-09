@@ -29,10 +29,11 @@ use Queryr\TermStore\TermStoreConfig;
 use Queryr\TermStore\TermStoreInstaller;
 use RuntimeException;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
+use Wikibase\DataModel\Entity\EntityDocument;
 use Wikibase\DataModel\SerializerFactory;
 use Wikibase\InternalSerialization\DeserializerFactory;
-use Wikibase\JsonDumpReader\JsonDumpIterator;
-use Wikibase\JsonDumpReader\JsonDumpReader;
+use Wikibase\JsonDumpReader\DumpReader;
+use Wikibase\JsonDumpReader\JsonDumpFactory;
 use Wikibase\QueryEngine\SQLStore\DataValueHandlersBuilder;
 use Wikibase\QueryEngine\SQLStore\SQLStore;
 use Wikibase\QueryEngine\SQLStore\StoreConfig;
@@ -154,21 +155,19 @@ class ServiceFactory {
 		);
 	}
 
-	public function newJsonEntityPageIterator( JsonDumpReader $reader ) {
-		$iterator = new JsonDumpIterator(
-			$reader,
-			$this->newCurrentEntityDeserializer()
-		);
+	public function newJsonEntityPageIterator( DumpReader $reader ) {
+		$factory = new JsonDumpFactory();
+
+		$iterator = $factory->newObjectDumpIterator( $reader );
 
 		return $this->newEntityPageGenerator( $iterator );
 	}
 
-	private function newEntityPageGenerator( JsonDumpIterator $dumpIterator ) {
+	private function newEntityPageGenerator( \Iterator $dumpIterator ) {
 		foreach ( $dumpIterator as $entity ) {
 			yield new EntityPage(
-				$dumpIterator->getCurrentJson(),
-				// TODO
-				$entity->getType() === 'property' ? 'Property:' . $entity->getId() : $entity->getId(),
+				json_encode( $entity ),
+				$entity['type'] === 'property' ? 'Property:' . $entity['id'] : $entity['id'],
 				0,
 				0,
 				( new \DateTime() )->format( 'Y-m-d\TH:i:s\Z' )
