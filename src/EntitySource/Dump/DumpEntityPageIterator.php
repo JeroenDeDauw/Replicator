@@ -42,17 +42,11 @@ class DumpEntityPageIterator implements Iterator {
 		$this->dumpIterator->next();
 	}
 
-	/**
-	 * @return int
-	 */
-	public function key() {
+	public function key(): int {
 		return $this->dumpIterator->key();
 	}
 
-	/**
-	 * @return bool
-	 */
-	public function valid() {
+	public function valid(): bool {
 		return $this->dumpIterator->valid();
 	}
 

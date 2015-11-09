@@ -46,10 +46,9 @@ class DatabaseConfigFile {
 	}
 
 	/**
-	 * @return array
 	 * @throws RuntimeException
 	 */
-	public function read() {
+	public function read(): array {
 		$configJson = @file_get_contents( $this->configPath );
 
 		if ( $configJson === false ) {

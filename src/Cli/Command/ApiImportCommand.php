@@ -93,7 +93,7 @@ class ApiImportCommand extends Command {
 		$importer->runImport( $this->getEntityPageIterator( $input ) );
 	}
 
-	private function getEntityPageIterator( InputInterface $input ) {
+	private function getEntityPageIterator( InputInterface $input ): \Iterator {
 		$http = $this->http === null ? new Http() : $this->http;
 
 		$idListNormalizer = new EntityIdListNormalizer( new BasicEntityIdParser() );

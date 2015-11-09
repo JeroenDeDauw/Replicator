@@ -25,10 +25,10 @@ class EntityIdListNormalizer {
 	/**
 	 * @param string[] $ids
 	 *
-	 * @return Iterator|EntityId
+	 * @return Iterator
 	 * @throws InvalidArgumentException
 	 */
-	public function getNormalized( array $ids ) {
+	public function getNormalized( array $ids ): Iterator {
 		foreach ( $ids as $id ) {
 			if ( strpos( $id, '-' ) !== false ) {
 				foreach ( $this->getRange( $id ) as $resultId ) {
@@ -41,7 +41,7 @@ class EntityIdListNormalizer {
 		}
 	}
 
-	private function getRange( $id ) {
+	private function getRange( string $id ): Iterator {
 		$parts = explode( '-', $id, 2 );
 
 		$startId = $this->getParsedId( $parts[0] );
@@ -68,7 +68,7 @@ class EntityIdListNormalizer {
 		}
 	}
 
-	private function getParsedId( $id ) {
+	private function getParsedId( string $id ): EntityId {
 		try {
 			return $this->idParser->parse( $id );
 		}

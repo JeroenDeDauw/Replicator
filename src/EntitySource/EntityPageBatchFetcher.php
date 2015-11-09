@@ -14,6 +14,6 @@ interface EntityPageBatchFetcher {
 	 * @param string[] $entityIds
 	 * @return EntityPage[]
 	 */
-	public function fetchEntityPages( array $entityIds );
+	public function fetchEntityPages( array $entityIds ): array;
 
 }

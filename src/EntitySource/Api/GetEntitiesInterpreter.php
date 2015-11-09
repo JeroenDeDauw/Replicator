@@ -17,7 +17,7 @@ class GetEntitiesInterpreter {
 	 *
 	 * @return EntityPage[]
 	 */
-	public function getEntityPagesFromResult( $resultJson ) {
+	public function getEntityPagesFromResult( $resultJson ): array {
 		$resultData = json_decode( $resultJson, true );
 
 		if ( !is_array( $resultData ) ) {

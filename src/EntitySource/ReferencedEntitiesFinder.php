@@ -18,7 +18,7 @@ class ReferencedEntitiesFinder {
 	 *
 	 * @return EntityId[]
 	 */
-	public function findForItem( Item $item ) {
+	public function findForItem( Item $item ): array {
 		$references = [];
 
 		foreach ( $item->getStatements()->toArray() as $statement ) {

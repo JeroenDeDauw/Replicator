@@ -55,10 +55,9 @@ class ServiceFactory {
 	}
 
 	/**
-	 * @return self
 	 * @throws RuntimeException
 	 */
-	public static function newFromConfig() {
+	public static function newFromConfig(): self {
 		$config = DatabaseConfigFile::newInstance()->read();
 
 		try {

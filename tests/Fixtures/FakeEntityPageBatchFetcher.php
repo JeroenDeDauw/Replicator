@@ -18,7 +18,7 @@ class FakeEntityPageBatchFetcher implements EntityPageBatchFetcher {
 	 *
 	 * @return EntityPage[]
 	 */
-	public function fetchEntityPages( array $entityIds ) {
+	public function fetchEntityPages( array $entityIds ): array {
 		return array_diff( $entityIds, $this->idsToIgnore );
 	}
 
