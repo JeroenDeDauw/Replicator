@@ -22,8 +22,8 @@ class TestEnvironment {
 
 	private function __construct() {
 		$connection = DriverManager::getConnection( array(
-				'driver' => 'pdo_sqlite',
-				'memory' => true,
+			'driver' => 'pdo_sqlite',
+			'memory' => true,
 		) );
 
 		$this->factory = ServiceFactory::newFromConnection( $connection );
