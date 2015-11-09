@@ -2,6 +2,7 @@
 	"name": "queryr/replicator",
 	"description": "CLI application for replicating Wikibase entities",
 	"homepage": "https://github.com/JeroenDeDauw/Replicator",
+	"license": "GPL-2.0+",
 	"authors": [
 		{
 			"name": "Jeroen De Dauw",
@@ -61,8 +62,7 @@
 			"vendor/bin/covers-validator"
 		],
 		"cs": [
-			"composer phpcs",
-			"composer phpmd"
+			"composer phpcs"
 		],
 		"ci": [
 			"composer test",

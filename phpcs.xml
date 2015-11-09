@@ -29,7 +29,9 @@
 
     <rule ref="Generic.Functions.CallTimePassByReference" />
     <rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
-    <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />
+
+    <!--Not yet working for PHP7-->
+    <!--<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />-->
 
     <rule ref="Generic.Metrics.NestingLevel">
         <properties>
