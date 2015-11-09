@@ -16,7 +16,7 @@ interface PageImportReporter {
 
 	public function endedWithError( \Exception $ex );
 
-	public function stepStarted( $message );
+	public function stepStarted( string $message );
 
 	public function stepCompleted();
 

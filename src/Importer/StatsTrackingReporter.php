@@ -37,7 +37,7 @@ class StatsTrackingReporter implements PageImportReporter {
 		$this->stats->recordError( $ex );
 	}
 
-	public function stepStarted( $message ) {
+	public function stepStarted( string $message ) {
 		$this->reporter->stepStarted( $message );
 	}
 

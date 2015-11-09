@@ -35,7 +35,7 @@ class SimpleReporter implements PageImportReporter {
 		$this->output->writeln( '<error>Error details: ' . $ex->getMessage() . '</error>' );
 	}
 
-	public function stepStarted( $message ) {
+	public function stepStarted( string $message ) {
 	}
 
 	public function stepCompleted() {

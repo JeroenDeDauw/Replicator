@@ -32,7 +32,7 @@ class LoggingReporter implements PageImportReporter {
 		$this->logger->error( $ex->getMessage() );
 	}
 
-	public function stepStarted( $message ) {
+	public function stepStarted( string $message ) {
 		$this->logger->debug( 'Started step: ' . $message );
 	}
 

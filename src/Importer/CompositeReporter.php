@@ -34,7 +34,7 @@ class CompositeReporter implements PageImportReporter {
 		$this->secondReporter->endedWithError( $ex );
 	}
 
-	public function stepStarted( $message ) {
+	public function stepStarted( string $message ) {
 		$this->firstReporter->stepStarted( $message );
 		$this->secondReporter->stepStarted( $message );
 	}

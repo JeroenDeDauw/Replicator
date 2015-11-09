@@ -38,7 +38,7 @@ class VerboseReporter implements PageImportReporter {
 		$this->output->writeln( "\t <error>Error details: " . $ex->getMessage() . '</error>' );
 	}
 
-	public function stepStarted( $message ) {
+	public function stepStarted( string $message ) {
 		$this->stepStartTime = microtime( true );
 		$this->output->write( "<comment>\t* $message... </comment>" );
 	}
