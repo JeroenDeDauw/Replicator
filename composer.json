@@ -12,7 +12,6 @@
 	"require": {
 		"php": ">=5.5.0",
 
-		"ext-pdo_mysql": "*",
 		"ext-PDO": "*",
 		"ext-pcntl": "*",
 
