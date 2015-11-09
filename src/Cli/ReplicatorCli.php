@@ -22,10 +22,7 @@ class ReplicatorCli {
 	 */
 	private $app;
 
-	/**
-	 * @return Application
-	 */
-	public function newApplication() {
+	public function newApplication() :Application {
 		$this->app = new Application();
 
 		$this->setApplicationInfo();

@@ -21,23 +21,23 @@ class ImportStats {
 		$this->errorCount++;
 	}
 
-	public function setDuration( $durationInMs ) {
+	public function setDuration( float $durationInMs ) {
 		$this->durationInMs = $durationInMs;
 	}
 
-	public function getEntityCount() {
+	public function getEntityCount(): int {
 		return $this->count;
 	}
 
-	public function getErrorCount() {
+	public function getErrorCount(): int {
 		return $this->errorCount;
 	}
 
-	public function getSuccessCount() {
+	public function getSuccessCount(): int {
 		return $this->count - $this->errorCount;
 	}
 
-	public function getErrorRatio() {
+	public function getErrorRatio(): float {
 		if ( $this->count === 0 ) {
 			return 0;
 		}
@@ -45,7 +45,7 @@ class ImportStats {
 		return $this->errorCount / $this->count * 100;
 	}
 
-	public function getDurationInMs() {
+	public function getDurationInMs(): float {
 		return $this->durationInMs;
 	}
 
