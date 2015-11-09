@@ -21,7 +21,7 @@ class EntityPage {
 	 * @param string|int $revisionId
 	 * @param string $revisionTime
 	 */
-	public function __construct( $entityJson, $title, $namespaceId, $revisionId, $revisionTime ) {
+	public function __construct( string $entityJson, string $title, $namespaceId, $revisionId, string $revisionTime ) {
 		$this->entityJson = $entityJson;
 		$this->title = $title;
 		$this->namespaceId = (int)$namespaceId;
@@ -29,38 +29,23 @@ class EntityPage {
 		$this->revisionTime = $revisionTime;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getEntityJson() {
+	public function getEntityJson(): string {
 		return $this->entityJson;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getTitle() {
+	public function getTitle(): string {
 		return $this->title;
 	}
 
-	/**
-	 * @return int
-	 */
-	public function getNamespaceId() {
+	public function getNamespaceId(): int {
 		return $this->namespaceId;
 	}
 
-	/**
-	 * @return int
-	 */
-	public function getRevisionId() {
+	public function getRevisionId(): int {
 		return $this->revisionId;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getRevisionTime() {
+	public function getRevisionTime(): string {
 		return $this->revisionTime;
 	}
 

@@ -8,7 +8,7 @@ QueryR Replicator is an application for replicating a [Wikibase](http://wikiba.s
 
 ## System dependencies
 
-* PHP 5.5 or later (PHP 7 and HHVM are supported)
+* PHP 7
 * php5-mysql
 * php5-sqlite (only needed for running the tests)
 
