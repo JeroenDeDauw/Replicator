@@ -156,23 +156,20 @@ class ServiceFactory {
 	}
 
 	public function newJsonEntityPageIterator( DumpReader $reader ) {
-		$factory = new JsonDumpFactory();
+		$entityPageIterator = function( \Iterator $dumpIterator ) {
+			foreach ( $dumpIterator as $entity ) {
+				yield new EntityPage(
+					json_encode( $entity ),
+					$entity['type'] === 'property' ? 'Property:' . $entity['id'] : $entity['id'],
+					0,
+					0,
+					( new \DateTime() )->format( 'Y-m-d\TH:i:s\Z' )
+				);
+			}
+		};
 
-		$iterator = $factory->newObjectDumpIterator( $reader );
-
-		return $this->newEntityPageGenerator( $iterator );
-	}
-
-	private function newEntityPageGenerator( \Iterator $dumpIterator ) {
-		foreach ( $dumpIterator as $entity ) {
-			yield new EntityPage(
-				json_encode( $entity ),
-				$entity['type'] === 'property' ? 'Property:' . $entity['id'] : $entity['id'],
-				0,
-				0,
-				( new \DateTime() )->format( 'Y-m-d\TH:i:s\Z' )
-			);
-		}
+		$dumpIterator = ( new JsonDumpFactory() )->newObjectDumpIterator( $reader );
+		return $entityPageIterator( $dumpIterator );
 	}
 
 	public function newPageImporter( PageImportReporter $reporter ) {
