@@ -3,6 +3,7 @@
 namespace Queryr\Replicator\Cli;
 
 use Queryr\Replicator\Cli\Command\ApiImportCommand;
+use Queryr\Replicator\Cli\Command\Bz2JsonImportCommand;
 use Queryr\Replicator\Cli\Command\InstallCommand;
 use Queryr\Replicator\Cli\Command\JsonDumpImportCommand;
 use Queryr\Replicator\Cli\Command\RunTestsCommand;
@@ -47,6 +48,7 @@ class ReplicatorCli {
 		$this->app->add( new XmlDumpImportCommand() );
 		$this->app->add( new ApiImportCommand() );
 		$this->app->add( new JsonDumpImportCommand() );
+		$this->app->add( new Bz2JsonImportCommand() );
 	}
 
 	public function run() {

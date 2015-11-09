@@ -57,11 +57,11 @@ List of commands:
 
     php replicator
 
-#### Importing JSON dumps
+#### Importing extracted JSON dumps
 
 Importing a JSON dump:
 
-    php replicator import:json tests/data/big/1000-entities.json -v
+    php replicator import:json tests/data/simple/five-entities.json -v
 
 Import command help:
 
@@ -70,7 +70,19 @@ Import command help:
 The command can be aborted with `ctrl+c`. It will exit gracefully and provide you
 with the page position marker needed to resume the import.
 
-    php replicator import:json tests/data/big/1000-entities.json -v --continue 2557421
+    php replicator import:json tests/data/simple/five-entities.json -v --continue 66943
+
+#### Importing bzip2 JSON dumps
+
+Importing a JSON dump:
+
+    php replicator import:bz2 tests/data/simple/five-entities.json.bz2 -v
+
+Import command help:
+
+    php replicator help import:bz2
+
+The command can be aborted with `ctrl+c`. It will exit gracefully.
 
 #### Importing from the Wikidata.org API
 
