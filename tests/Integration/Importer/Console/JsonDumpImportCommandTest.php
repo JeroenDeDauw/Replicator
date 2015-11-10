@@ -58,4 +58,17 @@ class JsonDumpImportCommandTest extends \PHPUnit_Framework_TestCase {
 		$this->assertContains( '--continue', $output );
 	}
 
+	public function testContinuation() {
+		$output = $this->getOutputForArgs( [
+			'file' => 'tests/data/simple/five-entities.json',
+			'--continue' => '66943'
+		] );
+
+		$this->assertNotContains( 'Q1', $output );
+		$this->assertNotContains( 'Q8', $output );
+		$this->assertNotContains( 'P16', $output );
+		$this->assertContains( 'P19', $output );
+		$this->assertContains( 'P22', $output );
+	}
+
 }
