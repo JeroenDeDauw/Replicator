@@ -16,16 +16,16 @@ use Wikibase\JsonDumpReader\JsonDumpFactory;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class Bz2JsonImportCommand extends Command {
+class GzJsonImportCommand extends Command {
 
 	protected function configure() {
-		$this->setName( 'import:bz2' );
-		$this->setDescription( 'Imports entities from a bzip2 compressed JSON dump' );
+		$this->setName( 'import:gz' );
+		$this->setDescription( 'Imports entities from a gzip compressed JSON dump' );
 
 		$this->addArgument(
 			'file',
 			InputArgument::REQUIRED,
-			'Full path of the bz2 JSON dump file'
+			'Full path of the gz JSON dump file'
 		);
 
 		$this->addOption(
@@ -67,7 +67,7 @@ class Bz2JsonImportCommand extends Command {
 			}
 		);
 
-		$dumpReader = ( new JsonDumpFactory() )->newBz2DumpReader( $input->getArgument( 'file' ) );
+		$dumpReader = ( new JsonDumpFactory() )->newGzDumpReader( $input->getArgument( 'file' ) );
 		$iterator = $this->factory->newJsonEntityPageIterator( $dumpReader );
 
 		if ( is_numeric( $input->getOption( 'max' ) ) ) {
