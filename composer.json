@@ -25,7 +25,7 @@
 		"queryr/xml-dump-reader": "~0.1.1",
 
 		"jeroen/batching-iterator": "~2.1",
-		"jeroen/json-dump-reader": "^1.0.1",
+		"jeroen/json-dump-reader": "~1.1",
 		"jeroen/query-engine": "~0.5",
 
 		"symfony/console": "~2.4",
@@ -35,7 +35,7 @@
 		"ext-pdo_sqlite": "*",
 
 		"jeroen/wikibase-data-fixtures": "~1.0",
-		"jeroen/json-dump-data": "~0.1.0",
+		"jeroen/json-dump-data": "~1.0",
 
 		"whatthejeff/nyancat-phpunit-resultprinter": "~1.2",
 		"ockcyp/covers-validator": "~0.3.0",
