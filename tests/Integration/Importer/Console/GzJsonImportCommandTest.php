@@ -2,7 +2,6 @@
 
 namespace Tests\Queryr\Replicator\Importer\Console;
 
-use Queryr\Replicator\Cli\Command\Bz2JsonImportCommand;
 use Queryr\Replicator\Cli\Command\GzJsonImportCommand;
 use Symfony\Component\Console\Tester\CommandTester;
 use Tests\Queryr\Replicator\Integration\TestEnvironment;
