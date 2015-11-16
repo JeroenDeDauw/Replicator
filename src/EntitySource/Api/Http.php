@@ -8,7 +8,11 @@ namespace Queryr\Replicator\EntitySource\Api;
  */
 class Http {
 
-	public function get( $url ) {
+	/**
+	 * @param string $url
+	 * @return string|false
+	 */
+	public function get( string $url ) {
 		return file_get_contents( $url );
 	}
 

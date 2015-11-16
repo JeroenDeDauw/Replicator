@@ -33,7 +33,7 @@ class GetEntitiesClient implements EntityPageBatchFetcher {
 		}
 
 		$response = $this->makeRequest( $this->constructRequestUrl( $entityIds ) );
-		return $this->getEntityPagesFromResponse( $response );
+		return is_string( $response ) ? $this->getEntityPagesFromResponse( $response ) : [];
 	}
 
 	/**
@@ -54,7 +54,7 @@ class GetEntitiesClient implements EntityPageBatchFetcher {
 	 * @param string $response
 	 * @return EntityPage[]
 	 */
-	private function getEntityPagesFromResponse( $response ) {
+	private function getEntityPagesFromResponse( string $response ) {
 		return $this->responseInterpreter->getEntityPagesFromResult( $response );
 	}
 

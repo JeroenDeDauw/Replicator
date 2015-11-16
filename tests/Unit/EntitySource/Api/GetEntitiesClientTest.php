@@ -15,9 +15,10 @@ class GetEntitiesClientTest extends \PHPUnit_Framework_TestCase {
 	public function testGivenNoIds_emptyArrayIsReturned() {
 		$fetcher = new GetEntitiesClient( $this->newHttpMockThatShouldNotBeCalled() );
 
-		$pages = $fetcher->fetchEntityPages( [] );
-
-		$this->assertSame( [], $pages );
+		$this->assertSame(
+			[],
+			$fetcher->fetchEntityPages( [] )
+		);
 	}
 
 	private function newHttpMockThatShouldNotBeCalled() {
@@ -26,6 +27,21 @@ class GetEntitiesClientTest extends \PHPUnit_Framework_TestCase {
 		$http->expects( $this->never() )->method( 'get' );
 
 		return $http;
+	}
+
+	public function testWhenHttpReturnsFalse_emptyArrayIsReturned() {
+		$http = $this->getMock( 'Queryr\Replicator\EntitySource\Api\Http' );
+
+		$http->expects( $this->any() )
+				->method( 'get' )
+				->willReturn( false );
+
+		$fetcher = new GetEntitiesClient( $http );
+
+		$this->assertSame(
+			[],
+			$fetcher->fetchEntityPages( [] )
+		);
 	}
 
 	/**
