@@ -36,7 +36,7 @@ class TestEnvironment {
 	/**
 	 * @return ServiceFactory
 	 */
-	public function getFactory() {
+	public function getFactory(): ServiceFactory {
 		return $this->factory;
 	}
 
