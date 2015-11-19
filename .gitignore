@@ -10,4 +10,5 @@ composer.lock
 
 vendor/
 
-config/db.json
+config/
+~config/db-example.json
