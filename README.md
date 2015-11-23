@@ -49,7 +49,7 @@ function.
 
 This will remove Replicator from the system, without deleting the application files themselves.
 
-    php replicator uninstall root-db-user root-db-pwd
+    php replicator uninstall
 
 ## Usage
 
