@@ -92,7 +92,7 @@ class JsonDumpImportCommand extends Command {
 	private function outputMaxContinuation( InputInterface $input, OutputInterface $output, SeekableDumpReader $reader ) {
 		if ( is_numeric( $input->getOption( 'max' ) ) ) {
 			$output->writeln(
-					"\n<comment>To continue from current position, run with</comment> --continue=" . $reader->getPosition()
+				"\n<comment>To continue from current position, run with</comment> --continue=" . $reader->getPosition()
 			);
 		}
 	}

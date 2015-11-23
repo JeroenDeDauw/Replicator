@@ -11,6 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Wikibase\JsonDumpReader\JsonDumpFactory;
+use Wikibase\JsonDumpReader\SeekableDumpReader;
 
 /**
  * @licence GNU GPL v2+
@@ -26,6 +27,13 @@ class GzJsonImportCommand extends Command {
 			'file',
 			InputArgument::REQUIRED,
 			'Full path of the gz JSON dump file'
+		);
+
+		$this->addOption(
+			'continue',
+			'c',
+			InputOption::VALUE_OPTIONAL,
+			'The position to resume import from'
 		);
 
 		$this->addOption(
@@ -57,17 +65,22 @@ class GzJsonImportCommand extends Command {
 			}
 		}
 
+		$dumpReader = ( new JsonDumpFactory() )->newGzDumpReader(
+			$input->getArgument( 'file' ),
+			is_numeric( $input->getOption( 'continue' ) ) ? (int)$input->getOption( 'continue' ) : 0
+		);
+
 		$importer = new PagesImporterCli(
 			$input,
 			$output,
 			$this->factory,
-			function() use ( $output ) {
+			function() use ( $output, $dumpReader ) {
 				$output->writeln( "\n" );
 				$output->writeln( "<info>Import process aborted</info>" );
+				$output->writeln( "<comment>To resume, run with</comment> --continue=" . $dumpReader->getPosition() );
 			}
 		);
 
-		$dumpReader = ( new JsonDumpFactory() )->newGzDumpReader( $input->getArgument( 'file' ) );
 		$iterator = $this->factory->newJsonEntityPageIterator( $dumpReader );
 
 		if ( is_numeric( $input->getOption( 'max' ) ) ) {
@@ -75,6 +88,16 @@ class GzJsonImportCommand extends Command {
 		}
 
 		$importer->runImport( $iterator );
+
+		$this->outputMaxContinuation( $input, $output, $dumpReader );
+	}
+
+	private function outputMaxContinuation( InputInterface $input, OutputInterface $output, SeekableDumpReader $reader ) {
+		if ( is_numeric( $input->getOption( 'max' ) ) ) {
+			$output->writeln(
+				"\n<comment>To continue from current position, run with</comment> --continue=" . $reader->getPosition()
+			);
+		}
 	}
 
 }

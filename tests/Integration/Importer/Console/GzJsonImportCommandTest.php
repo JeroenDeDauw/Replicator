@@ -56,4 +56,26 @@ class GzJsonImportCommandTest extends \PHPUnit_Framework_TestCase {
 		$this->assertNotContains( 'P22', $output );
 	}
 
+	public function testWhenUsingMaxContinueParamIsOutput() {
+		$output = $this->getOutputForArgs( [
+			'file' => 'tests/data/simple/five-entities.json.gz',
+			'--max' => '3'
+		] );
+
+		$this->assertContains( '--continue', $output );
+	}
+
+	public function testGzCommandContinuation() {
+		$output = $this->getOutputForArgs( [
+			'file' => 'tests/data/simple/five-entities.json.gz',
+			'--continue' => '66668'
+		] );
+
+		$this->assertNotContains( 'Q1', $output );
+		$this->assertNotContains( 'Q8', $output );
+		$this->assertContains( 'P16', $output );
+		$this->assertContains( 'P19', $output );
+		$this->assertContains( 'P22', $output );
+	}
+
 }

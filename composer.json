@@ -25,7 +25,7 @@
 		"queryr/xml-dump-reader": "~0.1.1",
 
 		"jeroen/batching-iterator": "~2.1",
-		"jeroen/json-dump-reader": "~1.2",
+		"jeroen/json-dump-reader": "~1.3",
 		"jeroen/query-engine": "~0.5",
 
 		"symfony/console": "~2.4",

@@ -17,7 +17,7 @@ QueryR Replicator is an application for replicating a [Wikibase](http://wikiba.s
 A CLI application using the [Symfony Console component]
 (http://symfony.com/doc/current/components/console/introduction.html).
 
-### Installation
+## Installation
 
 Clone the git repository and move into its directory.
 
@@ -40,24 +40,24 @@ by default on some linux distributions. You might need to remove some functions 
 `disable_functions` section in your `php.ini` file. In particular the `pcntl_signal_dispatch`
 function.
 
-### Updating
+## Updating
 
     git pull
     composer update
 
-### Removal
+## Removal
 
 This will remove Replicator from the system, without deleting the application files themselves.
 
     php replicator uninstall root-db-user root-db-pwd
 
-### Usage
+## Usage
 
 List of commands:
 
     php replicator
 
-#### Importing extracted JSON dumps
+### Importing extracted JSON dumps
 
 Importing a JSON dump:
 
@@ -72,19 +72,26 @@ with the page position marker needed to resume the import.
 
     php replicator import:json tests/data/simple/five-entities.json -v --continue 66943
 
-#### Importing bzip2 JSON dumps
+### Importing compressed JSON dumps
 
-Importing a JSON dump:
+Importing a gzipped JSON dump:
 
-    php replicator import:bz2 tests/data/simple/five-entities.json.bz2 -v
+    php replicator import:gz tests/data/simple/five-entities.json.gz -v
 
 Import command help:
 
-    php replicator help import:bz2
+    php replicator help import:gz
 
-The command can be aborted with `ctrl+c`. It will exit gracefully.
+The command can be aborted with `ctrl+c`. It will exit gracefully and provide you
+with the page position marker needed to resume the import.
 
-#### Importing from the Wikidata.org API
+    php replicator import:gz tests/data/simple/five-entities.json.gz -v --continue=76071
+
+Bzip2 support is also available via the `import:bz2` command. However beware that at the time
+of writing this documentation (November 2015), the Wikidata bz2 dumps have an issue that
+prevents PHP (and thus this library) from reading them entirely.
+
+### Importing from the Wikidata.org API
 
 Importing entities via the web API:
 
@@ -106,7 +113,7 @@ Multiple ranges and single IDs can be specified:
 
     php replicator import:api Q1 Q100-Q102 P43-P45 Q64
 
-#### Importing XML dumps
+### Importing XML dumps
 
 Importing an XML dump:
 
@@ -121,7 +128,7 @@ with the page title needed to resume the import.
 
     php replicator import:xml tests/data/big/5341-revs-3-props.xml --continue Q15826105 -v
 
-### Logging
+## Logging
 
 All logs are written into `var/log`. Each import run writes a detailed log to a dedicated file,
 which gets named based on the time the import started. Error events get written to errors.log,
