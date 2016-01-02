@@ -3,6 +3,9 @@
 namespace Tests\Queryr\Replicator\Integration\Importer;
 
 use Queryr\Replicator\EntitySource\Api\GetEntitiesInterpreter;
+use Queryr\Replicator\Importer\EntityHandlers\EntityStoreEntityHandler;
+use Queryr\Replicator\Importer\EntityHandlers\QueryEngineEntityHandler;
+use Queryr\Replicator\Importer\EntityHandlers\TermStoreEntityHandler;
 use Queryr\Replicator\Importer\PageImporter;
 use Tests\Queryr\Replicator\Integration\TestEnvironment;
 
@@ -16,11 +19,15 @@ class PageImporterTest extends \PHPUnit_Framework_TestCase {
 		$factory = TestEnvironment::newInstance()->getFactory();
 
 		$pageImporter = new PageImporter(
-			$factory->newEntityStore(),
 			$factory->newLegacyEntityDeserializer(),
-			$factory->newQueryStoreWriter(),
-			$this->getMock( 'Queryr\Replicator\Importer\PageImportReporter' ),
-			$factory->newTermStoreWriter()
+			[
+				new TermStoreEntityHandler( $factory->newTermStoreWriter() ),
+				new QueryEngineEntityHandler( $factory->newQueryStoreWriter() )
+			],
+			[
+				new EntityStoreEntityHandler( $factory->newEntityStore() )
+			],
+			$this->getMock( 'Queryr\Replicator\Importer\PageImportReporter' )
 		);
 
 		$jsonString = file_get_contents( __DIR__ . '/../../data/api/Q64.json' );

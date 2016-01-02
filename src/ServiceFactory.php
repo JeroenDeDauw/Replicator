@@ -18,6 +18,9 @@ use Queryr\EntityStore\EntityStoreConfig;
 use Queryr\EntityStore\EntityStoreFactory;
 use Queryr\EntityStore\EntityStoreInstaller;
 use Queryr\Replicator\Importer\CompositeReporter;
+use Queryr\Replicator\Importer\EntityHandlers\EntityStoreEntityHandler;
+use Queryr\Replicator\Importer\EntityHandlers\QueryEngineEntityHandler;
+use Queryr\Replicator\Importer\EntityHandlers\TermStoreEntityHandler;
 use Queryr\Replicator\Importer\LoggingReporter;
 use Queryr\Replicator\Importer\PageImporter;
 use Queryr\Replicator\Importer\PageImportReporter;
@@ -176,11 +179,15 @@ class ServiceFactory {
 		$compositeReporter = new CompositeReporter( $loggingReporter, $reporter );
 
 		return new PageImporter(
-			$this->newEntityStore(),
 			$this->newLegacyEntityDeserializer(),
-			$this->newQueryStoreWriter(),
-			$compositeReporter,
-			$this->newTermStoreWriter()
+			[
+				new TermStoreEntityHandler( $this->newTermStoreWriter() ),
+				new QueryEngineEntityHandler( $this->newQueryStoreWriter() )
+			],
+			[
+				new EntityStoreEntityHandler( $this->newEntityStore() )
+			],
+			$compositeReporter
 		);
 	}
 

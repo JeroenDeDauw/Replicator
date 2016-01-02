@@ -4,15 +4,9 @@ namespace Queryr\Replicator\Importer;
 
 use Deserializers\Deserializer;
 use Deserializers\Exceptions\DeserializationException;
-use Queryr\EntityStore\EntityStore;
-use Queryr\Replicator\Importer\EntityHandlers\EntityStoreEntityHandler;
-use Queryr\Replicator\Importer\EntityHandlers\QueryEngineEntityHandler;
-use Queryr\Replicator\Importer\EntityHandlers\TermStoreEntityHandler;
 use Queryr\Replicator\Model\EntityPage;
-use Queryr\TermStore\TermStoreWriter;
 use Wikibase\DataModel\Entity\EntityDocument;
 use Wikibase\DataModel\Entity\Item;
-use Wikibase\QueryEngine\QueryStoreWriter;
 
 class PageImporter {
 
@@ -22,25 +16,18 @@ class PageImporter {
 	private $entityHandlers;
 	private $entityPageHandlers;
 
-	public function __construct( EntityStore $entityStore, Deserializer $entityDeserializer,
-		QueryStoreWriter $queryStoreWriter, PageImportReporter $reporter, TermStoreWriter $termStore ) {
+	/**
+	 * @param Deserializer $entityDeserializer
+	 * @param EntityHandler[] $entityHandlers
+	 * @param EntityPageHandler[] $entityPageHandlers
+	 * @param PageImportReporter $reporter
+	 */
+	public function __construct( Deserializer $entityDeserializer, array $entityHandlers,
+		array $entityPageHandlers, PageImportReporter $reporter ) {
 
 		$this->entityDeserializer = $entityDeserializer;
 		$this->reporter = $reporter;
 
-		$this->a( [
-			new TermStoreEntityHandler( $termStore ),
-			new QueryEngineEntityHandler( $queryStoreWriter )
-		], [
-			new EntityStoreEntityHandler( $entityStore )
-		] );
-	}
-
-	/**
-	 * @param EntityHandler[] $entityHandlers
-	 * @param EntityPageHandler[] $entityPageHandlers
-	 */
-	public function a( array $entityHandlers, array $entityPageHandlers ) {
 		$this->entityHandlers = $entityHandlers;
 		$this->entityPageHandlers = $entityPageHandlers;
 	}
