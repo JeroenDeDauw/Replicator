@@ -20,7 +20,7 @@ class PageImporterTest extends \PHPUnit_Framework_TestCase {
 			$factory->newLegacyEntityDeserializer(),
 			$factory->newQueryStoreWriter(),
 			$this->getMock( 'Queryr\Replicator\Importer\PageImportReporter' ),
-			$factory->newTermStore()
+			$factory->newTermStoreWriter()
 		);
 
 		$jsonString = file_get_contents( __DIR__ . '/../../data/api/Q64.json' );
