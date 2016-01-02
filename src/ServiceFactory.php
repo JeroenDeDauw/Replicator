@@ -27,6 +27,7 @@ use Queryr\Replicator\Model\EntityPage;
 use Queryr\TermStore\TermStore;
 use Queryr\TermStore\TermStoreConfig;
 use Queryr\TermStore\TermStoreInstaller;
+use Queryr\TermStore\TermStoreWriter;
 use RuntimeException;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
 use Wikibase\DataModel\SerializerFactory;
@@ -179,7 +180,7 @@ class ServiceFactory {
 			$this->newLegacyEntityDeserializer(),
 			$this->newQueryStoreWriter(),
 			$compositeReporter,
-			$this->newTermStore()
+			$this->newTermStoreWriter()
 		);
 	}
 
@@ -198,8 +199,8 @@ class ServiceFactory {
 		);
 	}
 
-	public function newTermStore() {
-		return new TermStore(
+	public function newTermStoreWriter() {
+		return new TermStoreWriter(
 			$this->connection,
 			new TermStoreConfig( self::TERMS_STORE_PREFIX )
 		);

@@ -38,7 +38,7 @@
 		"jeroen/json-dump-data": "~1.0",
 
 		"whatthejeff/nyancat-phpunit-resultprinter": "~1.2",
-		"ockcyp/covers-validator": "~0.3.0",
+		"ockcyp/covers-validator": "~0.4.0",
 		"squizlabs/php_codesniffer": "~2.3",
 		"phpmd/phpmd": "~2.3"
 	},
