@@ -22,7 +22,7 @@ use Wikibase\DataModel\Entity\BasicEntityIdParser;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ApiImportCommand extends Command {
+class ApiImportCommand extends ImportCommandBase {
 
 	protected function configure() {
 		$this->setName( 'import:api' );
@@ -59,15 +59,6 @@ class ApiImportCommand extends Command {
 	}
 
 	/**
-	 * @var ServiceFactory|null
-	 */
-	private $factory = null;
-
-	public function setServiceFactory( ServiceFactory $factory ) {
-		$this->factory = $factory;
-	}
-
-	/**
 	 * @var Http|null
 	 */
 	private $http;
@@ -76,18 +67,7 @@ class ApiImportCommand extends Command {
 		$this->http = $http;
 	}
 
-	protected function execute( InputInterface $input, OutputInterface $output ) {
-		if ( $this->factory === null ) {
-			try {
-				$this->factory = ServiceFactory::newFromConfig();
-			}
-			catch ( RuntimeException $ex ) {
-				$output->writeln( '<error>Could not instantiate the Replicator app</error>' );
-				$output->writeln( '<error>' . $ex->getMessage() . '</error>' );
-				return;
-			}
-		}
-
+	protected function executeCommand( InputInterface $input, OutputInterface $output ) {
 		$importer = new PagesImporterCli( $input, $output, $this->factory );
 
 		$importer->runImport( $this->getEntityPageIterator( $input ) );

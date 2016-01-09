@@ -17,7 +17,7 @@ use Wikibase\JsonDumpReader\SeekableDumpReader;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class JsonDumpImportCommand extends Command {
+class JsonDumpImportCommand extends ImportCommandBase {
 
 	protected function configure() {
 		$this->setName( 'import:json' );
@@ -44,27 +44,7 @@ class JsonDumpImportCommand extends Command {
 		);
 	}
 
-	/**
-	 * @var ServiceFactory|null
-	 */
-	private $factory = null;
-
-	public function setServiceFactory( ServiceFactory $factory ) {
-		$this->factory = $factory;
-	}
-
-	protected function execute( InputInterface $input, OutputInterface $output ) {
-		if ( $this->factory === null ) {
-			try {
-				$this->factory = ServiceFactory::newFromConfig();
-			}
-			catch ( RuntimeException $ex ) {
-				$output->writeln( '<error>Could not instantiate the Replicator app</error>' );
-				$output->writeln( '<error>' . $ex->getMessage() . '</error>' );
-				return;
-			}
-		}
-
+	protected function executeCommand( InputInterface $input, OutputInterface $output ) {
 		$reader = ( new JsonDumpFactory() )->newExtractedDumpReader(
 			$input->getArgument( 'file' ),
 			$input->getOption( 'continue' ) === null ? 0 : (int)$input->getOption( 'continue' )

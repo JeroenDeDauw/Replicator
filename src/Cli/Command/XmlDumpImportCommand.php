@@ -18,7 +18,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class XmlDumpImportCommand extends Command {
+class XmlDumpImportCommand extends ImportCommandBase {
 
 	protected function configure() {
 		$this->setName( 'import:xml' );
@@ -38,27 +38,7 @@ class XmlDumpImportCommand extends Command {
 		);
 	}
 
-	/**
-	 * @var ServiceFactory|null
-	 */
-	private $factory = null;
-
-	public function setServiceFactory( ServiceFactory $factory ) {
-		$this->factory = $factory;
-	}
-
-	protected function execute( InputInterface $input, OutputInterface $output ) {
-		if ( $this->factory === null ) {
-			try {
-				$this->factory = ServiceFactory::newFromConfig();
-			}
-			catch ( RuntimeException $ex ) {
-				$output->writeln( '<error>Could not instantiate the Replicator app</error>' );
-				$output->writeln( '<error>' . $ex->getMessage() . '</error>' );
-				return;
-			}
-		}
-
+	protected function executeCommand( InputInterface $input, OutputInterface $output ) {
 		$onAborted = function( $pageTitle ) use ( $output ) {
 			$output->writeln( "\n" );
 			$output->writeln( "<info>Import process aborted</info>" );

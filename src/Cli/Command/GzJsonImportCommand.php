@@ -17,7 +17,7 @@ use Wikibase\JsonDumpReader\SeekableDumpReader;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class GzJsonImportCommand extends Command {
+class GzJsonImportCommand extends ImportCommandBase {
 
 	protected function configure() {
 		$this->setName( 'import:gz' );
@@ -44,27 +44,7 @@ class GzJsonImportCommand extends Command {
 		);
 	}
 
-	/**
-	 * @var ServiceFactory|null
-	 */
-	private $factory = null;
-
-	public function setServiceFactory( ServiceFactory $factory ) {
-		$this->factory = $factory;
-	}
-
-	protected function execute( InputInterface $input, OutputInterface $output ) {
-		if ( $this->factory === null ) {
-			try {
-				$this->factory = ServiceFactory::newFromConfig();
-			}
-			catch ( RuntimeException $ex ) {
-				$output->writeln( '<error>Could not instantiate the Replicator app</error>' );
-				$output->writeln( '<error>' . $ex->getMessage() . '</error>' );
-				return;
-			}
-		}
-
+	protected function executeCommand( InputInterface $input, OutputInterface $output ) {
 		$dumpReader = ( new JsonDumpFactory() )->newGzDumpReader(
 			$input->getArgument( 'file' ),
 			is_numeric( $input->getOption( 'continue' ) ) ? (int)$input->getOption( 'continue' ) : 0
