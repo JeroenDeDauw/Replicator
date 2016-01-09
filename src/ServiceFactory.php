@@ -27,8 +27,8 @@ use Queryr\EntityStore\EntityStoreConfig;
 use Queryr\EntityStore\EntityStoreFactory;
 use Queryr\EntityStore\EntityStoreInstaller;
 use Queryr\Replicator\Importer\CompositeReporter;
+use Queryr\Replicator\Importer\EntityHandler;
 use Queryr\Replicator\Importer\EntityHandlers\EntityStoreEntityHandler;
-use Queryr\Replicator\Importer\EntityHandlers\QueryEngineEntityHandler;
 use Queryr\Replicator\Importer\EntityHandlers\TermStoreEntityHandler;
 use Queryr\Replicator\Importer\LoggingReporter;
 use Queryr\Replicator\Importer\PageImporter;
@@ -46,10 +46,6 @@ use Wikibase\DataModel\SerializerFactory;
 use Wikibase\InternalSerialization\DeserializerFactory;
 use Wikibase\JsonDumpReader\DumpReader;
 use Wikibase\JsonDumpReader\JsonDumpFactory;
-use Wikibase\QueryEngine\SQLStore\DataValueHandlersBuilder;
-use Wikibase\QueryEngine\SQLStore\SQLStore;
-use Wikibase\QueryEngine\SQLStore\StoreConfig;
-use Wikibase\QueryEngine\SQLStore\StoreSchema;
 
 /**
  * @licence GNU GPL v2+
@@ -98,6 +94,11 @@ class ServiceFactory {
 	 */
 	private $logger;
 
+	/**
+	 * @var EntityHandler[]
+	 */
+	private $entityHandlers = [];
+
 	private function __construct( Connection $connection ) {
 		$this->connection = $connection;
 		$this->logger = new NullLogger();
@@ -124,29 +125,6 @@ class ServiceFactory {
 
 	public function setLogger( LoggerInterface $logger ) {
 		$this->logger = $logger;
-	}
-
-	public function newQueryEngineInstaller() {
-		$sqlStore = $this->newSqlStore();
-		return $sqlStore->newInstaller( $this->connection->getSchemaManager() );
-	}
-
-	public function newQueryEngineUninstaller() {
-		$sqlStore = $this->newSqlStore();
-		return $sqlStore->newUninstaller( $this->connection->getSchemaManager() );
-	}
-
-	private function newSqlStore() {
-		$handlers = new DataValueHandlersBuilder();
-
-		$schema = new StoreSchema(
-			self::QUERY_ENGINE_PREFIX,
-			$handlers->withSimpleMainSnakHandlers()->getHandlers()
-		);
-
-		$config = new StoreConfig( 'QueryR Replicator QueryEngine' );
-
-		return new SQLStore( $schema, $config );
 	}
 
 	public function newEntityStoreInstaller() {
@@ -189,7 +167,7 @@ class ServiceFactory {
 
 		return new PageImporter(
 			$this->newLegacyEntityDeserializer(),
-			$this->getEntityHandlers(),
+			$this->entityHandlers, // TODO
 			[
 				new EntityStoreEntityHandler( $this->newEntityStore() )
 			],
@@ -197,16 +175,20 @@ class ServiceFactory {
 		);
 	}
 
+	// TODO
 	private function getEntityHandlers() {
 		$handlers = [
 			new TermStoreEntityHandler( $this->newTermStoreWriter() )
 		];
 
-		if ( defined( 'WIKIBASE_QUERYENGINE_VERSION' ) ) {
-			$handlers[] = new QueryEngineEntityHandler( $this->newQueryStoreWriter() );
-		}
-
 		return $handlers;
+	}
+
+	public function setEntityHandlers( array $entityHandlers ) {
+		$this->entityHandlers = array_merge( [
+			new TermStoreEntityHandler( $this->newTermStoreWriter() ),
+			//new QueryEngineEntityHandler( $this->newQueryStoreWriter() )
+		], $entityHandlers );
 	}
 
 	public function newEntityStore() {
@@ -274,10 +256,6 @@ class ServiceFactory {
 		);
 
 		return $factory->newEntitySerializer();
-	}
-
-	public function newQueryStoreWriter() {
-		return $this->newSqlStore()->newWriter( $this->connection );
 	}
 
 	public function newTermStoreInstaller() {

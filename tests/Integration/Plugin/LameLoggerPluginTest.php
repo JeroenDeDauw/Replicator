@@ -4,6 +4,7 @@ namespace Tests\Queryr\Replicator\Integration\Importer;
 
 use Queryr\Replicator\Cli\Command\GzJsonImportCommand;
 use Queryr\Replicator\Plugin\EntityHandlerPlugin;
+use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Tester\CommandTester;
 use Tests\Queryr\Replicator\Integration\TestEnvironment;
 use Wikibase\DataModel\Entity\EntityDocument;
@@ -15,8 +16,6 @@ use Wikibase\DataModel\Entity\EntityDocument;
 class LameLoggerPluginTest extends \PHPUnit_Framework_TestCase {
 
 	public function setUp() {
-		$this->markTestSkipped( 'Plugin system incomplete' ); // TODO
-
 		global $replicatorEntityHandlers;
 
 		$replicatorEntityHandlers[] = function() {
@@ -52,7 +51,7 @@ class LameLoggerPluginTest extends \PHPUnit_Framework_TestCase {
 
 	public function testEntityIdInOutput() {
 		$output = $this->getOutputForArgs( [
-			'file' => 'tests/data/simple/five-entities.json.gz'
+			'file' => 'tests/data/simple/five-entities.json.gz',
 		] );
 
 		$this->assertContains( 'Q1', $output );
@@ -69,7 +68,7 @@ class LameLoggerPluginTest extends \PHPUnit_Framework_TestCase {
 	private function getOutputForArgs( array $args ) {
 		$commandTester = $this->newCommandTester();
 
-		$commandTester->execute( $args );
+		$commandTester->execute( $args, [ 'verbosity' => OutputInterface::VERBOSITY_VERBOSE ] );
 
 		return $commandTester->getDisplay();
 	}
