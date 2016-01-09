@@ -14,6 +14,12 @@ use Tests\Queryr\Replicator\Integration\TestEnvironment;
  */
 class Bz2JsonImportCommandTest extends \PHPUnit_Framework_TestCase {
 
+	public function setUp() {
+		if ( !function_exists( 'bzopen' ) ) {
+			$this->markTestSkipped( 'bzip2 library not installed' );
+		}
+	}
+
 	public function testEntityIdInOutput() {
 		$output = $this->getOutputForArgs( [
 			'file' => 'tests/data/simple/five-entities.json.bz2'
