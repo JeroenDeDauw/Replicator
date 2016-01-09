@@ -27,7 +27,6 @@ use Queryr\Replicator\Importer\PageImportReporter;
 use Queryr\Replicator\Importer\PagesImporter;
 use Queryr\Replicator\Importer\StatsReporter;
 use Queryr\Replicator\Model\EntityPage;
-use Queryr\TermStore\TermStore;
 use Queryr\TermStore\TermStoreConfig;
 use Queryr\TermStore\TermStoreInstaller;
 use Queryr\TermStore\TermStoreWriter;
