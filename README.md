@@ -134,7 +134,6 @@ All logs are written into `var/log`. Each import run writes a detailed log to a 
 which gets named based on the time the import started. Error events get written to errors.log,
 which is a general error file, appended to by each import run.
 
-
 ## Running the tests
 
 For tests only
@@ -148,3 +147,10 @@ For style checks only
 For a full CI run
 
 	composer ci
+
+
+## Release notes
+
+### Version 0.1 (2016-01-25)
+
+* Initial release: see [blog post](https://www.entropywins.wtf/blog/2016/01/25/replicator-a-cli-tool-for-wikidata/)
