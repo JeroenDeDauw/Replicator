@@ -39,6 +39,11 @@ class QueryEngineTest extends \PHPUnit_Framework_TestCase {
 	private $queryEngine;
 
 	public function setUp() {
+		if ( !defined( 'WIKIBASE_QUERYENGINE_VERSION' ) ) {
+			$this->markTestSkipped( 'QueryEngine not installed' );
+			return;
+		}
+
 		$sqlStore = new SQLStore( $this->newStoreSchema(), $this->newStoreConfig() );
 
 		$connection = $this->newConnection();

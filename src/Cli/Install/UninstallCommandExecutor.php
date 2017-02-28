@@ -54,12 +54,14 @@ class UninstallCommandExecutor {
 	}
 
 	private function removeQueryEngine() {
-		$this->tryTask(
-			'Removing query engine',
-			function() {
-				$this->factory->newQueryEngineUninstaller()->uninstall();
-			}
-		);
+		if ( defined( 'WIKIBASE_QUERYENGINE_VERSION' ) ) {
+			$this->tryTask(
+				'Removing query engine',
+				function() {
+					$this->factory->newQueryEngineUninstaller()->uninstall();
+				}
+			);
+		}
 	}
 
 	private function startRemoval() {

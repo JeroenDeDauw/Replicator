@@ -57,12 +57,14 @@ class InstallCommandExecutor {
 	}
 
 	private function createQueryEngine() {
-		$this->tryTask(
-			'Creating query engine',
-			function() {
-				$this->factory->newQueryEngineInstaller()->install();
-			}
-		);
+		if ( defined( 'WIKIBASE_QUERYENGINE_VERSION' ) ) {
+			$this->tryTask(
+				'Creating query engine',
+				function () {
+					$this->factory->newQueryEngineInstaller()->install();
+				}
+			);
+		}
 	}
 
 	private function reportInstallationFailure( $failureMessage ) {
