@@ -2,8 +2,17 @@
 
 namespace Queryr\Replicator;
 
+use DataValues\BooleanValue;
 use DataValues\Deserializers\DataValueDeserializer;
+use DataValues\Geo\Values\GlobeCoordinateValue;
+use DataValues\MonolingualTextValue;
+use DataValues\MultilingualTextValue;
+use DataValues\NumberValue;
+use DataValues\QuantityValue;
 use DataValues\Serializers\DataValueSerializer;
+use DataValues\StringValue;
+use DataValues\TimeValue;
+use DataValues\UnknownValue;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\DriverManager;
@@ -32,6 +41,7 @@ use Queryr\TermStore\TermStoreInstaller;
 use Queryr\TermStore\TermStoreWriter;
 use RuntimeException;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
+use Wikibase\DataModel\Entity\EntityIdValue;
 use Wikibase\DataModel\SerializerFactory;
 use Wikibase\InternalSerialization\DeserializerFactory;
 use Wikibase\JsonDumpReader\DumpReader;
@@ -179,15 +189,24 @@ class ServiceFactory {
 
 		return new PageImporter(
 			$this->newLegacyEntityDeserializer(),
-			[
-				new TermStoreEntityHandler( $this->newTermStoreWriter() ),
-				new QueryEngineEntityHandler( $this->newQueryStoreWriter() )
-			],
+			$this->getEntityHandlers(),
 			[
 				new EntityStoreEntityHandler( $this->newEntityStore() )
 			],
 			$compositeReporter
 		);
+	}
+
+	private function getEntityHandlers() {
+		$handlers = [
+			new TermStoreEntityHandler( $this->newTermStoreWriter() )
+		];
+
+		if ( defined( 'WIKIBASE_QUERYENGINE_VERSION' ) ) {
+			$handlers[] = new QueryEngineEntityHandler( $this->newQueryStoreWriter() );
+		}
+
+		return $handlers;
 	}
 
 	public function newEntityStore() {
@@ -213,20 +232,18 @@ class ServiceFactory {
 	}
 
 	private function newDataValueDeserializer() {
-		$dataValueClasses = [
-			'boolean' => 'DataValues\BooleanValue',
-			'number' => 'DataValues\NumberValue',
-			'string' => 'DataValues\StringValue',
-			'unknown' => 'DataValues\UnknownValue',
-			'globecoordinate' => 'DataValues\Geo\Values\GlobeCoordinateValue',
-			'monolingualtext' => 'DataValues\MonolingualTextValue',
-			'multilingualtext' => 'DataValues\MultilingualTextValue',
-			'quantity' => 'DataValues\QuantityValue',
-			'time' => 'DataValues\TimeValue',
-			'wikibase-entityid' => 'Wikibase\DataModel\Entity\EntityIdValue',
-		];
-
-		return new DataValueDeserializer( $dataValueClasses );
+		return new DataValueDeserializer( [
+			'boolean' => BooleanValue::class,
+			'number' => NumberValue::class,
+			'string' => StringValue::class,
+			'unknown' => UnknownValue::class,
+			'globecoordinate' => GlobeCoordinateValue::class,
+			'monolingualtext' => MonolingualTextValue::class,
+			'multilingualtext' => MultilingualTextValue::class,
+			'quantity' => QuantityValue::class,
+			'time' => TimeValue::class,
+			'wikibase-entityid' => EntityIdValue::class,
+		] );
 	}
 
 	private function newEntityIdParser() {

@@ -151,6 +151,11 @@ For a full CI run
 
 ## Release notes
 
+### Version 0.2 (dev)
+
+* Upgraded Wikibase DataModel from 4.x to 6.x (needed to work with recent data from Wikidata)
+* The query store is no longer installed by default (install with `composer require jeroen/query-engine`)
+
 ### Version 0.1 (2016-01-25)
 
 * Initial release: see [blog post](https://www.entropywins.wtf/blog/2016/01/25/replicator-a-cli-tool-for-wikidata/)

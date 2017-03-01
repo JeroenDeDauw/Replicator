@@ -29,7 +29,11 @@ class TestEnvironment {
 		$this->factory = ServiceFactory::newFromConnection( $connection );
 
 		$this->factory->newEntityStoreInstaller()->install();
-		$this->factory->newQueryEngineInstaller()->install();
+
+		if ( defined( 'WIKIBASE_QUERYENGINE_VERSION' ) ) {
+			$this->factory->newQueryEngineInstaller()->install();
+		}
+
 		$this->factory->newTermStoreInstaller()->install();
 	}
 

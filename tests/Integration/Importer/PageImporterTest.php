@@ -7,6 +7,8 @@ use Queryr\Replicator\Importer\EntityHandlers\EntityStoreEntityHandler;
 use Queryr\Replicator\Importer\EntityHandlers\QueryEngineEntityHandler;
 use Queryr\Replicator\Importer\EntityHandlers\TermStoreEntityHandler;
 use Queryr\Replicator\Importer\PageImporter;
+use Queryr\Replicator\Importer\PageImportReporter;
+use Queryr\Replicator\ServiceFactory;
 use Tests\Queryr\Replicator\Integration\TestEnvironment;
 
 /**
@@ -20,14 +22,11 @@ class PageImporterTest extends \PHPUnit_Framework_TestCase {
 
 		$pageImporter = new PageImporter(
 			$factory->newLegacyEntityDeserializer(),
-			[
-				new TermStoreEntityHandler( $factory->newTermStoreWriter() ),
-				new QueryEngineEntityHandler( $factory->newQueryStoreWriter() )
-			],
+			$this->getEntityHandlers( $factory ),
 			[
 				new EntityStoreEntityHandler( $factory->newEntityStore() )
 			],
-			$this->getMock( 'Queryr\Replicator\Importer\PageImportReporter' )
+			$this->getMock( PageImportReporter::class )
 		);
 
 		$jsonString = file_get_contents( __DIR__ . '/../../data/api/Q64.json' );
@@ -50,4 +49,15 @@ class PageImporterTest extends \PHPUnit_Framework_TestCase {
 		$this->assertInternalType( 'array', json_decode( $itemRow->getItemJson(), true ) );
 	}
 
+	private function getEntityHandlers( ServiceFactory $factory ) {
+		$handlers = [
+			new TermStoreEntityHandler( $factory->newTermStoreWriter() )
+		];
+
+		if ( defined( 'WIKIBASE_QUERYENGINE_VERSION' ) ) {
+			$handlers[] = new QueryEngineEntityHandler( $factory->newQueryStoreWriter() );
+		}
+
+		return $handlers;
+	}
 }
