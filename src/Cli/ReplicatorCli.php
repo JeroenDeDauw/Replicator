@@ -33,8 +33,8 @@ class ReplicatorCli {
 	}
 
 	private function setApplicationInfo() {
-		$this->app->setName( 'QueryR Replicator' );
-		$this->app->setVersion( '0.1 alpha' );
+		$this->app->setName( 'Replicator' );
+		$this->app->setVersion( '0.2-dev' );
 	}
 
 	private function registerCommands() {
