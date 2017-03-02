@@ -1,16 +1,30 @@
-# QueryR Replicator
+# Replicator
 
 [![Build Status](https://secure.travis-ci.org/JeroenDeDauw/Replicator.png?branch=master)](http://travis-ci.org/JeroenDeDauw/Replicator)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/JeroenDeDauw/Replicator/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/JeroenDeDauw/Replicator/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/JeroenDeDauw/Replicator/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/JeroenDeDauw/Replicator/?branch=master)
 
-QueryR Replicator is an application for replicating a [Wikibase](http://wikiba.se/) entity base.
+Replicator is a CLI application for replicating a [Wikibase](http://wikiba.se/) entity base
+such as [Wikidata](https://www.wikidata.org).
+
+Replicator can import entities from the Wikidata API and from Wikibase dumps in various formats.
+It features abort/resume, graceful error handling, progress reporting, dynamic fetching of
+dependencies, API batching and standalone installation (no own MediaWiki or Wikibase required).
+Furthermore it uses the same deserialization code as Wikibase itself, so is always 100% compatible.
+
+Information is by default written to the
+[QueryR EntityStore](https://www.entropywins.wtf/blog/2015/11/14/entitystore-and-termstore-for-wikibasewikidata/)
+and [Queryr TermStore](https://www.entropywins.wtf/blog/2015/11/14/entitystore-and-termstore-for-wikibasewikidata/),
+as Replicator was created to populate the [QueryR REST API](http://queryr.wmflabs.org/about/).
+With some simple PHP additions you can write to the sources of your choosing.
 
 ## System dependencies
 
 * PHP 7
-* php5-mysql
-* php5-sqlite (only needed for running the tests)
+* php7.0-mysql
+* php7.0-sqlite (only needed for running the tests)
+
+For an always fully up to date list, see `build/vagrant/install_packages.sh`.
 
 ## Application
 
@@ -18,6 +32,12 @@ A CLI application using the [Symfony Console component]
 (http://symfony.com/doc/current/components/console/introduction.html).
 
 ## Installation
+
+### Installation with Vagrant (inside a virtual machine)
+
+
+
+### Local installation
 
 Clone the git repository and move into its directory.
 
@@ -154,6 +174,7 @@ For a full CI run
 ### Version 0.2 (dev)
 
 * Upgraded Wikibase DataModel from 4.x to 6.x (needed to work with recent data from Wikidata)
+* Added Vagrant support
 * The query store is no longer installed by default (install with `composer require jeroen/query-engine`)
 * PHP 7.0 or later is now required
 
