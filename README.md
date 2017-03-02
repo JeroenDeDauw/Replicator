@@ -155,6 +155,7 @@ For a full CI run
 
 * Upgraded Wikibase DataModel from 4.x to 6.x (needed to work with recent data from Wikidata)
 * The query store is no longer installed by default (install with `composer require jeroen/query-engine`)
+* PHP 7.0 or later is now required
 
 ### Version 0.1 (2016-01-25)
 
