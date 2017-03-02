@@ -18,26 +18,31 @@ and [Queryr TermStore](https://www.entropywins.wtf/blog/2015/11/14/entitystore-a
 as Replicator was created to populate the [QueryR REST API](http://queryr.wmflabs.org/about/).
 With some simple PHP additions you can write to the sources of your choosing.
 
-## System dependencies
+## Installation
+
+### Installation with Vagrant (inside a virtual machine)
+
+Get a copy of the code and make sure you have [Vagrant](https://www.vagrantup.com/) installed.
+
+Copy `config/db-vagrant.json` to `config/db.json`. Then, inside the root directory of the project, execute
+
+    vagrant up
+    vagrant ssh
+    
+Once you're ssh'd into the VM, you can find Replicator fully installed in `/vagrant`.
+
+    cd /vagrant
+    ./replicator
+
+### Local installation
+
+Make sure you have all system dependencies:
 
 * PHP 7
 * php7.0-mysql
 * php7.0-sqlite (only needed for running the tests)
 
 For an always fully up to date list, see `build/vagrant/install_packages.sh`.
-
-## Application
-
-A CLI application using the [Symfony Console component]
-(http://symfony.com/doc/current/components/console/introduction.html).
-
-## Installation
-
-### Installation with Vagrant (inside a virtual machine)
-
-
-
-### Local installation
 
 Clone the git repository and move into its directory.
 
