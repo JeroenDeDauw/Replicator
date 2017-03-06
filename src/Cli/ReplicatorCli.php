@@ -34,7 +34,7 @@ class ReplicatorCli {
 
 	private function setApplicationInfo() {
 		$this->app->setName( 'Replicator' );
-		$this->app->setVersion( '0.2-dev' );
+		$this->app->setVersion( '0.2' );
 	}
 
 	private function registerCommands() {

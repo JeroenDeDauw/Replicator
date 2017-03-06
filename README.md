@@ -176,12 +176,12 @@ For a full CI run
 
 ## Release notes
 
-### Version 0.2 (dev)
+### Version 0.2 (2017-03-06)
 
 * Upgraded Wikibase DataModel from 4.x to 6.x (needed to work with recent data from Wikidata)
 * Added Vagrant support
 * The query store is no longer installed by default (install with `composer require jeroen/query-engine`)
-* PHP 7.0 or later is now required
+* PHP 7.0 or later is now required (for local installation)
 
 ### Version 0.1 (2016-01-25)
 
