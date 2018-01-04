@@ -24,7 +24,11 @@ With some simple PHP additions you can write to the sources of your choosing.
 
 Get a copy of the code and make sure you have [Vagrant](https://www.vagrantup.com/) installed.
 
-Copy `config/db-vagrant.json` to `config/db.json`. Then, inside the root directory of the project, execute
+Copy `config/db-example.json` to `config/db.json`.
+
+    cp config/db-example.json config/db.json
+
+Then, inside the root directory of the project, execute
 
     vagrant up
     vagrant ssh
