@@ -7,6 +7,7 @@ use Ask\Language\Description\ValueDescription;
 use Ask\Language\Option\QueryOptions;
 use DataValues\NumberValue;
 use Doctrine\DBAL\DriverManager;
+use PHPUnit\Framework\TestCase;
 use Tests\Queryr\Replicator\Fixtures\StubPropertyDataValueTypeLookup;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
 use Wikibase\DataModel\Entity\EntityIdValue;
@@ -26,7 +27,7 @@ use Wikibase\QueryEngine\SQLStore\StoreSchema;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class QueryEngineTest extends \PHPUnit_Framework_TestCase {
+class QueryEngineTest extends TestCase {
 
 	/**
 	 * @var QueryStoreWriter

@@ -2,18 +2,19 @@
 
 namespace Tests\Queryr\Replicator;
 
+use PHPUnit\Framework\TestCase;
 use Queryr\Replicator\EntityIdListNormalizer;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
 use Wikibase\DataModel\Entity\ItemId;
 use Wikibase\DataModel\Entity\PropertyId;
 
 /**
- * @covers Queryr\Replicator\EntityIdListNormalizer
+ * @covers \Queryr\Replicator\EntityIdListNormalizer
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EntityIdListNormalizerTest extends \PHPUnit_Framework_TestCase {
+class EntityIdListNormalizerTest extends TestCase {
 
 	/**
 	 * @var EntityIdListNormalizer
@@ -82,22 +83,22 @@ class EntityIdListNormalizerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGivenNonEntityId_exceptionIsThrown() {
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 		iterator_to_array( $this->normalizer->getNormalized( [ 'kittens' ] ) );
 	}
 
 	public function testGivenMixedRange_exceptionIsThrown() {
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 		iterator_to_array( $this->normalizer->getNormalized( [ 'Q1-P3' ] ) );
 	}
 
 	public function testRangeWithInvalidId_exceptionIsThrown() {
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 		iterator_to_array( $this->normalizer->getNormalized( [ 'Q123-kittens' ] ) );
 	}
 
 	public function testRangeInWrongDirection_exceptionIsThrown() {
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 		iterator_to_array( $this->normalizer->getNormalized( [ 'Q102-Q100' ] ) );
 	}
 

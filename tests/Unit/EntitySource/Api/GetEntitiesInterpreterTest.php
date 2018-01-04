@@ -2,16 +2,17 @@
 
 namespace Tests\Queryr\Replicator\EntitySource\Api;
 
+use PHPUnit\Framework\TestCase;
 use Queryr\Replicator\EntitySource\Api\GetEntitiesInterpreter;
 use Queryr\Replicator\Model\EntityPage;
 
 /**
- * @covers Queryr\Replicator\EntitySource\Api\GetEntitiesInterpreter
+ * @covers \Queryr\Replicator\EntitySource\Api\GetEntitiesInterpreter
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class GetEntitiesInterpreterTest extends \PHPUnit_Framework_TestCase {
+class GetEntitiesInterpreterTest extends TestCase {
 
 	public function testGivenInvalidJson_emptyArrayIsReturned() {
 		$interpreter = new GetEntitiesInterpreter();

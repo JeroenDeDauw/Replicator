@@ -2,18 +2,19 @@
 
 namespace Tests\Queryr\Replicator\Importer\Console;
 
+use PHPUnit\Framework\TestCase;
 use Queryr\Replicator\Cli\Command\ApiImportCommand;
 use Symfony\Component\Console\Tester\CommandTester;
 use Tests\Queryr\Replicator\Fixtures\FakeHttp;
 use Tests\Queryr\Replicator\Integration\TestEnvironment;
 
 /**
- * @covers Queryr\Replicator\Cli\Command\ApiImportCommand
+ * @covers \Queryr\Replicator\Cli\Command\ApiImportCommand
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ApiImportCommandTest extends \PHPUnit_Framework_TestCase {
+class ApiImportCommandTest extends TestCase {
 
 	public function testEntityIdInOutput() {
 		$output = $this->getOutputForArgs( [

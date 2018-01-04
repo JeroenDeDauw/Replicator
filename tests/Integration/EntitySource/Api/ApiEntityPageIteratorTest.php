@@ -3,16 +3,18 @@
 namespace Tests\Queryr\Replicator\EntitySource\Api;
 
 use BatchingIterator\BatchingIterator;
+use PHPUnit\Framework\TestCase;
 use Queryr\Replicator\EntitySource\BatchingEntityPageFetcher;
+use Queryr\Replicator\EntitySource\EntityPageBatchFetcher;
 use Tests\Queryr\Replicator\Fixtures\FakeEntityPagesFetcher;
 
 /**
- * @covers Queryr\Replicator\EntitySource\BatchingEntityPageFetcher
+ * @covers \Queryr\Replicator\EntitySource\BatchingEntityPageFetcher
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ApiEntityPageIteratorTest extends \PHPUnit_Framework_TestCase {
+class ApiEntityPageIteratorTest extends TestCase {
 
 	public function testIterationOverEmptyIterator() {
 		$iterator = $this->newFakeIterator( [], [] );
@@ -57,8 +59,7 @@ class ApiEntityPageIteratorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function newFetcherMock() {
-		return $this->getMockBuilder( 'Queryr\Replicator\EntitySource\EntityPageBatchFetcher' )
-			->disableOriginalConstructor()->getMock();
+		return $this->createMock( EntityPageBatchFetcher::class );
 	}
 
 	public function batchProvider() {

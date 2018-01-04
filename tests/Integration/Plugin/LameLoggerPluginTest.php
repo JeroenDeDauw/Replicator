@@ -2,6 +2,7 @@
 
 namespace Tests\Queryr\Replicator\Integration\Importer;
 
+use PHPUnit\Framework\TestCase;
 use Queryr\Replicator\Cli\Command\GzJsonImportCommand;
 use Queryr\Replicator\Plugin\EntityHandlerPlugin;
 use Symfony\Component\Console\Tester\CommandTester;
@@ -12,7 +13,7 @@ use Wikibase\DataModel\Entity\EntityDocument;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class LameLoggerPluginTest extends \PHPUnit_Framework_TestCase {
+class LameLoggerPluginTest extends TestCase {
 
 	public function setUp() {
 		$this->markTestSkipped( 'Plugin system incomplete' ); // TODO

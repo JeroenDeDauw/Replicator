@@ -2,17 +2,18 @@
 
 namespace Tests\Queryr\Replicator\Importer\Console;
 
+use PHPUnit\Framework\TestCase;
 use Queryr\Replicator\Cli\Command\Bz2JsonImportCommand;
 use Symfony\Component\Console\Tester\CommandTester;
 use Tests\Queryr\Replicator\Integration\TestEnvironment;
 
 /**
- * @covers Queryr\Replicator\Cli\Command\Bz2JsonImportCommand
+ * @covers \Queryr\Replicator\Cli\Command\Bz2JsonImportCommand
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class Bz2JsonImportCommandTest extends \PHPUnit_Framework_TestCase {
+class Bz2JsonImportCommandTest extends TestCase {
 
 	public function setUp() {
 		if ( !function_exists( 'bzopen' ) ) {

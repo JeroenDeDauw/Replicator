@@ -3,15 +3,16 @@
 namespace Tests\Queryr\Replicator\Importer;
 
 use Exception;
+use PHPUnit\Framework\TestCase;
 use Queryr\Replicator\Importer\ImportStats;
 
 /**
- * @covers Queryr\Replicator\Importer\ImportStats
+ * @covers \Queryr\Replicator\Importer\ImportStats
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ImportStatsTest extends \PHPUnit_Framework_TestCase {
+class ImportStatsTest extends TestCase {
 
 	/**
 	 * @var ImportStats

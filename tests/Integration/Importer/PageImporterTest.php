@@ -2,6 +2,7 @@
 
 namespace Tests\Queryr\Replicator\Integration\Importer;
 
+use PHPUnit\Framework\TestCase;
 use Queryr\Replicator\EntitySource\Api\GetEntitiesInterpreter;
 use Queryr\Replicator\Importer\EntityHandlers\EntityStoreEntityHandler;
 use Queryr\Replicator\Importer\EntityHandlers\QueryEngineEntityHandler;
@@ -15,7 +16,7 @@ use Tests\Queryr\Replicator\Integration\TestEnvironment;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class PageImporterTest extends \PHPUnit_Framework_TestCase {
+class PageImporterTest extends TestCase {
 
 	public function testWhenInsertingBerlin_entityStoreFieldsAreSet() {
 		$factory = TestEnvironment::newInstance()->getFactory();
@@ -26,7 +27,7 @@ class PageImporterTest extends \PHPUnit_Framework_TestCase {
 			[
 				new EntityStoreEntityHandler( $factory->newEntityStore() )
 			],
-			$this->getMock( PageImportReporter::class )
+			$this->createMock( PageImportReporter::class )
 		);
 
 		$jsonString = file_get_contents( __DIR__ . '/../../data/api/Q64.json' );
