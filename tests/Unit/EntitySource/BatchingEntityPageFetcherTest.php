@@ -2,16 +2,17 @@
 
 namespace Tests\Queryr\Replicator\EntitySource;
 
+use PHPUnit\Framework\TestCase;
 use Queryr\Replicator\EntitySource\BatchingEntityPageFetcher;
 use Tests\Queryr\Replicator\Fixtures\FakeEntityPageBatchFetcher;
 
 /**
- * @covers Queryr\Replicator\EntitySource\BatchingEntityPageFetcher
+ * @covers \Queryr\Replicator\EntitySource\BatchingEntityPageFetcher
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class BatchingEntityPageFetcherTest extends \PHPUnit_Framework_TestCase {
+class BatchingEntityPageFetcherTest extends TestCase {
 
 	public function testGivenNoPagesToFetch_noneAreReturned() {
 		$fetcher = $this->newFetcherForPages( [] );

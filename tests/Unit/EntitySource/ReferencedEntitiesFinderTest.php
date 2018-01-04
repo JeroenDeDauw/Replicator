@@ -3,6 +3,7 @@
 namespace Tests\Queryr\Replicator\EntitySource;
 
 use DataValues\StringValue;
+use PHPUnit\Framework\TestCase;
 use Queryr\Replicator\EntitySource\ReferencedEntitiesFinder;
 use Wikibase\DataModel\Entity\EntityIdValue;
 use Wikibase\DataModel\Entity\Item;
@@ -14,12 +15,12 @@ use Wikibase\DataModel\Snak\PropertyValueSnak;
 use Wikibase\DataModel\Statement\Statement;
 
 /**
- * @covers Queryr\Replicator\EntitySource\ReferencedEntitiesFinder
+ * @covers \Queryr\Replicator\EntitySource\ReferencedEntitiesFinder
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ReferencedEntitiesFinderTest extends \PHPUnit_Framework_TestCase {
+class ReferencedEntitiesFinderTest extends TestCase {
 
 	private function assertFindsReferencesForItem( array $entityIds, Item $item ) {
 		$this->assertEquals(

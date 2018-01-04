@@ -2,17 +2,18 @@
 
 namespace Tests\Queryr\Replicator\Importer\Console;
 
+use PHPUnit\Framework\TestCase;
 use Queryr\Replicator\Cli\Command\GzJsonImportCommand;
 use Symfony\Component\Console\Tester\CommandTester;
 use Tests\Queryr\Replicator\Integration\TestEnvironment;
 
 /**
- * @covers Queryr\Replicator\Cli\Command\GzJsonImportCommand
+ * @covers \Queryr\Replicator\Cli\Command\GzJsonImportCommand
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class GzJsonImportCommandTest extends \PHPUnit_Framework_TestCase {
+class GzJsonImportCommandTest extends TestCase {
 
 	public function testEntityIdInOutput() {
 		$output = $this->getOutputForArgs( [

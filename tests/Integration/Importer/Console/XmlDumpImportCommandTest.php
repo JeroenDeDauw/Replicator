@@ -2,17 +2,18 @@
 
 namespace Tests\Queryr\Replicator\Importer\Console;
 
+use PHPUnit\Framework\TestCase;
 use Queryr\Replicator\Cli\Command\XmlDumpImportCommand;
 use Symfony\Component\Console\Tester\CommandTester;
 use Tests\Queryr\Replicator\Integration\TestEnvironment;
 
 /**
- * @covers Queryr\Replicator\Cli\Command\XmlDumpImportCommand
+ * @covers \Queryr\Replicator\Cli\Command\XmlDumpImportCommand
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class XmlDumpImportCommandTest extends \PHPUnit_Framework_TestCase {
+class XmlDumpImportCommandTest extends TestCase {
 
 	public function testEntityIdInOutput() {
 		$output = $this->getOutputForArgs( [
