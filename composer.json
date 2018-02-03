@@ -2,7 +2,7 @@
 	"name": "queryr/replicator",
 	"description": "CLI application for replicating Wikibase entities",
 	"homepage": "https://github.com/JeroenDeDauw/Replicator",
-	"license": "GPL-2.0+",
+	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "Jeroen De Dauw",
