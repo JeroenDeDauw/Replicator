@@ -38,6 +38,16 @@ Once you're ssh'd into the VM, you can find Replicator fully installed in `/vagr
     cd /vagrant
     ./replicator
 
+If you get database authentication errors, check that `config/db.json` contains the
+right credentials. You can switch to an in memory SQLite database for testing Replicator:
+
+```json
+{
+	"driver": "pdo_sqlite",
+	"memory": true
+}
+```
+
 ### Local installation
 
 Make sure you have all system dependencies:
