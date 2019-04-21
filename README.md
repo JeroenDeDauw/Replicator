@@ -18,6 +18,11 @@ and [Queryr TermStore](https://www.entropywins.wtf/blog/2015/11/14/entitystore-a
 as Replicator was created to populate the [QueryR REST API](http://queryr.wmflabs.org/about/).
 With some simple PHP additions you can write to the sources of your choosing.
 
+Demos:
+
+* [Web API import demo](https://asciinema.org/a/34710)
+* [JSON dump import demo](https://asciinema.org/a/34711)
+
 ## Installation
 
 ### Installation with Vagrant (inside a virtual machine)
@@ -62,8 +67,8 @@ Clone the git repository and move into its directory.
 
 Enter the details of your database in `config/db.json`. An example of how this is done
 can be found in `config/db-example.json`. The parameters are fed directly to Doctrine
-DBAL. A list of available parameters can be found [in the DBAL docs]
-(http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html).
+DBAL. A list of available parameters can be found
+[in the DBAL docs](http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html).
 
 [Get Composer](https://getcomposer.org/download/) and execute:
 
