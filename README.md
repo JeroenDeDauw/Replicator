@@ -4,7 +4,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/JeroenDeDauw/Replicator/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/JeroenDeDauw/Replicator/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/JeroenDeDauw/Replicator/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/JeroenDeDauw/Replicator/?branch=master)
 
-Replicator is a CLI application for replicating a [Wikibase](http://wikiba.se/) entity base
+Replicator is a CLI application for replicating a [Wikibase](https://wikibase.consulting/what-is-wikibase/) entity base
 such as [Wikidata](https://www.wikidata.org).
 
 Replicator can import entities from the Wikidata API and from Wikibase dumps in various formats.
@@ -17,6 +17,9 @@ Information is by default written to the
 and [Queryr TermStore](https://www.entropywins.wtf/blog/2015/11/14/entitystore-and-termstore-for-wikibasewikidata/),
 as Replicator was created to populate the [QueryR REST API](http://queryr.wmflabs.org/about/).
 With some simple PHP additions you can write to the sources of your choosing.
+
+2022 note: this tool is somewhat out of date. If you wish to [bulk import into Wikibase](https://www.wikibase.consulting/fast-bulk-import-into-wikibase/),
+you can get in touch with [The Wikibase Consultancy](https://www.wikibase.consulting/). We also provide [Wikibase development services](https://www.wikibase.consulting/wikibase-services/) and [Wikibase hosting](https://professional.wiki/en/hosting/wikibase).
 
 Demos:
 
